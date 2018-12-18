@@ -24,7 +24,7 @@ function getcommentsalkz($type, $typeid) {
 
     $rows = $DB->select('
 		SELECT id, userid, post_date, commentbody, replyto
-		FROM ?_comments_alkz
+		FROM ?_comments
 		WHERE type=? AND typeid=?
 		ORDER BY replyto, post_date
 		', $type, $typeid
