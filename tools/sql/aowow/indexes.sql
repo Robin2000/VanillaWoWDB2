@@ -22,3 +22,6 @@ CREATE INDEX `aowow_pickpocketloot` ON `creature_template` (`pickpocketloot`);
 CREATE INDEX `aowow_faction_A`      ON `creature_template` (`faction_A`);
 
 CREATE INDEX `aowow_faction`        ON `item_template`     (`RequiredReputationFaction`);
+
+--新表结构非驼峰
+CREATE INDEX `aowow_faction`        ON `item_template`     (`required_reputation_faction`);
