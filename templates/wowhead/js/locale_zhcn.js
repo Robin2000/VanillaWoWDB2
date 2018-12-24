@@ -37,7 +37,7 @@ var mn_database=[
 	[6,"区域Zones","?zones",mn_zones],
 	[1,"法术Spells","?spells",mn_spells],
 	[5,"对象Objects","?objects",mn_objects],
-	[7,"正营Factions","?factions",mn_factions]
+	[7,"阵营Factions","?factions",mn_factions]
 ];
 var mn_tools = [ /*[0, "Talent Calculator", "?talent", mn_talentCalc],*/ [1, "Maps", "?maps"]];
 var mn_path = [[0, "Database", , mn_database], [1, "Tools", , mn_tools]];
