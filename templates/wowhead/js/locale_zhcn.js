@@ -40,7 +40,7 @@ var mn_database=[
 	[7,"阵营Factions","?factions",mn_factions]
 ];
 var mn_tools = [ /*[0, "Talent Calculator", "?talent", mn_talentCalc],*/ [1, "Maps", "?maps"]];
-var mn_path = [[0, "Database", , mn_database], [1, "Tools", , mn_tools]];
+var mn_path = [[0, "数据库", , mn_database], [1, "工具", , mn_tools]];
 var g_chr_classes = {
 	1 : "战士Warrior",
 	2 : "圣骑士Paladin",

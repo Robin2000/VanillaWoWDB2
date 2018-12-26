@@ -219,7 +219,7 @@ switch($_SESSION['locale'])
 		'LOCALE_CLASSES'		=>	'职业Classes',
 		'LOCALE_VALUE_DELIM'	=>	' to ',
 		'LOCALE_REAGENTS'		=>	'试剂Reagents: ',
-		'LOCALE_TOOLS'			=>	'工具Tools: ',
+		'LOCALE_TOOLS'			=>	'工具: ',
 		'LOCALE_HEROIC'			=>	' (英雄Heroic)',
 		'LOCALE_CRITERIA'		=>	'条件Criteria',
 		'LOCALE_GLYPH_OF'		=>	'雕文Glyph of ',
