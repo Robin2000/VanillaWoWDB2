@@ -25,11 +25,11 @@ $AoWoWconf['aowow']['template'] = 'wowhead';
 // Time to keep cache in seconds (Default: 1 week)
 $AoWoWconf['aowow']['cache_time'] = (60*60*24*7);
 // Default locale
-$AoWoWconf['locale'] = 0;
+$AoWoWconf['locale'] = 4;
 // Allow account creating
 $AoWoWconf['register'] = true;
 // Used with register, account expansion
-$AoWoWconf['expansion'] = 2;
+$AoWoWconf['expansion'] = 0;
 // Limit of some SQL queries
 $AoWoWconf['limit'] = 300;
 // Disable cache, show smarty console panel
@@ -51,5 +51,5 @@ $AoWoWconf['map_grouping'] = 1;
 # 1.10 = 8 
 # 1.11 = 9 
 # 1.12 = 10
-$AoWoWconf['patch'] = 5;
+$AoWoWconf['patch'] = 10;
 ?>
