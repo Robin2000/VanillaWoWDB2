@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 // Настройка шаблонизатора и ДБ
 include('includes/kernel.php');
 
