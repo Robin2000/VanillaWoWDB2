@@ -1,20 +1,20 @@
-CREATE INDEX `aowow` ON `creature_loot_template`     (`mincountOrRef`);
-CREATE INDEX `aowow` ON `disenchant_loot_template`   (`mincountOrRef`);
-CREATE INDEX `aowow` ON `fishing_loot_template`      (`mincountOrRef`);
-CREATE INDEX `aowow` ON `gameobject_loot_template`   (`mincountOrRef`);
-CREATE INDEX `aowow` ON `item_loot_template`         (`mincountOrRef`);
-CREATE INDEX `aowow` ON `pickpocketing_loot_template`(`mincountOrRef`);
-CREATE INDEX `aowow` ON `skinning_loot_template`     (`mincountOrRef`);
-CREATE INDEX `aowow` ON `reference_loot_template`    (`mincountOrRef`);
+CREATE INDEX `aowow_cr_loot` ON `creature_loot_template`     (`mincountOrRef`);
+CREATE INDEX `aowow_di_loot` ON `disenchant_loot_template`   (`mincountOrRef`);
+CREATE INDEX `aowow_fi_loot` ON `fishing_loot_template`      (`mincountOrRef`);
+CREATE INDEX `aowow_go_loot` ON `gameobject_loot_template`   (`mincountOrRef`);
+CREATE INDEX `aowow_item_loot` ON `item_loot_template`         (`mincountOrRef`);
+CREATE INDEX `aowow_pk_loot` ON `pickpocketing_loot_template`(`mincountOrRef`);
+CREATE INDEX `aowow_sk_loot` ON `skinning_loot_template`     (`mincountOrRef`);
+CREATE INDEX `aowow_ref_loot` ON `reference_loot_template`    (`mincountOrRef`);
 
-CREATE INDEX `aowow_item` ON `creature_loot_template`     (`item`);
-CREATE INDEX `aowow_item` ON `disenchant_loot_template`   (`item`);
-CREATE INDEX `aowow_item` ON `fishing_loot_template`      (`item`);
-CREATE INDEX `aowow_item` ON `gameobject_loot_template`   (`item`);
-CREATE INDEX `aowow_item` ON `item_loot_template`         (`item`);
-CREATE INDEX `aowow_item` ON `pickpocketing_loot_template`(`item`);
-CREATE INDEX `aowow_item` ON `skinning_loot_template`     (`item`);
-CREATE INDEX `aowow_item` ON `reference_loot_template`    (`item`);
+CREATE INDEX `aowow_item_cre_loot` ON `creature_loot_template`     (`item`);
+CREATE INDEX `aowow_item_di_loot` ON `disenchant_loot_template`   (`item`);
+CREATE INDEX `aowow_item_fi_loot` ON `fishing_loot_template`      (`item`);
+CREATE INDEX `aowow_item_go_loot` ON `gameobject_loot_template`   (`item`);
+CREATE INDEX `aowow_item_loot` ON `item_loot_template`         (`item`);
+CREATE INDEX `aowow_item_pk_loot` ON `pickpocketing_loot_template`(`item`);
+CREATE INDEX `aowow_item_sk_loot` ON `skinning_loot_template`     (`item`);
+CREATE INDEX `aowow_item_ref_loot` ON `reference_loot_template`    (`item`);
 
 CREATE INDEX `aowow_lootid`         ON `creature_template` (`lootid`);
 CREATE INDEX `aowow_skinloot`       ON `creature_template` (`skinloot`);

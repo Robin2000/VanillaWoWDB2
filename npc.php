@@ -193,14 +193,14 @@ if(!$npc = load_cache(1, $cache_key))
 
 		// Продает:
 		$rows_s = $DB->select('
-			SELECT ?#, i.entry, i.maxcount, n.`maxcount` as `drop-maxcount`
+			SELECT ?#, i.entry, i.max_count, n.`maxcount` as `drop-maxcount`
 				{, l.name_loc?d AS `name_loc`}
 			FROM npc_vendor n, ?_icons, item_template i
 				{LEFT JOIN (locales_item l) ON l.entry=i.entry AND ?d}
 			WHERE
 				n.entry=?
 				AND i.entry=n.item
-				AND id=i.displayid
+				AND id=i.display_id
 			',
 			$item_cols[2],
 			($_SESSION['locale'])? $_SESSION['locale']: DBSIMPLE_SKIP,
@@ -217,8 +217,8 @@ if(!$npc = load_cache(1, $cache_key))
 				$npc['sells'][$numRow] = iteminfo2($row);
 				$npc['sells'][$numRow]['maxcount'] = $row['drop-maxcount'];
 				$npc['sells'][$numRow]['cost'] = array();
-				if($row['BuyPrice']>0)
-					$npc['sells'][$numRow]['cost']['money'] = $row['BuyPrice'];
+				if($row['buy_price']>0)
+					$npc['sells'][$numRow]['cost']['money'] = $row['buy_price'];
 			}
 			unset ($row);
 			unset ($numRow);

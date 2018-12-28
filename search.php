@@ -47,7 +47,7 @@ $rows = $DB->select('
 			{LEFT JOIN (locales_item l) ON l.entry=i.entry AND ?d}
 		WHERE
 			(i.name LIKE ? {OR i.entry IN (?a)})
-			AND a.id = i.displayid;
+			AND a.id = i.display_id;
 	',
 	$item_cols[3],
 	($m)? $_SESSION['locale']: DBSIMPLE_SKIP,

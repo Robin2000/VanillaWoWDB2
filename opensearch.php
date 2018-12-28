@@ -28,7 +28,7 @@ $rows = $DB->select('
 	FROM ?_icons a, item_template i{, ?# l}
 	WHERE
 		?# LIKE ?
-		AND a.id = i.displayid
+		AND a.id = i.display_id
 		{ AND i.entry = l.?# }
 	ORDER BY i.quality DESC, ?#
 	LIMIT 5

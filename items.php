@@ -16,15 +16,15 @@ if(!$items = load_cache(7, $cache_key))
 
 	// Составляем запрос к БД, выполняющий поиск по заданным классу и подклассу
 	$rows = $DB->select('
-		SELECT ?#, i.entry, maxcount
+		SELECT ?#, i.entry, max_count
 			{, l.name_loc?d AS name_loc}
 		FROM ?_icons, item_template i
 			{LEFT JOIN (locales_item l) ON l.entry=i.entry AND ?d}
 		WHERE
-			id=displayid
+			id=display_id
 			{ AND class = ? }
 			{ AND subclass = ? }
-			{ AND InventoryType = ? }
+			{ AND inventory_type = ? }
 		ORDER BY quality DESC, name
 		{ LIMIT ?d }
 		',

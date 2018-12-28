@@ -122,7 +122,7 @@ function objectinfo2(&$Row, $level=0)
 				/*
 						* data0: open (LockId from Lock.dbc)
 						* data1: questList (unknown ID)
-						* data2: pageMaterial (PageTextMaterial.dbc)
+						* data2: pageMaterial (page_textMaterial.dbc)
 						* data3: gossipID (unknown ID)
 						* data4: customAnim (unknown value from 1 to 4)
 						* data5: noDamageImmune (Boolean flag)
@@ -203,7 +203,7 @@ function objectinfo2(&$Row, $level=0)
 				/*
 						* data0: pageID (page_text.entry)
 						* data1: language (from Languages.dbc)
-						* data2: pageMaterial (PageTextMaterial.dbc)
+						* data2: pageMaterial (page_textMaterial.dbc)
 				*/
 				$object['pageid'] = $Row['data0'];
 				break;
@@ -218,7 +218,7 @@ function objectinfo2(&$Row, $level=0)
 						* data6: cooldown (time is seconds)
 						* data7: pageID (page_text.entry)
 						* data8: language (from Languages.dbc)
-						* data9: pageMaterial (PageTextMaterial.dbc)
+						* data9: pageMaterial (page_textMaterial.dbc)
 						* data10: spell (Spell Id from spell.dbc)
 						* data11: noDamageImmune (Boolean flag)
 						* data12: linkedTrap (gameobject_template.entry (Spawned GO type 6))
@@ -428,17 +428,17 @@ function objectinfo2(&$Row, $level=0)
 								case LOCK_PROPERTIES_FOOTLOCK:
 									// Сундук
 									$object['type'] = -5;
-									$object['lockpicking'] = $lock_row['requiredskill'.$j];
+									$object['lockpicking'] = $lock_row['required_skill'.$j];
 									break;
 								case LOCK_PROPERTIES_HERBALISM:
 									// Трава
 									$object['type'] = -3;
-									$object['herbalism'] = $lock_row['requiredskill'.$j];
+									$object['herbalism'] = $lock_row['required_skill'.$j];
 									break;
 								case LOCK_PROPERTIES_MINING:
 									// Руда
 									$object['type'] = -4;
-									$object['mining'] = $lock_row['requiredskill'.$j];
+									$object['mining'] = $lock_row['required_skill'.$j];
 									break;
 								default:
 									break;
@@ -479,7 +479,7 @@ function objectinfo2(&$Row, $level=0)
 				$row['text'] = QuestReplaceStr(localizedName($row, 'text'));
 				if(empty($row['text']))
 					break;
-				$object['pagetext'][] = $row['text'];
+				$object['page_text'][] = $row['text'];
 				$object['pageid'] = $row['next_page'];
 			}
 		}

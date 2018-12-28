@@ -202,7 +202,7 @@ if(!$quest = load_cache(10, $cache_key))
 
 	/*             НАГРАДЫ И ТРЕБОВАНИЯ             */
 
-	if($quest['RequiredSkillValue']>0 && $quest['SkillOrClass']>0)
+	if($quest['requiredSkillValue']>0 && $quest['SkillOrClass']>0)
 	{
 		// Требуемый уровень скилла, что бы получить квест
 		/*
@@ -222,7 +222,7 @@ if(!$quest = load_cache(10, $cache_key))
 		// TODO: skill localization
 		$quest['reqskill'] = array(
 			'name' => $DB->selectCell('SELECT name_loc'.$_SESSION['locale'].' FROM ?_skill WHERE skillID=?d LIMIT 1',$quest['SkillOrClass']),
-			'value' => $quest['RequiredSkillValue']
+			'value' => $quest['requiredSkillValue']
 		);
 	}
 	elseif($quest['SkillOrClass']<0)
@@ -426,8 +426,8 @@ if(!$quest = load_cache(10, $cache_key))
 		FROM ?_icons a, item_template i
 			{LEFT JOIN (locales_item l) ON l.entry=i.entry AND ?}
 		WHERE
-			startquest = ?d
-			AND id = displayid
+			start_quest = ?d
+			AND id = display_id
 		',
 		($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
 		($_SESSION['locale']>0)? 1: DBSIMPLE_SKIP,

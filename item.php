@@ -137,7 +137,7 @@ if(!$item = load_cache(5, $cache_key))
 			$item['soldby'][$i] = array();
 			$item['soldby'][$i] = creatureinfo2($row);
 			$item['soldby'][$i]['stock'] = ($row['stock'] == 0 ? -1 : $row['stock']);
-			$item['soldby'][$i]['cost']['money'] = $item['BuyPrice'];
+			$item['soldby'][$i]['cost']['money'] = $item['buy_price'];
 		}
 		unset($extcost);
 	}
@@ -212,7 +212,7 @@ if(!$item = load_cache(5, $cache_key))
 					{ LEFT JOIN (locales_item l) ON l.entry=c.entry AND ? }
 					WHERE
 						c.entry=?d
-						AND id=displayid
+						AND id=display_id
 				',
 				$item_cols[2],
 				($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
@@ -302,7 +302,7 @@ if(!$item = load_cache(5, $cache_key))
 	unset($drops_sk);
 
 	// Дизенчантитcя в:
-	if(!($item['disenchanting'] = loot('disenchant_loot_template', $item['DisenchantID'])))
+	if(!($item['disenchanting'] = loot('disenchant_loot_template', $item['disenchant_id'])))
 		unset($item['disenchanting']);
 
 	// Получается дизэнчантом из..
@@ -320,8 +320,8 @@ if(!$item = load_cache(5, $cache_key))
 					FROM ?_icons, item_template c
 					{ LEFT JOIN (locales_item l) ON l.entry=c.entry AND ? }
 					WHERE
-						DisenchantID=?d
-						AND id=displayid
+						disenchant_id=?d
+						AND id=display_id
 				',
 				$item_cols[2],
 				($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
@@ -339,12 +339,12 @@ if(!$item = load_cache(5, $cache_key))
 	unset($drops_de);
 
 	// Поиск сумок в которые эту вещь можно положить
-	if($item['BagFamily'] == 256)
+	if($item['bag_family'] == 256)
 	{
 		// Если это ключ
 		$item['key'] = true;
 	}
-	elseif($item['BagFamily'] > 0 and $item['ContainerSlots'] == 0)
+	elseif($item['bag_family'] > 0 and $item['container_slots'] == 0)
 	{
 		$rows_cpi = $DB->select('
 				SELECT c.?#, c.entry, maxcount
@@ -354,14 +354,14 @@ if(!$item = load_cache(5, $cache_key))
 				FROM ?_icons, item_template c
 				{ LEFT JOIN (locales_item l) ON l.entry=c.entry AND ? }
 				WHERE
-					BagFamily=?d
-					AND ContainerSlots>0
-					AND id=displayid
+					bag_family=?d
+					AND container_slots>0
+					AND id=display_id
 			',
 			$item_cols[2],
 			($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
 			($_SESSION['locale']>0)? 1: DBSIMPLE_SKIP,
-			$item['BagFamily']
+			$item['bag_family']
 		);
 		
 		if($rows_cpi)

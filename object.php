@@ -67,7 +67,7 @@ if(!$object = load_cache(3, $cache_key))
 global $page;
 $page = array(
 	'Mapper' => true,
-	'Book' => $object['pagetext'] ? true : false,
+	'Book' => $object['page_text'] ? true : false,
 	'Title' => $object['name'].' - '.$smarty->get_config_vars('Objects'),
 	'tab' => 0,
 	'type' => 2,

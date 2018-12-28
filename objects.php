@@ -12,7 +12,7 @@ if(!$data = load_cache(4, $cache_key))
 
 	// Получаем данные по этому типу объектов
 	$rows = $DB->select('
-			SELECT g.* {, a.requiredskill1 as ?#} {, a.requiredskill2 as ?#}
+			SELECT g.* {, a.required_skill1 as ?#} {, a.required_skill2 as ?#}
 				{, l.name_loc?d AS `name_loc`}
 			FROM {gameobject_questrelation ?#, } {?_lock ?#, } gameobject_template g
 				{LEFT JOIN (locales_gameobject l) ON l.entry=g.entry AND ?d}

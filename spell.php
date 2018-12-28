@@ -310,7 +310,7 @@ if(!$spell = load_cache(13, $cache_key))
 			{ LEFT JOIN (locales_item l) ON c.entry = l.entry AND ? }
 			WHERE
 				(spellid_2 = ?d AND spelltrigger_2 = 6)
-				AND id=displayid
+				AND id=display_id
 			',
 			$item_cols[2],
 			($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
@@ -420,7 +420,7 @@ if(!$spell = load_cache(13, $cache_key))
 					OR (spellid_3 IN (?a))
 					OR (spellid_4 IN (?a))
 					OR (spellid_5 IN (?a)))
-					AND id=displayid
+					AND id=display_id
 				',
 				$item_cols[2],
 				($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
@@ -470,7 +470,7 @@ if(!$spell = load_cache(13, $cache_key))
 			{ LEFT JOIN (locales_item l) ON c.entry = l.entry AND ? }
 			WHERE
 				(spellid_1 = ?d OR (spellid_2 = ?d AND spelltrigger_2!=6) OR spellid_3 = ?d OR spellid_4 = ?d OR spellid_5 = ?d)
-				AND id=displayID
+				AND id=display_id
 			',
 			$item_cols[2],
 			($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,

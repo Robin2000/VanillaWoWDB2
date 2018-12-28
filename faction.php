@@ -55,13 +55,13 @@ if(!$faction = load_cache(18, $cache_key))
 		if($row['side'] <> 0)
 			$faction['side'] = $row['side'];
 
-		// Итемы с requiredreputationfaction
+		// Итемы с required_reputation_faction
 		$item_rows = $DB->select('
 			SELECT ?#, entry
 			FROM item_template i, ?_icons a
 			WHERE
-				i.RequiredReputationFaction=?d
-				AND a.id=i.displayid
+				i.required_reputation_faction=?d
+				AND a.id=i.display_id
 			',
 			$item_cols[2],
 			$id
