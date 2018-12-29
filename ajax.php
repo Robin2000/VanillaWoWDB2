@@ -4,9 +4,9 @@ require_once('configs/config.php');
 require_once('includes/allutil.php');
 
 // Для Ajax отключаем debug
-$AoWoWconf['debug'] = true;
+$AoWoWconf['debug'] = false;
 // Для Ajax ненужен реалм
-$AoWoWconf['realmd'] = true;
+$AoWoWconf['realmd'] = false;
 // Настройка БД
 require_once('includes/db.php');
 

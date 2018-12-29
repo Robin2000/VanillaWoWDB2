@@ -4,7 +4,7 @@ require_once('includes/allutil.php');
 require_once('includes/allitems.php');
 
 // Для Ajax отключаем debug
-$AoWoWconf['debug'] = true;
+$AoWoWconf['debug'] = false;
 // Для Ajax ненужен реалм
 $AoWoWconf['realmd'] = false;
 // Настройка БД

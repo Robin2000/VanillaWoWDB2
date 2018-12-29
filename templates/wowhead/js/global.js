@@ -8332,7 +8332,7 @@ function () {
 		q = S;
 		k(P, Q, R);
 		var O = p[P][0];
-		if (O[Q].status[R] == F || O[Q].status[R] == r) {
+		if (O[Q].status[R] == F ) {
 			N(O[Q][I(R)], O[Q].icon)
 		} else {
 			if (O[Q].status[R] == E) {
@@ -8454,23 +8454,23 @@ function () {
 	function d(P, O) {
 		return P + (O.rand ? "r" + O.rand: "") + (O.ench ? "e" + O.ench: "") + (O.gems ? "g" + O.gems.join(",") : "") + (O.sock ? "s": "")
 	}
-	this.register = function (Q, S, R, P) {
+	this.register = function (Q, entry, locale, tip) {
 		var O = p[Q][0];
-		k(Q, S, R);
-		if (O[S].timer) {
-			clearTimeout(O[S].timer);
-			O[S].timer = null
+		k(Q, entry, locale);
+		if (O[entry].timer) {
+			clearTimeout(O[entry].timer);
+			O[entry].timer = null
 		}
-		cO(O[S], P);
-		if (O[S].status[R] == E) {
-			if (O[S][I(R)]) {
-				O[S].status[R] = F
+		cO(O[entry], tip);
+		if (O[entry].status[locale] == E) {
+			if (O[entry][I(locale)]) {
+				O[entry].status[locale] = F
 			} else {
-				O[S].status[R] = r
+				O[entry].status[locale] = r
 			}
 		}
-		if (e == Q && S == D && H == R) {
-			N(O[S][I(R)], O[S].icon)
+		if (e == Q && entry == D && H == locale) {
+			N(O[entry][I(locale)], O[entry].icon)
 		}
 	};
 	this.registerNpc = function (Q, P, O) {
