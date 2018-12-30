@@ -15,7 +15,7 @@ if(!$zones = load_cache(2, $cache_key))
 	unset($zones);
 
 	$rows = $DB->select('
-		SELECT *, areatableID as area, name_loc0 as name 
+		SELECT *, areatableID as area, name_loc'.$_SESSION['locale'].' as name 
 		FROM aowow_zones
 			{WHERE
 			mapID = ?d}

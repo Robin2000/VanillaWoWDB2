@@ -17,6 +17,10 @@ if(!$zone = load_cache(16, $id))
 	
 	$zone['name'] = $zone['name_loc0'];//localizedName($zone);
 
+	if($_SESSION['locale']==4){
+		$zone['name'] = $zone['name_loc4'];
+	}
+
 	if(!($zone['fishing'] = loot('fishing_loot_template', $id)))
 		unset($zone['fishing']);
 
