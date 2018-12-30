@@ -112,7 +112,7 @@
         $prefix = $prefix . "1_";
       if (@stat($prefix . "1.blp") == NULL)
       {
-        status(" not found.\n");
+        status($prefix ." not found.\n");
         continue;
       }
       for ($i = 0; $i < 12; $i++)

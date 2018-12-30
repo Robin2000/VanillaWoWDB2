@@ -261,7 +261,7 @@ Mapper.prototype = {
 			if (this.zone == 4395 && d == 1) {
 				d = 0
 			}
-			this.span.style.background = "url(images/maps/enus/" + Mapper.sizes[this.zoom][2] + "/" + this.zone + (d ? "-" + d: "") + ".jpg)"
+			this.span.style.background = "url(images/maps/"+((g_locale.id==4)?'zhcn/':'enus/') + Mapper.sizes[this.zoom][2] + "/" + this.zone + (d ? "-" + d: "") + ".jpg)"
 			this.span.style.backgroundRepeat = "no-repeat"
 			this.span.style.backgroundSize = "contain"
 		}
