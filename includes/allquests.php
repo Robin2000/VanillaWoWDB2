@@ -250,7 +250,7 @@ function GetQuestReq($id, $count, $type)
 			$row = $DB->selectRow('
 			SELECT a.* FROM 
 			(
-					SELECT name
+					SELECT c.entry,c.patch,name
 						{, l.name_loc?d AS name_loc}
 					FROM item_template c
 						{ LEFT JOIN (locales_item l) ON l.entry=c.entry AND ? }

@@ -21,14 +21,8 @@
 									<optgroup label="{#Raids#}" id="maps-raids"></optgroup>
 								</select>
 								<select onchange="ma_ChooseZone(this)" class="zone-picker">
-									<option value="0" style="color: #bbbbbb">{#More#}</option>
+									<option value="0" style="color: #bbbbbb">{#Battlegrounds#}</option>
 									<optgroup label="{#Battlegrounds#}" id="maps-battlegrounds"></optgroup>
-									<optgroup label="{#Miscellaneous#}">
-										<option value="-1">{#Azeroth#}</option>
-										<option value="-3">{#Eastern_Kingdoms#}</option>
-										<option value="457">{#Kalimdor#}</option>
-										<option value="-4">{#Cosmic_Map#}</option>
-									</optgroup>
 								</select>
 							</div>
 							<div id="mapper" style="display: none; width: 778px; margin: 0 auto">

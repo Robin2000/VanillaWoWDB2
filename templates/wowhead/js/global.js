@@ -8067,6 +8067,7 @@ var g_locales = {
 	0 : "enus",
 	2 : "frfr",
 	3 : "dede",
+	4 : "zhcn",
 	6 : "eses",
 	8 : "ruru",
 	25 : "ptr"
