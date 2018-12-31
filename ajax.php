@@ -67,6 +67,56 @@ switch($what)
 			$x .= 'tooltip_'.$locales[$_SESSION['locale']].': \''.ajax_str_normalize($quest['tooltip']).'\'';
 		$x .= '});';
 		break;
+	case 'npc':	
+        if(!$creature = load_cache(1000, $id))
+        {
+            require_once('includes/allnpcs.php');
+            $creature = creatureinfo($id, 1);
+            save_cache(1000, $id, $creature);
+		}
+		if(!$creature){
+			break;
+		}
+		$creature = GetNPCTooltip($creature);
+        $x .= '$WowheadPower.registerNpc('.$id.', '.$_SESSION['locale'].',{';
+        if($creature['name'])
+            $x .= 'name_'.$locales[$_SESSION['locale']].': \''.ajax_str_normalize($creature['name']).'\',';
+        if($creature['subname'])
+            $x .= 'subname_'.$locales[$_SESSION['locale']].': \''.ajax_str_normalize($creature['subname']).'\',';
+        if($creature['minlevel'])
+            $x .= 'level:\''.$creature['minlevel'].'\',';
+        if($creature['type'])
+            $x .= 'type:\''.$creature['type'].'\',';
+        if($creature['rank'])
+            $x .= 'rank:\''.$creature['rank'].'\',';
+        if($creature['tooltip'])
+            $x .= 'tooltip_'.$locales[$_SESSION['locale']].':\''.ajax_str_normalize($creature['tooltip']).'\'';
+        $x .= '});';
+        break;
+	case 'object':
+		if(1==1){
+			break;/*disable*/
+		}
+        if(!$object = load_cache(1001, $id))
+        {
+            require_once('includes/allobjects.php');
+            $object = objectinfo($id, 1);
+            save_cache(1001, $id, $object);
+		}
+		if(!$object){
+			break;
+		}
+
+		$object=GetObjectTooltip($object);
+        $x .= '$WowheadPower.registerObject('.$id.', '.$_SESSION['locale'].',{';
+        if($object['name'])
+            $x .= 'name_'.$locales[$_SESSION['locale']].': \''.ajax_str_normalize($object['name']).'\',';
+        if($object['type'])
+            $x .= 'type:\''.$object['type'].'\',';
+        if($object['tooltip'])
+            $x .= 'tooltip_'.$locales[$_SESSION['locale']].':\''.ajax_str_normalize($object['tooltip']).'\'';
+        $x .= '});';
+        break;
 	default:
 		break;
 }
