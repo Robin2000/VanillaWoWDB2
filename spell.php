@@ -68,9 +68,9 @@ if(!$spell = load_cache(13, $cache_key))
 		if($row['basecasttime'] > 0)
 			$spell['casttime'] = ($row['basecasttime'] / 1000).' '.$smarty->get_config_vars('seconds');
 		else if($row['ChannelInterruptFlags'])
-			$spell['casttime'] = 'Channeled';
+			$spell['casttime'] = ($_SESSION['locale']==4)?'引导':'Channeled';
 		else
-			$spell['casttime'] = 'Instant';
+			$spell['casttime'] = ($_SESSION['locale']==4)?'瞬发':'Instant';
 		// Cooldown
 		if($row['cooldown'] > 0)
 			$spell['cooldown'] = $row['cooldown'] / 1000;

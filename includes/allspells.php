@@ -303,7 +303,7 @@ $spell_cols[2] = array('spellname_loc'.$_SESSION['locale'], 'rank_loc'.$_SESSION
 
 function spell_duration($base)
 {
-	return round($base/1000).' sec';
+	return round($base/1000).(($_SESSION['locale']==4)?'秒':' sec');
 }
 
 function spell_desc($spellid, $type='tooltip')
@@ -765,16 +765,16 @@ function render_spell_tooltip(&$row)
 		$x .= '<table width="100%"><tr><td>';
 
 	if($row['manacost'] >0)
-		$x .= $row['manacost'].' mana<br />';
+		$x .= $row['manacost'].(($_SESSION['locale']==4)?'蓝<br />':' mana<br />');
 
 	if($row['manacostpercent']>0)
-		$x .= $row['manacostpercent']."% of base mana<br />";
+		$x .= $row['manacostpercent'].(($_SESSION['locale']==4)?'基础蓝%<br />':"% of base mana<br />");
 
 	if($range && (($row['manacost'] >0) || ($row['manacostpercent']>0)))
 		$x .= '</td><th>';
 
 	if($range)
-		$x .= $range.' yd range<br />';
+		$x .= $range.(($_SESSION['locale']==4)?'码(米)范围<br />':' yd range<br />');
 
 	if($range && ($row['manacost'] > 0 || $row['manacostpercent'] > 0))
 		$x .= '</th></tr></table>';
@@ -783,17 +783,17 @@ function render_spell_tooltip(&$row)
 		$x .= '<table width="100%"><tr><td>';
 
 	if($row['ChannelInterruptFlags'])
-		$x .= 'Channeled';
+		$x .= ($_SESSION['locale']==4)?'引导':'Channeled';
 	elseif(isset($casttime))
-		$x .= $casttime.' sec cast';
+		$x .= $casttime.(($_SESSION['locale']==4)?'秒引导':' sec cast');
 	elseif($row['spellcasttimesID'] == 1)
-		$x .= 'Instant';
+		$x .= ($_SESSION['locale']==4)?'瞬发':'Instant';
 
 	if(($row['ChannelInterruptFlags'] || isset($casttime) || $row['spellcasttimesID'] == 1) && $row['cooldown'])
 		$x .= '</td><th>';
 
 	if($row['cooldown'])
-		$x.= ($row['cooldown']/1000).' sec cooldown';
+		$x.= ($row['cooldown']/1000).(($_SESSION['locale']==4)?'秒冷却':' sec cooldown');
 
 	if(($row['ChannelInterruptFlags'] || isset($casttime) || $row['spellcasttimesID'] == 1) && $row['cooldown'])
 		$x .= '</th></tr></table>';
@@ -905,7 +905,7 @@ function spell_buff_render($row)
 	// Длительность баффа
 	$duration = $DB->selectCell("SELECT durationBase FROM ?_spellduration WHERE durationID=? LIMIT 1", $row['durationID']);
 	if($duration>0)
-		$x .= '<span class="q">'.($duration/1000).' seconds remaining</span>';
+		$x .= '<span class="q">'.($duration/1000).(($_SESSION['locale']==4)?'秒剩余</span>':' seconds remaining</span>');
 	
 	$x .= '</td></tr></table>';
 	

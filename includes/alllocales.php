@@ -254,7 +254,7 @@ switch($_SESSION['locale'])
 		'LOCALE_REAGENTS'		=>	'药剂: ',
 		'LOCALE_TOOLS'			=>	'工具: ',
 		'LOCALE_HEROIC'			=>	' (英雄)',
-		'LOCALE_CRITERIA'		=>	'条件Criteria',
+		'LOCALE_CRITERIA'		=>	'条件',
 		'LOCALE_GLYPH_OF'		=>	'雕文',
 	));
 	break;

@@ -404,9 +404,12 @@ function render_item_tooltip(&$Row)
 	}
 
 	// Случайные бонусы
-	if($Row['random_property'])
+	if($Row['random_property']){
 		$green[] = 'Random Bonuses';
-
+		if($_SESSION['locale']==4){
+			$green[0]="随机奖励";
+		}
+	}
 	// Состояние
 	if($Row['max_durability'])
 		$x .= LOCALE_DURABILITY.' '.$Row['max_durability'].' / '.$Row['max_durability'].'<br />';

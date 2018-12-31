@@ -3,7 +3,7 @@ require_once('includes/alllocales.php');
 require_once('includes/game.php');
 
 // Для списка creatureinfo()
-$npc_cols[0] = array('name', 'subname', 'minlevel', 'maxlevel', 'type', 'rank', 'A','H');
+$npc_cols[0] = array('name', 'subname', 'minlevel', 'maxlevel', 'type', 'rank', 'faction_A','faction_H');
 $npc_cols[1] = array('subname', 'minlevel', 'maxlevel', 'type', 'rank', 'minhealth', 'maxhealth', 'minmana', 'maxmana', 'mingold', 'maxgold', 'lootid', 'spell1', 'spell2', 'spell3', 'spell4', 'A', 'H', 'mindmg', 'maxdmg', 'attackpower', 'dmg_multiplier', 'armor', 'baseattacktime', 'resistance1','resistance2','resistance3','resistance4','resistance5','resistance6');
 $npc_type = array(LOCALE_TYPENPC_UNDEFINED,LOCALE_TYPENPC_BEAST,LOCALE_TYPENPC_DRAGON,LOCALE_TYPENPC_DEMON,LOCALE_TYPENPC_ELEM,LOCALE_TYPENPC_GIANT,LOCALE_TYPENPC_UNDEAD,LOCALE_TYPENPC_HUMAN,LOCALE_TYPENPC_CRITTER,LOCALE_TYPENPC_MECHANIC,LOCALE_TYPENPC_UNCATEGORY,LOCALE_TYPENPC_TOTEM,LOCALE_TYPENPC_COMPANION,LOCALE_TYPENPC_GAS_CLOUD);
 $npc_rank = array(LOCALE_NORMAL,LOCALE_ELITE,LOCALE_RARE_ELITE,LOCALE_BOSS,LOCALE_RARE,LOCALE_UNKNOWN);
