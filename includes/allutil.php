@@ -497,7 +497,7 @@ function localizedName($arr, $key = 'name')
 	if(empty($arr[$key]))
 		return '';
 
-	$lkey = $key.'_loc';
+	$lkey = $key.'_loc'.$_SESSION['locale'];
 	if(empty($arr[$lkey]))
 	{
 		if(substr($arr[$key], 0, 1) == '[' && substr($arr[$key], -1, 1) == ']')
