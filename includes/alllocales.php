@@ -3,6 +3,11 @@ switch($_SESSION['locale'])
 {
 	case '4':
 	mass_define(array(
+		// my
+		'LOCALE_FLIGHTMASTERS'	=>	'飞行大师',
+		'LOCALE_INKEEPER'	=>	'客栈老板',
+		'LOCALE_REPAIRERS'	=>	'修理匠',
+		'LOCALE_SPIRITHEALERS'	=>	'灵魂医生',
 		// quest
 		'LOCALE_REQUIREMENTS'	=>	'需求',
 		'LOCALE_QUEST_FLAGS_STAY_ALIVE'        => '需要活着',
@@ -261,6 +266,11 @@ switch($_SESSION['locale'])
 	// --- RUSSIAN LOCALE ---
 	case '8':
 		mass_define(array(
+			// my
+			'LOCALE_FLIGHTMASTERS'	=>	'Flight Masters',
+			'LOCALE_INKEEPER'	=>	'Innkeepers',
+			'LOCALE_REPAIRERS'	=>	'Repairers',
+			'LOCALE_SPIRITHEALERS'	=>	'Spirit Healers',		
 			// quest
 			'LOCALE_REQUIREMENTS'	=>	'Требования',
 			'LOCALE_QUEST_FLAGS_STAY_ALIVE'        => 'Требует оставаться в живых',
@@ -517,6 +527,11 @@ switch($_SESSION['locale'])
 	// --- GERMAN LOCALE ---
 	case '3':
 		mass_define(array(
+			// my
+			'LOCALE_FLIGHTMASTERS'	=>	'Flight Masters',
+			'LOCALE_INKEEPER'	=>	'Innkeepers',
+			'LOCALE_REPAIRERS'	=>	'Repairers',
+			'LOCALE_SPIRITHEALERS'	=>	'Spirit Healers',					
 			// quest
 			'LOCALE_REQUIREMENTS'					=> 'Anforderungen',
 			'LOCALE_QUEST_FLAGS_STAY_ALIVE'			=> '[Requires to stay alive]',
@@ -775,6 +790,11 @@ switch($_SESSION['locale'])
 	// --- FRENCH LOCALE ---
 	case '2':
 		mass_define(array(
+			// my
+			'LOCALE_FLIGHTMASTERS'	=>	'Flight Masters',
+			'LOCALE_INKEEPER'	=>	'Innkeepers',
+			'LOCALE_REPAIRERS'	=>	'Repairers',
+			'LOCALE_SPIRITHEALERS'	=>	'Spirit Healers',					
 			// quest
 			'LOCALE_REQUIREMENTS'					=>	'Conditions',
 			'LOCALE_QUEST_FLAGS_STAY_ALIVE'			=> 'Nécessite de rester en vie',
@@ -1033,6 +1053,11 @@ switch($_SESSION['locale'])
 	// --- ENGLISH default LOCALE ---
 	default:
 		mass_define(array(
+			// my
+			'LOCALE_FLIGHTMASTERS'	=>	'Flight Masters',
+			'LOCALE_INKEEPER'	=>	'Innkeepers',
+			'LOCALE_REPAIRERS'	=>	'Repairers',
+			'LOCALE_SPIRITHEALERS'	=>	'Spirit Healers',					
 			// quest
 			'LOCALE_REQUIREMENTS'	=>	'Requirements',
 			'LOCALE_QUEST_FLAGS_STAY_ALIVE'        => 'Requires to stay alive',

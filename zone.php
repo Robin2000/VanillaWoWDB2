@@ -75,32 +75,32 @@ if(!$zone = load_cache(16, $id))
 		{
 			$taxies = array(
 				'population' => 0,
-				'name' => 'Flight Masters', // TODO: LOCALIZE!
+				'name' => LOCALE_FLIGHTMASTERS, // TODO: LOCALIZE!
 				'atid' => $id,
 				'points' => array()
 			);
 			$inns = array(
 				'population' => 0,
-				'name' => 'Innkeepers', // TODO: LOCALIZE!
+				'name' => LOCALE_INKEEPER, // TODO: LOCALIZE!
 				'atid' => $id,
 				'points' => array()
 			);
 			$repairers = array(
 				'population' => 0,
-				'name' => 'Repairers', // TODO: LOCALIZE!
+				'name' => LOCALE_REPAIRERS, // TODO: LOCALIZE!
 				'atid' => $id,
 				'points' => array()
 			);
 			$spirithealers = array(
 				'population' => 0,
-				'name' => 'Spirit Healers', // TODO: LOCALIZE!
+				'name' => LOCALE_SPIRITHEALERS, // TODO: LOCALIZE!
 				'atid' => $id,
 				'points' => array()
 			);
 			foreach($rows as $row)
 			{
-				$name = $row['name'];//localizedName($row);
-				$subname = $row['subname'];//localizedName($row, "subname");
+				$name = localizedName($row);
+				$subname = localizedName($row, "subname");
 				if ($subname)
 					$name = $name . " <" . $subname . ">";
 				
