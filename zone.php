@@ -23,6 +23,7 @@ if(!$zone = load_cache(16, $id))
 
 	if(!($zone['fishing'] = loot('fishing_loot_template', $id)))
 		unset($zone['fishing']);
+	
 
 	// if($zone['parent'])
 	// {
@@ -274,6 +275,7 @@ $smarty->assign('comments', getcomments($page['type'], $page['typeid']));
 
 // Количество MySQL запросов
 $smarty->assign('mysql', $DB->getStatistics());
+$smarty->assign('allitems', $allitems);
 $smarty->assign('zone', $zone);
 $smarty->display('zone.tpl');
 ?>
