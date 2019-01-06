@@ -53,11 +53,11 @@ if(!$zone = load_cache(16, $id))
 	{
 		// Flight masters
 		$rows = $DB->select('
-			SELECT ct.entry, ct.name, ct.subname, ct.faction_A, lc.name_loc?d, lc.subname_loc?d, ct.npcflag, position_x, position_y
+			SELECT ct.entry, ct.name, ct.subname, ct.Rank, ct.faction_A, lc.name_loc?d, lc.subname_loc?d, ct.npcflag, position_x, position_y
 			FROM creature c, creature_template ct
 			LEFT JOIN locales_creature lc ON ct.entry = lc.entry
 			WHERE c.id = ct.entry
-			  AND (ct.npcflag = 11 OR ct.npcflag = 16388 OR ct.npcflag = 33 OR ct.npcflag= 135)
+			  AND (ct.npcflag = 11 OR ct.npcflag = 16388 OR ct.npcflag = 33 OR ct.npcflag= 135 OR ct.Rank>0)
 			  AND c.map = ?d
 			  AND c.position_x > ?f
 			  AND c.position_x < ?f
@@ -94,6 +94,30 @@ if(!$zone = load_cache(16, $id))
 			$spirithealers = array(
 				'population' => 0,
 				'name' => LOCALE_SPIRITHEALERS, // TODO: LOCALIZE!
+				'atid' => $id,
+				'points' => array()
+			);
+			$boss = array(
+				'population' => 0,
+				'name' => 'BOSS', // TODO: LOCALIZE!
+				'atid' => $id,
+				'points' => array()
+			);
+			$elite = array(
+				'population' => 0,
+				'name' => '精英', // TODO: LOCALIZE!
+				'atid' => $id,
+				'points' => array()
+			);
+			$rare = array(
+				'population' => 0,
+				'name' => '稀有', // TODO: LOCALIZE!
+				'atid' => $id,
+				'points' => array()
+			);
+			$rareElite = array(
+				'population' => 0,
+				'name' => '稀有精英', // TODO: LOCALIZE!
 				'atid' => $id,
 				'points' => array()
 			);
@@ -140,28 +164,57 @@ if(!$zone = load_cache(16, $id))
 					'x' => round(100 - ($row['position_y']-$zone['y_min']) / (($zone['y_max']-$zone['y_min']) / 100), 2),
 					'y' => round(100 - ($row['position_x']-$zone['x_min']) / (($zone['x_max']-$zone['x_min']) / 100), 2)
 				);
-
+				$isNPC=FALSE;
 				if ($row['npcflag']==11)
 				{	
 					$taxies['population']++;
 					$taxies['points'][] = $point;
+					$isNPC=TRUE;
 				}
 				if ($row['npcflag']==135)
 				{
 					$inns['population']++;
 					$inns['points'][] = $point;
+					$isNPC=TRUE;
 				}
 				if ($row['npcflag']==16388)
 				{
 					$repairers['population']++;
 					$repairers['points'][] = $point;
+					$isNPC=TRUE;
 				}
 				if ($row['npcflag']==33) //&16384 || $row['npcflag']&32768)
 				{
 					$spirithealers['population']++;
 					$spirithealers['points'][] = $point;
+					$isNPC=TRUE;
 				}
+				if($row['Rank']==1 && $isNPC==FALSE){
+					$elite['population']++;
+					$elite['points'][]= $point;
+				}
+				if($row['Rank']==2 && $isNPC==FALSE){
+					$rareElite['population']++;
+					$x['points'][]= $point;
+				}
+				if($row['Rank']==3 && $isNPC==FALSE){
+					$boss['population']++;
+					$boss['points'][]= $point;
+				}
+				if($row['Rank']==4 && $isNPC==FALSE){
+					$rare['population']++;
+					$rare['points'][]= $point;
+				}
+
 			}
+			if($boss['population'])
+				$zone['position'][] = $boss;
+			if($elite['population'])
+				$zone['position'][] = $elite;
+			if($rare['population'])
+				$zone['position'][] = $rare;
+			if($rareElite['population'])
+				$zone['position'][] = $rareElite;												
 			if ($taxies['population'])
 				$zone['position'][] = $taxies;
 			if ($inns['population'])
