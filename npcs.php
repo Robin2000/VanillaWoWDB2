@@ -22,7 +22,7 @@ if(!$npcs = load_cache(2, $cache_key))
 		FROM ?_factiontemplate, creature_template c
 		{ LEFT JOIN (locales_creature l) ON l.entry=c.entry AND ? }
 		WHERE
-			factiontemplateID=faction_A
+			fortest=0 and factiontemplateID=faction_A
 			{AND type=?}
 		ORDER BY minlevel DESC, name
 		{LIMIT ?d}
