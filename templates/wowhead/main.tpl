@@ -42,7 +42,7 @@
 		</div>
 {/if}
 		
-		<div id="toplinks" class="toplinks">
+		<div id="toplinks" class="toplinks" style="position: fixed;top: 10px;right:50px">
 			{if $user}<a href="?user={$user.name}">{$user.name}</a>|<a href="?account=signout">{#Sign_out#}</a>{else}<a href="?account=signin">{#Sign_in#}</a>{/if}
 			|<a href="javascript:;" id="toptabs-menu-language">{#Language#} <small>&#9660;</small></a>
 			<script type="text/javascript">g_initHeaderMenus()</script>
