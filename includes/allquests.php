@@ -219,7 +219,7 @@ function GetQuestStrings(&$data)
 	$data['OfferRewardText']	= QuestReplaceStr(htmlspecialchars(localizedName($data, 'OfferRewardText')));
 	$data['EndText']			= QuestReplaceStr(htmlspecialchars(localizedName($data, 'EndText')));
 
-	for($j=0;$j<=3;++$j)
+	for($j=1;$j<=4;++$j)
 		$data['ObjectiveText'][$j] = QuestReplaceStr(htmlspecialchars(localizedName($data, 'ObjectiveText'.$j)));
 }
 
