@@ -39,7 +39,7 @@
 
   $worldmapdir = $mpqdir . "interface/worldmap/";
   $normaldir = $outmapdir . "enus/normal/";
-  $zoomdir   = $outmapdir . "enus/zoom/";
+  $zoomdir   = $outmapdir . "enus/normal/";
   // Maps are in 3:2 aspect ratio, so any resolution you set below must match this ratio.
   $blpmapwidth = 1002;
   $blpmapheight = 668;
