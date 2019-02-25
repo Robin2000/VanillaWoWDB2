@@ -1,9 +1,3 @@
-/*
- talentcalc.js version 278
- Differences from origin:
-  1. /?		->		?		(8)
-  2. http://static.wowhead.com/images/talent/	-> images/talent/
-*/
 var $WowheadTalentCalculator;
 function TalentCalc() {
 	var a6 = 0,
