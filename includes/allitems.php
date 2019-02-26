@@ -268,8 +268,7 @@ function allitemsinfo($id, $level=0)
 		return $allitems[$id];
 	} else {
 		$row = $DB->selectRow('
-		SELECT a.* FROM 
-		(
+
 			SELECT i.?#
 			{
 				, l.name_loc?d AS name_loc
@@ -284,13 +283,8 @@ function allitemsinfo($id, $level=0)
 			WHERE
 				i.entry=?
 				AND id=display_id
-		) a
-		INNER JOIN (
-			SELECT *, MAX(patch) patchno
-			FROM item_template
-			WHERE patch <= ?d
-			GROUP BY entry
-		) b ON a.entry = b.entry AND a.patch = b.patchno
+				AND patch <= ?
+			ORDER BY patch DESC
 			LIMIT 1
 			',
 			$item_cols[$level],
