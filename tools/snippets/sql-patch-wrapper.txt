@@ -17,3 +17,8 @@ SELECT a.* FROM
 		
 		
 		$AoWoWconf['patch']
+
+
+		AND patch <= ?
+		ORDER BY patch DESC
+		LIMIT 1

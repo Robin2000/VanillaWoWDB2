@@ -15,7 +15,7 @@ require_once('includes/db.php');
 $search_query = $_GET['search'];
 if(strlen($search_query) < 2)
 	exit('["", []]');
-$search_query = '%'.str_replace('%', '\%', $search_query).'%';
+/*$search_query = '%'.str_replace('%', '\%', $search_query).'%';*/
 
 echo '["'.str_replace('"', '\"', $_GET['search']).'", [';
 
@@ -27,7 +27,7 @@ $rows = $DB->select('
 	SELECT i.entry, ?# as name, a.iconname, i.quality
 	FROM ?_icons a, item_template i{, ?# l}
 	WHERE
-		?# LIKE ?
+		?# AGAINST (?)
 		AND a.id = i.display_id
 		{ AND i.entry = l.?# }
 	ORDER BY i.quality DESC, ?#
@@ -35,7 +35,7 @@ $rows = $DB->select('
 	',
 	$_SESSION['locale'] == 0 ? 'name' : 'name_loc'.$_SESSION['locale'],	// SELECT
 	$_SESSION['locale'] == 0 ? DBSIMPLE_SKIP : 'locales_item',			// FROM
-	$_SESSION['locale'] == 0 ? 'name' : 'name_loc'.$_SESSION['locale'],	// WHERE1
+	$_SESSION['locale'] == 0 ? 'MATCH(name)' : 'MATCH(name_loc'.$_SESSION['locale'].')',	// WHERE1
 	$search_query,
 	$_SESSION['locale'] == 0 ? DBSIMPLE_SKIP : 'entry',					// WHERE2
 	$_SESSION['locale'] == 0 ? 'name' : 'name_loc'.$_SESSION['locale']	// ORDER
@@ -53,13 +53,13 @@ foreach($rows as $i => $row)
 $rows = $DB->select('
 	SELECT entry, ?# as name
 	FROM ?#
-	WHERE ?# LIKE ?
+	WHERE ?# AGAINST (?)
 	ORDER BY ?#
 	LIMIT 3
 	',
 	$_SESSION['locale'] == 0 ? 'name' : 'name_loc'.$_SESSION['locale'],			// SELECT
 	$_SESSION['locale'] == 0 ? 'gameobject_template' : 'locales_gameobject',	// FROM
-	$_SESSION['locale'] == 0 ? 'name' : 'name_loc'.$_SESSION['locale'],			// WHERE1
+	$_SESSION['locale'] == 0 ? 'MATCH(name)' : 'MATCH(name_loc'.$_SESSION['locale'].')',			// WHERE1
 	$search_query,
 	$_SESSION['locale'] == 0 ? 'name' : 'name_loc'.$_SESSION['locale']			// ORDER
 );
@@ -75,14 +75,14 @@ $rows = $DB->select('
 	SELECT q.entry, ?# as Title, q.RequiredRaces
 	FROM quest_template q {, ?# l}
 	WHERE
-		(?# LIKE ?)
+		(?# AGAINST (?))
 		{AND (q.entry=l.?#)}
 	ORDER BY ?#
 	LIMIT 3
 	',
 	$_SESSION['locale'] == 0 ? 'Title' : 'Title_loc'.$_SESSION['locale'],	// SELECT
 	$_SESSION['locale'] == 0 ? DBSIMPLE_SKIP : 'locales_quest',				// FROM
-	$_SESSION['locale'] == 0 ? 'Title' : 'Title_loc'.$_SESSION['locale'],	// WHERE1
+	$_SESSION['locale'] == 0 ? 'MATCH(Title,Details,Objectives,OfferRewardText,RequestItemsText,EndText,ObjectiveText1,ObjectiveText2,ObjectiveText3,ObjectiveText4)' : 'MATCH(Title_loc4,Details_loc4,Objectives_loc4,OfferRewardText_loc4,RequestItemsText_loc4,EndText_loc4,ObjectiveText1_loc4,ObjectiveText2_loc4,ObjectiveText3_loc4,ObjectiveText4_loc4)',	// WHERE1
 	$search_query,
 	$_SESSION['locale'] == 0 ? DBSIMPLE_SKIP : 'entry',						// WHERE2
 	$_SESSION['locale'] == 0 ? 'Title' : 'Title_loc'.$_SESSION['locale']	// ORDER
@@ -99,13 +99,13 @@ foreach($rows as $i => $row)
 $rows = $DB->select('
 	SELECT entry, ?# as name
 	FROM ?#
-	WHERE ?# LIKE ?
+	WHERE ?# AGAINST (?)
 	ORDER BY ?#
 	LIMIT 3
 	',
 	$_SESSION['locale'] == 0 ? 'name' : 'name_loc'.$_SESSION['locale'],		// SELECT
 	$_SESSION['locale'] == 0 ? 'creature_template' : 'locales_creature',	// FROM
-	$_SESSION['locale'] == 0 ? 'name' : 'name_loc'.$_SESSION['locale'],		// WHERE1
+	$_SESSION['locale'] == 0 ? 'MATCH(name,subname)' : 'MATCH(name_loc4,subname_loc4)',		// WHERE1
 	$search_query,
 	$_SESSION['locale'] == 0 ? 'name' : 'name_loc'.$_SESSION['locale']		// ORDER
 );
