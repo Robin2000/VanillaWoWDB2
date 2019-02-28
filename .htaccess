@@ -5,6 +5,11 @@ Order Deny,Allow
 <FilesMatch "^(index|ajax|opensearch).php$">
 	Allow from all
 </FilesMatch>
+
+<FilesMatch "^(quest-|item-|npc-)$">
+	Allow from all
+</FilesMatch>
+
 # Запрет просмотра некоторых папок
 Options -Indexes
 # Поддержка UTF8
@@ -15,3 +20,44 @@ AddDefaultCharset utf8
 	CharsetRecodeMultipartForms Off
 </IfModule>
 php_value		default_charset									UTF-8
+
+RewriteEngine On
+RewriteRule ^quest-([a-z0-9A-Z\-]+) ?quest=$1
+RewriteRule ^item-([a-z0-9A-Z\-]+) ?item=$1
+RewriteRule ^npc-([a-z0-9A-Z\-]+) ?npc=$1
+RewriteRule ^itemset-([a-z0-9A-Z\-]+) ?itemset=$1
+RewriteRule ^zone-([a-z0-9A-Z\-]+) ?zone=$1
+RewriteRule ^spell-([a-z0-9A-Z\-]+) ?spell=$1
+RewriteRule ^object-([a-z0-9A-Z\-]+) ?object=$1
+RewriteRule ^faction-([a-z0-9A-Z\-]+) ?faction=$1
+RewriteRule ^pet-([a-z0-9A-Z\-]+) ?pet=$1
+RewriteRule ^achievement-([a-z0-9A-Z\-]+) ?achievement=$1
+RewriteRule ^map-([a-z0-9A-Z\-]+) ?map=$1
+
+
+RewriteRule ^quests-([\.a-z0-9A-Z\-]+) ?quests=$1
+RewriteRule ^items-([\.a-z0-9A-Z\-]+) ?items=$1
+RewriteRule ^npcs-([\.a-z0-9A-Z\-]+) ?npcs=$1
+RewriteRule ^itemsets-([\.a-z0-9A-Z\-]+) ?itemsets=$1
+RewriteRule ^zones-([\.a-z0-9A-Z\-]+) ?zones=$1
+RewriteRule ^spells-([\.a-z0-9A-Z\-]+) ?spells=$1
+RewriteRule ^objects-([\.a-z0-9A-Z\-]+) ?objects=$1
+RewriteRule ^factions-([\.a-z0-9A-Z\-]+) ?factions=$1
+RewriteRule ^petcalc-([\.a-z0-9A-Z\-]+) ?petcalc=$1
+RewriteRule ^pets-([\.a-z0-9A-Z\-]+) ?pets=$1
+RewriteRule ^achievements-([\.a-z0-9A-Z\-]+) ?achievements=$1
+RewriteRule ^maps-([\.a-z0-9A-Z\-]+) ?maps=$1
+
+RewriteRule ^quests ?quests
+RewriteRule ^items ?items
+RewriteRule ^npcs ?npcs
+RewriteRule ^itemsets ?itemsets
+RewriteRule ^zones ?zones
+RewriteRule ^spells ?spells
+RewriteRule ^objects ?objects
+RewriteRule ^factions ?factions
+RewriteRule ^petcalc ?petcalc
+RewriteRule ^pets ?pets
+RewriteRule ^talent ?talent
+RewriteRule ^achievements ?achievements
+RewriteRule ^maps ?maps

@@ -64,7 +64,7 @@
 					<h3>{#Reagents#}</h3>
 					<table class="iconlist">
 {section name=i loop=$spell.reagents}
-						<tr><th align="right" id="iconlist-icon{$iconlist1++}"></th><td><span class="q{$spell.reagents[i].quality}"><a href="?item={$spell.reagents[i].entry}">{$spell.reagents[i].name}</a></span></td></tr>
+						<tr><th align="right" id="iconlist-icon{$iconlist1++}"></th><td><span class="q{$spell.reagents[i].quality}"><a href="/item-{$spell.reagents[i].entry}">{$spell.reagents[i].name}</a></span></td></tr>
 {/section}
 					</table>
 					<script type="text/javascript">
@@ -77,7 +77,7 @@
 					<h3>{#Tools#}</h3>
 					<table class="iconlist">
 {section name=i loop=$spell.tools}
-						<tr><th align="right" id="iconlist-icon{$iconlist1++}"></th><td><span class="q1"><a href="?item={$spell.tools[i].entry}">{$spell.tools[i].name}</a></span></td></tr>
+						<tr><th align="right" id="iconlist-icon{$iconlist1++}"></th><td><span class="q1"><a href="/item-{$spell.tools[i].entry}">{$spell.tools[i].name}</a></span></td></tr>
 {/section}
 					</table>
 					<script type="text/javascript">
@@ -145,7 +145,7 @@
 						{$spell.effect[i].name}
 
 						<small>
-						{if isset($spell.effect[i].object)}<br>{#Object#}: <a href=?object={$spell.effect[i].object.entry}>{$spell.effect[i].object.name}</a>{/if}
+						{if isset($spell.effect[i].object)}<br>{#Object#}: <a href=/object-{$spell.effect[i].object.entry}>{$spell.effect[i].object.name}</a>{/if}
 						{if isset($spell.effect[i].value)}<br>{#Value#}: {$spell.effect[i].value}{/if}
 						{if isset($spell.effect[i].radius)}<br>{#Radius#}: {$spell.effect[i].radius} {#yards#}{/if}
 						{if isset($spell.effect[i].interval)}<br>{#Interval#}: {$spell.effect[i].interval} {#seconds#}{/if}
@@ -154,7 +154,7 @@
 						<table class="icontab">
 							<tr>
 								<th id="icontab-icon1"></th>
-								<td><a href="?spell={$spell.effect[i].spell.entry}">{$spell.effect[i].spell.name}</a></td>
+								<td><a href="/spell-{$spell.effect[i].spell.entry}">{$spell.effect[i].spell.name}</a></td>
 								<th></th><td></td>
 							</tr>
 						</table>
@@ -165,7 +165,7 @@
 {if isset($spell.effect[i].item)}
 						<table class="icontab">
 							<tr>
-								<th id="icontab-icon1"></th><td><span class="q{$spell.effect[i].item.quality}"><a href="?item={$spell.effect[i].item.entry}">{$spell.effect[i].item.name}</a></span></td>
+								<th id="icontab-icon1"></th><td><span class="q{$spell.effect[i].item.quality}"><a href="/item-{$spell.effect[i].item.entry}">{$spell.effect[i].item.name}</a></span></td>
 								<th></th><td></td>
 							</tr>
 						</table>

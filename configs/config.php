@@ -27,13 +27,13 @@ $AoWoWconf['aowow']['cache_time'] = (60*60*24*7);
 // Default locale
 $AoWoWconf['locale'] = 4;
 // Allow account creating
-$AoWoWconf['register'] = true;
+$AoWoWconf['register'] = false;
 // Used with register, account expansion
 $AoWoWconf['expansion'] = 0;
 // Limit of some SQL queries
 $AoWoWconf['limit'] = 300;
 // Disable cache, show smarty console panel
-$AoWoWconf['debug'] = true;
+$AoWoWconf['debug'] = false;
 // Map object grouping factor. Meters = 10^param.
 // 0 to disable.
 // 1 is default and highly recommended.

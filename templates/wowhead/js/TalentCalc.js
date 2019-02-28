@@ -1904,7 +1904,7 @@ function TalentCalc() {
 		if (bg.glyphs[bh]) {
 			var be = g_glyphs[bg.glyphs[bh]];
 			Icon.setTexture(bd, 1, be.icon);
-			bc.href = bf.href = "?item=" + be.id;
+			bc.href = bf.href = "/item-" + be.id;
 			st(bc, av(be.name));
 			bc.className = "q1";
 			return true
@@ -1986,7 +1986,7 @@ function TalentCalc() {
 					}
 				}
 				bd.bubble.firstChild.nodeValue = bd.k;
-				bd.link.href = "?spell=" + bd.s[Math.max(0, bd.k - 1)]
+				bd.link.href = "/spell-" + bd.s[Math.max(0, bd.k - 1)]
 			}
 		}
 	}
@@ -2027,7 +2027,7 @@ Listview.templates.glyph = {
 				c.style.width = "1px";
 				c.style.padding = "0";
 				c.style.borderRight = "none";
-				var d = Icon.create(f.icon, 0, null, "?item=" + f.id),
+				var d = Icon.create(f.icon, 0, null, "/item-" + f.id),
 				e = Icon.getLink(d);
 				ae(c, d);
 				ae(g, c);
@@ -2037,7 +2037,7 @@ Listview.templates.glyph = {
 			var b = ce("a");
 			b.style.fontFamily = "Verdana, sans-serif";
 			b.onclick = rf;
-			b.href = "?item=" + f.id;
+			b.href = "/item-" + f.id;
 			ae(b, ct($WowheadTalentCalculator.simplifyGlyphName(f.name)));
 			h.style.whiteSpace = "nowrap";
 			ae(h, b);

@@ -52,10 +52,10 @@ function ma_ChooseZone(a) {
 	a.selectedIndex = 0
 }
 function ma_UpdateLink(d) {
-	var a = "?maps",
+	var a = "/maps",
 	c = d.getLink();
 	if (c) {
-		a += "=" + c
+		a += "-" + c
 	}
 	ge("link-to-this-map").href = a
 };

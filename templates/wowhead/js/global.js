@@ -837,7 +837,7 @@ function g_initHeaderMenus() {
 			d = d.substr(0, j)
 		}
 		//c.menu = [[0, "Deutsch", (g_locale.id != 3 ? d.replace(g, "de") : null)], [0, "English", (g_locale.id != 0 ? d.replace(g, "www") : null)], [0, "Espa" + String.fromCharCode(241) + "ol", (g_locale.id != 6 ? d.replace(g, "es") : null)], [0, "Fran" + String.fromCharCode(231) + "ais", (g_locale.id != 2 ? d.replace(g, "fr") : null)], [0, String.fromCharCode(1056, 1091, 1089, 1089, 1082, 1080, 1081), (g_locale.id != 7 ? d.replace(g, "ru") : null)]];
-		c.menu = [[0, "English", (g_locale.id != 0 ? "?locale=0" : null)], [0, "中文", (g_locale.id != 4 ? "?locale=4" : null)]];
+		c.menu = [[0, "English", (g_locale.id != 0 ? "?locale=0" : null)], [0, "??", (g_locale.id != 4 ? "?locale=4" : null)]];
 		c.menu.rightAligned = 1;
 		if (g_locale.id != 25) {
 			c.menu[{
@@ -4433,7 +4433,7 @@ Listview.funcBox = {
 			} else {
 				var c = ce("a");
 				c.className = "q1";
-				c.href = "?zone=" + e;
+				c.href = "/zone-" + e;
 				ae(c, ct(g_zones[e]));
 				ae(g, c)
 			}
@@ -4521,7 +4521,7 @@ Listview.funcBox = {
 				if (g_items[j]) {
 					l = g_items.createIcon(j, 0)
 				} else {
-					l = Icon.create(g_gems[j].icon, 0, null, "?item=" + j)
+					l = Icon.create(g_gems[j].icon, 0, null, "/item-" + j)
 				}
 			}
 			l.className += " iconsmall-socket-" + g_file_gems[b[f]] + (!c || !j ? "-empty": "");
@@ -4547,18 +4547,18 @@ Listview.funcBox = {
 	getItemType: function (c, a, b) {
 		if (b != null && g_item_subsubclasses[c] != null && g_item_subsubclasses[c][a] != null) {
 			return {
-				url: "?items=" + c + "." + a + "." + b,
+				url: "/items-" + c + "." + a + "." + b,
 				text: g_item_subsubclasses[c][a][b]
 			}
 		}
 		if (g_item_subclasses[c] != null) {
 			return {
-				url: "?items=" + c + "." + a,
+				url: "/items-" + c + "." + a,
 				text: g_item_subclasses[c][a]
 			}
 		} else {
 			return {
-				url: "?items=" + c,
+				url: "/items-" + c,
 				text: g_item_classes[c]
 			}
 		}
@@ -5283,7 +5283,7 @@ Listview.funcBox = {
 				var n = c[b][0];
 				var e = c[b][1];
 				k = ce("a");
-				k.href = "?item=" + n;
+				k.href = "/item-" + n;
 				k.className = "moneyitem";
 				k.style.backgroundImage = "url(images/icons/tiny/" + g_items.getIcon(n).toLowerCase() + ".gif)";
 				ae(k, ct(e));
@@ -5335,7 +5335,7 @@ Listview.funcBox = {
 		case 2:
 			if (d.z) {
 				var b = {
-					url: "?zone=" + d.z,
+					url: "/zone-" + d.z,
 					text: g_zones[d.z]
 				};
 				if (d.t && a == 5) {
@@ -5356,7 +5356,7 @@ Listview.funcBox = {
 		case 5:
 			return {
 				url:
-				"?quests=" + d.c2 + "." + d.c,
+				"/quests-" + d.c2 + "." + d.c,
 				text: Listview.funcBox.getQuestCategory(d.c)
 			};
 			break;
@@ -5463,7 +5463,7 @@ Listview.templates = {
 			}
 		}],
 		getItemLink: function (a) {
-			return "?faction=" + a.id
+			return "/faction-" + a.id
 		}
 	},
 	item: {
@@ -5794,7 +5794,7 @@ Listview.templates = {
 			}
 		}],
 		getItemLink: function (a) {
-			return "?item=" + a.id
+			return "/item-" + a.id
 		},
 		onBeforeCreate: function () {
 			var b = false;
@@ -6118,7 +6118,7 @@ Listview.templates = {
 			compute: function (c, d) {
 				d.className = "small q1";
 				var b = ce("a");
-				b.href = "?npcs=" + c.type;
+				b.href = "/npcs-" + c.type;
 				ae(b, ct(g_npc_types[c.type]));
 				ae(d, b)
 			},
@@ -6130,7 +6130,7 @@ Listview.templates = {
 			}
 		}],
 		getItemLink: function (a) {
-			return "?npc=" + a.id
+			return "/npc-" + a.id
 		}
 	},
 	object: {
@@ -6193,7 +6193,7 @@ Listview.templates = {
 			}
 		}],
 		getItemLink: function (a) {
-			return "?object=" + a.id
+			return "/object-" + a.id
 		}
 	},
 	quest: {
@@ -6362,7 +6362,7 @@ Listview.templates = {
 				if (c.category != 0) {
 					d.className = "small q1";
 					var b = ce("a");
-					b.href = "?quests=" + c.category2 + "." + c.category;
+					b.href = "/quests-" + c.category2 + "." + c.category;
 					ae(b, ct(Listview.funcBox.getQuestCategory(c.category)));
 					ae(d, b)
 				}
@@ -6376,7 +6376,7 @@ Listview.templates = {
 			}
 		}],
 		getItemLink: function (a) {
-			return "?quest=" + a.id
+			return "/quest-" + a.id
 		}
 	},
 	spell: {
@@ -6657,7 +6657,7 @@ Listview.templates = {
 			}
 		}],
 		getItemLink: function (a) {
-			return "?spell=" + a.id
+			return "/spell-" + a.id
 		}
 	},
 	zone: {
@@ -6705,7 +6705,7 @@ Listview.templates = {
 		},
 		],
 		getItemLink: function (a) {
-			return "?zone=" + a.id
+			return "/zone-" + a.id
 		}
 	},
 	comment: {
@@ -7452,7 +7452,7 @@ Listview.templates = {
 				if (b.zone) {
 					var c = ce("a");
 					c.className = "q1";
-					c.href = "?zone=" + b.zone;
+					c.href = "/zone-" + b.zone;
 					ae(c, ct(g_zones[b.zone]));
 					ae(d, c)
 				}
@@ -7514,7 +7514,7 @@ Listview.templates = {
 			compute: function (b, d) {
 				d.className = "small q1";
 				var c = ce("a");
-				c.href = "?achievements=" + b.category;
+				c.href = "/achievements-" + b.category;
 				ae(c, ct(g_achievement_categories[b.category]));
 				ae(d, c)
 			},
@@ -7527,7 +7527,7 @@ Listview.templates = {
 			hidden: true
 		}],
 		getItemLink: function (a) {
-			return "?achievement=" + a.id
+			return "/achievement-" + a.id
 		}
 	},
 	profile: {
@@ -7992,7 +7992,7 @@ Listview.templates = {
 			setTimeout(this.template.appendFlash.bind(g, c), 1)
 		},
 		getItemLink: function (a) {
-			return "?npcs=1&filter=" + (a.family ? "fa=" + a.family + ";": "") + "minle=1;cr=35;crs=0;crv=" + a.skin
+			return "/npcs-1&filter=" + (a.family ? "fa=" + a.family + ";": "") + "minle=1;cr=35;crs=0;crv=" + a.skin
 		},
 		modelShow: function (b, a) {
 			ModelViewer.show({
@@ -8020,17 +8020,17 @@ Listview.templates = {
 		}
 	}
 };
-Menu.fixUrls(mn_items, "?items=");
+Menu.fixUrls(mn_items, "/items-");
 Menu.fixUrls(mn_itemSets, "?itemsets&filter=cl=", "#0-2+1");
-Menu.fixUrls(mn_npcs, "?npcs=");
-Menu.fixUrls(mn_objects, "?objects=");
-Menu.fixUrls(mn_quests, "?quests=");
-Menu.fixUrls(mn_spells, "?spells=");
-Menu.fixUrls(mn_zones, "?zones=");
-Menu.fixUrls(mn_pets, "?pets=");
-Menu.fixUrls(mn_factions, "?factions=");
-//Menu.fixUrls(mn_achievements, "?achievements=", null, true);
-Menu.fixUrls(mn_petCalc, "?petcalc=");
+Menu.fixUrls(mn_npcs, "/npcs-");
+Menu.fixUrls(mn_objects, "/objects-");
+Menu.fixUrls(mn_quests, "/quests-");
+Menu.fixUrls(mn_spells, "/spells-");
+Menu.fixUrls(mn_zones, "/zones-");
+Menu.fixUrls(mn_pets, "/pets-");
+Menu.fixUrls(mn_factions, "/factions-");
+//Menu.fixUrls(mn_achievements, "/achievements-", null, true);
+Menu.fixUrls(mn_petCalc, "/petcalc-");
 Menu.fixUrls(mn_forums, "?forums&board=", null, true);
 var g_dev = false;
 var g_locale = {
@@ -8062,12 +8062,7 @@ var g_types = {
 };
 var g_locales = {
 	0 : "enus",
-	2 : "frfr",
-	3 : "dede",
-	4 : "zhcn",
-	6 : "eses",
-	8 : "ruru",
-	25 : "ptr"
+	4 : "zhcn"
 };
 var g_file_races = {
 	10 : "bloodelf",
@@ -8129,7 +8124,7 @@ g_items.getIcon = function (a) {
 	}
 };
 g_items.createIcon = function (d, b, a, c) {
-	return Icon.create(g_items.getIcon(d), b, null, "?item=" + d, a, c)
+	return Icon.create(g_items.getIcon(d), b, null, "/item-" + d, a, c)
 };
 g_spells.getIcon = function (a) {
 	if (g_spells[a] != null) {
@@ -8139,7 +8134,7 @@ g_spells.getIcon = function (a) {
 	}
 };
 g_spells.createIcon = function (d, b, a, c) {
-	return Icon.create(g_spells.getIcon(d), b, null, "?spell=" + d, a, c)
+	return Icon.create(g_spells.getIcon(d), b, null, "/spell-" + d, a, c)
 };
 g_achievements.getIcon = function (a) {
 	if (g_achievements[a] != null) {
@@ -8149,7 +8144,7 @@ g_achievements.getIcon = function (a) {
 	}
 };
 g_achievements.createIcon = function (d, b, a, c) {
-	return Icon.create(g_achievements.getIcon(d), b, null, "?achievement=" + d, a, c)
+	return Icon.create(g_achievements.getIcon(d), b, null, "/achievement-" + d, a, c)
 };
 var $WowheadPower = new
 function () {

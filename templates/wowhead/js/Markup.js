@@ -412,10 +412,10 @@ var Markup = {
 				}
 				break;
 			case "item":
-				G += '<a href="?item=' + B[D][2] + '">(Item #' + B[D][2] + ")</a>";
+				G += '<a href="/item-' + B[D][2] + '">(Item #' + B[D][2] + ")</a>";
 				break;
 			case "spell":
-				G += '<a href="?spell=' + B[D][2] + '">(Spell #' + B[D][2] + ")</a>";
+				G += '<a href="/spell-' + B[D][2] + '">(Spell #' + B[D][2] + ")</a>";
 				break;
 			case "map":
 				var F = B[D][2];
@@ -434,7 +434,7 @@ var Markup = {
 					G = []
 				}
 				var C = Markup._htmlmize(B[D][1]).replace(/\n/g, "<br />");
-				if (F.url && F.url.indexOf("?npc=") != -1) {
+				if (F.url && F.url.indexOf("/npc-") != -1) {
 					C = '<b class="q">' + C + '</b><br/ ><span class="q2">Click to view this NPC</span>'
 				}
 				G.push([parseFloat(F.x || 0), parseFloat(F.y || 0), {

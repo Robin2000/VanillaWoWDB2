@@ -11,10 +11,7 @@ $tableprefix = $AoWoWconf['mangos']['aowow'];
 
 $locales = array(
 	0 => 'enus',
-	2 => 'frfr',
-	3 => 'dede',
-	4 => 'zhcn',
-	8 => 'ruru',
+	4 => 'zhcn'
 );
 function checklocale()
 {

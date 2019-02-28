@@ -270,7 +270,7 @@ Mapper.prototype = {
 			var a = g_zones[b] != null;
 			if (a) {
 				g_setTextNodes(this.sZoneLink, g_zones[b]);
-				this.sZoneLink.childNodes[4].firstChild.href = "?zone=" + b
+				this.sZoneLink.childNodes[4].firstChild.href = "/zone-" + b
 			}
 			this.sZoneLink.style.display = a ? "": "none"
 		}
