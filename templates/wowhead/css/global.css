@@ -292,9 +292,11 @@ left:0;
 top:20px;
 width:160px;
 height:66px;
-background-size: auto;
 background:url(../images/logo.png) left center no-repeat;
-background-size:160px 66px;
+-webkit-background-size: cover; /* For WebKit*/
+-moz-background-size: cover;    /* Mozilla*/
+-o-background-size: cover;      /* Opera*/
+background-size: cover;         /* Generic*/
 }
 
 #header-logo a {
