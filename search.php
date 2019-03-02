@@ -33,10 +33,9 @@ if($_SESSION['locale']>0)
 	$m = $DB->selectCol('
 			SELECT entry
 			FROM locales_item
-			WHERE MATCH(name_loc?d) AGAINST (?)
+			WHERE MATCH(name_loc4) AGAINST (+?) AND  name_loc4 like ?
 		',
-		$_SESSION['locale'],
-		$nsearch
+		$nsearch,'%'.$nsearch.'%'
 	);
 }
 
@@ -46,7 +45,7 @@ $rows = $DB->select('
 		FROM aowow_icons a, item_template i
 			{LEFT JOIN (locales_item l) ON l.entry=i.entry AND ?d}
 		WHERE
-			(MATCH(i.name) AGAINST (?) {OR i.entry IN (?a)})
+			(MATCH(i.name) AGAINST (+?) {OR i.entry IN (?a)})
 			AND a.id = i.display_id;
 	',
 	$item_cols[3],
@@ -67,9 +66,9 @@ if($_SESSION['locale']>0)
 			SELECT entry
 			FROM locales_creature
 			WHERE
-				MATCH(name_loc?d,subname_loc?d) AGAINST (?)
+				MATCH(name_loc4) AGAINST (+?) AND name_loc4 like ?
 		',
-		$_SESSION['locale'], $_SESSION['locale'], $nsearch
+		$nsearch,'%'.$nsearch.'%'
 	);
 }
 $rows = $DB->select('
@@ -79,14 +78,14 @@ $rows = $DB->select('
 		FROM ?_factiontemplate, creature_template c
 			{LEFT JOIN (locales_creature l) ON l.entry=c.entry AND ?d}
 		WHERE
-			(MATCH(name,subname) AGAINST (?)
+			(MATCH(name) AGAINST (+?) AND name like ?
 			{OR c.entry IN (?a)})
 			AND factiontemplateID=faction_A
 	',
 	$npc_cols[0],
 	($m)? $_SESSION['locale']: DBSIMPLE_SKIP,
 	($m)? 1: DBSIMPLE_SKIP,
-	$nsearch,
+	$nsearch,'%'.$nsearch.'%',
 	($m)? $m: DBSIMPLE_SKIP
 );
 unset($m);
@@ -100,9 +99,9 @@ if($_SESSION['locale']>0)
 			SELECT entry
 			FROM locales_gameobject
 			WHERE
-				MATCH(name_loc?d) AGAINST (?)
+				MATCH(name_loc4) AGAINST (+?) AND name_loc4 like ?
 		',
-		$_SESSION['locale'], $nsearch
+		$nsearch,'%'.$nsearch.'%'
 	);
 }
 $rows = $DB->select('
@@ -110,12 +109,13 @@ $rows = $DB->select('
 			{, l.name_loc?d AS `name_loc`}
 		FROM gameobject_template g
 			{LEFT JOIN (locales_gameobject l) ON l.entry=g.entry AND ?d}
-		WHERE MATCH(name) AGAINST (?) {OR g.entry IN (?a)}
+		WHERE MATCH(name) AGAINST (+?) AND name like ?
+		{OR g.entry IN (?a)}
 	',
 	$object_cols[0],
 	($m)? $_SESSION['locale']: DBSIMPLE_SKIP,
 	($m)? 1: DBSIMPLE_SKIP,
-	$nsearch,
+	$nsearch,'%'.$nsearch.'%',
 	($m)? $m: DBSIMPLE_SKIP
 );
 unset($m);
@@ -129,9 +129,10 @@ if($_SESSION['locale']>0)
 			SELECT entry
 			FROM locales_quest
 			WHERE
-				MATCH(Title_loc4,Details_loc4,Objectives_loc4,OfferRewardText_loc4,RequestItemsText_loc4,EndText_loc4,ObjectiveText1_loc4,ObjectiveText2_loc4,ObjectiveText3_loc4,ObjectiveText4_loc4) AGAINST (?)
+				MATCH(Title_loc4) AGAINST (+?)
+				AND (Title_loc4 like ?)
 		',
-		$nsearch
+		$nsearch,'%'.$nsearch.'%'
 	);
 }
 $rows = $DB->select('
@@ -139,11 +140,14 @@ $rows = $DB->select('
 			{, l.Title_loc?d AS `Title_loc`}
 		FROM quest_template q
 			{LEFT JOIN (locales_quest l) ON l.entry=q.entry AND ?d}
-		WHERE MATCH(Title,Details,Objectives,OfferRewardText,RequestItemsText,EndText,ObjectiveText1,ObjectiveText2,ObjectiveText3,ObjectiveText4) AGAINST (?) {OR q.entry IN (?a)}
+		WHERE 
+		MATCH(Title) AGAINST (+?) 
+		AND Title like ? {OR q.entry IN (?a)}
 	',
 	($m)? $_SESSION['locale']: DBSIMPLE_SKIP,
 	($m)? 1: DBSIMPLE_SKIP,
 	$nsearch,
+	'%'.$nsearch.'%',
 	($m)? $m: DBSIMPLE_SKIP
 );
 unset($m);
@@ -154,9 +158,9 @@ foreach($rows as $row)
 $rows = $DB->select('
 		SELECT *
 		FROM ?_itemset
-		WHERE MATCH(name_loc0,name_loc4) AGAINST (?)
+		WHERE MATCH(name_loc0,name_loc4) AGAINST (+?) AND (name_loc0 like ? OR name_loc4 like ?)
 	',
-	$nsearch
+	$nsearch,'%'.$nsearch.'%','%'.$nsearch.'%'
 );
 foreach($rows as $row)
 	$found['itemset'][] = itemsetinfo2($row);
@@ -166,11 +170,11 @@ $rows = $DB->select('
 		SELECT ?#, spellID
 		FROM ?_spell s, ?_spellicons i
 		WHERE
-			MATCH(spellname_loc0,spellname_loc4) AGAINST (?)
+			MATCH(spellname_loc0,spellname_loc4) AGAINST (+?) AND (spellname_loc0 like ? OR spellname_loc4 like ?)
 			AND i.id = s.spellicon
 	',
 	$spell_cols[2],
-	$nsearch
+	$nsearch,'%'.$nsearch.'%','%'.$nsearch.'%'
 );
 foreach($rows as $row)
 	$found['spell'][] = spellinfo2($row);
