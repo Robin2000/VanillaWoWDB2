@@ -290,13 +290,19 @@ margin:0 10px;
 position:absolute;
 left:0;
 top:20px;
-background:url(../images/logo_header.png) left center no-repeat;
+width:160px;
+height:66px;
+background:url(../images/logo.png) left center no-repeat;
+-webkit-background-size: cover; /* For WebKit*/
+-moz-background-size: cover;    /* Mozilla*/
+-o-background-size: cover;      /* Opera*/
+background-size: cover;         /* Generic*/
 }
 
 #header-logo a {
 display:block;
 width:160px;
-height:68px;
+height:66px;
 border:0;
 }
 
