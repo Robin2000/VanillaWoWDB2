@@ -1,7 +1,7 @@
 	<title>{if $page.Title}{$page.Title|escape:"html"} - {/if}{$app_name}</title>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<link rel="search" type="application/opensearchdescription+xml" title="VanillaWoWDB" href="/opensearch.xml" />
-	<link rel="SHORTCUT ICON" href="templates/wowhead/images/favicon.ico">
+	<link rel="SHORTCUT ICON" href="/favicon.ico">
 
 	<link rel="stylesheet" type="text/css" href="templates/wowhead/css/global.css?{$AOWOW_REVISION}" />
 	<link rel="stylesheet" type="text/css" href="templates/wowhead/css/locale_{$language}.css?{$AOWOW_REVISION}" />
