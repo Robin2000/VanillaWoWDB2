@@ -85,6 +85,13 @@
 						{/if}
 					
 				</td></tr>
+				<tr>
+				<td><div class="infobox-spacer"></div>
+				{if $npc_thumb}
+				<img src="http://wowdb60ss.wow-classic.com/{$npc_thumb}.jpg!thumb">
+				{/if}
+				</td>
+				</tr>
 			</table>
 
 			<div class="text">				
@@ -154,7 +161,7 @@
 {/if}
 
 				<h2>{#Related#}</h2>
-
+				
 			</div>
 
 			<div id="tabs-generic"></div>

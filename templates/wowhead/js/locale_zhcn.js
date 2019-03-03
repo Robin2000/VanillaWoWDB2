@@ -985,7 +985,7 @@ var LANG = {
 	rating: "评级",
 	react: "抗性",
 	realm: "王国Realm",
-	reagents: "药剂",
+	reagents: "原料",
 	region: "地区",
 	rep: "声望.",
 	req: "需求.",
