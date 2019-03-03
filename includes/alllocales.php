@@ -256,7 +256,7 @@ switch($_SESSION['locale'])
 		'LOCALE_DURABILITY'		=>	'耐用',
 		'LOCALE_CLASSES'		=>	'职业',
 		'LOCALE_VALUE_DELIM'	=>	' 至 ',
-		'LOCALE_REAGENTS'		=>	'药剂: ',
+		'LOCALE_REAGENTS'		=>	'原料: ',
 		'LOCALE_TOOLS'			=>	'工具: ',
 		'LOCALE_HEROIC'			=>	' (英雄)',
 		'LOCALE_CRITERIA'		=>	'条件',

@@ -2,18 +2,18 @@
 global $AoWoWconf;
 
 // -- MaNGOS Database --
-$AoWoWconf['mangos']['host']	= '127.0.0.1';
+$AoWoWconf['mangos']['host']	= '127.0.0.1:3307';
 $AoWoWconf['mangos']['user']	= 'root';
 $AoWoWconf['mangos']['pass']	= 'java112233';
 $AoWoWconf['mangos']['db']		= 'world_lighthope';
 $AoWoWconf['mangos']['aowow']	= 'aowow_'; // AoWoW table prefix
 // -- Realmd Database --
-$AoWoWconf['realmd']['host']	= '127.0.0.1';
+$AoWoWconf['realmd']['host']	= '127.0.0.1:3307';
 $AoWoWconf['realmd']['user']	= 'root';
 $AoWoWconf['realmd']['pass']	= 'java112233';
 $AoWoWconf['realmd']['db']		= 'realmd_lighthope';
 // -- Characters Database -- currently unused
-$AoWoWconf['characters']['host']	= '127.0.0.1';
+$AoWoWconf['characters']['host']	= '127.0.0.1:3307';
 $AoWoWconf['characters']['user']	= 'root';
 $AoWoWconf['characters']['pass']	= 'java112233';
 $AoWoWconf['characters']['db']		= 'characters_lighthope';
