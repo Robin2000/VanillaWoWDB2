@@ -21,6 +21,7 @@ AddDefaultCharset utf8
 </IfModule>
 php_value		default_charset									UTF-8
 
+Options +FollowSymlinks
 RewriteEngine On
 RewriteRule ^quest-([a-z0-9A-Z\-]+) ?quest=$1
 RewriteRule ^item-([a-z0-9A-Z\-]+) ?item=$1
