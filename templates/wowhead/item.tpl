@@ -73,7 +73,11 @@
 
 					<div id="icon{$item.entry}-generic" style="float: left"></div>
 					<div id="tooltip{$item.entry}-generic" class="tooltip" style="float: left; padding-top: 1px">
-					<table><tr><td>{$item.info}</td><th style="background-position: top right"></th></tr><tr><th style="background-position: bottom left"></th><th style="background-position: bottom right"></th></tr></table>
+					<table>
+					<tr><td style="padding-bottom:15px">{$item.info}</td><th style="background-position: top right"></th></tr>
+					<tr><td style="padding-top:15px">{$item.page}</td><th style="background-position: top right"></th></tr>
+					<tr><th style="background-position: bottom left"></th><th style="background-position: bottom right"></th></tr>
+					</table>
 					</div>
 
 					<div style="clear: left"></div>

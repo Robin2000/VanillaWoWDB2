@@ -604,6 +604,12 @@ function iteminfo2(&$Row, $level=0)
 			$item['starts'] = array(GetDBQuestInfo($Row['start_quest'], 0xFFFFFF));
 		// Информационное окно
 		$item['info'] = render_item_tooltip($Row);
+
+		if($Row['page_loc'])
+			$item['page'] = $Row['page_loc'];
+		else
+			$item['page'] = $Row['page'];
+		
 		// Обучает
 		$teaches = array();
 		for($j=1;$j<=4;$j++)
@@ -662,18 +668,23 @@ function iteminfo($id, $level = 0)
 	global $item_cols;
 	global $DB;
 	$row = $DB->select('
-		SELECT i.?#, i.entry
+		SELECT i.?#, i.entry, p.next_page, text AS page
 		{
 			, l.name_loc?d AS name_loc
 			, l.description_loc?d AS description_loc
+			, q.Text_loc?d AS page_loc
 		}
 		FROM ?_icons, item_template i
 		{ LEFT JOIN (locales_item l) ON l.entry=i.entry AND ? }
+		LEFT JOIN page_text p ON i.page_text=p.entry
+		{ LEFT JOIN (locales_page_text q) ON i.page_text=q.entry AND ? }
 		WHERE
 			(i.entry=?d and id=display_id)
 		LIMIT 5
 		',
 		$item_cols[2+$level],
+		($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
+		($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
 		($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
 		($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
 		($_SESSION['locale']>0)? 1: DBSIMPLE_SKIP,
