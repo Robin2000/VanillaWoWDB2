@@ -40,6 +40,13 @@
 							{if isset($item.key)}<li><div>{#Can_be_placed_in_the_keyring#}</div></li>{/if}
 						</ul>
 					</td></tr>
+					<tr>
+					<td><div class="infobox-spacer"></div>
+					{if $item.thumb}
+					<img src="http://wowdb60ss.wow-classic.com/{$item.thumb}.jpg!thumb">
+					{/if}
+					</td>
+					</tr>
 				</table>
 
 				<div class="text">

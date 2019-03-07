@@ -331,8 +331,6 @@ $smarty->assign('comments', getcomments($page['type'], $page['typeid']));
 // Если хоть одна информация о вещи найдена - передаём массив с информацией о вещях шаблонизатору
 $smarty->assign('allitems', $allitems);
 $smarty->assign('allspells', $allspells);
-$smarty->assign('npc_thumb',$npc['thumb']);
-
 
 $smarty->assign('npc', $npc);
 

@@ -641,6 +641,7 @@ function iteminfo2(&$Row, $level=0)
 		// Информационное окно
 		$item['info'] = render_item_tooltip($Row);
 
+		$item['thumb'] = $Row['thumb'];
 		$next_page = $Row['page_text'];
 		$item['next_page'] = $next_page; //debug
 		$result = array();
@@ -708,13 +709,14 @@ function iteminfo($id, $level = 0)
 	global $item_cols;
 	global $DB;
 	$row = $DB->select('
-		SELECT i.?#, i.entry, page_text
+		SELECT i.?#, i.entry, page_text, thumb
 		{
 			, l.name_loc?d AS name_loc
 			, l.description_loc?d AS description_loc
 		}
 		FROM ?_icons, item_template i
 		{ LEFT JOIN (locales_item l) ON l.entry=i.entry AND ? }
+		LEFT JOIN aowow_thumb_item t ON i.entry=t.entry
 		WHERE
 			(i.entry=?d and id=display_id)
 		LIMIT 5
