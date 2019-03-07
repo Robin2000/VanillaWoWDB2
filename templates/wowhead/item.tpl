@@ -83,7 +83,7 @@
 						{assign var=floor value=$smarty.foreach.infolist.index}
 						<table>
 						<tr><td>
-						<div style="padding-bottom:10px;color:#FFD100">第 {$floor+1} 页</div>
+						<div style="padding-bottom:10px;color:#FFD100">{$item.pageName} {$floor+1} </div>
 						{$page}						
 						<div style="text-align:right;padding-bottom:10px;color:#FFD100"></div>						
 						</td><th style="background-position: top right"></th></tr>

@@ -645,6 +645,7 @@ function iteminfo2(&$Row, $level=0)
 		$item['next_page'] = $next_page; //debug
 		$result = array();
 		if($next_page > 0) {
+			$item['pageName']=($_SESSION['locale']>0)?'页':'Page';
 			$result = loadPageText($result, $next_page, $_SESSION['locale']);
 		}
 		$item['pageTexts'] = $result;
