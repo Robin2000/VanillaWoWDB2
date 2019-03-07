@@ -524,7 +524,43 @@ function render_item_tooltip(&$Row)
 	$x .= '</td></tr></table>';
 	return $x;
 }
+function loadPageText($result,$entry,$loc){
+	global $DB;
+	$row = array();
+	if($loc>0) {
+			$query = $DB->select('
+			SELECT next_page,text_loc?d AS page
+			FROM page_text A
+			LEFT JOIN locales_page_text B ON A.entry=B.entry
+			WHERE A.entry=?d
+			',
+			$loc, $entry
+			);
+	} else {
+			$query = $DB->select('
+			SELECT next_page,text AS page
+			FROM page_text A
+			WHERE A.entry=?d
+			',
+			$entry
+			);
+	}
+	if($query) {
+		$row=$query[0];
+	}
 
+
+	if($result[$entry]){
+		$result[$entry]="重复页面".$entry;
+		return $result;
+	}
+	$result[$entry] = QuestReplaceStr($row['page']);
+
+	if($row['next_page']>0){
+		return loadPageText($result, $row['next_page'], $loc);
+	}
+	return $result;
+}
 // Функция информации о вещи
 function iteminfo2(&$Row, $level=0)
 {
@@ -605,11 +641,14 @@ function iteminfo2(&$Row, $level=0)
 		// Информационное окно
 		$item['info'] = render_item_tooltip($Row);
 
-		if($Row['page_loc'])
-			$item['page'] = $Row['page_loc'];
-		else
-			$item['page'] = $Row['page'];
-		
+		$next_page = $Row['page_text'];
+		$item['next_page'] = $next_page; //debug
+		$result = array();
+		if($next_page > 0) {
+			$result = loadPageText($result, $next_page, $_SESSION['locale']);
+		}
+		$item['pageTexts'] = $result;
+
 		// Обучает
 		$teaches = array();
 		for($j=1;$j<=4;$j++)
@@ -668,23 +707,18 @@ function iteminfo($id, $level = 0)
 	global $item_cols;
 	global $DB;
 	$row = $DB->select('
-		SELECT i.?#, i.entry, p.next_page, text AS page
+		SELECT i.?#, i.entry, page_text
 		{
 			, l.name_loc?d AS name_loc
 			, l.description_loc?d AS description_loc
-			, q.Text_loc?d AS page_loc
 		}
 		FROM ?_icons, item_template i
 		{ LEFT JOIN (locales_item l) ON l.entry=i.entry AND ? }
-		LEFT JOIN page_text p ON i.page_text=p.entry
-		{ LEFT JOIN (locales_page_text q) ON i.page_text=q.entry AND ? }
 		WHERE
 			(i.entry=?d and id=display_id)
 		LIMIT 5
 		',
 		$item_cols[2+$level],
-		($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
-		($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
 		($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
 		($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
 		($_SESSION['locale']>0)? 1: DBSIMPLE_SKIP,

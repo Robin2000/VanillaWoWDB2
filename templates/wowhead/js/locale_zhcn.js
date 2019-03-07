@@ -1466,7 +1466,7 @@ var LANG = {
 		splhastertng: ["法术急速等级", "Spell Haste", "Haste"],
 		splhitrtng: ["法术命中等级", "Spell Hit", "Hit"],
 		splpen: ["法术穿透", "Spell Pen", "Pen"],
-		sta: ["精力", "Sta", "Sta"],
+		sta: ["耐力", "Sta", "Sta"],
 		str: ["力量", "Str", "Str"]
 	}
 };

@@ -74,10 +74,25 @@
 					<div id="icon{$item.entry}-generic" style="float: left"></div>
 					<div id="tooltip{$item.entry}-generic" class="tooltip" style="float: left; padding-top: 1px">
 					<table>
-					<tr><td style="padding-bottom:15px">{$item.info}</td><th style="background-position: top right"></th></tr>
-					<tr><td style="padding-top:15px">{$item.page}</td><th style="background-position: top right"></th></tr>
+					<tr><td>{$item.info}</td><th style="background-position: top right"></th></tr>
 					<tr><th style="background-position: bottom left"></th><th style="background-position: bottom right"></th></tr>
 					</table>
+
+					{if $item.pageTexts}
+						{foreach from=$item.pageTexts key=entry name=infolist item=page}
+						{assign var=floor value=$smarty.foreach.infolist.index}
+						<table>
+						<tr><td>
+						<div style="padding-bottom:10px;color:#FFD100">第 {$floor+1} 页</div>
+						{$page}						
+						<div style="text-align:right;padding-bottom:10px;color:#FFD100"></div>						
+						</td><th style="background-position: top right"></th></tr>
+						<tr><th style="background-position: bottom left"></th><th style="background-position: bottom right"></th></tr>
+						</table>
+						{/foreach}
+					{/if}
+
+
 					</div>
 
 					<div style="clear: left"></div>
