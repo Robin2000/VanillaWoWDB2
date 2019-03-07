@@ -3,7 +3,6 @@
 require_once('includes/allspells.php');
 require_once('includes/allquests.php');
 require_once('includes/allnpcs.php');
-require_once('includes/npc_thumb.php');
 require_once('includes/allcomments.php');
 
 // Настраиваем Smarty ;)
@@ -21,7 +20,7 @@ if(!$npc = load_cache(1, $cache_key))
 	$npc = array();
 	$row = $DB->selectRow('
 		SELECT
-			?#, c.entry, c.name,
+			?#, c.entry, c.name, t.thumb,
 			{
 				l.name_loc'.$_SESSION['locale'].' as `name_loc`,
 				l.subname_loc'.$_SESSION['locale'].' as `subname_loc`,
@@ -33,6 +32,7 @@ if(!$npc = load_cache(1, $cache_key))
 			LEFT JOIN (locales_creature l)
 			ON l.entry = c.entry AND ?
 		}
+		LEFT JOIN aowow_thumb_npc t ON c.entry=t.entry
 		WHERE
 			c.entry = ?
 			AND ft.factiontemplateID = c.faction_A
@@ -331,7 +331,7 @@ $smarty->assign('comments', getcomments($page['type'], $page['typeid']));
 // Если хоть одна информация о вещи найдена - передаём массив с информацией о вещях шаблонизатору
 $smarty->assign('allitems', $allitems);
 $smarty->assign('allspells', $allspells);
-$smarty->assign('npc_thumb',$npc_thumb[$id]);
+$smarty->assign('npc_thumb',$npc['thumb']);
 
 
 $smarty->assign('npc', $npc);
