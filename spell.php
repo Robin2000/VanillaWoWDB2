@@ -153,6 +153,9 @@ if(!$spell = load_cache(13, $cache_key))
 						{
 							$spell['effect'][$i]['object'] = array();
 							$spell['effect'][$i]['object']['entry'] = $row['effect'.$j.'MiscValue'];
+							if($_SESSION['locale']>0)
+								$spell['effect'][$i]['object']['name'] = $DB->selectCell("SELECT name_loc4 FROM locales_gameobject WHERE entry = ? LIMIT 1", $spell['effect'][$i]['object']['entry']).' ('.$spell['effect'][$i]['object']['entry'].')';
+							else
 							$spell['effect'][$i]['object']['name'] = $DB->selectCell("SELECT name FROM gameobject_template WHERE entry = ? LIMIT 1", $spell['effect'][$i]['object']['entry']).' ('.$spell['effect'][$i]['object']['entry'].')';
 							break;
 						}
