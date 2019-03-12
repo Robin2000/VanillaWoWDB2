@@ -129,7 +129,7 @@ if(!$spell = load_cache(13, $cache_key))
 		$i=0;
 		$spell['effect'] = array();
 		// Btt - Buff TollTip
-		if($row['buff'])
+		if($row['buff_loc0']||$row['buff_loc4'])
 			$spell['btt'] = spell_buff_render($row);
 		for ($j=1;$j<=3;$j++)
 		{
@@ -156,7 +156,7 @@ if(!$spell = load_cache(13, $cache_key))
 							if($_SESSION['locale']>0)
 								$spell['effect'][$i]['object']['name'] = $DB->selectCell("SELECT name_loc4 FROM locales_gameobject WHERE entry = ? LIMIT 1", $spell['effect'][$i]['object']['entry']).' ('.$spell['effect'][$i]['object']['entry'].')';
 							else
-							$spell['effect'][$i]['object']['name'] = $DB->selectCell("SELECT name FROM gameobject_template WHERE entry = ? LIMIT 1", $spell['effect'][$i]['object']['entry']).' ('.$spell['effect'][$i]['object']['entry'].')';
+								$spell['effect'][$i]['object']['name'] = $DB->selectCell("SELECT name FROM gameobject_template WHERE entry = ? LIMIT 1", $spell['effect'][$i]['object']['entry']).' ('.$spell['effect'][$i]['object']['entry'].')';
 							break;
 						}
 						// скиллы

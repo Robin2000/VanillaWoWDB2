@@ -41,8 +41,8 @@
 			</script>
 
 			{if isset($spell.btt)}
-			<h3>Buff</h3>
-			<div id="btt{$spell.entry}" class="tooltip">
+			<h3></h3>
+			<div id="btt{$spell.entry}" class="tooltip" style="padding-left: 15px">
 				<table><tr><td>{$spell.btt}</td><th style="background-position: top right"></th></tr><tr><th style="background-position: bottom left"></th><th style="background-position: bottom right"></th></tr></table>
 			</div>
 			<script type="text/javascript">
