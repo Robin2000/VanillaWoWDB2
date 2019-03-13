@@ -83,6 +83,11 @@ if(!$npc = load_cache(1, $cache_key))
 		$money = ($row['mingold']+$row['maxgold']) / 2;
 		$npc = array_merge($npc, money2coins($money));
 
+		//AIName
+		if($npc['AIName']=='EventAI') {
+			$npc['event_ai']=loadCreatureAiEvent($npc['entry']);
+		}
+
 		// Дроп
 		$lootid=$row['lootid'];
 		// Используемые спеллы

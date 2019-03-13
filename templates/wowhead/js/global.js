@@ -1381,7 +1381,7 @@ g_getIdFromTypeName.L = {
 	faction: 8,
 	pet: 9,
 	achievement: 10,
-	profile: 100
+	profile: 100,
 };
 function g_getIngameLink(a, c, b) {
 	prompt(LANG.prompt_ingamelink, '/script DEFAULT_CHAT_FRAME:AddMessage("' + sprintf(LANG.message_ingamelink, "\\124c" + a + "\\124H" + c + "\\124h[" + b + ']\\124h\\124r");'))
@@ -5836,6 +5836,40 @@ Listview.templates = {
 			su_addToSaved(rtrim(a, ";"))
 		}
 	},
+	event_ai: {
+		sort: [],
+		searchable: 0,
+		filtrable: 0,
+		columns: [{
+			id: "comment",
+			name: TCOLS.comment,
+			align: "left",
+			type: "text",
+			value: "comment"
+		},{
+			id: "condition_id",
+			name: 'condition_id',
+			align: "left",
+			value: "condition_id"
+		},{
+			id: "event_type",
+			name: TCOLS.event_type,
+			align: "left",
+			type: "text",
+			value: "event_type",
+		},{
+			id: "event_chance",
+			name: TCOLS.event_chance,
+			align: "left",
+			value: "event_chance"
+		},{
+			id: "action_comment",
+			name: TCOLS.action_comment,
+			align: "left",
+			value: "action_comment"
+		}
+		]
+	},
 	itemset: {
 		sort: [1],
 		nItemsPerPage: 75,
@@ -5946,7 +5980,7 @@ Listview.templates = {
 			}
 		}],
 		getItemLink: function (a) {
-			return "?itemset=" + a.id
+			return "/itemset-" + a.id
 		}
 	},
 	npc: {
@@ -7381,7 +7415,7 @@ Listview.templates = {
 			}
 		}],
 		getItemLink: function (a) {
-			return "?pet=" + a.id
+			return "/pet-" + a.id
 		},
 		getStatPct: function (b) {
 			var a = ce("span");

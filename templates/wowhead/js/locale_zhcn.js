@@ -1249,6 +1249,7 @@ var LANG = {
 	tab_contains: "包含",
 	tab_createdby: "创建人",
 	tab_criteriaof: "Criteria of",
+	tab_eventai:'事件AI',
 	tab_currencyfor: "货币",
 	tab_disenchantedfrom: "分解自",
 	tab_disenchanting: "附魔",
@@ -1469,4 +1470,10 @@ var LANG = {
 		sta: ["耐力", "Sta", "Sta"],
 		str: ["力量", "Str", "Str"]
 	}
+};
+var TCOLS = {
+	comment:'备注',
+	event_type:'类别',
+	event_chance:'几率%',
+	action_comment:'动作',
 };

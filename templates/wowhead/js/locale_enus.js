@@ -1249,6 +1249,7 @@ var LANG = {
 	tab_contains: "Contains",
 	tab_createdby: "Created by",
 	tab_criteriaof: "Criteria of",
+	tab_eventai:'Event AI',
 	tab_currencyfor: "Currency for",
 	tab_disenchantedfrom: "Disenchanted from",
 	tab_disenchanting: "Disenchanting",
@@ -1469,4 +1470,10 @@ var LANG = {
 		sta: ["Stamina", "Sta", "Sta"],
 		str: ["Strength", "Str", "Str"]
 	}
+};
+var TCOLS = {
+	comment:'comment',
+	event_type:'Type',
+	event_chance:'Chance',
+	action_comment:'action',
 };
