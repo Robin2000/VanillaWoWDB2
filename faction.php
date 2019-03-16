@@ -77,7 +77,7 @@ if(!$faction = load_cache(18, $cache_key))
 
 		// Персонажи, состоящие во фракции
 		$creature_rows = $DB->select('
-			SELECT ?#, A.entry, C.name_loc4
+			SELECT ?#, A.entry, C.name_loc4, C.subname_loc4
 			FROM creature_template A
 			INNER JOIN aowow_factiontemplate B ON factiontemplateID=faction_A
 			LEFT JOIN locales_creature C ON A.entry=C.entry
