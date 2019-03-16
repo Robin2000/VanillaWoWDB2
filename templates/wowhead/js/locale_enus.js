@@ -938,6 +938,9 @@ var g_socket_names = {
 	14 : "Prismatic Socket"
 };
 var LANG = {
+	book_previous:"previous",	
+	book_next:"next",	
+	book_of:"of",	
 	comma: ", ",
 	ellipsis: "...",
 	dash: " " + String.fromCharCode(8211) + " ",

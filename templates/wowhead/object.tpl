@@ -80,13 +80,19 @@
 				{#This_Object_cant_be_found#}
 {/if}
 
-{if isset($object.pagetext)}
-	<h3>Content</h3>
+{if isset($object.page_text)}
+	<h3>
+	{if $smarty.session.locale==4}
+	内容
+	{else}
+	Content
+	{/if}
+	</h3>
 	<div id="book-generic"></div>
 	{strip}
 		<script>
 			new Book({ldelim} parent: 'book-generic', pages: [
-			{foreach from=$object.pagetext item=pagetext name=j}
+			{foreach from=$object.page_text item=pagetext name=j}
 				'{$pagetext|escape:"javascript"}'
 				{if $smarty.foreach.j.last}{else},{/if}
 			{/foreach}

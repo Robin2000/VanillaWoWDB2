@@ -938,6 +938,9 @@ var g_socket_names = {
 	14 : "五槽"
 };
 var LANG = {
+	book_previous:"上页",	
+	book_next:"下页",	
+	book_of:"/",		
 	comma: ", ",
 	ellipsis: "...",
 	dash: " " + String.fromCharCode(8211) + " ",
