@@ -62,3 +62,5 @@ RewriteRule ^pets ?pets
 RewriteRule ^talent ?talent
 RewriteRule ^achievements ?achievements
 RewriteRule ^maps ?maps
+
+RewriteRule ^search-([^x00-xff\.a-z0-9A-Z\-#]+) ?search=$1
