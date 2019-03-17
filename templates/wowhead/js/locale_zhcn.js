@@ -26,6 +26,7 @@ var mn_factions = [
 		[67,"部落"],
 		[892,"部落势力"],
 		[169,"热砂集团"],
+		[0,"其它"],
 ];
 var mn_petCalc = [];
 var mn_forums = [];
