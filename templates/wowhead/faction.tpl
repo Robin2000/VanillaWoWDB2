@@ -20,13 +20,22 @@
 						</ul>
 					</td></tr>
 				</table>
-				<script type="text/javascript">ss_appendSticky()</script>
+				{if isset($faction.screenshots)}
+				<script type="text/javascript">
+				var lv_screenshots=$faction.screenshots;
+				ss_appendSticky();
+				</script>
+				{/if}
 				<div class="text">
 					<h1>{$faction.name}</h1>
 					{$faction.description1}
 					{if $faction.description1}<h1></h1>{/if}
 					{$faction.description2}
+					{if $smarty.session.locale==4}
+					<div class="article-footer">更多详细内容参考&ndash; <a href="https://warcraft.huijiwiki.com/wiki/{$faction.name}" target="_blank" class="q0">阅读</a><br /></div>
+					{else}
 					<div class="article-footer">Article ported from <a href="http://www.wowwiki.com/" target="_blank" class="q0">WoWWiki</a>&ndash; <a href="http://www.wowwiki.com/{$faction.name}" target="_blank" class="q0">Read more</a><br />Licensed under <a href="http://www.gnu.org/copyleft/fdl.html" target="_blank" class="q0">GFDL</a></div>
+					{/if}
 				<h2>{#Related#}</h2>
 				</div>
 				<div id="tabs-generic"></div>

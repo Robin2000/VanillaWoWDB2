@@ -21,10 +21,9 @@ if(!$faction = load_cache(18, $cache_key))
 				f1.factionID, f1.name_loc?d, f1.description1_loc?d, f1.description2_loc?d,
 				f1.team, f1.side, f2.factionID AS category2, f2.name_loc?d AS `group`
 			FROM ?_factions f1
-			LEFT JOIN (?_factions f2) ON f1.team <> 0
+			LEFT JOIN (?_factions f2) ON f1.team <> 0 AND f1.team = f2.factionID
 			WHERE
-				f1.factionID = ?d
-				AND f1.team = f2.factionID
+				f1.factionID = ?d				
 			LIMIT 1
 		',
 		$_SESSION['locale'],
