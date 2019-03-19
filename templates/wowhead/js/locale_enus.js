@@ -194,6 +194,7 @@ var g_item_subclasses = {
 		3 : "Bullet"
 	},
 	7 : {
+		0 : "Goods",
 		1 : "Part",
 		2 : "Explosive",
 		3 : "Device",
