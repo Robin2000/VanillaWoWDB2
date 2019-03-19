@@ -14,10 +14,9 @@ if(!$factions = load_cache(19, $cache_key))
 	$factions = $DB->select('
 			SELECT f1.factionID AS entry, f1.team, TRIM(f1.name_loc?d) AS name, f1.side, { f2.?# }{ ?d } AS category2, ?d AS category
 			FROM ?_factions f1
-			{ LEFT JOIN (?_factions f2) ON f1.team <> ?d }
+			{ LEFT JOIN (?_factions f2) ON f1.team <> ?d AND f1.team = f2.?#}
 			WHERE
 				f1.reputationListID != -1
-				{ AND f1.team = f2.?# }
 				{ AND f1.team = ? }
 			ORDER BY name
 		',
