@@ -87,9 +87,18 @@
 				</td></tr>
 				<tr>
 				<td><div class="infobox-spacer"></div>
+
 				{if $npc.thumb}
-				<img src="http://wowdb60ss.wow-classic.com/{$npc.thumb}.jpg!thumb">
+					{if $npc.wiki}
+						<a target="_blank" href="{$npc.wiki}">
+					{/if}
+						<img src="http://wowdb60ss.wow-classic.com/{$npc.thumb}.jpg!thumb">
+					{if $npc.wiki}
+						<p style="text-align:center">百科知识</p>	
+						</a>
+					{/if}	
 				{/if}
+
 				</td>
 				</tr>
 			</table>
