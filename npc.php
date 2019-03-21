@@ -60,7 +60,7 @@ if(!$npc = load_cache(1, $cache_key))
 		
 		# Get NPC Attack speed
 		$npc['attackspeed'] = number_format(($row['baseattacktime']/1000),2);
-		$npc['dps'] = number_format((($npc['mindmg']+$npc['maxdmg'])/2)/$npc['attackspeed'],2);
+		$npc['dps'] = $npc['attackspeed']==0 ? 0 : number_format((($npc['mindmg']+$npc['maxdmg'])/2)/$npc['attackspeed'],2);
 		
 		# NPC Resistances		
 		$npc['resistance1'] = $row['resistance1'];
