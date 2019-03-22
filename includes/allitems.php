@@ -642,6 +642,7 @@ function iteminfo2(&$Row, $level=0)
 		$item['info'] = render_item_tooltip($Row);
 
 		$item['thumb'] = $Row['thumb'];
+		$item['wiki'] = $Row['wiki'];
 		$next_page = $Row['page_text'];
 		$item['next_page'] = $next_page; //debug
 		$result = array();
@@ -709,7 +710,7 @@ function iteminfo($id, $level = 0)
 	global $item_cols;
 	global $DB;
 	$row = $DB->select('
-		SELECT i.?#, i.entry, page_text, thumb
+		SELECT i.?#, i.entry, page_text, thumb, wiki
 		{
 			, l.name_loc?d AS name_loc
 			, l.description_loc?d AS description_loc

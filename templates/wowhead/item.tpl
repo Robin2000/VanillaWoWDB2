@@ -43,7 +43,14 @@
 					<tr>
 					<td><div class="infobox-spacer"></div>
 					{if $item.thumb}
-					<img src="http://wowdb60ss.wow-classic.com/{$item.thumb}.jpg!thumb">
+						{if $item.wiki}
+						<a target="_blank" href="{$item.wiki}">
+						{/if}
+					<img src="http://wowdb60ss.wow-classic.com/{$item.thumb}.jpg!thumb" onerror="this.style.display='none'"/>
+						{if $item.wiki}
+						<p style="text-align:center">百科知识</p>	
+						</a>
+						{/if}	
 					{/if}
 					</td>
 					</tr>
