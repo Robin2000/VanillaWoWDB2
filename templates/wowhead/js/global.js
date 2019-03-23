@@ -8206,6 +8206,8 @@ function () {
 		3 : [g_items, "item"],
 		5 : [g_quests, "quest"],
 		6 : [g_spells, "spell"],
+		7 : [g_zones, "zone"],
+		8 : [g_factions, "faction"],
 		10 : [g_achievements, "achievement"],
 		100 : [c, "profile"]
 	};

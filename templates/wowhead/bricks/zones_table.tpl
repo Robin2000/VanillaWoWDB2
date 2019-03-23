@@ -3,7 +3,8 @@
 		template:'zone',
 		id:'{$id}',
 		name:LANG.tab_{$name},
-		{if $tabsid}tabs:tabsRelated,parent:'listview-generic',{/if}
+		instance:'instance',
+		{if $tabsid}tabs:{$tabsid},parent:'listview-generic',{/if}
 		data:[
 			{section name=i loop=$data}
 				{ldelim}

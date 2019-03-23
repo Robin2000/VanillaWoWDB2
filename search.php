@@ -179,6 +179,32 @@ $rows = $DB->select('
 foreach($rows as $row)
 	$found['spell'][] = spellinfo2($row);
 
+//zones
+$rows = $DB->select('
+		SELECT areatableID AS id,areatableID as area, name_loc'.$_SESSION['locale'].' as name,type as instance
+		FROM aowow_zones
+		WHERE
+			MATCH(name_loc0,name_loc4) AGAINST (+?) AND (name_loc0 like ? OR name_loc4 like ?)
+	',
+	$nsearch,'%'.$nsearch.'%','%'.$nsearch.'%'
+);
+
+foreach ($rows as $row) {
+	
+	if ($row['instance'] == 0) {
+		$row['instance'] = "世界";
+	} else if ($row['instance'] == 1) {
+		$row['instance'] = "副本";
+	} else if ($row['instance'] == 2) {
+		$row['instance'] = "团本";
+	} else if ($row['instance'] == 3) {
+		$row['instance'] = "战场";
+	}
+	$found['zones'][] = $row;
+}
+
+
+
 $keys = array_keys($found);
 
 // Если найден один элемент - перенаправляем на него

@@ -9,6 +9,9 @@ drop index questfulltextloc4 ON locales_quest;
 drop index creaturefulltext ON creature_template;
 drop index creaturefulltextloc4 ON locales_creature;
 
+alter table aowow_zones add fulltext index zonefulltext(name_loc0,name_loc4) with parser ngram; 
+alter table aowow_factions add fulltext index factionfulltext(name_loc0,name_loc4) with parser ngram; 
+
 alter table aowow_spell add fulltext index spellfulltext(spellname_loc0,spellname_loc4) with parser ngram; 
 alter table aowow_itemset add fulltext index itemsetfulltext(name_loc0,name_loc4) with parser ngram; 
 alter table item_template add fulltext index itemfulltext(name); 
