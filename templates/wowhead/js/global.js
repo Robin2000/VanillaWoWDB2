@@ -3533,7 +3533,9 @@ Listview.prototype = {
 			}
 			if (a.compute) {
 				h = (a.compute.bind(this, j, c, g, f))()
-			} else {
+			} else 	if(1==1){
+				h=this.getColText(j,a); /*robin fix*/
+		  } else {
 				if (j[a.value] != null) {
 					h = j[a.value]
 				} else {
@@ -6732,10 +6734,12 @@ Listview.templates = {
 			}
 		},
 		{
-			id: "instancetype",
-			name: "Instance",
+			id: "instance",
+			name: LANG.instancetype,
 			type: "text",
-			value: "instance"
+			getValue: function(a){
+				return a.instance? g_zone_instancetypes[a.instance] : '';
+			}
 		},
 		],
 		getItemLink: function (a) {

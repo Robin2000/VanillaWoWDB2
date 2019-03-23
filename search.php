@@ -190,20 +190,8 @@ $rows = $DB->select('
 );
 
 foreach ($rows as $row) {
-	
-	if ($row['instance'] == 0) {
-		$row['instance'] = "世界";
-	} else if ($row['instance'] == 1) {
-		$row['instance'] = "副本";
-	} else if ($row['instance'] == 2) {
-		$row['instance'] = "团本";
-	} else if ($row['instance'] == 3) {
-		$row['instance'] = "战场";
-	}
 	$found['zones'][] = $row;
 }
-
-
 
 $keys = array_keys($found);
 

@@ -1017,14 +1017,13 @@ var g_zone_categories = {
 	6 : "Battlegrounds",
 	9 : "Arenas"
 };
+
 var g_zone_instancetypes = {
-	1 : "Transit",
-	2 : "Dungeon",
-	3 : "Raid",
-	4 : "Battleground",
-	5 : "Dungeon",
-	6 : "Arena",
-	7 : "Raid"
+	0 : "World",
+	1 : "Dungeon",
+	2 : "Raid",
+	3 : "Battleground",
+	4 : "Arena"
 };
 var g_zone_territories = {
 	0 : "Alliance",

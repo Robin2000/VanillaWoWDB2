@@ -15,7 +15,7 @@ if(!$zones = load_cache(2, $cache_key))
 	unset($zones);
 
 	$rows = $DB->select('
-		SELECT *, areatableID as area, name_loc'.$_SESSION['locale'].' as name 
+		SELECT *, areatableID as area, name_loc'.$_SESSION['locale'].' as name ,type as instance
 		FROM aowow_zones
 			{WHERE
 			mapID = ?d}
@@ -28,10 +28,6 @@ if(!$zones = load_cache(2, $cache_key))
 	);
 	$zones = array();
 	foreach ($rows as $row) {
-		
-		if ($row['x_min'] == 0) {
-			$row['instance'] = "Yes";
-		}
 		$zones[] = $row;
 	}
 	
