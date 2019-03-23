@@ -18,12 +18,10 @@ if(!$zones = load_cache(2, $cache_key))
 		SELECT *, areatableID as area, name_loc'.$_SESSION['locale'].' as name ,type as instance
 		FROM aowow_zones
 			{WHERE
-			mapID = ?d}
-			{OR mapID > ?d}
+			type = ?d}
 		{LIMIT ?d}
 		',
 		isset($type) ? $type : DBSIMPLE_SKIP,
-		(isset($type)&&$type==2) ? $type : DBSIMPLE_SKIP,
 		($AoWoWconf['limit']!=0)? $AoWoWconf['limit']: DBSIMPLE_SKIP
 	);
 	$zones = array();

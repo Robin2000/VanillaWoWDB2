@@ -15,8 +15,8 @@ var mn_zones=[
 	[0,"Eastern Kingdoms"],
 	[1,"Kalimdor"],
 	[2,"Dungeons"],
-	/*[3,"Raids"],
-	[6,"Battlegrounds"]*/
+	[3,"Raids"],
+	[4,"Battlegrounds"]
 ];
 var mn_talentCalc = [["0", "Druid"], ["c", "Hunter"], ["o", "Mage"], ["s", "Paladin"], ["b", "Priest"], ["f", "Rogue"], ["h", "Shaman"], ["I", "Warlock"], ["L", "Warrior"]];
 var mn_pets = [];
