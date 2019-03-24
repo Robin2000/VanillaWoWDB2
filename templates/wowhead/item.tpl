@@ -92,22 +92,8 @@
 					<tr><th style="background-position: bottom left"></th><th style="background-position: bottom right"></th></tr>
 					</table>
 
-					{if $item.pageTexts}
-						{foreach from=$item.pageTexts key=entry name=infolist item=page}
-						{assign var=floor value=$smarty.foreach.infolist.index}
-						<table>
-						<tr><td>
-						<div style="padding-bottom:10px;color:#FFD100">{$item.pageName} {$floor+1} </div>
-						{$page}						
-						<div style="text-align:right;padding-bottom:10px;color:#FFD100"></div>						
-						</td><th style="background-position: top right"></th></tr>
-						<tr><th style="background-position: bottom left"></th><th style="background-position: bottom right"></th></tr>
-						</table>
-						{/foreach}
-					{/if}
-
-
 					</div>
+
 
 					<div style="clear: left"></div>
 
@@ -116,6 +102,26 @@
 						Tooltip.fix(ge('tooltip{$item.entry}-generic'), 1, 1);
 					</script>
 
+{if isset($item.pageTexts)}
+	<h3>
+	{if $smarty.session.locale==4}
+	内容
+	{else}
+	Content
+	{/if}
+	</h3>
+	<div id="book-generic"></div>
+	{strip}
+		<script>
+			new Book({ldelim} parent: 'book-generic', pages: [
+			{foreach from=$item.pageTexts item=pagetext name=j}
+				'{$pagetext|escape:"javascript"}'
+				{if $smarty.foreach.j.last}{else},{/if}
+			{/foreach}
+			]{rdelim})
+		</script>
+	{/strip}
+{/if}
 					<h2>{#Related#}</h2>
 
 				</div>

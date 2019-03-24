@@ -507,7 +507,7 @@ if(!$item = load_cache(5, $cache_key))
 global $page;
 $page = array(
 	'Mapper' => false,
-	'Book' => false,
+	'Book' => $item['pageTexts'] ? true : false,
 	'Title' => $item['name'].' - '.$smarty->get_config_vars('Items'),
 	'tab' => 0,
 	'type' => 3,
