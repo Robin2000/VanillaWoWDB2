@@ -2,18 +2,18 @@
 global $AoWoWconf;
 
 // -- MaNGOS Database --
-$AoWoWconf['mangos']['host']	= '127.0.0.1:3307';
+$AoWoWconf['mangos']['host']	= '127.0.0.1';
 $AoWoWconf['mangos']['user']	= 'root';
 $AoWoWconf['mangos']['pass']	= 'java112233';
 $AoWoWconf['mangos']['db']		= 'world_lighthope';
 $AoWoWconf['mangos']['aowow']	= 'aowow_'; // AoWoW table prefix
 // -- Realmd Database --
-$AoWoWconf['realmd']['host']	= '127.0.0.1:3307';
+$AoWoWconf['realmd']['host']	= '127.0.0.1';
 $AoWoWconf['realmd']['user']	= 'root';
 $AoWoWconf['realmd']['pass']	= 'java112233';
 $AoWoWconf['realmd']['db']		= 'realmd_lighthope';
 // -- Characters Database -- currently unused
-$AoWoWconf['characters']['host']	= '127.0.0.1:3307';
+$AoWoWconf['characters']['host']	= '127.0.0.1';
 $AoWoWconf['characters']['user']	= 'root';
 $AoWoWconf['characters']['pass']	= 'java112233';
 $AoWoWconf['characters']['db']		= 'characters_lighthope';
@@ -31,7 +31,7 @@ $AoWoWconf['register'] = false;
 // Used with register, account expansion
 $AoWoWconf['expansion'] = 0;
 // Limit of some SQL queries
-$AoWoWconf['limit'] = 300;
+$AoWoWconf['limit'] = 50;
 // Disable cache, show smarty console panel
 $AoWoWconf['debug'] = false;
 // Map object grouping factor. Meters = 10^param.
