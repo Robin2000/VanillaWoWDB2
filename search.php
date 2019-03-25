@@ -193,6 +193,22 @@ foreach ($rows as $row) {
 	$found['zones'][] = $row;
 }
 
+//factions
+$rows = $DB->select('
+			SELECT f1.factionID AS entry, f1.team, f1.name_loc?d AS name, f1.side, f1.team AS category2, f1.team AS category
+			FROM aowow_factions f1
+			WHERE
+			f1.reputationListID != -1 AND
+			MATCH(name_loc0,name_loc4) AGAINST (+?) AND (name_loc0 like ? OR name_loc4 like ?)
+	',
+	$_SESSION['locale'],
+	$nsearch,'%'.$nsearch.'%','%'.$nsearch.'%'
+);
+
+foreach ($rows as $row) {
+	$found['factions'][] = $row;
+}
+
 $keys = array_keys($found);
 
 // Если найден один элемент - перенаправляем на него
