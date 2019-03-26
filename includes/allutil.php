@@ -507,4 +507,17 @@ function localizedName($arr, $key = 'name')
 	else
 		return $arr[$lkey];
 }
+function replPageImgReg($source,$targetReg){
+	if(!$source){
+		return $source;
+	}
+	preg_match_all($targetReg,$source,$marr);
+	for ($i=0;$i<count($marr[0]);$i++) {
+		$c=$marr[0][$i];
+		$f=$marr[1][$i];
+		$source=str_ireplace($c, '/images/'.$f.'.png', $source);
+
+	}
+	return $source;
+}
 ?>

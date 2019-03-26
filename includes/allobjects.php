@@ -476,6 +476,16 @@ function objectinfo2(&$Row, $level=0)
 				$row['text'] = QuestReplaceStr(localizedName($row, 'text'));
 				if(empty($row['text']))
 					break;
+				
+				if($row['text']){
+					$text=$row['text'];
+					$text=replPageImgReg($text,"/Interface\\\\Pictures\\\\([^\"]+)/");
+					$text=replPageImgReg($text,"/Interface\\\\PvPRankBadges\\\\([^\"]+)/");
+					$text=replPageImgReg($text,"/Interface\\\\FlavorImages\\\\([^\"]+)/");
+					$row['text']=$text;
+				}
+
+
 				$object['page_text'][] = $row['text'];
 				$object['pageid'] = $row['next_page'];
 			}

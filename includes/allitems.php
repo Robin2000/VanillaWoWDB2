@@ -524,6 +524,7 @@ function render_item_tooltip(&$Row)
 	$x .= '</td></tr></table>';
 	return $x;
 }
+
 function loadPageText($result,$entry,$loc){
 	global $DB;
 	$row = array();
@@ -547,6 +548,13 @@ function loadPageText($result,$entry,$loc){
 	}
 	if($query) {
 		$row=$query[0];
+		if($row['page']){
+			$text=$row['page'];
+			$text=replPageImgReg($text,"/Interface\\\\Pictures\\\\([^\"]+)/");
+			$text=replPageImgReg($text,"/Interface\\\\PvPRankBadges\\\\([^\"]+)/");
+			$text=replPageImgReg($text,"/Interface\\\\FlavorImages\\\\([^\"]+)/");
+			$row['page']=$text;
+		}
 	}
 
 
@@ -649,8 +657,9 @@ function iteminfo2(&$Row, $level=0)
 		if($next_page > 0) {
 			$item['pageName']=($_SESSION['locale']>0)?'页':'Page';
 			$result = loadPageText($result, $next_page, $_SESSION['locale']);
+			$item['pageTexts'] = $result;
 		}
-		$item['pageTexts'] = $result;
+
 
 		// Обучает
 		$teaches = array();
