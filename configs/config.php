@@ -19,7 +19,7 @@ $AoWoWconf['characters']['pass']	= 'java112233';
 $AoWoWconf['characters']['db']		= 'characters_lighthope';
 // -- Site Configuration --
 // Title of the website
-$AoWoWconf['aowow']['name'] = 'AoWoW';
+$AoWoWconf['aowow']['name'] = 'TopWoW经典魔兽数据库';
 // Skin, only 'wowhead' is supported currently
 $AoWoWconf['aowow']['template'] = 'wowhead';
 // Time to keep cache in seconds (Default: 1 week)
