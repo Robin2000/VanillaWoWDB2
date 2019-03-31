@@ -26,135 +26,124 @@ global $spell_cols;
 
 // Массив всего найденного
 $found = array();
-
+$rows = array();
 // Ищем вещи:
+
 if($_SESSION['locale']>0)
 {
-	$m = $DB->selectCol('
-			SELECT entry
-			FROM locales_item
+	$rows = $DB->select('
+			SELECT B.?#,name_loc4
+			FROM locales_item A
+			LEFT JOIN item_template B ON A.entry=B.entry
+			LEFT JOIN aowow_icons C ON B.display_id=C.id
 			WHERE MATCH(name_loc4) AGAINST (+?) AND  name_loc4 like ?
 		',
+		$item_cols[3],
+		$nsearch,'%'.$nsearch.'%'
+	);
+}else{
+	$rows = $DB->select('
+			SELECT B.?#
+			FROM item_template B
+			LEFT JOIN  aowow_icons C ON B.display_id=C.id
+			WHERE
+				MATCH(B.name) AGAINST (+?) AND B.name like ?
+				AND C.id = B.display_id;
+		',
+		$item_cols[3],
 		$nsearch,'%'.$nsearch.'%'
 	);
 }
-
-$rows = $DB->select('
-		SELECT i.?#
-			{, l.name_loc?d AS `name_loc`}
-		FROM aowow_icons a, item_template i
-			{LEFT JOIN (locales_item l) ON l.entry=i.entry AND ?d}
-		WHERE
-			(MATCH(i.name) AGAINST (+?) {OR i.entry IN (?a)})
-			AND a.id = i.display_id;
-	',
-	$item_cols[3],
-	($m)? $_SESSION['locale']: DBSIMPLE_SKIP,
-	($m)? 1: DBSIMPLE_SKIP,
-	$nsearch,
-	($m)? $m: DBSIMPLE_SKIP
-);
 $rows = sanitiseitemrows($rows);
-unset($m);
 foreach($rows as $row)
 	$found['item'][] = iteminfo2($row);
 
-// Ищем NPC:
+// NPC:
 if($_SESSION['locale']>0)
 {
-	$m = $DB->selectCol('
-			SELECT entry
-			FROM locales_creature
+	$rows = $DB->select('
+			SELECT ?#, A.entry,A.name_loc4,A.subname_loc4
+			FROM locales_creature A
+			LEFT JOIN creature_template B ON A.entry=B.entry
+			LEFT JOIN aowow_factiontemplate C ON C.factiontemplateID=B.faction_A
 			WHERE
 				MATCH(name_loc4) AGAINST (+?) AND name_loc4 like ?
 		',
+		$npc_cols[0],
+		$nsearch,'%'.$nsearch.'%'
+	);
+}else{
+	$rows = $DB->select('
+			SELECT ?#, B.entry
+			FROM  creature_template B
+			LEFT JOIN aowow_factiontemplate C ON C.factiontemplateID=B.faction_A
+			WHERE
+				MATCH(name) AGAINST (+?) AND name like ?
+		',
+		$npc_cols[0],
 		$nsearch,'%'.$nsearch.'%'
 	);
 }
-$rows = $DB->select('
-		SELECT ?#, c.entry
-			{, l.name_loc?d AS `name_loc`,
-			l.subname_loc'.$_SESSION['locale'].' AS `subname_loc`}
-		FROM ?_factiontemplate, creature_template c
-			{LEFT JOIN (locales_creature l) ON l.entry=c.entry AND ?d}
-		WHERE
-			(MATCH(name) AGAINST (+?) AND name like ?
-			{OR c.entry IN (?a)})
-			AND factiontemplateID=faction_A
-	',
-	$npc_cols[0],
-	($m)? $_SESSION['locale']: DBSIMPLE_SKIP,
-	($m)? 1: DBSIMPLE_SKIP,
-	$nsearch,'%'.$nsearch.'%',
-	($m)? $m: DBSIMPLE_SKIP
-);
-unset($m);
+$rows = sanitiseitemrows($rows);
 foreach($rows as $row)
 	$found['npc'][] = creatureinfo2($row);
 
-// Ищем объекты
+// gameobject
 if($_SESSION['locale']>0)
 {
-	$m = $DB->selectCol('
-			SELECT entry
-			FROM locales_gameobject
+	$rows = $DB->select('
+			SELECT B.?#,name_loc4
+			FROM locales_gameobject A
+			LEFT JOIN gameobject_template B ON A.entry=B.entry
 			WHERE
 				MATCH(name_loc4) AGAINST (+?) AND name_loc4 like ?
 		',
+		$object_cols[0],
+		$nsearch,'%'.$nsearch.'%'
+	);
+}else{
+	$rows = $DB->select('
+			SELECT B.?#
+			FROM gameobject_template B
+			WHERE MATCH(name) AGAINST (+?) AND name like ?
+		',
+		$object_cols[0],
 		$nsearch,'%'.$nsearch.'%'
 	);
 }
-$rows = $DB->select('
-		SELECT g.?#
-			{, l.name_loc?d AS `name_loc`}
-		FROM gameobject_template g
-			{LEFT JOIN (locales_gameobject l) ON l.entry=g.entry AND ?d}
-		WHERE MATCH(name) AGAINST (+?) AND name like ?
-		{OR g.entry IN (?a)}
-	',
-	$object_cols[0],
-	($m)? $_SESSION['locale']: DBSIMPLE_SKIP,
-	($m)? 1: DBSIMPLE_SKIP,
-	$nsearch,'%'.$nsearch.'%',
-	($m)? $m: DBSIMPLE_SKIP
-);
-unset($m);
+$rows = sanitiseitemrows($rows);
 foreach($rows as $row)
 	$found['object'][] = objectinfo2($row);
 
-// Ищем квесты
+// quest
 if($_SESSION['locale']>0)
 {
-	$m = $DB->selectCol('
-			SELECT entry
-			FROM locales_quest
+	$rows = $DB->select('
+			SELECT A.?#,Title_loc4
+			FROM locales_quest A
+			LEFT JOIN quest_template B ON A.entry=B.entry
 			WHERE
-				MATCH(Title_loc4) AGAINST (+?)
-				AND (Title_loc4 like ?)
+				MATCH(Title_loc4) AGAINST (+?) AND (Title_loc4 like ?)
 		',
+		$quest_cols[2],
+		$nsearch,'%'.$nsearch.'%'
+	);
+}else{
+	$rows = $DB->select('
+			SELECT A.?#
+			FROM quest_template A
+			WHERE 
+			MATCH(Title) AGAINST (+?)  AND Title like ?
+		',
+		$quest_cols[2],
 		$nsearch,'%'.$nsearch.'%'
 	);
 }
-$rows = $DB->select('
-		SELECT *
-			{, l.Title_loc?d AS `Title_loc`}
-		FROM quest_template q
-			{LEFT JOIN (locales_quest l) ON l.entry=q.entry AND ?d}
-		WHERE 
-		MATCH(Title) AGAINST (+?) 
-		AND Title like ? {OR q.entry IN (?a)}
-	',
-	($m)? $_SESSION['locale']: DBSIMPLE_SKIP,
-	($m)? 1: DBSIMPLE_SKIP,
-	$nsearch,
-	'%'.$nsearch.'%',
-	($m)? $m: DBSIMPLE_SKIP
-);
-unset($m);
+$rows = sanitiseitemrows($rows);
 foreach($rows as $row)
 	$found['quest'][] = GetQuestInfo($row, 0xFFFFFF);
 
-// Ищем наборы вещей
+// itemset
 $rows = $DB->select('
 		SELECT *
 		FROM ?_itemset
@@ -162,10 +151,12 @@ $rows = $DB->select('
 	',
 	$nsearch,'%'.$nsearch.'%','%'.$nsearch.'%'
 );
+
+$rows = sanitiseitemrows($rows);
 foreach($rows as $row)
 	$found['itemset'][] = itemsetinfo2($row);
 
-// Ищем спеллы
+// spell
 $rows = $DB->select('
 		SELECT ?#, spellID
 		FROM ?_spell s, ?_spellicons i

@@ -12,118 +12,137 @@ global $DB;
 require_once('includes/db.php');
 
 // Принимаются запросы минимум из 2 символов (хотя на вовхеде и на 1 символ)
-$search_query = $_GET['search'];
-if(strlen($search_query) < 2)
+$nsearch = $_GET['search'];
+if(strlen($nsearch) < 2)
 	exit('["", []]');
-/*$search_query = '%'.str_replace('%', '\%', $search_query).'%';*/
+/*$nsearch = '%'.str_replace('%', '\%', $nsearch).'%';*/
 
 echo '["'.str_replace('"', '\"', $_GET['search']).'", [';
 
 $rows = array();
 
-// Ищем вещи:
+// Item:
+if($_SESSION['locale']>0)
+{
+	$rows = $DB->select('
+			SELECT A.entry,name_loc4 AS name,C.iconname, B.quality,B.patch
+			FROM locales_item A
+			left join  item_template B ON A.entry=B.entry
+			left join aowow_icons C ON C.id = B.display_id
+			WHERE MATCH(name_loc4) AGAINST (+?) AND  name_loc4 like ?
+		',
+		$nsearch,'%'.$nsearch.'%'
+	);
+} else {
+	$rows = $DB->select('
+			SELECT i.entry, name, a.iconname, i.quality,i.patch
+			FROM aowow_icons a, item_template i
+			WHERE
+				MATCH(i.name) AGAINST (+?) AND  name like ?
+				AND a.id = i.display_id;
+		',
+		$nsearch,'%'.$nsearch.'%'
+	);
+	
+}
 
-$rows = $DB->select('
-	SELECT i.entry, ?# as name, a.iconname, i.quality
-	FROM ?_icons a, item_template i{, ?# l}
-	WHERE
-		?# AGAINST (+?) AND ?# like ?
-		AND a.id = i.display_id
-		{ AND i.entry = l.?# }
-	ORDER BY i.quality DESC, ?#
-	LIMIT 5
-	',
-	$_SESSION['locale'] == 0 ? 'name' : 'name_loc'.$_SESSION['locale'],	// SELECT
-	$_SESSION['locale'] == 0 ? DBSIMPLE_SKIP : 'locales_item',			// FROM
-	$_SESSION['locale'] == 0 ? 'MATCH(name)' : 'MATCH(name_loc'.$_SESSION['locale'].')',	// WHERE1
-	$search_query,
-	$_SESSION['locale'] == 0 ? 'name' : 'name_loc'.$_SESSION['locale'],	// WHERE1
-	'%'.$search_query.'%',
-	$_SESSION['locale'] == 0 ? DBSIMPLE_SKIP : 'entry',					// WHERE2
-	$_SESSION['locale'] == 0 ? 'name' : 'name_loc'.$_SESSION['locale']	// ORDER
-);
 $rows = sanitiseitemrows($rows);
-foreach($rows as $i => $row)
+foreach($rows as $row){
 	$found[$row['name'].' (Item)'] = array(
 		'type'		=> 3,
 		'entry'		=> $row['entry'],
 		'iconname'	=> $row['iconname'],
 		'quality'	=> $row['quality']
 	);
+}
 
-// Ищем объекты:
-$rows = $DB->select('
-	SELECT entry, ?# as name
-	FROM ?#
-	WHERE ?# AGAINST (+?) AND ?# like ?
-	ORDER BY ?#
-	LIMIT 3
-	',
-	$_SESSION['locale'] == 0 ? 'name' : 'name_loc'.$_SESSION['locale'],			// SELECT
-	$_SESSION['locale'] == 0 ? 'gameobject_template' : 'locales_gameobject',	// FROM
-	$_SESSION['locale'] == 0 ? 'MATCH(name)' : 'MATCH(name_loc'.$_SESSION['locale'].')',			// WHERE1
-	$search_query,
-	$_SESSION['locale'] == 0 ? 'name' : 'name_loc'.$_SESSION['locale'],			// WHERE1
-	'%'.$search_query.'%',
-	$_SESSION['locale'] == 0 ? 'name' : 'name_loc'.$_SESSION['locale']			// ORDER
+
+// creature:
+if($_SESSION['locale']>0)
+{
+	$rows = $DB->select('
+			SELECT A.entry,name_loc4 as name,patch
+			FROM locales_creature A
+			LEFT JOIN creature_template B ON A.entry=B.entry
+			WHERE
+				MATCH(name_loc4) AGAINST (+?) AND name_loc4 like ?
+		',
+		$nsearch,'%'.$nsearch.'%'
+	);
+}else{
+	$rows = $DB->select('
+			SELECT c.entry,name,patch
+			FROM creature_template c
+			WHERE
+				(MATCH(name) AGAINST (+?) AND name like ?
+		',
+		$nsearch,'%'.$nsearch.'%'
+	);
+}
+
+$rows = sanitiseitemrows($rows);
+foreach($rows as $i => $row)
+$found[$row['name'].' (NPC)'] = array(
+	'type' => 1,
+	'entry' => $row['entry']
 );
 
+// GameObject:
+if($_SESSION['locale']>0)
+{
+	$rows = $DB->select('
+			SELECT A.entry,name_loc4 as name,patch
+			FROM locales_gameobject A
+			LEFT JOIN gameobject_template B ON A.entry=B.entry
+			WHERE
+				MATCH(name_loc4) AGAINST (+?) AND name_loc4 like ?
+		',
+		$nsearch,'%'.$nsearch.'%'
+	);
+}else {
+	$rows = $DB->select('
+			SELECT entry,name,patch
+			FROM gameobject_template g
+			WHERE MATCH(name) AGAINST (+?) AND name like ?
+		',
+		$nsearch,'%'.$nsearch.'%'
+	);
+}
+$rows = sanitiseitemrows($rows);
 foreach($rows as $i => $row)
 	$found[$row['name'].' (Object)'] = array(
 		'type' => 2,
 		'entry'=>$row['entry'],
 	);
 
-// Ищем квесты:
-$rows = $DB->select('
-	SELECT q.entry, ?# as Title, q.RequiredRaces
-	FROM quest_template q {, ?# l}
-	WHERE
-		(?# AGAINST (+?)) AND (?# like ?)
-		{AND (q.entry=l.?#)}
-	ORDER BY ?#
-	LIMIT 3
-	',
-	$_SESSION['locale'] == 0 ? 'Title' : 'Title_loc'.$_SESSION['locale'],	// SELECT
-	$_SESSION['locale'] == 0 ? DBSIMPLE_SKIP : 'locales_quest',				// FROM
-	$_SESSION['locale'] == 0 ? 'MATCH(Title)' : 'MATCH(Title_loc4)',	// WHERE1
-	$search_query,
-	$_SESSION['locale'] == 0 ? 'Title' : 'Title_loc4',	// WHERE1
-	'%'.$search_query.'%',
-	$_SESSION['locale'] == 0 ? DBSIMPLE_SKIP : 'entry',						// WHERE2
-	$_SESSION['locale'] == 0 ? 'Title' : 'Title_loc'.$_SESSION['locale']	// ORDER
-);
 
+// Quest:
+if($_SESSION['locale']>0)
+{
+	$rows = $DB->select('
+			SELECT A.entry,Title_loc4 as Title,B.RequiredRaces,patch
+			FROM locales_quest A
+			LEFT JOIN quest_template B ON A.entry=B.entry
+			WHERE MATCH(Title_loc4) AGAINST (+?) AND  Title_loc4 like ?
+		',
+		$nsearch,'%'.$nsearch.'%'
+	);
+}else{
+	$rows = $DB->select('
+			SELECT entry, Title, RequiredRaces,patch
+			FROM quest_template
+			WHERE MATCH(Title) AGAINST (+?) AND  Title like ?
+		',
+		$nsearch,'%'.$nsearch.'%'
+	);
+}
+$rows = sanitiseitemrows($rows);
 foreach($rows as $i => $row)
 	$found[$row['Title'].' (Quest)'] = array(
 		'type' => 5,
 		'entry'=> $row['entry'],
 		'side' => SideByRace($row['RequiredRaces'])
 	);
-
-// Ищем creature:
-$rows = $DB->select('
-	SELECT entry, ?# as name
-	FROM ?#
-	WHERE ?# AGAINST (+?) AND ?# like ?
-	ORDER BY ?#
-	LIMIT 3
-	',
-	$_SESSION['locale'] == 0 ? 'name' : 'name_loc'.$_SESSION['locale'],		// SELECT
-	$_SESSION['locale'] == 0 ? 'creature_template' : 'locales_creature',	// FROM
-	$_SESSION['locale'] == 0 ? 'MATCH(name)' : 'MATCH(name_loc4)',		// WHERE1
-	$search_query,
-	$_SESSION['locale'] == 0 ? 'name' : 'name_loc4',		// WHERE1
-	'%'.$search_query.'%',
-	$_SESSION['locale'] == 0 ? 'name' : 'name_loc'.$_SESSION['locale']		// ORDER
-);
-
-foreach($rows as $i => $row)
-	$found[$row['name'].' (NPC)'] = array(
-		'type' => 1,
-		'entry' => $row['entry']
-	);
-
 // Если ничего не найдено...
 if(!isset($found))
 {

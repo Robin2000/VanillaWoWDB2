@@ -57,7 +57,7 @@ require_once('includes/alllocales.php');
 require_once('includes/allquests.php');
 
 // objectinfo required columns
-$object_cols[0] = array('entry', 'name', 'type');
+$object_cols[0] = array('entry', 'patch', 'name', 'type');
 $object_cols[1] = array('entry', 'name', 'type', 'data0', 'data1', 'data7');
 $object_type = array(-5=>LOCALE_TYPEGO_FOOTLOCKER, -4=>LOCALE_TYPEGO_VEINS, -3=>LOCALE_TYPEGO_HERB, 2=>LOCALE_TYPEGO_QUEST, 3=>LOCALE_TYPEGO_CONTAINER, 9=>LOCALE_TYPEGO_BOOK);
 
