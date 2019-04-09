@@ -1006,7 +1006,7 @@ var g_factions={
 931:"Test Faction (not a real faction)",
 950:"ToWoW - Flag",
 951:"ToWoW - Flag Trigger Alliance (DND)",
-954:"ToWoW - Flag Trigger Horde (DND)",
+954:"ToWoW - Flag Trigger Horde (DND)"
 };
 var g_zone_categories = {
 	0 : "东部王国",
@@ -1023,7 +1023,7 @@ var g_zone_instancetypes = {
 	1:  "卡里姆多",	
 	2 : "副本",
 	3 : "团本",
-	4 : "战场",
+	4 : "战场"
 };
 var g_zone_territories = {
 	0 : "联盟",
@@ -1670,5 +1670,5 @@ var TCOLS = {
 	comment:'备注',
 	event_type:'类别',
 	event_chance:'几率%',
-	action_comment:'动作',
+	action_comment:'动作'
 };

@@ -1381,7 +1381,7 @@ g_getIdFromTypeName.L = {
 	faction: 8,
 	pet: 9,
 	achievement: 10,
-	profile: 100,
+	profile: 100
 };
 function g_getIngameLink(a, c, b) {
 	prompt(LANG.prompt_ingamelink, '/script DEFAULT_CHAT_FRAME:AddMessage("' + sprintf(LANG.message_ingamelink, "\\124c" + a + "\\124H" + c + "\\124h[" + b + ']\\124h\\124r");'))
@@ -2127,15 +2127,17 @@ var Menu = {
 		if (!f) {
 			f = 0
 		}
-		for (var d = 0, a = g.length; d < a; ++d) {
-			if (g[d][2] == null) {
-				g[d][2] = c + g[d][0] + (e ? e: "")
-			}
-			if (g[d][3]) {
-				if (b == true || (typeof b == "object" && b[f] == true)) {
-					Menu.fixUrls(g[d][3], c, e, b, f + 1)
-				} else {
-					Menu.fixUrls(g[d][3], c + g[d][0] + ".", e, b, f + 1)
+		if(g != null && g != undefined){
+			for (var d = 0, a = g.length; d < a; ++d) {
+				if (g[d] != null && g[d]!=undefined && !g[d].hasOwnProperty(2)) {
+					g[d][2] = c + g[d][0] + (e ? e: "")
+				}
+				if (g[d] != null && g[d]!=undefined && !g[d].hasOwnProperty(3)) {
+					if (b == true || (typeof b == "object" && b[f] == true)) {
+						Menu.fixUrls(g[d][3], c, e, b, f + 1)
+					} else {
+						Menu.fixUrls(g[d][3], c + g[d][0] + ".", e, b, f + 1)
+					}
 				}
 			}
 		}
@@ -5858,7 +5860,7 @@ Listview.templates = {
 			name: TCOLS.event_type,
 			align: "left",
 			type: "text",
-			value: "event_type",
+			value: "event_type"
 		},{
 			id: "event_chance",
 			name: TCOLS.event_chance,
@@ -8230,7 +8232,7 @@ function () {
 		if (!aa.href.length) {
 			return
 		}
-		if (aa.rel.indexOf("np") != -1) {
+		if (aa.rel!=null && aa.rel!=undefined && aa.rel.indexOf("np") != -1) {
 			return
 		}
 		var T, S, Q, P, U = {};

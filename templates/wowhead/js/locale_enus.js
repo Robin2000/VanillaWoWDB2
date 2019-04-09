@@ -1005,7 +1005,7 @@ var g_factions={
 	931:"Test Faction (not a real faction)",
 	950:"ToWoW - Flag",
 	951:"ToWoW - Flag Trigger Alliance (DND)",
-	954:"ToWoW - Flag Trigger Horde (DND)",	
+	954:"ToWoW - Flag Trigger Horde (DND)"
 };
 var g_zone_categories = {
 	0 : "Eastern Kingdoms",
@@ -1670,5 +1670,5 @@ var TCOLS = {
 	comment:'comment',
 	event_type:'Type',
 	event_chance:'Chance',
-	action_comment:'action',
+	action_comment:'action'
 };
