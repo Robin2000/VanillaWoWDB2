@@ -7,6 +7,9 @@
 <body>
 <div id="layers"></div>
 <!--[if lte IE 6]><table id="ie6layout"><tr><th class="ie6layout-th"></th><td id="ie6layout-td"><div id="ie6layout-div"></div><![endif]-->
+<!--[if lt IE 8]>
+<div class="browsehappy" role="dialog"><img src="/images/ie.png" alt="陈旧的浏览器" /> 您仍然在使用陈旧、极不安全的浏览器。为了正常的访问, 请 <a href="http://browsehappy.com/" target="_blank">升级您的浏览器</a> ！！！</div>
+<![endif]--> 
 <div id="layout">
 	<div id="header">
 		<div id="header-logo">

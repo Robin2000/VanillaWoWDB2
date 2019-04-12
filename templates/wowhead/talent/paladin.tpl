@@ -1,22 +1,19 @@
 {include file='header.tpl'}
 
-    <!--[if lt IE 8]>
-    <div class="browsehappy" role="dialog"><img src="/images/ie.png" alt="陈旧的浏览器" /> 您仍然在使用陈旧、极不安全的浏览器。为了正常的访问, 请 <a href="http://browsehappy.com/" target="_blank">升级您的浏览器</a> ！！！</div>
-    <![endif]--> 
         <div class="talent">
             <div class="main_borad">
             <div class="talent_cp">  
             </div>
             <ul class="class_choose">
-            <li><a href="warrior.html" class="c1">战士</a></li>
-            <li class="active"><a href="paladin.html" class="c2">圣骑士</a></li>
-            <li><a href="hunter.html" class="c3">猎人</a></li>
-            <li><a href="shaman.html" class="c4">萨满</a></li>
-            <li><a href="druid.html" class="c5">德鲁伊</a></li>
-            <li><a href="rogue.html" class="c6">盗贼</a></li>
-            <li><a href="mage.html" class="c7">法师</a></li>
-            <li><a href="warlock.html" class="c8">术士</a></li>
-            <li><a href="priest.html" class="c9">牧师</a></li>
+            <li><a href="/talent-1" class="c1">战士</a></li>
+            <li class="active"><a href="/talent-2" class="c2">圣骑士</a></li>
+            <li><a href="/talent-3" class="c3">猎人</a></li>
+            <li><a href="/talent-7" class="c4">萨满</a></li>
+            <li><a href="/talent-11" class="c5">德鲁伊</a></li>
+            <li><a href="/talent-4" class="c6">盗贼</a></li>
+            <li><a href="/talent-8" class="c7">法师</a></li>
+            <li><a href="/talent-9" class="c8">术士</a></li>
+            <li><a href="/talent-5" class="c9">牧师</a></li>
             </ul>
             <div class="talent_cal">
             <div class="talent_info">
@@ -677,7 +674,7 @@
             <ul class="talent_ads">
             <li class="hot_talent">
             <div class="title">
-            最新天赋推荐
+            天赋推荐
             </div>
             <ul>
             <li>
