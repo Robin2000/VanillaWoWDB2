@@ -18,10 +18,14 @@
 	<!--[if lte IE 6]><link href="templates/wowhead/css/Mapper_ie6.css?{$AOWOW_REVISION}" type="text/css" rel=stylesheet><![endif]-->
 {/if}
 {if $page.Talent}
+		{if $page.typeid eq 0}
 		<link rel="stylesheet" type="text/css" href="templates/wowhead/css/TalentCalc.css?{$AOWOW_REVISION}" />
 		<link rel="stylesheet" type="text/css" href="templates/wowhead/css/talent.css?{$AOWOW_REVISION}" />
 		<!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="templates/wowhead/css/TalentCalc_ie6.css?{$AOWOW_REVISION}" /><![endif]-->
 		<!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="templates/wowhead/css/TalentCalc_ie67.css?{$AOWOW_REVISION}" /><![endif]-->
+		{else}
+		<link rel="stylesheet" media="all" href="templates/wowhead/css/talent.1.css"/>
+      	{/if}
 {/if}
 
 	<script src="templates/wowhead/js/locale_{$language}.js?{$AOWOW_REVISION}" type="text/javascript"></script>
@@ -35,10 +39,18 @@
 	<script src="templates/wowhead/js/Book.js?{$AOWOW_REVISION}" type="text/javascript"></script>
 {/if}
 {if $page.Talent}
-	<script src="?data=glyphs" type="text/javascript"></script>
+	{if $page.typeid eq 0}
+	<script src="templates/wowhead/js/talent.js" data-turbolinks-track="true"></script>
+	{else}
+	<script src="templates/wowhead/js/jquery-1.9.1.min.js"></script>  
+	<script src="templates/wowhead/js/talent.1.js"></script>
+	{/if}
+
+	{if $page.typeid eq 0}
 	<script src="templates/wowhead/js/TalentCalc_{$language}.js?{$AOWOW_REVISION}" type="text/javascript"></script>
-	<script src="templates/wowhead/js/TalentCalc.js?{$AOWOW_REVISION}" type="text/javascript"></script>
+	<!--script src="templates/wowhead/js/TalentCalc.js?{$AOWOW_REVISION}" type="text/javascript"></script-->
 	<script src="templates/wowhead/js/talent.js?{$AOWOW_REVISION}" type="text/javascript"></script>
+	{/if}
 {/if}
 {if $page.maps}
 	<script src="templates/wowhead/js/maps.js?{$AOWOW_REVISION}" type="text/javascript"></script>

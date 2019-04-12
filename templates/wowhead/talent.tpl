@@ -10,7 +10,6 @@
 			</div>
 		</div>
 
-		<div id="tc-itself"></div>
 
 		<script type="text/javascript">
 			tc_init();

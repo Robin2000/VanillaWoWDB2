@@ -34,7 +34,7 @@ RewriteRule ^faction-([a-z0-9A-Z\-]+) ?faction=$1
 RewriteRule ^pet-([a-z0-9A-Z\-]+) ?pet=$1
 RewriteRule ^achievement-([a-z0-9A-Z\-]+) ?achievement=$1
 RewriteRule ^map-([a-z0-9A-Z\-]+) ?map=$1
-
+RewriteRule ^talent-([a-z0-9A-Z\-]+) ?talent=$1
 
 RewriteRule ^quests-([\.a-z0-9A-Z\-]+) ?quests=$1
 RewriteRule ^items-([\.a-z0-9A-Z\-]+) ?items=$1

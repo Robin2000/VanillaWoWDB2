@@ -118,7 +118,7 @@ switch($razdel)
 		break;
 	case 'spells':
 		include 'spells.php';
-		break;
+		break;		
 	case 'talent':
 		include 'talent.php';
 		break;

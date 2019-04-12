@@ -38,10 +38,8 @@ function tc_init() {
 	setInterval(tc_readPound, 1000)
 }
 function tc_classClick(a) {
-	if (tc_object.setClass(a)) {
-		Tooltip.hide()
-	}
-	return false
+	location.href="/talent-"+a;
+	return false;
 }
 function tc_classOver(a) {
 	Tooltip.show(this, "<b>" + g_chr_classes[a] + "</b>", 0, 0, "c" + a)
@@ -90,7 +88,7 @@ function tc_readPound() {
 			for (var g in g_file_classes) {
 				if (g_file_classes[g] == a) {
 					c = g;
-					break
+					break;
 				}
 			}
 			if (c != -1) {

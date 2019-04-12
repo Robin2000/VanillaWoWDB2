@@ -1683,7 +1683,7 @@ function TalentCalc() {
 		m( - 1, bc)
 	}
 	function q(bc) {
-		if (aY[bc] == null) {
+		if (aY==undefined || aY == null || aY[bc] == null) {
 			return
 		}
 		if (bc != aF) {
@@ -1698,7 +1698,7 @@ function TalentCalc() {
 					bd.div.style.display = ""
 				} else {
 					O(bc);
-					g_ajaxIshRequest("?data=talents&class=" + bc + "&" + C)
+					g_ajaxIshRequest("/talent-" + bc)
 				}
 			}
 			if (M[ad]) {
