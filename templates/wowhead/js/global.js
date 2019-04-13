@@ -2131,12 +2131,12 @@ var Menu = {
 		if (!f) {
 			f = 0
 		}
-		if(g != null && g != undefined){
+		try{
 			for (var d = 0, a = g.length; d < a; ++d) {
-				if (g[d] != null && g[d]!=undefined && !g[d].hasOwnProperty(2)) {
+				if (g[d][2] == null) {
 					g[d][2] = c + g[d][0] + (e ? e: "")
 				}
-				if (g[d] != null && g[d]!=undefined && !g[d].hasOwnProperty(3)) {
+				if (g[d][3]) {
 					if (b == true || (typeof b == "object" && b[f] == true)) {
 						Menu.fixUrls(g[d][3], c, e, b, f + 1)
 					} else {
@@ -2144,7 +2144,7 @@ var Menu = {
 					}
 				}
 			}
-		}
+		}catch(e){}
 	},
 	addButtons: function (h, g) {
 		for (var e = 0, b = g.length; e < b; ++e) {
