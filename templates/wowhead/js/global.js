@@ -1586,6 +1586,9 @@ function ss_validateForm(a) {
 	return true
 }
 function ss_appendSticky() {
+	if(lv_screenshots==undefined || lv_screenshots ==null) {
+		return;
+	}
 	var m = ge("infobox-sticky");
 	var i = g_pageInfo.type;
 	var h = g_pageInfo.typeId;
@@ -1884,6 +1887,7 @@ var Menu = {
 		var K = 0;
 		for (var L = 0, t = c.length; L < t; ++L) {
 			var Q = c[L];
+			if(Q==undefined || Q==null) continue;
 			if (Q[0] == null) {
 				var q = ce("span");
 				q.className = "separator";

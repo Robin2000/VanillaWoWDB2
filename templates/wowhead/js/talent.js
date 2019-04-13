@@ -30,10 +30,10 @@ function tc_init() {
 	var a = ce("div");
 	a.className = "clear";
 	ae(c, a);
-	tc_object = new TalentCalc();
+	/*tc_object = new TalentCalc();
 	tc_object.initialize("tc-itself", {
 		onChange: tc_onChange
-	});
+	});*/
 	tc_readPound();
 	setInterval(tc_readPound, 1000)
 }

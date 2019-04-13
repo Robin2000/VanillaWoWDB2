@@ -1,8 +1,4 @@
 {include file='header.tpl'}
-
-    <!--[if lt IE 8]>
-    <div class="browsehappy" role="dialog"><img src="/images/ie.png" alt="陈旧的浏览器" /> 您仍然在使用陈旧、极不安全的浏览器。为了正常的访问, 请 <a href="http://browsehappy.com/" target="_blank">升级您的浏览器</a> ！！！</div>
-    <![endif]--> 
         <div class="talent">
             <div class="main_borad">
             <div class="talent_cp">  
@@ -677,7 +673,7 @@
             <ul class="talent_ads">
             <li class="hot_talent">
             <div class="title">
-            最新天赋推荐
+            天赋推荐
             </div>
             <ul>
             <li>

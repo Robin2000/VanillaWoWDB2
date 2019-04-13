@@ -149,9 +149,12 @@ td {
     else {ldelim}
        var title = 'Console_' + self.name;
     {rdelim}
-    _smarty_console = window.open("",title.value,"width=680,height=600,resizable,scrollbars=yes");
+    var _smarty_console = window.open("",title.value,"width=680,height=600,resizable,scrollbars=yes");
+    if(_smarty_console!=null && _smarty_console!=undefined)
+    {ldelim}
     _smarty_console.document.write('{$debug_output|escape:'javascript'}');
     _smarty_console.document.close();
+    {rdelim}
 // ]]>
 </script>
 {/if}
