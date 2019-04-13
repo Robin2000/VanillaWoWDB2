@@ -40,3 +40,7 @@ filter:alpha(opacity=35);
 .listview th a,.tabs-container {
 width:100%;
 }
+#header-logo{
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/templates/wowhead/images/logo.png',sizingMethod='scale');
+    background:url() left center no-repeat !important;
+}
