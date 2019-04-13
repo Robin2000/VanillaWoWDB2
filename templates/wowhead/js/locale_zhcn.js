@@ -18,7 +18,7 @@ var mn_zones=[
 	[3,"团本"],
 	[4,"战场"]
 ];
-var mn_talentCalc = [["0", "德鲁伊"], ["c", "猎人"], ["o", "法师"], ["s", "圣骑士"], ["b", "牧师"], ["f", "盗贼"], ["h", "萨满"], ["I", "术士"], ["L", "战士"]];
+var mn_talentCalc = [["0", "德鲁伊","/talent-11"], ["c", "猎人","/talent-3"], ["o", "法师","/talent-8"], ["s", "圣骑士","/talent-2"], ["b", "牧师","/talent-5"], ["f", "盗贼","/talent-4"], ["h", "萨满","/talent-7"], ["I", "术士","/talent-9"], ["L", "战士","/talent-1"]];
 var mn_pets = [];
 var mn_factions = [
 		[469,"联盟"],
