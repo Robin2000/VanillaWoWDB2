@@ -31,6 +31,7 @@
 	<script src="templates/wowhead/js/locale_{$language}.js?{$AOWOW_REVISION}" type="text/javascript"></script>
 	<script src="templates/wowhead/js/global.js?{$AOWOW_REVISION}" type="text/javascript"></script>
 	<script src="templates/wowhead/js/Markup.js?{$AOWOW_REVISION}" type="text/javascript"></script>
+	
 {if $page.Mapper}
 	<script src="templates/wowhead/js/Mapper.js?{$AOWOW_REVISION}" type="text/javascript"></script>
 	<style type="text/css">{literal}.zone-picker { margin-left: 4px }{/literal}</style>
@@ -39,6 +40,8 @@
 	<script src="templates/wowhead/js/Book.js?{$AOWOW_REVISION}" type="text/javascript"></script>
 {/if}
 {if $page.Talent}
+
+	<script>document.oncontextmenu = function(){ldelim}return false{rdelim}</script>
 	{if $page.typeid eq 0}
 	<script src="templates/wowhead/js/talent.js" data-turbolinks-track="true"></script>
 	{else}

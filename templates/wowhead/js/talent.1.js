@@ -1,28 +1,59 @@
-function setAllTalent() {
-    $.getJSON("data/" + url + ".json", function () {
-        console.log("data/" + url + ".json")
-    }).done(function (e) {
-        var t = 0,
-            n = $(".icons"),
-            i = 0;
-        $.each(e[1], function (e, n) {
-            t += n
-        }), needlevel = 9 + t, canusepoint -= t, $(".needlevel").html(needlevel), $(".canusepoint").html(canusepoint), $.each(n, function (t) {
-            i = 1 * $(this).parents(".tsb").find(".tsb_info span").html(), unlockTalentId = $(this).find("input[name=ut]").val(), unlockTalentId > 0 && (unlockTalent = $(this).parents(".tsb").find("#" + unlockTalentId)), $(this).children("input[name=up]").val() <= i && 0 == unlockTalentId && $(this).hasClass("locked") ? ($(this).removeClass("locked"), $(this).prepend('<div class="icon_bubble">0</div>'), $(this).find(".icon_border").css("background-position", "-84px 0"), $(this).find(".icon_img").attr("src", "/images/icons/talent/" + $(this).find(".icon_img").attr("alt") + ".jpg"), $(this).find("input[name=uplock]").val("0")) : $(this).children("input[name=up]").val() <= i && unlockTalentId > 0 && unlockTalent.hasClass("max") && $(this).hasClass("locked") && ($(this).removeClass("locked"), $(this).prepend('<div class="icon_bubble">0</div>'), $(this).find(".icon_border").css("background-position", "-84px 0"), $(this).find(".icon_img").attr("src", "/images/icons/talent/" + $(this).find(".icon_img").attr("alt") + ".jpg"), $(this).find("input[name=utlock]").val("0"), $(this).find("input[name=uplock]").val("0")), $(this).hasClass("max") && $("#tf" + icons.attr("id")).find(".up_tips").remove(), $(this).find(".icon_bubble").length > 0 && $(this).find(".icon_bubble").html(e[1][t]), $(this).find(".icon_bubble").length > 0 && 1 * $(this).children(".icon_bubble").html() == data[e[0][t]].p && ($(this).addClass("max"), $(this).children(".icon_border").css("background-position", "-42px 0"), $(this).children(".icon_bubble").css("color", "#e7ba00")), data[e[0][t]].rank = e[1][t];
-            var n = i = $(this).parents(".tsb").attr("id");
-            $(this).find(".icon_bubble").length > 0 && (lines[n][1 * $(this).find("input[name=up]").val() * .2] += 1 * $(this).find(".icon_bubble").html())
-        }), 0 >= canusepoint && $.each($(".icons"), function () {
-            1 * $(this).find(".icon_bubble").html() == 0 && ($(this).addClass("locked"), $(this).find(".icon_border").css("background-position", "0 0"), $(this).find(".icon_bubble").remove(), $(this).find(".icon_img").attr("src", "/images/icons/talent/" + $(this).find(".icon_img").attr("alt") + "_grey.jpg"))
-        })
-    })
+var json_data = 0,
+    new_json_data = 0,
+    data = {},
+    needlevel = 9,
+    canusepoint = 51,
+    t1_total = 0,
+    t2_total = 0,
+    t3_total = 0,
+    lines = [
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0]
+    ],
+    url = 0,
+    mc = 0;
+function setAllTalent(e) {
+    $(".rat").trigger("click");
+    var ids=e[0]
+    var arr=e[1];
+    setTimeout(function() {
+        clickNext(arr, 0, arr[0], ids);    /*init click times arr[0]*/
+    }, 100);
 }
 
+function clickNext(arr, index, clickTimes, ids){
+    if(index >= arr.length) {
+        return;
+    }
+    if(clickTimes <= 0) {
+        setTimeout(function() {
+            clickNext(arr, index+1, arr[index+1], ids);   /*init click times arr[index+1]*/
+        }, 10);
+        return;
+    }
+
+    var icon=$('#'+ids[index]);
+    
+    unlock($(icon));
+
+    leftClickIcons($(icon), ids[index]);
+
+    setTimeout(function() {
+        clickNext(arr, index, clickTimes-1, ids);
+    }, 10);
+    
+}
+
+
 function moveTalent(e, t, n, i) {
+    if(data[t]==undefined)return;
     var r = '<div class="talent_float_info" id="tf' + e.attr("id") + '"><table>';
     r += '<tr><td class="name" colspan="2">' + data[t].n + "</td></tr>", r += '<tr><td class="rank" colspan="2">\u7b49\u7ea7 <span class="_r">' + data[t].rank + "</span>/" + data[t].p + "</td></tr>", n < data[t].uti.p && (r += '<tr><td class="u" colspan="2">\u9700\u8981' + data[t].uti.p + "\u70b9\u5728" + data[t].uti.n + "</td></tr>"), 0 != data[t].up && i < data[t].up && (r += '<tr class="up_tips"><td class="u" colspan="2">\u9700\u8981' + data[t].up + "\u70b9\u5728" + data[t].upn + "\u5929\u8d4b</td></tr>"), r += "string" == typeof data[t].d ? '<tr><td class="des" colspan="2">' + data[t].d + "</td></tr>" : '<tr><td class="des" colspan="2">' + (0 == data[t].rank ? data[t].d[0] : data[t].d[data[t].rank - 1]) + "</td></tr>", r += '<tr><td class="tips">\u70b9\u51fb\u5b66\u4e60\uff0c\u53f3\u952e\u5fd8\u5374</td><td class="cp"></td></tr>', r += "</table></div>", $("body").append(r)
 }
 
 function leftClickIcons(e, t) {
+    if(data[t]==undefined)return;
     if (!e.hasClass("locked") && !e.hasClass("max") && e.find(".icon_bubble").length > 0 && 60 >= needlevel && canusepoint > 0 && 1 * e.children(".icon_bubble").html() <= data[t].p) {
         e.children(".icon_bubble").html(1 * e.children(".icon_bubble").html() + 1), data[t].rank += 1, $("#tf" + e.attr("id")).find("._r").html(1 * $("#tf" + e.attr("id")).find("._r").html() + 1);
         var n;
@@ -3723,26 +3754,14 @@ function (e, t) {
         n.refreshCSRFTokens()
     }))
 }(jQuery);
-var json_data = 0,
-    new_json_data = 0,
-    data = 0,
-    needlevel = 9,
-    canusepoint = 51,
-    t1_total = 0,
-    t2_total = 0,
-    t3_total = 0,
-    lines = [
-        [0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0]
-    ],
-    url = 0,
-    mc = 0;
+
 $(document).ready(function () {
     $("input[name=mc]").length > 0 && ($("input[name=url]").length > 0 && (url = $("input[name=url]").val()), mc = $("input[name=mc]").val(), t1_total = 1 * $(".t1_total").html(), t2_total = 1 * $(".t2_total").html(), t3_total = 1 * $(".t3_total").html(), $.getJSON("data/" + mc + ".json", function () {
 
     }).done(function (e) {
-        json_data = e, data = json_data, 0 != url && setAllTalent()
+        json_data = e; 
+        data = json_data;
+        /*0 != url && setAllTalent()*/
     }), $(".icon_a").mouseover(function () {
         var e, t = $(this).parent(".icons"),
             n = t.attr("id"),
