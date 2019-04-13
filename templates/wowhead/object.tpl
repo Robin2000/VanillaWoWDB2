@@ -6,7 +6,6 @@
 		<div id="main-contents" class="main-contents">
 
 			<script type="text/javascript">
-				{include file='bricks/allcomments.tpl'}
 				var g_pageInfo = {ldelim}type: {$page.type}, typeId: {$page.typeid}, name: '{$object.name|escape:"quotes"}'{rdelim};
 				g_initPath({$page.path});
 			</script>
@@ -254,7 +253,6 @@ var tabsRelated = new Tabs({ldelim}parent: ge('tabs-generic'){rdelim});
 {if isset($object.starts)}{include			file='bricks/quest_table.tpl'		id='starts'			name='starts'		tabsid='tabsRelated'	data=$object.starts		}{/if}
 {if isset($object.ends)}{include			file='bricks/quest_table.tpl'		id='ends'			name='ends'			tabsid='tabsRelated'	data=$object.ends		}{/if}
 {if isset($object.criteria_of)}{include		file='bricks/achievement_table.tpl'	id='criteria-of'	name='criteriaof'	tabsid='tabsRelated'	data=$object.criteria_of}{/if}
-new Listview({ldelim}template: 'comment', id: 'comments', name: LANG.tab_comments, tabs: tabsRelated, parent: 'listview-generic', data: lv_comments{rdelim});
 tabsRelated.flush();
 </script>
 

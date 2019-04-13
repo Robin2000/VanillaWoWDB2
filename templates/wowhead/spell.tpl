@@ -6,7 +6,6 @@
 	<div id="main-contents" class="main-contents">
 
 		<script type="text/javascript">
-			{include file='bricks/allcomments.tpl'}
 			var g_pageInfo = {ldelim}type: {$page.type}, typeId: {$page.typeid}, name: '{$spell.name|escape:"javascript"}'{rdelim};
 			g_initPath({$page.path});
 		</script>
@@ -204,7 +203,6 @@ var tabsRelated = new Tabs({ldelim}parent: ge('tabs-generic'){rdelim});
 {if isset($spell.usedbyitemset)}{include		file='bricks/itemset_table.tpl'			id='itemsets'			tabsid='tabsRelated' data=$spell.usedbyitemset		name='usedby'		}{/if}
 {if isset($spell.seealso)}{include				file='bricks/spell_table.tpl'			id='see-also-ability'	tabsid='tabsRelated' data=$spell.seealso			name='seealso'		}{/if}
 {if isset($spell.criteria_of)}{include 			file='bricks/achievement_table.tpl' 	id='criteria-of'		tabsid='tabsRelated' data=$spell.criteria_of		name='criteriaof'	}{/if}
-new Listview({ldelim}template: 'comment', id: 'comments', name: LANG.tab_comments, tabs: tabsRelated, parent: 'listview-generic', data: lv_comments{rdelim});
 tabsRelated.flush();
 </script>
 		{include file='bricks/contribute.tpl'}

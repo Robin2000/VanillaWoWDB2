@@ -3,7 +3,6 @@
 require_once('includes/allnpcs.php');
 require_once('includes/allitems.php');
 require_once('includes/allquests.php');
-require_once('includes/allcomments.php');
 
 $smarty->config_load($conf_file, 'faction');
 
@@ -132,8 +131,6 @@ $page = array(
 );
 $smarty->assign('page', $page);
 
-// Комментарии
-$smarty->assign('comments', getcomments($page['type'], $page['typeid']));
 
 // Данные о квесте
 $smarty->assign('faction', $faction);

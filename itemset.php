@@ -1,7 +1,7 @@
 <?php
 require_once('includes/allitems.php');
 require_once('includes/allspells.php');
-require_once('includes/allcomments.php');
+
 
 $smarty->config_load($conf_file, 'itemset');
 
@@ -75,9 +75,6 @@ $page = array(
 	'path' => '[0, 2]'
 );
 $smarty->assign('page', $page);
-
-// Комментарии
-$smarty->assign('comments', getcomments($page['type'], $page['typeid']));
 
 // --Передаем данные шаблонизатору--
 // Количество MySQL запросов

@@ -5,7 +5,6 @@ require_once('includes/allquests.php');
 require_once('includes/allobjects.php');
 require_once('includes/allnpcs.php');
 require_once('includes/allitems.php');
-require_once('includes/allcomments.php');
 
 $smarty->config_load($conf_file, 'quest');
 
@@ -521,9 +520,6 @@ $page = array(
 	'path' => path(0, 5) // TODO
 );
 $smarty->assign('page', $page);
-
-// Комментарии
-$smarty->assign('comments', getcomments($page['type'], $page['typeid']));
 
 // Данные о квесте
 $smarty->assign('quest', $quest);

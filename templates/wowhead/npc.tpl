@@ -6,7 +6,6 @@
 		<div id="main-contents" class="main-contents">
 
 			<script type="text/javascript">
-				{include file='bricks/allcomments.tpl'}
 				var g_pageInfo = {ldelim}type: 1, typeId: {$npc.entry}, name: '{$npc.name|escape:"quotes"}'{rdelim};
 				g_initPath([0,4,{$npc.type}]);
 			</script>
@@ -195,7 +194,6 @@ var tabsRelated = new Tabs({ldelim}parent: ge('tabs-generic'){rdelim});
 {if isset($npc.criteria_of)}{include 	file='bricks/achievement_table.tpl' 	id='criteria-of'		name='criteriaof'		tabsid='tabsRelated' data=$npc.criteria_of		}{/if}
 {if isset($npc.event_ai)}{include 		file='bricks/event_ai.tpl' 				id='event_ai'			name='eventai'			tabsid='tabsRelated' data=$npc.event_ai			}{/if}
 
-new Listview({ldelim}template: 'comment', id: 'comments', name: LANG.tab_comments, tabs: tabsRelated, parent: 'listview-generic', data: lv_comments{rdelim});
 tabsRelated.flush();
 </script>
 

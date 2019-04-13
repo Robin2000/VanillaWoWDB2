@@ -6,7 +6,6 @@
 
 			<div id="main-contents" class="main-contents">
 				<script type="text/javascript">
-					{include file='bricks/allcomments.tpl'}
 					var g_pageInfo = {ldelim}type: {$page.type}, typeId: {$page.typeid}, name: '{$itemset.name|escape:"quotes"}'{rdelim};
 					g_initPath({$page.path});
 				</script>
@@ -55,7 +54,6 @@
 			<div id="listview-generic" class="listview"></div>
 <script type="text/javascript">
 var tabsRelated = new Tabs({ldelim}parent: ge('tabs-generic'){rdelim});
-new Listview({ldelim}template: 'comment', id: 'comments', name: LANG.tab_comments, tabs: tabsRelated, parent: 'listview-generic', data: lv_comments{rdelim});
 tabsRelated.flush();
 </script>
 

@@ -4,7 +4,6 @@ require_once('includes/allspells.php');
 require_once('includes/allitems.php');
 require_once('includes/allnpcs.php');
 require_once('includes/allquests.php');
-require_once('includes/allcomments.php');
 
 $smarty->config_load($conf_file, 'spell');
 
@@ -549,9 +548,6 @@ $page = array(
 	'path' => path(0, 1)
 );
 $smarty->assign('page', $page);
-
-// Комментарии
-$smarty->assign('comments', getcomments($page['type'], $page['typeid']));
 
 // Количество MySQL запросов
 $smarty->assign('mysql', $DB->getStatistics());
