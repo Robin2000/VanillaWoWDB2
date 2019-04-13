@@ -3782,26 +3782,30 @@ $(document).ready(function () {
             n = t.attr("id");
         1 == e.which ? leftClickIcons(t, n) : 3 == e.which && rightClickIcons(t)
     }), $(".rt").click(function () {
-        var e = $(this),
-            t = e.parents(".tsb").find(".icons"),
-            n = 0,
-            i = 0;
-        $.getJSON("data/" + mc + ".json", function (r) {
-            $.each(t, function () {
-                n = $(this).attr("id"), $(this).removeClass("max"), 1 * $(this).find("input[name=up]").val() > 0 || "0" == $(this).find("input[name=up]").val() && 1 * $(this).find("input[name=ut]").val() > 0 ? ($(this).addClass("locked"), $(this).find(".icon_border").css("background-position", "0 0"), $(this).find(".icon_bubble").remove(), $(this).find(".icon_img").attr("src", "/images/icons/talent/" + $(this).find(".icon_img").attr("alt") + "_grey.jpg")) : ($(this).removeClass("locked"), $(this).find(".icon_border").css("background-position", "-84px 0"), $(this).find(".icon_bubble").remove(), $(this).prepend('<div class="icon_bubble">0</div>'), $(this).find(".icon_img").attr("src", "/images/icons/talent/" + $(this).find(".icon_img").attr("alt") + ".jpg")), "0" == $(this).find("input[name=up]").val() && "0" == $(this).find("input[name=ut]").val() ? ($(this).find("input[name=uplock]").val("0"), $(this).find("input[name=utlock]").val("0")) : 1 * $(this).find("input[name=up]").val() > 0 && "0" == $(this).find("input[name=ut]").val() ? ($(this).find("input[name=uplock]").val("1"), $(this).find("input[name=utlock]").val("0")) : 1 * $(this).find("input[name=up]").val() > 0 && 1 * $(this).find("input[name=ut]").val() > 0 ? ($(this).find("input[name=uplock]").val("1"), $(this).find("input[name=utlock]").val("1")) : "0" == $(this).find("input[name=up]").val() && 1 * $(this).find("input[name=ut]").val() > 0 && ($(this).find("input[name=uplock]").val("0"), $(this).find("input[name=utlock]").val("1")), data[n] = r[n], i = 1 * e.prev("span").html(), e.prev("span").html("0"), "1" == e.attr("id") ? (t1_total = 0, lines[0] = [0, 0, 0, 0, 0, 0, 0]) : "2" == e.attr("id") ? (t2_total = 0, lines[1] = [0, 0, 0, 0, 0, 0, 0]) : "3" == e.attr("id") && (t3_total = 0, lines[2] = [0, 0, 0, 0, 0, 0, 0]), canusepoint += i, needlevel -= i, 9 == needlevel && 51 == canusepoint ? ($(".needlevel").html("--"), $(".canusepoint").html("--")) : ($(".needlevel").html(needlevel), $(".canusepoint").html(canusepoint)), resetOtherTalent()
-            })
-        })
+        refreshRt($(this), data);
     }), $(".rat").click(function () {
-        var e = ($(this), $(".icons")),
-            t = 0;
-        $.getJSON("data/" + mc + ".json", function (n) {
-            $.each(e, function () {
-                t = $(this).attr("id"), $(this).removeClass("max"), 1 * $(this).find("input[name=up]").val() > 0 || "0" == $(this).find("input[name=up]").val() && 1 * $(this).find("input[name=ut]").val() > 0 ? ($(this).addClass("locked"), $(this).find(".icon_border").css("background-position", "0 0"), $(this).find(".icon_bubble").remove(), $(this).find(".icon_img").attr("src", "/images/icons/talent/" + $(this).find(".icon_img").attr("alt") + "_grey.jpg")) : ($(this).removeClass("locked"), $(this).find(".icon_border").css("background-position", "-84px 0"), $(this).find(".icon_bubble").remove(), $(this).prepend('<div class="icon_bubble">0</div>'), $(this).find(".icon_img").attr("src", "/images/icons/talent/" + $(this).find(".icon_img").attr("alt") + ".jpg")), "0" == $(this).find("input[name=up]").val() && "0" == $(this).find("input[name=ut]").val() ? ($(this).find("input[name=uplock]").val("0"), $(this).find("input[name=utlock]").val("0")) : 1 * $(this).find("input[name=up]").val() > 0 && "0" == $(this).find("input[name=ut]").val() ? ($(this).find("input[name=uplock]").val("1"), $(this).find("input[name=utlock]").val("0")) : 1 * $(this).find("input[name=up]").val() > 0 && 1 * $(this).find("input[name=ut]").val() > 0 ? ($(this).find("input[name=uplock]").val("1"), $(this).find("input[name=utlock]").val("1")) : "0" == $(this).find("input[name=up]").val() && 1 * $(this).find("input[name=ut]").val() > 0 && ($(this).find("input[name=uplock]").val("0"), $(this).find("input[name=utlock]").val("1")), data[t] = n[t], $(".tsb_info span").html("0"), 9 == needlevel && 51 == canusepoint ? ($(".needlevel").html("--"), $(".canusepoint").html("--")) : ($(".needlevel").html(needlevel), $(".canusepoint").html(canusepoint))
-            })
-        }), canusepoint = 51, needlevel = 9, t1_total = 0, t2_total = 0, t3_total = 0, lines = [
-            [0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0]
-        ], resetOtherTalent()
+         refreshRat(data);
     }))
 });
+function refreshRt(e,r) {
+    var t = e.parents(".tsb").find(".icons"),
+    n = 0,
+    i = 0;
+
+    $.each(t, function () {
+        n = $(this).attr("id"), $(this).removeClass("max"), 1 * $(this).find("input[name=up]").val() > 0 || "0" == $(this).find("input[name=up]").val() && 1 * $(this).find("input[name=ut]").val() > 0 ? ($(this).addClass("locked"), $(this).find(".icon_border").css("background-position", "0 0"), $(this).find(".icon_bubble").remove(), $(this).find(".icon_img").attr("src", "/images/icons/talent/" + $(this).find(".icon_img").attr("alt") + "_grey.jpg")) : ($(this).removeClass("locked"), $(this).find(".icon_border").css("background-position", "-84px 0"), $(this).find(".icon_bubble").remove(), $(this).prepend('<div class="icon_bubble">0</div>'), $(this).find(".icon_img").attr("src", "/images/icons/talent/" + $(this).find(".icon_img").attr("alt") + ".jpg")), "0" == $(this).find("input[name=up]").val() && "0" == $(this).find("input[name=ut]").val() ? ($(this).find("input[name=uplock]").val("0"), $(this).find("input[name=utlock]").val("0")) : 1 * $(this).find("input[name=up]").val() > 0 && "0" == $(this).find("input[name=ut]").val() ? ($(this).find("input[name=uplock]").val("1"), $(this).find("input[name=utlock]").val("0")) : 1 * $(this).find("input[name=up]").val() > 0 && 1 * $(this).find("input[name=ut]").val() > 0 ? ($(this).find("input[name=uplock]").val("1"), $(this).find("input[name=utlock]").val("1")) : "0" == $(this).find("input[name=up]").val() && 1 * $(this).find("input[name=ut]").val() > 0 && ($(this).find("input[name=uplock]").val("0"), $(this).find("input[name=utlock]").val("1")), data[n] = r[n], i = 1 * e.prev("span").html(), e.prev("span").html("0"), "1" == e.attr("id") ? (t1_total = 0, lines[0] = [0, 0, 0, 0, 0, 0, 0]) : "2" == e.attr("id") ? (t2_total = 0, lines[1] = [0, 0, 0, 0, 0, 0, 0]) : "3" == e.attr("id") && (t3_total = 0, lines[2] = [0, 0, 0, 0, 0, 0, 0]), canusepoint += i, needlevel -= i, 9 == needlevel && 51 == canusepoint ? ($(".needlevel").html("--"), $(".canusepoint").html("--")) : ($(".needlevel").html(needlevel), $(".canusepoint").html(canusepoint)), resetOtherTalent()
+    })
+
+}
+function refreshRat(n) {
+    var e = ($(this), $(".icons")),
+            t = 0;
+    $.each(e, function () {
+        t = $(this).attr("id"), $(this).removeClass("max"), 1 * $(this).find("input[name=up]").val() > 0 || "0" == $(this).find("input[name=up]").val() && 1 * $(this).find("input[name=ut]").val() > 0 ? ($(this).addClass("locked"), $(this).find(".icon_border").css("background-position", "0 0"), $(this).find(".icon_bubble").remove(), $(this).find(".icon_img").attr("src", "/images/icons/talent/" + $(this).find(".icon_img").attr("alt") + "_grey.jpg")) : ($(this).removeClass("locked"), $(this).find(".icon_border").css("background-position", "-84px 0"), $(this).find(".icon_bubble").remove(), $(this).prepend('<div class="icon_bubble">0</div>'), $(this).find(".icon_img").attr("src", "/images/icons/talent/" + $(this).find(".icon_img").attr("alt") + ".jpg")), "0" == $(this).find("input[name=up]").val() && "0" == $(this).find("input[name=ut]").val() ? ($(this).find("input[name=uplock]").val("0"), $(this).find("input[name=utlock]").val("0")) : 1 * $(this).find("input[name=up]").val() > 0 && "0" == $(this).find("input[name=ut]").val() ? ($(this).find("input[name=uplock]").val("1"), $(this).find("input[name=utlock]").val("0")) : 1 * $(this).find("input[name=up]").val() > 0 && 1 * $(this).find("input[name=ut]").val() > 0 ? ($(this).find("input[name=uplock]").val("1"), $(this).find("input[name=utlock]").val("1")) : "0" == $(this).find("input[name=up]").val() && 1 * $(this).find("input[name=ut]").val() > 0 && ($(this).find("input[name=uplock]").val("0"), $(this).find("input[name=utlock]").val("1")), data[t] = n[t], $(".tsb_info span").html("0"), 9 == needlevel && 51 == canusepoint ? ($(".needlevel").html("--"), $(".canusepoint").html("--")) : ($(".needlevel").html(needlevel), $(".canusepoint").html(canusepoint))
+    });
+    canusepoint = 51; needlevel = 9; t1_total = 0; t2_total = 0; t3_total = 0; lines = [
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0]
+    ]; resetOtherTalent();
+}
