@@ -1586,9 +1586,7 @@ function ss_validateForm(a) {
 	return true
 }
 function ss_appendSticky() {
-	if(lv_screenshots==undefined || lv_screenshots ==null) {
-		return;
-	}
+try{
 	var m = ge("infobox-sticky");
 	var i = g_pageInfo.type;
 	var h = g_pageInfo.typeId;
@@ -1647,6 +1645,7 @@ function ss_appendSticky() {
 		}
 		m.innerHTML = sprintf(LANG.infobox_noneyet, l + LANG.infobox_submitone + "</a>")
 	}
+	}catch(e){}
 }
 function su_addToSaved(b, a) {
 	if (!b) {
