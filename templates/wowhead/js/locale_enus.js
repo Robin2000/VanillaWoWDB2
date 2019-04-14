@@ -309,16 +309,18 @@ var g_npc_classifications = {
 	4 : "Rare"
 };
 var g_npc_types = {
+	0 : "None",	
 	1 : "Beast",
-	8 : "Critter",
+	2 : "Dragonkin",
 	3 : "Demon",
 	4 : "Elemental",
-	2 : "Dragonkin",
 	5 : "Giant",
-	7 : "Humanoid",
-	9 : "Mechanical",
 	6 : "Undead",
-	10 : "Uncategorized"
+	7 : "Humanoid",
+	8 : "Critter",
+	9 : "Mechanical",
+	10 : "Uncategorized",
+	11 : "Totem"
 };
 var g_pet_families = {
 	1 : "Wolf",
