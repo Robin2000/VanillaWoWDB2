@@ -3538,7 +3538,7 @@ Listview.prototype = {
 			}
 			if (a.compute) {
 				h = (a.compute.bind(this, j, c, g, f))()
-			} else 	if(1==1){
+			} else 	if(a.getValue){
 				h=this.getColText(j,a); /*robin fix*/
 		  } else {
 				if (j[a.value] != null) {
