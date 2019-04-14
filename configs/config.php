@@ -31,7 +31,7 @@ $AoWoWconf['register'] = false;
 // Used with register, account expansion
 $AoWoWconf['expansion'] = 0;
 // Limit of some SQL queries
-$AoWoWconf['limit'] = 50;
+$AoWoWconf['limit'] = 300;
 // Disable cache, show smarty console panel
 $AoWoWconf['debug'] = false;
 // Map object grouping factor. Meters = 10^param.
