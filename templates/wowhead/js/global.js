@@ -3538,7 +3538,7 @@ Listview.prototype = {
 			}
 			if (a.compute) {
 				h = (a.compute.bind(this, j, c, g, f))()
-			} else 	if(a.getValue){
+			} else 	if(a.getValue || a.getVisibleText){
 				h=this.getColText(j,a); /*robin fix*/
 		  } else {
 				if (j[a.value] != null) {
@@ -6222,12 +6222,12 @@ Listview.templates = {
 			compute: function (c, d) {
 				d.className = "small q1";
 				var b = ce("a");
-				b.href = "?objects=" + c.type;
-				ae(b, ct(g_object_types[c.type]));
+				b.href = "/objects-" + c.type;
+				ae(b, ct(getGoType(c.type)));
 				ae(d, b)
 			},
 			getVisibleText: function (a) {
-				return g_object_types[a.type]
+				return getGoType(a.type);
 			},
 			sortFunc: function (d, c, e) {
 				return strcmp(g_object_types[d.type], g_object_types[c.type])

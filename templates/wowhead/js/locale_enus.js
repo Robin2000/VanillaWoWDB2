@@ -1672,3 +1672,43 @@ var TCOLS = {
 	event_chance:'Chance',
 	action_comment:'action'
 };
+
+function getGoType(typeid){
+	if(g_object_types[typeid]) 
+		return g_object_types[typeid];
+	switch(typeid){
+		case 0:return 'DOOR';
+		case 1:return 'BUTTON';
+		case 2:return 'QUESTGIVER';
+		case 3:return 'CHEST'; 
+		case 4:return 'BINDER';
+		case 5:return 'GENERIC';
+		case 6:return 'TRAP';
+		case 7:return 'CHAIR'; 
+		case 8:return 'SPELL_FOCUS';
+		case 9:return 'TEXT';
+		case 10:return 'GOOBER';
+		case 11:return 'TRANSPORT';
+		case 12:return 'AREADAMAGE';
+		case 13:return 'CAMERA';
+		case 14:return 'MAP_OBJECT';
+		case 15:return 'MO_TRANSPORT';
+		case 16:return 'DUEL_ARBITER';
+		case 17:return 'FISHINGNODE';
+		case 18:return 'SUMMONING_RITUAL';
+		case 19:return 'MAILBOX';
+		case 20:return 'AUCTIONHOUSE';
+		case 21:return 'GUARDPOST';
+		case 22:return 'SPELLCASTER';
+		case 23:return 'MEETINGSTONE';
+		case 24:return 'FLAGSTAND';
+		case 25:return 'FISHINGHOLE';
+		case 26:return 'FLAGDROP';
+		case 27:return 'MINI_GAME';
+		case 28:return 'LOTTERY_KIOSK';
+		case 29:return 'CAPTURE_POINT';
+		case 30:return 'AURA_GENERATOR';
+		default:break;
+	}
+	return "unknow";
+}

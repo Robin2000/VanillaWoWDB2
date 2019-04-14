@@ -1672,3 +1672,43 @@ var TCOLS = {
 	event_chance:'几率%',
 	action_comment:'动作'
 };
+
+function getGoType(typeid){
+	if(g_object_types[typeid]) 
+		return g_object_types[typeid];
+	switch(typeid){
+		case 0:return '门';
+		case 1:return '按钮';
+		case 2:return '任务';
+		case 3:return '宝箱'; 
+		case 4:return 'BINDER';
+		case 5:return '通用';
+		case 6:return '陷阱';
+		case 7:return '椅子'; 
+		case 8:return '法术焦点';
+		case 9:return '文字';
+		case 10:return 'GOOBER';
+		case 11:return '传送';
+		case 12:return '区域性伤害';
+		case 13:return '相机';
+		case 14:return '地图对象';
+		case 15:return '地图对象传送';
+		case 16:return '决斗仲裁者';
+		case 17:return '钓鱼节点';
+		case 18:return '召唤仪式';
+		case 19:return '邮箱';
+		case 20:return '拍卖';
+		case 21:return '警卫亭';
+		case 22:return '施法者';
+		case 23:return '集合石';
+		case 24:return '旗站';
+		case 25:return '钓鱼孔';
+		case 26:return '掉落标记';
+		case 27:return '小游戏';
+		case 28:return '乐透凉亭';
+		case 29:return '截获点';
+		case 30:return '光环生成';
+		default:break;
+	}
+	return "未知";
+ }
