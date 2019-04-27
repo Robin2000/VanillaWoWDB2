@@ -34,7 +34,7 @@
 
 		
 		<div id="toplinks" class="toplinks" style="position: fixed;top: 10px;right:50px">
-			{if $user}<a href="?user={$user.name}">{$user.name}</a>|<a href="?account=signout">{#Sign_out#}</a>{else}<a href="?account=signin">{#Sign_in#}</a>{/if}
+			{if ($smarty.session.locale==0)}<a href="/">Home</a>{else}<a href="/">首页</a>{/if}
 			|<a href="javascript:;" id="toptabs-menu-language">{#Language#} <small>&#9660;</small></a>
 			<script type="text/javascript">g_initHeaderMenus()</script>
 		</div>

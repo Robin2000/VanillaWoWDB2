@@ -19,7 +19,7 @@ if(!$npc = load_cache(1, $cache_key))
 	$npc = array();
 	$row = $DB->selectRow('
 		SELECT
-			?#, c.entry, c.name, t.thumb, t.wiki, t.display1, t.display2, t.display3,
+			?#, c.entry, c.name, t.thumb, t.wiki,
 			{
 				l.name_loc'.$_SESSION['locale'].' as `name_loc`,
 				l.subname_loc'.$_SESSION['locale'].' as `subname_loc`,
