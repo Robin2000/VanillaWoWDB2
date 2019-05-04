@@ -2,21 +2,21 @@
 global $AoWoWconf;
 
 // -- MaNGOS Database --
-$AoWoWconf['mangos']['host']	= '127.0.0.1';
+$AoWoWconf['mangos']['host']	= '127.0.0.1:3307';
 $AoWoWconf['mangos']['user']	= 'root';
 $AoWoWconf['mangos']['pass']	= 'java112233';
 $AoWoWconf['mangos']['db']		= 'world_lighthope';
 $AoWoWconf['mangos']['aowow']	= 'aowow_'; // AoWoW table prefix
 // -- Realmd Database --
-$AoWoWconf['realmd']['host']	= '127.0.0.1';
-$AoWoWconf['realmd']['user']	= 'root';
-$AoWoWconf['realmd']['pass']	= 'java112233';
-$AoWoWconf['realmd']['db']		= 'realmd_lighthope';
+// $AoWoWconf['realmd']['host']	= '127.0.0.1:3307';
+// $AoWoWconf['realmd']['user']	= 'root';
+// $AoWoWconf['realmd']['pass']	= 'java112233';
+// $AoWoWconf['realmd']['db']		= 'realmd_lighthope';
 // -- Characters Database -- currently unused
-$AoWoWconf['characters']['host']	= '127.0.0.1';
-$AoWoWconf['characters']['user']	= 'root';
-$AoWoWconf['characters']['pass']	= 'java112233';
-$AoWoWconf['characters']['db']		= 'characters_lighthope';
+// $AoWoWconf['characters']['host']	= '127.0.0.1:3307';
+// $AoWoWconf['characters']['user']	= 'root';
+// $AoWoWconf['characters']['pass']	= 'java112233';
+// $AoWoWconf['characters']['db']		= 'characters_lighthope';
 // -- Site Configuration --
 // Title of the website
 $AoWoWconf['aowow']['name'] = 'TopWoW经典魔兽数据库';
@@ -52,4 +52,8 @@ $AoWoWconf['map_grouping'] = 1;
 # 1.11 = 9 
 # 1.12 = 10
 $AoWoWconf['patch'] = 10;
+
+$AoWoWconf['realmd'] = false;
+$AoWoWconf['characters'] = false;
+
 ?>
