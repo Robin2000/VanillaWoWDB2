@@ -40,8 +40,8 @@
 		</div>
 	</div>
 	
-	<div id="footer">
-	</div>
+	{include file='footer.tpl'}
+
 	<noscript><div id="noscript-bg"></div><div id="noscript-text"><b>{#js_err#}</div></noscript>
 	<script type="text/javascript">DomContentLoaded.now()</script>
 </body>
