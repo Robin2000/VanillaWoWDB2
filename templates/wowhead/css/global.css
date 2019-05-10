@@ -1,7 +1,7 @@
 body {
 margin:0;
 padding:0;
-font-family:Arial,sans-serif;
+font-family:'Microsoft Yahei','PingFangSC-Regular',Arial,sans-serif;
 font-size:13px;
 color:white;
 background:#011D29  top center no-repeat;
@@ -337,7 +337,7 @@ display:block;
 height:32px;
 line-height:32px;
 padding:0 8px 0 10px;
-font-family:Arial,sans-serif;
+font-family:'Microsoft Yahei','PingFangSC-Regular',Arial,sans-serif;
 font-weight:bold;
 font-size:14px;
 text-decoration:none;
@@ -441,7 +441,7 @@ border:1px solid #a7a6aa;
 height:18px;
 padding-left:2px;
 font-size:13px;
-font-family:Arial,sans-serif;
+font-family:'Microsoft Yahei','PingFangSC-Regular',Arial,sans-serif;
 background:white;
 color:black;
 }
@@ -1354,7 +1354,7 @@ border-collapse:collapse;
 
 .tooltip td,.tooltip th {
 background:url(../images/tooltip.png);
-font-family:Verdana,sans-serif;
+font-family:Verdana,'Microsoft Yahei','PingFangSC-Regular',sans-serif;
 font-size:12px;
 line-height:17px;
 color:white;
@@ -1534,7 +1534,7 @@ border:1px solid #a7a6aa;
 height:13px;
 padding-left:2px;
 font-size:11px;
-font-family:Arial,sans-serif;
+font-family:'Microsoft Yahei','PingFangSC-Regular',Arial,sans-serif;
 background:white;
 color:black;
 }
@@ -1727,7 +1727,7 @@ padding-top:4px;
 .comment-edit-body textarea {
 width:98%;
 height:11em;
-font-family:Arial,sans-serif;
+font-family:'Microsoft Yahei','PingFangSC-Regular',Arial,sans-serif;
 font-size:16px;
 margin:3px 0;
 }
