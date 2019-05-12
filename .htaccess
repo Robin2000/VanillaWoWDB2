@@ -50,9 +50,9 @@ RewriteRule ^achievements-([\.a-z0-9A-Z\-]+) ?achievements=$1
 RewriteRule ^maps-([\.a-z0-9A-Z\-]+) ?maps=$1
 
 RewriteRule ^quests ?quests
+RewriteRule ^itemsets ?itemsets
 RewriteRule ^items ?items
 RewriteRule ^npcs ?npcs
-RewriteRule ^itemsets ?itemsets
 RewriteRule ^zones ?zones
 RewriteRule ^spells ?spells
 RewriteRule ^objects ?objects

@@ -19,7 +19,8 @@
 		<div id="toptabs">
 			<div id="toptabs-inner">
 				<div id="toptabs-right">
-					<a href="javascript:;" id="toptabs-menu-language">{#Language#} <small>&#9660;</small></a>
+				{if ($smarty.session.locale==0)}<a href="/">Home</a>{else}<a href="/">首页</a>{/if}
+				|<a href="javascript:;" id="toptabs-menu-language">{#Language#} <small>&#9660;</small></a>
 					<script type="text/javascript">g_initHeaderMenus()</script>
 				</div>
 				<div id="ptewhjkst46"></div>

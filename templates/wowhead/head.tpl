@@ -1,7 +1,7 @@
 	<title>{if $page.Title}{$page.Title|escape:"html"} - {/if}{$app_name}</title>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<meta name="Keywords" content="魔兽世界数据库,魔兽1.12数据库,60级数据库,怀旧魔兽,经典旧世,地球时代,香草魔兽,1.12版本,WOW,World of Warcraft,地图,物品,NPC,技能,任务,地区,道具,声望,掉落,位置,魔兽世界插件">
-	<meta name="description" content="最经典的中文WOW1.12经典旧世60级魔兽数据库。提供「魔兽世界60级，怀旧魔兽，经典旧世，地球时代，香草魔兽，1.12版本的地图、物品、NPC、技能、任务、地区、道具、声望，等详细数据。">
+	<meta name="Keywords" content="魔兽世界数据库,魔兽1.12数据库,60级数据库,怀旧服攻略,怀旧魔兽,经典旧世,地球时代,香草魔兽,1.12版本,WOW,World of Warcraft,地图,物品,NPC,技能,任务,地区,道具,声望,掉落,位置,classic,lighthope,mangos,Elysium">
+	<meta name="description" content="最经典的中文WOW1.12经典旧世60级魔兽数据库。提供「魔兽世界60级,怀旧魔兽世界,经典旧世,地球时代,香草魔兽世界,1.12版本的地图,物品,装备,武器,NPC,技能,任务,地区,道具,声望,等详细数据.">
 	<link rel="search" type="application/opensearchdescription+xml" title="VanillaWoWDB" href="/opensearch.xml" />
 	<link rel="SHORTCUT ICON" href="/favicon.ico">
 
