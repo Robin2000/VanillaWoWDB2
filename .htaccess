@@ -35,6 +35,7 @@ RewriteRule ^pet-([a-z0-9A-Z\-]+) ?pet=$1
 RewriteRule ^achievement-([a-z0-9A-Z\-]+) ?achievement=$1
 RewriteRule ^map-([a-z0-9A-Z\-]+) ?map=$1
 RewriteRule ^talent-([a-z0-9A-Z\-]+) ?talent=$1
+RewriteRule ^story-([a-z0-9A-Z\-]+) ?story=$1
 
 RewriteRule ^quests-([\.a-z0-9A-Z\-]+) ?quests=$1
 RewriteRule ^items-([\.a-z0-9A-Z\-]+) ?items=$1
@@ -62,5 +63,7 @@ RewriteRule ^pets ?pets
 RewriteRule ^talent ?talent
 RewriteRule ^achievements ?achievements
 RewriteRule ^maps ?maps
+
+
 
 RewriteRule ^search-([^x00-xff\.a-z0-9A-Z\-#]+) ?search=$1
