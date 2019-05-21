@@ -125,6 +125,9 @@ switch($razdel)
 	case 'data':
 		include 'data.php';
 		break;
+	case 'story':
+        include 'story.php';
+        break;
 	case 'zone':
         include 'zone.php';
         break;
