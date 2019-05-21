@@ -11,19 +11,19 @@
 	<div id="layers"></div>
 	<div id="home">
 		<h1>{$title}</h1>
-		<!--span id="h43jv6jk346" class="menu-buttons"></span-->
-		<!--script type="text/javascript">
+		<span id="h43jv6jk346" class="menu-buttons"></span>
+		<script type="text/javascript">
 			Menu.addButtons(ge('h43jv6jk346'), mn_path);
-		</script-->
-		
+		</script>
+
 		
 		<div class="pad"></div>
 
-		<!--form method="get" action="." onsubmit="if(trim(this.elements[0].value) == '') return false">
-			<input placeholder="{#searchHoder#}" type="text" name="search" size="38" id="kghjklvhj43v6" class="searbox"/><input type="submit" value="{#search#}" class="searbtn"/>
-		</form-->
+		<form method="get" action="." onsubmit="if(trim(this.elements[0].value) == '') return false">
+			<input placeholder="{#searchHoder#}" type="text" name="search" size="38" id="kghjklvhj43v6" class="searbox"/>
+		</form>
 		
-		<!--script type="text/javascript">var _ = ge('kghjklvhj43v6'); LiveSearch.attach(_); _.focus();</script-->
+		<script type="text/javascript">var _ = ge('kghjklvhj43v6'); LiveSearch.attach(_); _.focus();</script>
 
 
 		<div style="position: relative;border:0px ;width:485px;height:413px;padding-top:32px;margin:auto;">
