@@ -1,3 +1,4 @@
+{include file='header.tpl'}
 <ul class="content_ul">
 <li class="content_li">
 <h2 title="石匠工会与范克里夫">
@@ -8,7 +9,7 @@
 <td class="item-icon">
 <div class="iconmedium">
 <div class="icon_border"></div>
-<div class="icon" style="background-image: url(/images/icons/medium/inv_misc_bandana_03.png)"></div>
+<ins class="icon" style="background-image: url(/images/icons/medium/inv_misc_bandana_03.png)"></ins>
 <a href="/item-7997" title="红色迪菲亚面罩" class="item_info" id="7997" target="_blank"></a>
 </div>
 </td>
@@ -17,3 +18,4 @@
 </table></p><p>迪菲亚兄弟会的成立标志着范克里夫彻底沦为为了向暴风城复仇不择手段的恶棍，他放弃了自己的荣耀和尊严，吸纳了无数流氓地痞加入了自己的组织，又靠抢劫和绑架来获取金钱。或许我们可以认为范克里夫选择做一个强盗头子是受到暴风城政府的压迫，迫于无奈的生存之举，但他们对无数平民做出的残酷暴行却是无法简单一笔勾销的。范克里夫凭借身为工匠时代的技术和地精雇佣兵带来的先进设备制造了一批游荡在西部荒野上的机械傀儡：<a href="/npc-36" title="麦田傀儡" target="_blank" title="麦田傀儡">麦田傀儡</a>、<a href="/npc-114" title="看守傀儡" target="_blank" title="看守傀儡">看守傀儡</a>、<a href="/npc-115" title="收割傀儡" target="_blank" title="收割傀儡">收割傀儡</a>。与四处横行的迪菲亚暴徒一起将西部荒野笼罩在迪菲亚的恐怖支配中。</p></div>
 </li>
 </ul>
+{include file='footer.tpl'}

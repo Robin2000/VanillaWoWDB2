@@ -1,3 +1,4 @@
+{include file='header.tpl'}
 <ul class="content_ul">
 <li class="content_li">
 <h2 title="60级时那些有趣玩具（三）">
@@ -8,7 +9,7 @@
 <td class="item-icon">
 <div class="iconmedium">
 <div class="icon_border"></div>
-<div class="icon" style="background-image: url(/images/icons/medium/inv_misc_bomb_04.png)"></div>
+<ins class="icon" style="background-image: url(/images/icons/medium/inv_misc_bomb_04.png)"></ins>
 <a href="/item-13382" title="便携火炮" class="item_info" id="13382" target="_blank"></a>
 </div>
 </td>
@@ -19,7 +20,7 @@
 <td class="item-icon">
 <div class="iconmedium">
 <div class="icon_border"></div>
-<div class="icon" style="background-image: url(/images/icons/medium/inv_misc_ahnqirajtrinket_04.png)"></div>
+<ins class="icon" style="background-image: url(/images/icons/medium/inv_misc_ahnqirajtrinket_04.png)"></ins>
 <a href="/item-21891" title="坠落星辰碎片" class="item_info" id="21891" target="_blank"></a>
 </div>
 </td>
@@ -30,7 +31,7 @@
 <td class="item-icon">
 <div class="iconmedium">
 <div class="icon_border"></div>
-<div class="icon" style="background-image: url(/images/icons/medium/inv_misc_bag_01.png)"></div>
+<ins class="icon" style="background-image: url(/images/icons/medium/inv_misc_bag_01.png)"></ins>
 <a href="/item-7734" title="六魔包" class="item_info" id="7734" target="_blank"></a>
 </div>
 </td>
@@ -41,7 +42,7 @@
 <td class="item-icon">
 <div class="iconmedium">
 <div class="icon_border"></div>
-<div class="icon" style="background-image: url(/images/icons/medium/ability_hunter_pet_gorilla.png)"></div>
+<ins class="icon" style="background-image: url(/images/icons/medium/ability_hunter_pet_gorilla.png)"></ins>
 <a href="/item-15778" title="机械雪人" class="item_info" id="15778" target="_blank"></a>
 </div>
 </td>
@@ -50,3 +51,4 @@
 </table></p><p style="text-align:center"><img src="http://wowdb60static.wow-classic.com/uploads/acd0ad42-b5c1-4c06-98c8-6bf1ebf57192.jpg" title="acd0ad42-b5c1-4c06-98c8-6bf1ebf57192.jpg" alt="" /></p><p>使用：召唤一个机械雪人为你作战，持续10分钟。获取方法：任务<a href="/quest-5163" title="雪怪计划！" target="_blank" title="雪怪计划！">雪怪计划！</a>获得，这是一个系列任务，在<a href="/zone-618" title="冬泉谷" target="_blank" title="冬泉谷">冬泉谷</a>的<a href="/npc-10305" title="乌米" target="_blank" title="乌米">乌米</a>处接任务。简介：只能使用三次，然后就永远的和你说拜拜了！不过还好，有个小宠物长得和它差不多——安静的机械雪人，虽然它不能帮你作战。</p></div>
 </li>
 </ul>
+{include file='footer.tpl'}

@@ -9,7 +9,7 @@
 <td class="item-icon">
 <div class="iconmedium">
 <div class="icon_border"></div>
-<div class="icon" style="background-image: url(/images/icons/medium/inv_axe_09.png)"></div>
+<ins class="icon" style="background-image: url(/images/icons/medium/inv_axe_09.png)"></ins>
 <a href="/item-12784" title="奥金斧" class="item_info" id="12784" target="_blank"></a>
 </div>
 </td>
@@ -20,7 +20,7 @@
 <td class="item-icon">
 <div class="iconmedium">
 <div class="icon_border"></div>
-<div class="icon" style="background-image: url(/images/icons/medium/inv_weapon_bow_08.png)"></div>
+<ins class="icon" style="background-image: url(/images/icons/medium/inv_weapon_bow_08.png)"></ins>
 <a href="/item-18680" title="上古骨弓" class="item_info" id="18680" target="_blank"></a>
 </div>
 </td>
@@ -31,7 +31,7 @@
 <td class="item-icon">
 <div class="iconmedium">
 <div class="icon_border"></div>
-<div class="icon" style="background-image: url(/images/icons/medium/inv_staff_32.png)"></div>
+<ins class="icon" style="background-image: url(/images/icons/medium/inv_staff_32.png)"></ins>
 <a href="/item-18534" title="食人魔法师魔棒" class="item_info" id="18534" target="_blank"></a>
 </div>
 </td>
@@ -42,7 +42,7 @@
 <td class="item-icon">
 <div class="iconmedium">
 <div class="icon_border"></div>
-<div class="icon" style="background-image: url(/images/icons/medium/inv_weapon_shortblade_25.png)"></div>
+<ins class="icon" style="background-image: url(/images/icons/medium/inv_weapon_shortblade_25.png)"></ins>
 <a href="/item-12590" title="恶魔之击" class="item_info" id="12590" target="_blank"></a>
 </div>
 </td>
@@ -53,7 +53,7 @@
 <td class="item-icon">
 <div class="iconmedium">
 <div class="icon_border"></div>
-<div class="icon" style="background-image: url(/images/icons/medium/inv_sword_01.png)"></div>
+<ins class="icon" style="background-image: url(/images/icons/medium/inv_sword_01.png)"></ins>
 <a href="/item-18348" title="奎尔塞拉" class="item_info" id="18348" target="_blank"></a>
 </div>
 </td>

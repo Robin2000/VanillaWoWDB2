@@ -1,3 +1,4 @@
+{include file='header.tpl'}
 <ul class="content_ul">
 <li class="content_li">
 <h2 title="60级时那些有趣玩具（一）">
@@ -7,8 +8,8 @@
 <tr>
 <td class="item-icon">
 <div class="iconmedium">
- <div class="icon_border"></div>
-<div class="icon" style="background-image: url(/images/icons/medium/inv_chest_chain_14.png)"></div>
+<div class="icon_border"></div>
+<ins class="icon" style="background-image: url(/images/icons/medium/inv_chest_chain_14.png)"></ins>
 <a href="/item-18258" title="戈多克食人魔装" class="item_info" id="18258" target="_blank"></a>
 </div>
 </td>
@@ -19,7 +20,7 @@
 <td class="item-icon">
 <div class="iconmedium">
 <div class="icon_border"></div>
-<div class="icon" style="background-image: url(/images/icons/medium/inv_wand_01.png)"></div>
+<ins class="icon" style="background-image: url(/images/icons/medium/inv_wand_01.png)"></ins>
 <a href="/item-5462" title="达图尔的变形魔棒" class="item_info" id="5462" target="_blank"></a>
 </div>
 </td>
@@ -30,12 +31,13 @@
 <td class="item-icon">
 <div class="iconmedium">
 <div class="icon_border"></div>
-<div class="icon" style="background-image: url(/images/icons/medium/inv_misc_monsterhead_04.png)"></div>
+<ins class="icon" style="background-image: url(/images/icons/medium/inv_misc_monsterhead_04.png)"></ins>
 <a href="/item-6657" title="美味风蛇" class="item_info" id="6657" target="_blank"></a>
 </div>
 </td>
 <td class="item-name q1"><a href="/item-6657" class="item_info" id="6657" target="_blank">美味风蛇</a></td>
 </tr>
 </table></p><p style="text-align:center"><img src="http://wowdb60static.wow-classic.com/uploads/1440566f-5f75-4699-bfb8-40d7cc3508ed.jpg" title="变身成忍者或海盗" alt="变身成忍者或海盗" width="" height="" /></p><p>使用：会将玩家变成忍者或是海盗，持续一个小时。获取方法：烹饪，通过图纸<a href="/item-6661" title="食谱：美味风蛇" class="q2 item_info" id="6661" target="_blank">[食谱：美味风蛇]</a>学习，整个<a href="/zone-17" title="贫瘠之地" target="_blank" title="贫瘠之地">贫瘠之地</a>野外的怪物都有几率掉落，但是掉落率都不高，有机会可以去拍卖行找找，原料为<a href="/item-6522" title="变异鱼" class="q1 item_info" id="6522" target="_blank">[变异鱼]</a>，只有<a href="/zone-17" title="贫瘠之地" target="_blank" title="贫瘠之地">贫瘠之地</a>的死水绿洲和甜水绿洲有<a href="/object-180658" title="变异鱼群" target="_blank" title="变异鱼群">变异鱼群</a>。简介：吃下他会让你变身，但如果你想经常保持这样的形象，就必须准备好成组的美味风蛇。</p><p style="text-align: center;"><img src="http://wowdb60static.wow-classic.com/uploads/e91faf0e-f7ca-40af-9f60-405928e3849e.jpg" title="变异鱼群" alt="变异鱼群" width="" height="" /></p></div>
-</li>
+ </li>
 </ul>
+{include file='footer.tpl'}

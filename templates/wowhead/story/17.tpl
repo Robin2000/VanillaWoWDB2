@@ -1,14 +1,15 @@
+{include file='header.tpl'}
 <ul class="content_ul">
 <li class="content_li">
-<h2 title="在PVP中妙用的有趣小物品（一）">
-在PVP中妙用的有趣小物品（一）
+<h2 title="在PVP中妙用的有趣小物品">
+在PVP中妙用的有趣小物品
 </h2>
 <div class="content"><p>没有高大上的属性，总是有那些奇葩的效果，特别的有趣，PVP偶尔能够妙用，这才是60级的乐趣之一。</p><h3>一、丝瓜</h3><p><table class="item">
 <tr>
-<td class="item-icon">
+ <td class="item-icon">
 <div class="iconmedium">
 <div class="icon_border"></div>
-<div class="icon" style="background-image: url(/images/icons/medium/inv_fabric_wool_01.png)"></div>
+<ins class="icon" style="background-image: url(/images/icons/medium/inv_fabric_wool_01.png)"></ins>
 <a href="/item-19141" title="丝瓜" class="item_info" id="19141" target="_blank"></a>
 </div>
 </td>
@@ -19,7 +20,7 @@
 <td class="item-icon">
 <div class="iconmedium">
 <div class="icon_border"></div>
-<div class="icon" style="background-image: url(/images/icons/medium/inv_misc_pocketwatch_01.png)"></div>
+<ins class="icon" style="background-image: url(/images/icons/medium/inv_misc_pocketwatch_01.png)"></ins>
 <a href="/item-2820" title="灵巧秒表" class="item_info" id="2820" target="_blank"></a>
 </div>
 </td>
@@ -28,3 +29,4 @@
 </table></p><p>绿色品质，没有属性，效果：使你的奔跑速度提高40%，持续10秒。 (30分钟冷却)。虽然CD时间很长，但在野外PVP时，有时候能起到关键作用。在<a href="/zone-3" title="荒芜之地" target="_blank" title="荒芜之地">荒芜之地</a>完成任务<a href="/quest-778" title="不祥的感觉" target="_blank" title="不祥的感觉">不祥的感觉</a>，在<a href="/npc-2921" title="鲁特维尔·沃拉图斯" target="_blank" title="鲁特维尔·沃拉图斯">鲁特维尔·沃拉图斯</a>接任务，是一个后续任务。</p></div>
 </li>
 </ul>
+{include file='footer.tpl'}

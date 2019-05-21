@@ -1,7 +1,7 @@
 <?php
 global $page;
 
-$title = "有趣的魔兽小故事";
+$title = "趣味魔兽世界小故事";
 
 $c=$podrazdel;
 

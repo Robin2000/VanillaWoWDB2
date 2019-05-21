@@ -1,3 +1,4 @@
+{include file='header.tpl'}
 <ul class="content_ul">
 <li class="content_li">
 <h2 title="60级时那些有趣玩具（二）">
@@ -8,7 +9,7 @@
 <td class="item-icon">
 <div class="iconmedium">
 <div class="icon_border"></div>
-<div class="icon" style="background-image: url(/images/icons/medium/inv_potion_83.png)"></div>
+<ins class="icon" style="background-image: url(/images/icons/medium/inv_potion_83.png)"></ins>
 <a href="/item-8529" title="诺格弗格药剂" class="item_info" id="8529" target="_blank"></a>
 </div>
 </td>
@@ -19,7 +20,7 @@
 <td class="item-icon">
 <div class="iconmedium">
 <div class="icon_border"></div>
-<div class="icon" style="background-image: url(/images/icons/medium/inv_misc_flute_01.png)"></div>
+<ins class="icon" style="background-image: url(/images/icons/medium/inv_misc_flute_01.png)"></ins>
 <a href="/item-13379" title="烈焰短笛" class="item_info" id="13379" target="_blank"></a>
 </div>
 </td>
@@ -30,7 +31,7 @@
 <td class="item-icon">
 <div class="iconmedium">
 <div class="icon_border"></div>
-<div class="icon" style="background-image: url(/images/icons/medium/inv_helmet_66.png)"></div>
+<ins class="icon" style="background-image: url(/images/icons/medium/inv_helmet_66.png)"></ins>
 <a href="/item-12185" title="血帆舰长之帽" class="item_info" id="12185" target="_blank"></a>
 </div>
 </td>
@@ -41,7 +42,7 @@
 <td class="item-icon">
 <div class="iconmedium">
 <div class="icon_border"></div>
-<div class="icon" style="background-image: url(/images/icons/medium/ability_hunter_beastcall.png)"></div>
+<ins class="icon" style="background-image: url(/images/icons/medium/ability_hunter_beastcall.png)"></ins>
 <a href="/item-3456" title="狗哨" class="item_info" id="3456" target="_blank"></a>
 </div>
 </td>
@@ -52,7 +53,7 @@
 <td class="item-icon">
 <div class="iconmedium">
 <div class="icon_border"></div>
-<div class="icon" style="background-image: url(/images/icons/medium/inv_misc_bell_01.png)"></div>
+<ins class="icon" style="background-image: url(/images/icons/medium/inv_misc_bell_01.png)"></ins>
 <a href="/item-14023" title="巴罗夫管家铃" class="item_info" id="14023" target="_blank"></a>
 </div>
 </td>
@@ -61,3 +62,4 @@
 </table></p><p style="white-space: normal; text-align: center;"><img src="http://wowdb60static.wow-classic.com/uploads/3e191566-8b7e-49a3-b320-e5623cfac221.jpg" title="巴罗夫管家铃" alt="巴罗夫管家铃" width="" height="" /></p><p style="white-space: normal;"><strong>使用：</strong>召唤巴罗夫家族的3个仆人为你战斗、做饭和打扫。</p><p style="white-space: normal;"><strong>获得方法：</strong>联盟任务：<a href="/quest-5344" title="巴罗夫的继承人" target="_blank" title="巴罗夫的继承人">巴罗夫的继承人</a>，在<a href="/zone-1684" title="冰风岗" target="_blank" title="冰风岗">冰风岗</a>的<a href="/npc-11023" title="维尔顿·巴罗夫" target="_blank" title="维尔顿·巴罗夫">维尔顿·巴罗夫</a>处接任务，部落任务：<a href="/quest-5342" title="巴罗夫的继承人" target="_blank" title="巴罗夫的继承人">巴罗夫的继承人</a>在<a href="/zone-152" title="亡灵壁垒" target="_blank" title="亡灵壁垒">亡灵壁垒</a>的<a href="/npc-11022" title="阿莱克斯·巴罗夫" target="_blank" title="阿莱克斯·巴罗夫">阿莱克斯·巴罗夫</a>处接任务。</p><p style="white-space: normal;"><strong>简介：</strong>说简单一些，就是这两位巴罗夫家族的兄弟，一位仍然活着，一位变成了被遗忘者，为了争夺家族的财产，而互相暗杀。值得一提的是每次召唤出来仆人的种族和阵营是随机的。这个饰品的唯一的小缺点就是持续时间太短了，大概只有10秒左右。</p></div>
 </li>
 </ul>
+{include file='footer.tpl'}

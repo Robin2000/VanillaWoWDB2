@@ -1,3 +1,4 @@
+{include file='header.tpl'}
 <ul class="content_ul">
 <li class="content_li">
 <h2 title="各大副本钥匙及获取方法（一）">
@@ -8,7 +9,7 @@
 <td class="item-icon">
 <div class="iconmedium">
 <div class="icon_border"></div>
-<div class="icon" style="background-image: url(/images/icons/medium/inv_misc_key_01.png)"></div>
+<ins class="icon" style="background-image: url(/images/icons/medium/inv_misc_key_01.png)"></ins>
 <a href="/item-7146" title="血色十字军钥匙" class="item_info" id="7146" target="_blank"></a>
 </div>
 </td>
@@ -19,7 +20,7 @@
 <td class="item-icon">
 <div class="iconmedium">
 <div class="icon_border"></div>
-<div class="icon" style="background-image: url(/images/icons/medium/inv_misc_key_08.png)"></div>
+<ins class="icon" style="background-image: url(/images/icons/medium/inv_misc_key_08.png)"></ins>
 <a href="/item-11000" title="暗炉钥匙" class="item_info" id="11000" target="_blank"></a>
 </div>
 </td>
@@ -30,7 +31,7 @@
 <td class="item-icon">
 <div class="iconmedium">
 <div class="icon_border"></div>
-<div class="icon" style="background-image: url(/images/icons/medium/inv_misc_key_11.png)"></div>
+<ins class="icon" style="background-image: url(/images/icons/medium/inv_misc_key_11.png)"></ins>
 <a href="/item-13704" title="骷髅钥匙" class="item_info" id="13704" target="_blank"></a>
 </div>
 </td>
@@ -41,7 +42,7 @@
 <td class="item-icon">
 <div class="iconmedium">
 <div class="icon_border"></div>
-<div class="icon" style="background-image: url(/images/icons/medium/inv_misc_key_13.png)"></div>
+<ins class="icon" style="background-image: url(/images/icons/medium/inv_misc_key_13.png)"></ins>
 <a href="/item-12382" title="城市大门钥匙" class="item_info" id="12382" target="_blank"></a>
 </div>
 </td>
@@ -52,7 +53,7 @@
 <td class="item-icon">
 <div class="iconmedium">
 <div class="icon_border"></div>
-<div class="icon" style="background-image: url(/images/icons/medium/inv_misc_key_10.png)"></div>
+<ins class="icon" style="background-image: url(/images/icons/medium/inv_misc_key_10.png)"></ins>
 <a href="/item-18249" title="月牙钥匙" class="item_info" id="18249" target="_blank"></a>
 </div>
 </td>
@@ -61,3 +62,4 @@
 </table></p><p>进入<a href="/zone-2557" title="厄运之槌" target="_blank" title="厄运之槌">厄运之槌</a>的东区,和小鬼<a href="/npc-14354" title="普希林" target="_blank" title="普希林">普希林</a>对话，此时他是友善状态，追逐N次，到达一个平台上，最终对话，他将变成可攻击型,并有一群小鬼护卫。将他们KO，然后从他尸体上拿一张烹饪图纸：<a href="/item-18267" title="食谱：洛恩塔姆薯块" class="q2 item_info" id="18267" target="_blank">[食谱：洛恩塔姆薯块]</a>和并获得<a href="/item-18249" title="月牙钥匙" class="q1 item_info" id="18249" target="_blank">[月牙钥匙]</a>。</p></div>
 </li>
 </ul>
+{include file='footer.tpl'}
