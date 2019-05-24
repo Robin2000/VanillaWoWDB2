@@ -39,7 +39,7 @@
 				<a target="h" href="/wowgis/map-1"><img src="/images/gif/orc1.gif"/></a>
 				</div>
 				<div style="display:block;position: absolute;left:120;top:170px">
-				<a target="h" href="/wowgis/map-1"><img src="/images/gif/throll2.gif"/></a>
+				<a target="h" href="/wowgis/map-1"><img src="/images/gif/throll1.gif"/></a>
 				</div>
 				<div style="display:block;position: absolute;left:60;top:220px">
 				<a target="h" href="/wowgis/map-1"><img src="/images/gif/tauren1.gif"/></a>
