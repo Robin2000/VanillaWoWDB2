@@ -2767,3 +2767,33 @@ padding:10px 0 10px 10px;
     cursor: pointer;
     border-radius: 4px;
 }
+.content_ul{
+    width: 845px;
+    overflow: auto;
+    margin: 0 20px 0 20px;
+    padding-bottom: 10px;
+    font-family: "Microsoft YaHei","lucida grande", "lucida sans unicode", lucida, helvetica, PingFangSC-Regular, "WenQuanYi Micro Hei", "Hiragino Sans GB", sans-serif;
+    list-style: none;
+    padding: 0px;
+}
+.content_ul h2{
+    width: 100%;
+    height: auto;
+    overflow: auto;
+    padding: 0px;
+    margin: 0 0 10px 0;
+    font-size: 1.6rem;
+    color: #fac632;
+}
+.content_ul .content{
+    color: #bababa;
+    line-height: 1.8rem;
+    font-size: 0.875rem;
+    padding-bottom: 15px;
+}
+.content_ul .content_li{
+    width: 100%;
+    padding: 20px 0 0 0;
+    margin-bottom: 20px;
+    border-bottom: 2px dotted #353535;
+}
