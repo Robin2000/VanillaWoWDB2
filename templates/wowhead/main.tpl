@@ -8,6 +8,7 @@
 	</style>
 </head>
 <body>
+<h1 style="display:none">经典怀旧魔兽世界地图</h1>
 	<div id="layers"></div>
 	<div id="home">
 		<h1>{$title}</h1>
@@ -48,7 +49,7 @@
 		</div>
 	</div>
 	
-	</div>
+
 
 	<div> 
 		<ul style="width:500;margin:auto;line-height:25px;">
@@ -128,7 +129,7 @@
 	</div>
 	<noscript><div id="noscript-bg"></div><div id="noscript-text"><b>{#js_err#}</div></noscript>
 	<script type="text/javascript">DomContentLoaded.now()</script>
+<div>
+	<div>
 {include file='footer.tpl'}
 
-</body>
-</html>

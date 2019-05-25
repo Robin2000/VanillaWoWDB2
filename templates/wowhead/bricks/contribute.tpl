@@ -8,9 +8,9 @@
 	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
 	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
 	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
-	<a href="#"class="bds_douban" data-cmd="douban"title="分享到豆瓣网"></a>
+	<a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
 	<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
-	<a href="#"class="bds_kaixin001" data-cmd="kaixin001" title="分享到开心网"></a>
+	<a href="#" class="bds_kaixin001" data-cmd="kaixin001" title="分享到开心网"></a>
 	</div>
 </div>
 
