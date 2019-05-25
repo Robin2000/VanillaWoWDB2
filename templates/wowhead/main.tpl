@@ -34,28 +34,28 @@
 		<area shape="poly" coords="331,20,448,19,453,46,444,62,466,74,475,94,475,116,469,136,460,148,452,170,447,181,461,204,465,227,457,250,456,319,430,350,397,388,342,403,307,343,320,266,327,222,330,187,311,168,313,103,343,77,333,44" target="a" href="/wowgis/map-0" />
 		</map>
 				<div style="display:block;position: absolute;left:30;top:20px">
-				<a target="h" href="/wowgis/map-1"><img src="/images/gif/nightelf1.gif"/></a>
+				<a target="h" href="/wowgis/map-1"><img src="/images/gif/nightelf1.gif" alt="暗夜精灵"/></a>
 				</div>
 				<div style="display:block;position: absolute;left:120;top:120px">
-				<a target="h" href="/wowgis/map-1"><img src="/images/gif/orc1.gif"/></a>
+				<a target="h" href="/wowgis/map-1"><img src="/images/gif/orc1.gif" alt="兽人"/></a>
 				</div>
 				<div style="display:block;position: absolute;left:120;top:170px">
-				<a target="h" href="/wowgis/map-1"><img src="/images/gif/throll1.gif"/></a>
+				<a target="h" href="/wowgis/map-1"><img src="/images/gif/throll1.gif" alt="巨魔"/></a>
 				</div>
 				<div style="display:block;position: absolute;left:60;top:220px">
-				<a target="h" href="/wowgis/map-1"><img src="/images/gif/tauren1.gif"/></a>
+				<a target="h" href="/wowgis/map-1"><img src="/images/gif/tauren1.gif" alt="牛头人"/></a>
 				</div>
 				<div style="display:block;position: absolute;right:80;top:280px">
-				<a target="a" href="/wowgis/map-0"><img src="/images/gif/human2.gif"/></a>
+				<a target="a" href="/wowgis/map-0"><img src="/images/gif/human2.gif" alt="人类"/></a>
 				</div>
 				<div style="display:block;position: absolute;right:70;top:200px">
-				<a target="a" href="/wowgis/map-0"><img src="/images/gif/gnome1.gif"/></a>
+				<a target="a" href="/wowgis/map-0"><img src="/images/gif/gnome1.gif" alt="侏儒"/></a>
 				</div>
 				<div style="display:block;position: absolute;right:90;top:210px">
-				<a target="a" href="/wowgis/map-0"><img src="/images/gif/dwarf2.gif"/></a>
+				<a target="a" href="/wowgis/map-0"><img src="/images/gif/dwarf2.gif" alt="矮人"/></a>
 				</div>
 				<div style="display:block;position: absolute;right:80;top:50px">
-				<a target="a" href="/wowgis/map-0"><img src="/images/gif/scourge1.gif"/></a>
+				<a target="a" href="/wowgis/map-0"><img src="/images/gif/scourge1.gif" alt="亡灵"/></a>
 				</div>
 		</div>
 
