@@ -33,8 +33,8 @@
 									{if isset($quest.LimitTime.s)} {$quest.LimitTime.s} {#sec#}{/if}
 								</div></li>
 							{/if}{/strip}
-							{if isset($quest.start)}<li><div><img src="/images/icons/small/quest_start.gif">{#Start#}: {section loop=$quest.start name=i}{if $quest.start[i].side}<span class="{$quest.start[i].side}-icon">{/if}<a href="/{$quest.start[i].type}-{$quest.start[i].entry}"{if $quest.start[i].type == 'item'} class="icontiny q{$quest.start[i].quality}" style="background-image: url(images/icons/tiny/{$quest.start[i].iconname}.gif);"{/if}>{$quest.start[i].name}</a>{if $quest.start[i].side}</span>{/if}{if $smarty.section.i.last}{else}, <br><span style="visibility: hidden;">{#Start#}: </span>{/if}{/section}</div></li>{/if}
-							{if isset($quest.end)}<li><div><img src="/images/icons/small/quest_end.gif">{#End#}: {section loop=$quest.end name=i}{if $quest.end[i].side}<span class="{$quest.start[i].side}-icon">{/if}<a href="/{$quest.end[i].type}-{$quest.end[i].entry}">{$quest.end[i].name}</a>{if $quest.end[i].side}</span>{/if}{if $smarty.section.i.last}{else}, <br><span style="visibility: hidden;">{#End#}: </span>{/if}{/section}</div></li>{/if}
+							{if isset($quest.start)}<li><div><img src="/images/icons/small/quest_start.gif">{#Start#}: {section loop=$quest.start name=i}{if $quest.start[i].side}<span class="{$quest.start[i].side}-icon">{/if}<a href="http://www.topwow.top/{$quest.start[i].type}-{$quest.start[i].entry}.html"{if $quest.start[i].type == 'item'} class="icontiny q{$quest.start[i].quality}" style="background-image: url(images/icons/tiny/{$quest.start[i].iconname}.gif);"{/if}>{$quest.start[i].name}</a>{if $quest.start[i].side}</span>{/if}{if $smarty.section.i.last}{else}, <br><span style="visibility: hidden;">{#Start#}: </span>{/if}{/section}</div></li>{/if}
+							{if isset($quest.end)}<li><div><img src="/images/icons/small/quest_end.gif">{#End#}: {section loop=$quest.end name=i}{if $quest.end[i].side}<span class="{$quest.start[i].side}-icon">{/if}<a href="http://www.topwow.top/{$quest.end[i].type}-{$quest.end[i].entry}.html">{$quest.end[i].name}</a>{if $quest.end[i].side}</span>{/if}{if $smarty.section.i.last}{else}, <br><span style="visibility: hidden;">{#End#}: </span>{/if}{/section}</div></li>{/if}
 							{if isset($quest.reqskill)}<li><div>{#Skill#}: {$quest.reqskill.name} ({$quest.reqskill.value})</div></li>{/if}
 							{if isset($quest.reqclass)}<li><div>{#Class#}: {$quest.reqclass}</div></li>{/if}
 							{if isset($quest.Sharable)}<li><div>{#Sharable#}</div></li>{/if}
@@ -55,7 +55,7 @@
 										{if ($quest.series[i].entry==$quest.entry)}
 											<b>{$quest.series[i].Title}</b>
 										{else}
-											<div><a href="/quest-{$quest.series[i].entry}">{$quest.series[i].Title}</a></div>
+											<div><a href="http://www.topwow.top/quest-{$quest.series[i].entry}.html">{$quest.series[i].Title}</a></div>
 										{/if}
 									</td>
 								</tr>
@@ -77,7 +77,7 @@
 							<ul>
 							{section name=i loop=$quest.req}
 								<li>
-									<div><a href="/quest-{$quest.req[i].entry}">{$quest.req[i].Title}</a></div>
+									<div><a href="http://www.topwow.top/quest-{$quest.req[i].entry}.html">{$quest.req[i].Title}</a></div>
 								</li>
 							{/section}
 							</ul>
@@ -96,7 +96,7 @@
 							<ul>
 							{section name=i loop=$quest.reqone}
 								<li>
-									<div><a href="/quest-{$quest.reqone[i].entry}">{$quest.reqone[i].Title}</a></div>
+									<div><a href="http://www.topwow.top/quest-{$quest.reqone[i].entry}.html">{$quest.reqone[i].Title}</a></div>
 								</li>
 							{/section}
 							</ul>
@@ -115,7 +115,7 @@
 							<ul>
 							{section name=i loop=$quest.enabledby}
 								<li>
-									<div><a href="/quest-{$quest.enabledby[i].entry}">{$quest.enabledby[i].Title}</a></div>
+									<div><a href="http://www.topwow.top/quest-{$quest.enabledby[i].entry}.html">{$quest.enabledby[i].Title}</a></div>
 								</li>
 							{/section}
 							</ul>
@@ -134,7 +134,7 @@
 							<ul>
 							{section name=i loop=$quest.closes}
 								<li>
-									<div><a href="/quest-{$quest.closes[i].entry}">{$quest.closes[i].Title}</a></div>
+									<div><a href="http://www.topwow.top/quest-{$quest.closes[i].entry}.html">{$quest.closes[i].Title}</a></div>
 								</li>
 							{/section}
 							</ul>
@@ -153,7 +153,7 @@
 							<ul>
 							{section name=i loop=$quest.enables}
 								<li>
-									<div><a href="/quest-{$quest.enables[i].entry}">{$quest.enables[i].Title}</a></div>
+									<div><a href="http://www.topwow.top/quest-{$quest.enables[i].entry}.html">{$quest.enables[i].Title}</a></div>
 								</li>
 							{/section}
 							</ul>
@@ -175,7 +175,7 @@
 										{if ($quest.open[i].entry==$quest.entry)}
 											<b>{$quest.open[i].Title}</b>
 										{else}
-											<div><a href="/quest-{$quest.open[i].entry}">{$quest.open[i].Title}</a></div>
+											<div><a href="http://www.topwow.top/quest-{$quest.open[i].entry}.html">{$quest.open[i].Title}</a></div>
 										{/if}
 								</li>
 							{/section}
@@ -203,8 +203,8 @@
 						{#Additional_requirements_to_obtain_this_quest#}:<br>
 						{strip}
 							<ul>
-							{if isset($quest.RequiredMinRep)}<li><div>{#Your_reputation_with#} <a href="/faction-{$quest.RequiredMinRep.entry}">{$quest.RequiredMinRep.name}</a> {#must_be#} {#higher_than#} {$quest.RequiredMinRep.value}</div></li>{/if}
-							{if isset($quest.RequiredMaxRep)}<li><div>{#Your_reputation_with#} <a href="/faction-{$quest.RequiredMaxRep.entry}">{$quest.RequiredMaxRep.name}</a> {#must_be#} {#lower_than#} {$quest.RequiredMaxRep.value}</div></li>{/if}
+							{if isset($quest.RequiredMinRep)}<li><div>{#Your_reputation_with#} <a href="http://www.topwow.top/faction-{$quest.RequiredMinRep.entry}.html">{$quest.RequiredMinRep.name}</a> {#must_be#} {#higher_than#} {$quest.RequiredMinRep.value}</div></li>{/if}
+							{if isset($quest.RequiredMaxRep)}<li><div>{#Your_reputation_with#} <a href="http://www.topwow.top/faction-{$quest.RequiredMaxRep.entry}.html">{$quest.RequiredMaxRep.name}</a> {#must_be#} {#lower_than#} {$quest.RequiredMaxRep.value}</div></li>{/if}
 							</ul>
 							<div class="line"></div>
 						{/strip}
@@ -261,7 +261,7 @@
 			<tr>
 				<th align="right" id="iconlist-icon{$i}"></th>
 				<td>
-					<span class="q{$item.quality}"><a href="/item-{$item.entry}">{$item.name}</a></span>{if $item.count>1} ({$item.count}){/if}
+					<span class="q{$item.quality}"><a href="http://www.topwow.top/item-{$item.entry}.html">{$item.name}</a></span>{if $item.count>1} ({$item.count}){/if}
 				</td>
 			</tr>
 		{/foreach}
@@ -274,7 +274,7 @@
 			<tr>
 				<th><ul><li><var>&nbsp;</var></li></ul></th>
 				<td>
-					<a href="/object-{$object.entry}">
+					<a href="http://www.topwow.top/object-{$object.entry}.html">
 						{if isset($quest.ObjectiveText[$i])}{$quest.ObjectiveText[$i]}{else}{$object.name}{/if}
 					</a>
 					{if $object.count>1}({$object.count}){/if}
@@ -289,7 +289,7 @@
 			<tr>
 				<th><ul><li><var>&nbsp;</var></li></ul></th>
 				<td>
-					<a href="/faction-{$quest.factionreq.entry}">{$quest.factionreq.name}</a> ({$quest.factionreq.value})
+					<a href="http://www.topwow.top/faction-{$quest.factionreq.entry}.html">{$quest.factionreq.name}</a> ({$quest.factionreq.value})
 				</td>
 			</tr>
 	{/if}
@@ -333,7 +333,7 @@
 <table class="iconlist">
 	<tr>
 		<th align="right" id="iconlist-icon-src"></th>
-		<td><span class="q1"><a href="/item-{$quest.SrcItem.entry}">{$quest.SrcItem.name}</a></span></td>
+		<td><span class="q1"><a href="http://www.topwow.top/item-{$quest.SrcItem.entry}.html">{$quest.SrcItem.name}</a></span></td>
 	</tr>
 </table>
 <script type="text/javascript">ge('iconlist-icon-src').appendChild(g_items.createIcon({$quest.SrcItem.entry}, 0, {$quest.SrcItem.count}));</script>
@@ -345,7 +345,7 @@
 <table class="icontab">
 	<tr>
 		<th align="right" id="icontab-icon-spl"></th>
-		<td><span class="q1"><a href="/spell-{$quest.SrcSpell.entry}">{$quest.SrcSpell.name}</a></span></td>
+		<td><span class="q1"><a href="http://www.topwow.top/spell-{$quest.SrcSpell.entry}.html">{$quest.SrcSpell.name}</a></span></td>
 	</tr>
 </table>
 <script type="text/javascript">ge('icontab-icon-spl').appendChild(g_spells.createIcon({$quest.SrcSpell.entry}, 0, 0));</script>
@@ -369,7 +369,7 @@
 								<th id="icontab-icon{$smarty.section.j.index}"></th>
 								<td>
 									<span class="q{$quest.itemchoices[j].quality}">
-										<a href="/item-{$quest.itemchoices[j].entry}">
+										<a href="http://www.topwow.top/item-{$quest.itemchoices[j].entry}.html">
 											{$quest.itemchoices[j].name}
 										</a>
 									</span>
@@ -394,7 +394,7 @@
 								<th id="icontab-icon{$smarty.section.j.index+4}"></th>
 								<td>
 									<span class="q{$quest.itemrewards[j].quality}">
-										<a href="/item-{$quest.itemrewards[j].entry}">
+										<a href="http://www.topwow.top/item-{$quest.itemrewards[j].entry}.html">
 											{$quest.itemrewards[j].name}
 										</a>
 									</span>
@@ -418,7 +418,7 @@
 {/if}
 						<table class="icontab">{strip}
 						<tr>
-						<th id="icontab-icon20"></th><td><a href="/spell-{$quest.spellreward.realentry}">{$quest.spellreward.name}</a></td>
+						<th id="icontab-icon20"></th><td><a href="http://www.topwow.top/spell-{$quest.spellreward.realentry}.html">{$quest.spellreward.name}</a></td>
 						<th></th><td></td>
 						</tr>
 						</table>{/strip}
@@ -468,7 +468,7 @@
 {/if}
 {if isset($quest.reprewards)}
 {section name=j loop=$quest.reprewards}
-						<li><div>{$quest.reprewards[j].value} {#reputationwith#} <a href="/faction-{$quest.reprewards[j].entry}">{$quest.reprewards[j].name}</a></div></li>
+						<li><div>{$quest.reprewards[j].value} {#reputationwith#} <a href="http://www.topwow.top/faction-{$quest.reprewards[j].entry}.html">{$quest.reprewards[j].name}</a></div></li>
 {/section}
 {/if}						
 {if isset($quest.titlereward)}

@@ -20,7 +20,7 @@
 		<div id="toptabs">
 			<div id="toptabs-inner">
 				<div id="toptabs-right">
-				{if ($smarty.session.locale==0)}<a href="/">Home</a>{else}<a href="/">首页</a>{/if}
+				<a style="line-height:32px" href="http://www.topwow.top/"><img vertical-align="middle" src="http://www.topwow.top/images/home.png" alt="Home"></a>
 				|<a href="javascript:;" id="toptabs-menu-language">{#Language#} <small>&#9660;</small></a>
 					<script type="text/javascript">g_initHeaderMenus()</script>
 				</div>

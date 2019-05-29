@@ -36,7 +36,7 @@
 										{if ($achievement.series[i].id == $achievement.id)}
 											<b>{$achievement.series[i].name}</b>
 										{else}
-											<div><a href="/achievement-{$achievement.series[i].id}">{$achievement.series[i].name}</a></div>
+											<div><a href="http://www.topwow.top/achievement-{$achievement.series[i].id}.html">{$achievement.series[i].name}</a></div>
 										{/if}
 									</td>
 								</tr>

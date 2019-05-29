@@ -38,7 +38,7 @@ function tc_init() {
 	setInterval(tc_readPound, 1000)
 }
 function tc_classClick(a) {
-	location.href="/talent-"+a;
+	location.href="http://www.topwow.top/talent-"+a+".html";
 	return false;
 }
 function tc_classOver(a) {

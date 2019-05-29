@@ -412,10 +412,10 @@ var Markup = {
 				}
 				break;
 			case "item":
-				G += '<a href="/item-' + B[D][2] + '">(Item #' + B[D][2] + ")</a>";
+				G += '<a href="http://www.topwow.top/item-' + B[D][2] + '.html">(Item #' + B[D][2] + ")</a>";
 				break;
 			case "spell":
-				G += '<a href="/spell-' + B[D][2] + '">(Spell #' + B[D][2] + ")</a>";
+				G += '<a href="http://www.topwow.top/spell-' + B[D][2] + '.html">(Spell #' + B[D][2] + ")</a>";
 				break;
 			case "map":
 				var F = B[D][2];

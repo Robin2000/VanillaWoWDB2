@@ -183,7 +183,7 @@ function spell_to_bonus($spell_id, $trigger)
 	if($tooltip == '_empty_')
 		return;
 	if(!$tooltip)
-		return '<a href="/spell-'.$spell_id.'">Error in spell_desc for spell '.$spell_id.'</a>';
+		return '<a href="http://www.topwow.top/spell-'.$spell_id.'.html">Error in spell_desc for spell '.$spell_id.'</a>';
 	switch($trigger)
 	{
 		case 0:
@@ -203,7 +203,7 @@ function spell_to_bonus($spell_id, $trigger)
 			$t = 'Error! ';
 			break;
 	}
-	return $t.'<a href="/spell-'.$spell_id.'" class="q2">'.$tooltip.'</a>';
+	return $t.'<a href="http://www.topwow.top/spell-'.$spell_id.'.html" class="q2">'.$tooltip.'</a>';
 }
 
 function allitemsinfo2(&$Row, $level=0)
@@ -328,7 +328,7 @@ function render_item_tooltip(&$Row)
 		$x .= ' ('.$Row['maxcount'].')';
 
  	if($Row['start_quest'])
-		$x .= '<br /><a class="q1" href="/quest-'.$Row['start_quest'].'">'.LOCALE_START_QUEST.'</a>';
+		$x .= '<br /><a class="q1" href="http://www.topwow.top/quest-'.$Row['start_quest'].'.html">'.LOCALE_START_QUEST.'</a>';
 
 	// Локация, для которой предназначен этот предмет
 	if($Row['Map'])
@@ -458,7 +458,7 @@ function render_item_tooltip(&$Row)
 	if($Row['description'])
 	{
 		if($Row['spelltrigger_2']==6)
-			$x .= '<span class="q2">'.LOCALE_GBONUS_USE.' <a href="/spell-'.$Row['spellid_2'].'">'.localizedName($Row, 'description').'</a></span>';
+			$x .= '<span class="q2">'.LOCALE_GBONUS_USE.' <a href="http://www.topwow.top/spell-'.$Row['spellid_2'].'.html">'.localizedName($Row, 'description').'</a></span>';
 		else
 			$x .= '<span class="q">"'.localizedName($Row, 'description').'"</span>';
 	}
@@ -479,15 +479,15 @@ function render_item_tooltip(&$Row)
 			{
 				$num++;
 				$name = getitemname($row['item'.$i]);
-				$x_tmp .= '<span><a href="/item-'.$row['item'.$i].'">'.$name.'</a></span><br />';
+				$x_tmp .= '<span><a href="http://www.topwow.top/item-'.$row['item'.$i].'.html">'.$name.'</a></span><br />';
 			}
 		}
-		$x .= '<br /><span class="q"><a href="/itemset-'.$row['itemsetID'].'" class="q">'.$row['name_loc'.$_SESSION['locale']].'</a> (0/'.$num.')</span><br />';
+		$x .= '<br /><span class="q"><a href="http://www.topwow.top/itemset-'.$row['itemsetID'].'.html" class="q">'.$row['name_loc'.$_SESSION['locale']].'</a> (0/'.$num.')</span><br />';
 		// Если требуется скилл
 		if($row['skillID'])
 		{
 			$name = $DB->selectCell('SELECT name_loc'.$_SESSION['locale'].' FROM ?_skill WHERE skillID=?d LIMIT 1', $row['skillID']);
-			$x .= LOCALE_REQUIRES.' <a href="/spells-11.'.$row['skillID'].'" class="q1">'.$name.'</a>';
+			$x .= LOCALE_REQUIRES.' <a href="http://www.topwow.top/spells-11.'.$row['skillID'].'.html" class="q1">'.$name.'</a>';
 			if($row['skilllevel'])
 				$x .= ' ('.$row['skilllevel'].')';
 			$x .= '<br />';
@@ -517,7 +517,7 @@ function render_item_tooltip(&$Row)
 					$itemset['spells'][$i] = $itemset['spells'][$j];
 					$itemset['spells'][$j] = $tmp;
 				}
-			$x .= '<span>('.$itemset['spells'][$i]['bonus'].') Set: <a href="/spell-'.$itemset['spells'][$i]['entry'].'">'.$itemset['spells'][$i]['tooltip'].'</a></span><br />';
+			$x .= '<span>('.$itemset['spells'][$i]['bonus'].') Set: <a href="http://www.topwow.top/spell-'.$itemset['spells'][$i]['entry'].'.html">'.$itemset['spells'][$i]['tooltip'].'</a></span><br />';
 		}
 		$x .= '</span></span>';
 	}

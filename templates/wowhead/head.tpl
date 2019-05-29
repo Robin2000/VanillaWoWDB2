@@ -2,8 +2,8 @@
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<meta name="Keywords" content="{if $page.Title}{$page.Title|escape:"html"}页,{else}经典怀旧魔兽世界地图{/if}">
 	<meta name="description" content="{if $page.Title}{$page.Title|escape:"html"}页,{else}经典怀旧魔兽世界1.12版本的地图,物品,装备,武器,NPC,技能,任务,地区,道具,声望,等详细数据.{/if}">
-	<link rel="search" type="application/opensearchdescription+xml" title="VanillaWoWDB" href="/opensearch.xml" />
-	<link rel="SHORTCUT ICON" href="/favicon.ico">
+	<link rel="search" type="application/opensearchdescription+xml" title="VanillaWoWDB" href="http://www.topwow.top/opensearch.xml" />
+	<link rel="SHORTCUT ICON" href="http://www.topwow.top/favicon.ico">
 
 	<link rel="stylesheet" type="text/css" href="templates/wowhead/css/global.css?{$AOWOW_REVISION}" />
 	<link rel="stylesheet" type="text/css" href="templates/wowhead/css/locale_{$language}.css?{$AOWOW_REVISION}" />

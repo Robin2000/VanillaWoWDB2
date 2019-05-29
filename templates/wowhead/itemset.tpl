@@ -34,7 +34,7 @@
 					{$itemset.article}
 					This {$itemset.count}-piece set includes the following items:
 					<table class="iconlist">
-						{section name=i loop=$itemset.pieces}<tr><th align="right" id="iconlist-icon{$smarty.section.i.index+1}"></th><td><span class="q{$itemset.pieces[i].quality}"><a href="/item-{$itemset.pieces[i].entry}">{$itemset.pieces[i].name}</a></span></td></tr>{/section} 
+						{section name=i loop=$itemset.pieces}<tr><th align="right" id="iconlist-icon{$smarty.section.i.index+1}"></th><td><span class="q{$itemset.pieces[i].quality}"><a href="http://www.topwow.top/item-{$itemset.pieces[i].entry}.html">{$itemset.pieces[i].name}</a></span></td></tr>{/section} 
 					</table>
 					<script type="text/javascript">
 						{section name=i loop=$itemset.pieces}ge('iconlist-icon{$smarty.section.i.index+1}').appendChild(g_items.createIcon({$itemset.pieces[i].entry}, 0, 0));{/section}
@@ -43,7 +43,7 @@
 
 					Wearing more pieces of this set will convey bonuses to your character.
 					<ul>
-						{section name=i loop=$itemset.spells}<li><div>{$itemset.spells[i].bonus} pieces: <a href="/spell-{$itemset.spells[i].entry}">{$itemset.spells[i].tooltip}</a></div></li>{/section}
+						{section name=i loop=$itemset.spells}<li><div>{$itemset.spells[i].bonus} pieces: <a href="http://www.topwow.top/spell-{$itemset.spells[i].entry}.html">{$itemset.spells[i].tooltip}</a></div></li>{/section}
 					</ul>
 
 				<h2>{#Related#}</h2>

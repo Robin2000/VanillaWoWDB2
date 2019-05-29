@@ -1297,7 +1297,7 @@ var LANG = {
 	lvnote_arenateamsfound: "$1 total arena teams",
 	lvnote_arenateamsfound2: "$1 total arena teams, $2 matching",
 	lvnote_createafilter: '<small><a href="$1">Create a filter</a></small>',
-	lvnote_questgivers: '<small>View <a href="/zone-$1">quest givers</a> in <b>$2</b> &nbsp;<b>|</b>&nbsp; Filter <a href="?items&filter=cr=126;crs=$3;crv=0">quest rewards</a></small>',
+	lvnote_questgivers: '<small>View <a href="http://www.topwow.top/zone-$1.html">quest givers</a> in <b>$2</b> &nbsp;<b>|</b>&nbsp; Filter <a href="?items&filter=cr=126;crs=$3;crv=0">quest rewards</a></small>',
 	lvnote_allpets: '<small>All pets can learn all of the <a href="?spells=-3.270">passive skills</a></small>',
 	lvnote_zonequests: '<small>Browse <a href="?quests=$1.$2">quests</a> in the <b>$3</b> category &nbsp;<b>|</b>&nbsp; Filter <a href="?items&filter=cr=126;crs=$4;crv=0">quest rewards</a></small>',
 	lvnote_crafteditems: '<small>Filter <a href="?items&filter=cr=86;crs=$1;crv=0">crafted items</a></small>',

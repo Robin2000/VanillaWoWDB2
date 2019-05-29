@@ -176,7 +176,7 @@ if(!$spell = load_cache(13, $cache_key))
 						case 89: // "Summon Totem (slot 3)"
 						case 90: // "Summon Totem (slot 4)"
 						{
-							$spell['effect'][$i]['name'] .= ' (<a href="/npc-'.$row['effect'.$j.'MiscValue'].'">'.$row['effect'.$j.'MiscValue'].'</a>)';
+							$spell['effect'][$i]['name'] .= ' (<a href="http://www.topwow.top/npc-'.$row['effect'.$j.'MiscValue'].'.html">'.$row['effect'.$j.'MiscValue'].'</a>)';
 							break;
 						}
 						default:
@@ -206,7 +206,7 @@ if(!$spell = load_cache(13, $cache_key))
 						case 78: // "Mounted" - приписываем ссылку на нпс
 						case 56: // "Transform"
 						{
-							$spell['effect'][$i]['name'] .= ': '.$spell_aura_names[$row['effect'.$j.'Aura']].' (<a href="/npc-'.$row['effect'.$j.'MiscValue'].'">'.$row['effect'.$j.'MiscValue'].'</a>)';
+							$spell['effect'][$i]['name'] .= ': '.$spell_aura_names[$row['effect'.$j.'Aura']].' (<a href="http://www.topwow.top/npc-'.$row['effect'.$j.'MiscValue'].'.html">'.$row['effect'.$j.'MiscValue'].'</a>)';
 							break;
 						}
 						default:
