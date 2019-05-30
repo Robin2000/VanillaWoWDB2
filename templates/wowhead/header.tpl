@@ -5,7 +5,6 @@
 </head>
 
 <body>
-<h1 style="display:none">{if $page.Title}{$page.Title|escape:"html"} - {/if}{$app_name}</h1>
 <div id="layers"></div>
 <!--[if lte IE 6]><table id="ie6layout"><tr><th class="ie6layout-th"></th><td id="ie6layout-td"><div id="ie6layout-div"></div><![endif]-->
 <div id="layout">

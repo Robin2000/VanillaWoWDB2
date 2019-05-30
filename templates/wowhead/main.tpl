@@ -8,7 +8,6 @@
 	</style>
 </head>
 <body>
-<h1 style="display:none">经典怀旧魔兽世界地图</h1>
 	<div id="layers"></div>
 	<div id="home">
 		<h1>{$title}</h1>

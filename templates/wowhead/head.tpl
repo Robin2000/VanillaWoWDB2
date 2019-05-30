@@ -1,7 +1,7 @@
 	<title>{if $page.Title}{$page.Title|escape:"html"} - {/if}{$app_name}</title>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<meta name="Keywords" content="{if $page.Title}{$page.Title|escape:"html"}页,{else}经典怀旧魔兽世界地图{/if}">
-	<meta name="description" content="{if $page.Title}{$page.Title|escape:"html"}页,{else}经典怀旧魔兽世界1.12版本的地图,物品,装备,武器,NPC,技能,任务,地区,道具,声望,等详细数据.{/if}">
+	<meta name="Keywords" content="{if $page.Title}{$page.Title|escape:"html"}页,经典怀旧魔兽世界资料{else}经典怀旧魔兽世界地图{/if}">
+	<meta name="description" content="{if $page.Title}经典怀旧魔兽世界资料{$page.Title|escape:"html"}页{else}经典怀旧魔兽世界1.12版本的地图,物品,装备,武器,NPC,技能,任务,地区,道具,声望,等详细数据.{/if}">
 	<link rel="search" type="application/opensearchdescription+xml" title="VanillaWoWDB" href="http://www.topwow.top/opensearch.xml" />
 	<link rel="SHORTCUT ICON" href="http://www.topwow.top/favicon.ico">
 
