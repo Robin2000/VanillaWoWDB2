@@ -69,7 +69,7 @@
 
 
 	<div> 
-		<ul style="width:500;margin:auto;line-height:25px;">
+		<ul style="list-style-type:none;width:500;margin:auto;line-height:25px;">
             <li class="info-list">《<a href="http://www.topwow.top/story-1.html" target="_blank">细数经典旧世值得铭记的传奇武器</a>》《<a href="http://www.topwow.top/story-2.html" target="_blank">灰烬使者的传说</a>》</li>
 			<li class="info-list">《<a href="http://www.topwow.top/story-3.html" target="_blank">暗月马戏团宠物青蛙加布获得攻略</a>》《<a href="http://www.topwow.top/story-4.html" target="_blank">纳兹加克王子与潮汐咒符</a>》</li>
 			<li class="info-list">《<a href="http://www.topwow.top/story-5.html" target="_blank">各大副本钥匙及获取方法（一）</a>》 《<a href="http://www.topwow.top/story-6.html" target="_blank">各大副本钥匙及获取方法（二）</a>》</li>
