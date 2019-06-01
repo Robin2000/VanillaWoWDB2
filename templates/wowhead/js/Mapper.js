@@ -22,7 +22,7 @@ function Mapper(d, e) {
 		this.mouse = (this.mouse == null ? false: this.mouse)
 	}
 	this.zoneLink = (this.zoneLink == null ? true: this.zoneLink);
-	if (location.href.indexOf("zone=") != -1) {
+	if (location.href.indexOf("zone-") != -1) {
 		this.zoneLink = false
 	}
 	this.zoom = (this.zoom == null ? 0 : this.zoom);
@@ -65,7 +65,7 @@ function Mapper(d, e) {
 		this.sZoneLink = c = g_createGlow("zone link");
 		var f = c.childNodes[4];
 		var b = ce("a");
-		b.href = "?zones";
+		b.href = "/zones.html";
 		ae(b, ct(f.firstChild.nodeValue));
 		de(f.firstChild);
 		ae(f, b);
@@ -270,7 +270,7 @@ Mapper.prototype = {
 			var a = g_zones[b] != null;
 			if (a) {
 				g_setTextNodes(this.sZoneLink, g_zones[b]);
-				this.sZoneLink.childNodes[4].firstChild.href = "/zone-" + b
+				this.sZoneLink.childNodes[4].firstChild.href = "http://www.topwow.top/zone-" + b + "html"
 			}
 			this.sZoneLink.style.display = a ? "": "none"
 		}

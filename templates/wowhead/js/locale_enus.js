@@ -18,7 +18,19 @@ var mn_zones=[
 	[3,"Raids"],
 	[4,"Battlegrounds"]
 ];
-var mn_talentCalc = [["0", "Druid"], ["c", "Hunter"], ["o", "Mage"], ["s", "Paladin"], ["b", "Priest"], ["f", "Rogue"], ["h", "Shaman"], ["I", "Warlock"], ["L", "Warrior"]];
+
+var mn_talentCalc = [
+	["0", "Druid","http://www.topwow.top/talent-11.html"], 
+	["c", "Hunter","http://www.topwow.top/talent-3.html"], 
+	["o", "Mage","http://www.topwow.top/talent-8.html"], 
+	["s", "Paladin","http://www.topwow.top/talent-2.html"], 
+	["b", "Priest","http://www.topwow.top/talent-5.html"], 
+	["f", "Rogue","http://www.topwow.top/talent-4.html"], 
+	["h", "Shaman","http://www.topwow.top/talent-7.html"], 
+	["I", "Warlock","http://www.topwow.top/talent-9.html"], 
+	["L", "Warrior","http://www.topwow.top/talent-1.html"]
+];
+
 var mn_pets = [];
 var mn_factions = [
 		[469,"Alliance"],
@@ -27,19 +39,21 @@ var mn_factions = [
 		[892,"Horde Forces"],
 		[169,"Steamwheedle Cartel"],
 ];
+
 var mn_petCalc = [];
 var mn_forums = [];
 var mn_database=[
-	[0,"Items","/items",mn_items],
-	[2,"Item Sets","/itemsets"/*,mn_itemSets*/],
-	[4,"NPCs","/npcs",mn_npcs],
-	[3,"Quests","/quests",mn_quests],
-	[6,"Zones","/zones",mn_zones],
-	[1,"Spells","/spells",mn_spells],
-	[5,"Objects","/objects",mn_objects],
-	[7,"Factions","/factions",mn_factions]
+	[0,"Items","http://www.topwow.top/items.html",mn_items],
+	[2,"Item Sets","http://www.topwow.top/itemsets.html"/*,mn_itemSets*/],
+	[4,"NPCs","http://www.topwow.top/npcs.html",mn_npcs],
+	[3,"Quests","http://www.topwow.top/quests.html",mn_quests],
+	[6,"Zones","http://www.topwow.top/zones.html",mn_zones],
+	[1,"Spells","http://www.topwow.top/spells.html",mn_spells],
+	[5,"Objects","http://www.topwow.top/objects.html",mn_objects],
+	[7,"Factions","http://www.topwow.top/factions.html",mn_factions]
 ];
-var mn_tools = [ /*[0, "Talent Calculator", "?talent", mn_talentCalc],*/ [1, "Maps", "/maps"]];
+
+var mn_tools = [ [0, "Talent Calculator", "http://www.topwow.top/talent.html", mn_talentCalc],[1, "Maps", "http://www.topwow.top/maps.html"]];
 var mn_path = [[0, "Database", , mn_database], [1, "Tools", , mn_tools]];
 var g_chr_classes = {
 	1 : "Warrior",

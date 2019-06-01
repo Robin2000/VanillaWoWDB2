@@ -18,7 +18,16 @@ var mn_zones=[
 	[3,"团本"],
 	[4,"战场"]
 ];
-var mn_talentCalc = [["0", "德鲁伊","/talent-11"], ["c", "猎人","/talent-3"], ["o", "法师","/talent-8"], ["s", "圣骑士","/talent-2"], ["b", "牧师","/talent-5"], ["f", "盗贼","/talent-4"], ["h", "萨满","/talent-7"], ["I", "术士","/talent-9"], ["L", "战士","/talent-1"]];
+var mn_talentCalc = [
+["0", "德鲁伊","http://www.topwow.top/talent-11.html"], 
+["c", "猎人","http://www.topwow.top/talent-3.html"], 
+["o", "法师","http://www.topwow.top/talent-8.html"], 
+["s", "圣骑士","http://www.topwow.top/talent-2.html"], 
+["b", "牧师","http://www.topwow.top/talent-5.html"], 
+["f", "盗贼","http://www.topwow.top/talent-4.html"], 
+["h", "萨满","http://www.topwow.top/talent-7.html"], 
+["I", "术士","http://www.topwow.top/talent-9.html"], 
+["L", "战士","http://www.topwow.top/talent-1.html"]];
 var mn_pets = [];
 var mn_factions = [
 		[469,"联盟"],
@@ -31,16 +40,16 @@ var mn_factions = [
 var mn_petCalc = [];
 var mn_forums = [];
 var mn_database=[
-	[0,"物品","/items",mn_items],
-	[2,"套装","/itemsets"/*,mn_itemSets*/],
-	[4,"NPCs","/npcs",mn_npcs],
-	[3,"任务","/quests",mn_quests],
-	[6,"区域","/zones",mn_zones],
-	[1,"法术","/spells",mn_spells],
-	[5,"道具","/objects",mn_objects],
-	[7,"阵营","/factions",mn_factions]
+	[0,"物品","http://www.topwow.top/items.html",mn_items],
+	[2,"套装","http://www.topwow.top/itemsets.html"/*,mn_itemSets*/],
+	[4,"NPCs","http://www.topwow.top/npcs.html",mn_npcs],
+	[3,"任务","http://www.topwow.top/quests.html",mn_quests],
+	[6,"区域","http://www.topwow.top/zones.html",mn_zones],
+	[1,"法术","http://www.topwow.top/spells.html",mn_spells],
+	[5,"道具","http://www.topwow.top/objects.html",mn_objects],
+	[7,"阵营","http://www.topwow.top/factions.html",mn_factions]
 ];
-var mn_tools = [ [0, "天赋计算", "/talent", mn_talentCalc],[1, "地图", "/maps"]];
+var mn_tools = [ [0, "天赋计算", "http://www.topwow.top/talent.html", mn_talentCalc],[1, "地图", "http://www.topwow.top/maps.html"]];
 var mn_path = [[0, "数据库", , mn_database], [1, "工具", , mn_tools]];
 var g_chr_classes = {
 	1 : "战士",
@@ -1298,7 +1307,7 @@ var LANG = {
 	lvnote_arenateamsfound2: "共$1个竞技团队，$2 匹配。",
 	lvnote_createafilter: '<small><a href="$1">创建一个筛选条件</a></small>',
 	lvnote_questgivers: '<small>View <a href="http://www.topwow.top/zone-$1.html">查看任务发起</a> in <b>$2</b> &nbsp;<b>|</b>&nbsp; 筛选 <a href="?items&filter=cr=126;crs=$3;crv=0">任务奖励</a></small>',
-	lvnote_allpets: '<small>所有宠物可学的 <a href="http://www.topwow.top/spells--3.270.html">被动技能</a></small>',
+	lvnote_allpets: '<small>所有宠物可学的 <a href="http://www.topwow.top/spells-3.270.html">被动技能</a></small>',
 	lvnote_zonequests: '<small>浏览 <a href="http://www.topwow.top/quests-$1.$2.html">任务</a>  <b>$3</b> 分类 &nbsp;<b>|</b>&nbsp; 筛选 <a href="?items&filter=cr=126;crs=$4;crv=0">任务奖励quest rewards</a></small>',
 	lvnote_crafteditems: '<small>筛选 <a href="?items&filter=cr=86;crs=$1;crv=0">精品装备</a></small>',
 	lvnote_viewmoreslot: '<small>查看 <a href="?items$1&filter=$2">更多结果</a> for this slot</small>',
