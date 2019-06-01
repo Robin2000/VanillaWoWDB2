@@ -60,15 +60,15 @@
 
 		
 		<div id="toplinks" class="toplinks" style="position: fixed;top: 10px;right:50px">
-			{if ($smarty.session.locale==0)}<a href="http://www.topwow.top/">Home</a>{else}<a href="http://www.topwow.top/">首页</a>{/if}
-			|<a href="javascript:;" id="toptabs-menu-language">{#Language#} <small>&#9660;</small></a>
+			{if ($smarty.session.locale==0)}<!--a href="http://www.topwow.top/">Home</a>{else}<!--a href="http://www.topwow.top/">首页</a>{/if}
+			|<a href="javascript:;" id="toptabs-menu-language">{#Language#} <small>&#9660;</small></a-->
 			<script type="text/javascript">g_initHeaderMenus()</script>
 		</div>
 	</div>
 	
 
 
-	<div> 
+	<div style="width:100%;text-align:center"> 
 		<ul style="list-style-type:none;width:500;margin:auto;line-height:25px;">
             <li class="info-list">《<a href="http://www.topwow.top/story-1.html" target="_blank">细数经典旧世值得铭记的传奇武器</a>》《<a href="http://www.topwow.top/story-2.html" target="_blank">灰烬使者的传说</a>》</li>
 			<li class="info-list">《<a href="http://www.topwow.top/story-3.html" target="_blank">暗月马戏团宠物青蛙加布获得攻略</a>》《<a href="http://www.topwow.top/story-4.html" target="_blank">纳兹加克王子与潮汐咒符</a>》</li>
