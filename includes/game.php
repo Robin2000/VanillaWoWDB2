@@ -606,8 +606,8 @@ function position($id, $type, $spawnMask = 0)
 	   $smarty->assign('map1Poi', $map1Poi);
 
 	   $cache_key = cache_key($id);
-	   save_cache(10000, $cache_key, $map0Poi); /*10000表示Creature的map0Poi*/
-	   save_cache(10001, $cache_key, $map1Poi); /*10001表示Creature的map2Poi*/
+	   save_cache(10000, $cache_key, $map0Poi); /*10000表示NpcOrGO的map0Poi*/
+	   save_cache(10001, $cache_key, $map1Poi); /*10001表示NpcOrGO的map2Poi*/
     }
 	if($data)
 	{
