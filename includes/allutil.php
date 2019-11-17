@@ -294,6 +294,9 @@ $cache_types = array(
 	// 24	=> 'achievement_listing',
 
 	// 25	=> 'glyphs',
+
+	10000	=> 'npc_map0',
+	10001	=> 'npc_map1',
 );
 function save_cache($type, $type_id, $data, $prefix = '')
 {

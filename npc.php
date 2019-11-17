@@ -315,6 +315,14 @@ if(!$npc = load_cache(1, $cache_key))
 
 		save_cache(1, $cache_key, $npc);
 	}
+} else {
+
+	if($map0Poi = load_cache(10000, $cache_key)){
+		$smarty->assign('map0Poi', $map0Poi);
+	}
+	if($map1Poi = load_cache(10001, $cache_key)){
+		$smarty->assign('map1Poi', $map1Poi);
+	}
 }
 
 global $page;

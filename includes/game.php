@@ -530,7 +530,7 @@ function transform_coords($recv)
 // Функция создает полный и окончательный массив информации о местоположении объектов или НПС
 function position($id, $type, $spawnMask = 0)
 {
-	global $smarty, $exdata, $zonedata, $DB, $AoWoWconf, $cached_images;
+	global $smarty, $exdata, $zonedata, $DB, $AoWoWconf, $cached_images, $data;
 
 	$data = $DB->select('
 			SELECT guid, map AS m, position_x AS x, position_y AS y, spawntimesecsmin, spawntimesecsmax, {MovementType AS ?#, }"0" AS `type`
@@ -541,11 +541,23 @@ function position($id, $type, $spawnMask = 0)
 		',
 		($type == 'gameobject' ? DBSIMPLE_SKIP : 'mt'),
 		$id,
-		$spawnMask ? $spawnMask : DBSIMPLE_SKIP,
 		$AoWoWconf['map_grouping'] > 0 ? -$AoWoWconf['map_grouping'] : DBSIMPLE_SKIP,
 		$AoWoWconf['map_grouping'] > 0 ? -$AoWoWconf['map_grouping'] : DBSIMPLE_SKIP
 	);
-	
+
+	if($type == 'creature' && count($data)==0) {
+			$data = $DB->select('
+			SELECT id AS guid, mapid AS m, x, y, 0 as spawntimesecsmin, 0 as spawntimesecsmax, 0 AS mt, 0 AS `type`
+			FROM z_npc_sumon
+			WHERE sumoned = ?d AND mapid is not null
+			{ GROUP BY ROUND(x,?d), ROUND(y,?d) }
+			ORDER BY x,y
+		',
+		$id,
+		$AoWoWconf['map_grouping'] > 0 ? -$AoWoWconf['map_grouping'] : DBSIMPLE_SKIP,
+		$AoWoWconf['map_grouping'] > 0 ? -$AoWoWconf['map_grouping'] : DBSIMPLE_SKIP	
+		);
+	}
 	if($type <> 'gameobject')
 	{
 		$wpWalkingCreaturesGuids = array();
@@ -572,14 +584,31 @@ function position($id, $type, $spawnMask = 0)
 			$data = array_merge($data, $wps);
 		}
 	}
-	
+	$map0Poi = array();
+	$map1Poi = array();
 	foreach ($data as $zone) {
+		$zone['x'] = $zone['x'] / (34133.33333333333/512.0) - 8 * 32;
+		$zone['y']=-$zone['y'] / (34133.33333333333/512.0) + 8  * 32;
+
+		if($zone['m']==0) {
+			array_push($map0Poi,$zone);
+		}
+		if($zone['m']==1) {
+			array_push($map1Poi,$zone);
+		}
 		//echo $zone['type'] . ', (' . $zone['x'] . ','  . $zone['y'] . ')<br>';
 		foreach ($zone as $spawn) {
 			// echo $spawn['type'];
 		}
 	}
-	
+	if(isset($smarty)) {
+	   $smarty->assign('map0Poi', $map0Poi);
+	   $smarty->assign('map1Poi', $map1Poi);
+
+	   $cache_key = cache_key($id);
+	   save_cache(10000, $cache_key, $map0Poi); /*10000表示Creature的map0Poi*/
+	   save_cache(10001, $cache_key, $map1Poi); /*10001表示Creature的map2Poi*/
+    }
 	if($data)
 	{
 		$data = transform_coords($data);
