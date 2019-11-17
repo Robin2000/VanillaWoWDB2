@@ -29,7 +29,7 @@
 {/if}
 
 	<script src="templates/wowhead/js/locale_{$language}.js?{$AOWOW_REVISION}" type="text/javascript"></script>
-	<script src="templates/wowhead/js/global.js?{$AOWOW_REVISION}" type="text/javascript"></script>
+	<script src="templates/wowhead/js/global2.js?{$AOWOW_REVISION}" type="text/javascript"></script>
 	<script src="templates/wowhead/js/Markup.js?{$AOWOW_REVISION}" type="text/javascript"></script>
 	
 {if $page.Mapper}
