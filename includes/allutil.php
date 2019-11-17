@@ -297,6 +297,8 @@ $cache_types = array(
 
 	10000	=> 'npc_map0',
 	10001	=> 'npc_map1',
+	10002	=> 'zonenpc_map0',
+	10003	=> 'zonenpc_map1',
 );
 function save_cache($type, $type_id, $data, $prefix = '')
 {

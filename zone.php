@@ -71,6 +71,7 @@ if(!$zone = load_cache(16, $id))
 			$zone['x_max'],
 			$zone['y_min'],
 			$zone['y_max']);
+		
 		if ($rows)
 		{
 			$taxies = array(
@@ -121,6 +122,8 @@ if(!$zone = load_cache(16, $id))
 				'atid' => $id,
 				'points' => array()
 			);
+			$map0Poi = array(); //全局地图
+			$map1Poi = array(); //全局地图
 			foreach($rows as $row)
 			{
 				$name = localizedName($row);
@@ -157,6 +160,20 @@ if(!$zone = load_cache(16, $id))
 					$type = 0; // 0 is yellow
 				}
 				
+				$poi = array( //全局地图
+					'name' => $name,
+					'type' => $type, // affects pin color (style=pin-$type)
+					'entry' => $row['entry'],
+					'x' => $row['position_x'] / (34133.33333333333/512.0) - 8 * 32,
+					'y' => -$row['position_y'] / (34133.33333333333/512.0) + 8  * 32
+				);
+				if($zone['mapID']==0) {//全局地图
+					array_push($map0Poi,$poi);
+				}
+				if($zone['mapID']==1) {//全局地图
+					array_push($map1Poi,$poi);
+				}
+
 				$point = array(
 					'name' => $name,
 					'type' => $type, // affects pin color (style=pin-$type)
@@ -239,6 +256,14 @@ if(!$zone = load_cache(16, $id))
 		);
 	}
 
+	if(isset($smarty)) {//全局地图
+		$smarty->assign('map0Poi', $map0Poi);
+		$smarty->assign('map1Poi', $map1Poi);
+ 
+		save_cache(10002, $zone['areatableID'], $map0Poi); /*10002表示zoneNpc的map0Poi*/
+		save_cache(10003, $zone['areatableID'], $map1Poi); /*10003表示zoneNpc的map2Poi*/
+	 }
+
 /*	// Положения объектофф:
 	$zone['position'] = position($object['entry'], 'gameobject');
 
@@ -254,6 +279,14 @@ if(!$zone = load_cache(16, $id))
 				}
 */
 	save_cache(16, $zone['areatableID'], $zone);
+} else {
+
+	if($map0Poi = load_cache(10002, $zone['areatableID'])){
+		$smarty->assign('map0Poi', $map0Poi);
+	}
+	if($map1Poi = load_cache(10003, $zone['areatableID'])){
+		$smarty->assign('map1Poi', $map1Poi);
+	}
 }
 
 global $page;
