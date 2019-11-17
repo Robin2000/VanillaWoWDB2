@@ -4,7 +4,7 @@
 <!--[if lte IE 6]></td><th class="ie6layout-th"></th></tr></table><![endif]-->
 
 <div id="footer">
-	魔兽世界经典旧世怀旧服资料 | <a href="mailto:xudb@163.com" style="text-decoration:none;color:#566666" target="_blank">联系邮件xudb@163.com</a> | <a style="text-decoration:none;color:#566666" href="http://hao.360.cn/" target="_blank" >360导航</a>
+	魔兽世界经典旧世怀旧服资料 | <a href="mailto:xudingbing@foxmail.com" style="text-decoration:none;color:#566666" target="_blank">BUG联系QQ：3168687633</a> 
 </div>
 
 <div style="display:none">
