@@ -91,13 +91,13 @@
 					{if $npc.wiki}
 						<a target="_blank" href="{$npc.wiki}">
 					{/if}
-						<img src="http://wowdb60ss.wow-classic.com/{$npc.thumb}.jpg!thumb" onerror="this.style.display='none'"/>
+						<img src="http://www.topwow.top/screenshots/thumb/{$npc.entry}.webp" onerror="this.style.display='none'"/>
 					{if $npc.wiki}
 						<p style="text-align:center">百科知识</p>	
 						</a>
 					{/if}	
 					{else}
-						<img src="http://static.wowhead.com/uploads/screenshots/thumb/{$npc.entry}.jpg" onerror="this.style.display='none'"/>
+						
 					{/if}
 
 				</td>
