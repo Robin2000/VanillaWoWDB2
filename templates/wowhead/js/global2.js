@@ -1606,7 +1606,7 @@ try{
 		};
 		var f = ce("img"),
 		e = Math.min(150 / c.width, 150 / c.height);
-		f.src = "http://static.wowhead.com/uploads/screenshots/thumb/" + c.id + ".jpg";
+		f.src = "http://www.topwow.top/screenshots/thumb/" + c.id + ".webp";
 		f.className = "border";
 		ae(l, f);
 		ae(m, l);
@@ -7119,7 +7119,7 @@ Listview.templates = {
 			q.onclick = rf2;
 			var v = ce("img"),
 			t = Math.min(150 / k.width, 150 / k.height);
-			v.src = "http://static.wowhead.com/uploads/screenshots/thumb/" + k.id + ".jpg";
+			v.src = "http://www.topwow.top/screenshots/thumb/" + k.id + ".webp";
 			ae(q, v);
 			ae(e, q);
 			var p = ce("div");
@@ -9538,7 +9538,7 @@ function () {
 		var C = z[k],
 		I = (C.width > 772 || C.height > 618);
 		g(0);
-		var E = (C.url ? C.url: "http://static.wowhead.com/uploads/screenshots/" + (I ? "resized/": "normal/") + C.id + ".jpg");
+		var E = (C.url ? C.url: "http://www.topwow.top/screenshots/" + (I ? "big/": "thumb/") + C.id + ".webp");
 		var J = '<img src="' + E + '" width="' + e + '" height="' + y + '"';
 		if (Browser.ie6) {
 			J += ' galleryimg="no"'
@@ -9549,7 +9549,7 @@ function () {
 			if (C.url) {
 				h.href = E
 			} else {
-				h.href = "http://static.wowhead.com/uploads/screenshots/normal/" + C.id + ".jpg"
+				h.href = "http://www.topwow.top/screenshots/big/" + C.id + ".webp"
 			}
 			if (!C.user && typeof g_pageInfo == "object") {
 				C.user = g_pageInfo.username
