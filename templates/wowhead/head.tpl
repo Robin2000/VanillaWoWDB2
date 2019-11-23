@@ -35,7 +35,7 @@
 	<script src="templates/wowhead/js/Markup.js" type="text/javascript"></script>
 	
 {if $page.Mapper}
-	<script src="templates/wowhead/js/Mapper.js" type="text/javascript"></script>
+	<script src="templates/wowhead/js/Mapper2.js" type="text/javascript"></script>
 	<style type="text/css">{literal}.zone-picker { margin-left: 4px }{/literal}</style>
 {/if}
 {if $page.Book}
