@@ -174,7 +174,6 @@
 
 
 <!---->
-<!--
 {if $map0Poi}
   <h2>艾泽拉斯地图</h2>
   <script>
@@ -190,7 +189,6 @@
   </script>
   <iframe style="overflow:hidden" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" width="100%" height="500px" src="http://www.topwow.top/wowgis/map-1.html"></iframe>
 {/if}
---> 
 <!---->
 
 				<h2>{#Related#}</h2>
