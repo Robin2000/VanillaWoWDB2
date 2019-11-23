@@ -1,5 +1,4 @@
 {include file='header.tpl'}
-
 	<div id="main">
 
 		<div id="main-precontents"></div>
@@ -86,19 +85,22 @@
 				</td></tr>
 				<tr>
 				<td><div class="infobox-spacer"></div>
+					
 
-				{if $npc.thumb}
+					<img id="thumbimg" onclick="showbig()" onerror="this.style.display='none1'" style="cursor:pointer"/>
+
+					<div id="bigbg" style="display:none" onClick="this.style.display='none'">
+						<img id='bigimg' src='' style="height:80%;margin-top:5%">
+					</div>
+
 					{if $npc.wiki}
 						<a target="_blank" href="{$npc.wiki}">
-					{/if}
-						<img src="http://www.topwow.top/screenshots/thumb/{$npc.entry}.webp" onerror="this.style.display='none'"/>
-					{if $npc.wiki}
 						<p style="text-align:center">百科知识</p>	
 						</a>
 					{/if}	
-					{else}
+
 						
-					{/if}
+
 
 				</td>
 				</tr>
@@ -172,7 +174,7 @@
 
 
 <!---->
-
+<!--
 {if $map0Poi}
   <h2>艾泽拉斯地图</h2>
   <script>
@@ -187,7 +189,8 @@
   var map1Poi=[{foreach from=$map1Poi item=zone name=zone}[{$zone.x}, {$zone.y}],{/foreach}];
   </script>
   <iframe style="overflow:hidden" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" width="100%" height="500px" src="http://www.topwow.top/wowgis/map-1.html"></iframe>
-{/if} 
+{/if}
+--> 
 <!---->
 
 				<h2>{#Related#}</h2>
