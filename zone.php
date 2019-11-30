@@ -72,6 +72,7 @@ if(!$zone = load_cache(16, $id))
 			$zone['y_min'],
 			$zone['y_max']);
 		
+
 		if ($rows)
 		{
 			$taxies = array(
@@ -121,6 +122,11 @@ if(!$zone = load_cache(16, $id))
 				'name' => '稀有精英', // TODO: LOCALIZE!
 				'atid' => $id,
 				'points' => array()
+			);
+
+			//转换距阵
+			$matrix = array(
+				209=>array('a'=>0.18438167797700108,'b'=>-0.1076046670449391,'c'=>-0.08411858460264626,'d'=>-0.22194004962929226,'m'=>274.62392828620904,'n'=>-2344.4213611074288)
 			);
 			$map0Poi = array(); //全局地图
 			$map1Poi = array(); //全局地图
@@ -173,14 +179,31 @@ if(!$zone = load_cache(16, $id))
 				if($zone['mapID']==1) {//全局地图
 					array_push($map1Poi,$poi);
 				}
-
-				$point = array(
-					'name' => $name,
-					'type' => $type, // affects pin color (style=pin-$type)
-					'url' => '/npc-'.$row['entry'],
-					'x' => round(100 - ($row['position_y']-$zone['y_min']) / (($zone['y_max']-$zone['y_min']) / 100), 2),
-					'y' => round(100 - ($row['position_x']-$zone['x_min']) / (($zone['x_max']-$zone['x_min']) / 100), 2)
-				);
+				$point = array();
+				if(array_key_exists($id,$matrix)){
+					$v = $matrix[$id];
+					$oldx = $row['position_x'];
+					$oldy = $row['position_y'];
+					$row['position_x']= ($oldx*$v['d']/$v['c'] + $v['m']*$v['d']/$v['c'] - $oldy - $v['n']) / ($v['a'] * $v['d']/$v['c'] - $v['b']);
+					$row['position_y']= ($oldx*$v['b']/$v['a'] + $v['m']*$v['b']/$v['a'] - $oldy - $v['n']) / ($v['c'] * $v['b']/$v['a'] - $v['d']);
+					/*echo $oldx.',',$oldy.'->'.$row['position_x'].'->'.$row['position_y']."\r\n";*/
+					$point = array(
+						'name' => $name,
+						'type' => $type, // affects pin color (style=pin-$type)
+						'url' => '/npc-'.$row['entry'],
+						'x' => 100*round($row['position_x'] / 1280.0, 2),
+						'y' => 100*round($row['position_y'] / 853.0, 2),
+					);
+				} else {
+					$point = array(
+						'name' => $name,
+						'type' => $type, // affects pin color (style=pin-$type)
+						'url' => '/npc-'.$row['entry'],
+						'x' => round(100 - ($row['position_y']-$zone['y_min']) / (($zone['y_max']-$zone['y_min']) / 100), 2),
+						'y' => round(100 - ($row['position_x']-$zone['x_min']) / (($zone['x_max']-$zone['x_min']) / 100), 2)
+					);
+				}
+				
 				$isNPC=FALSE;
 				if ($row['npcflag']==11)
 				{	
