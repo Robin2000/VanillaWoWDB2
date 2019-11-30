@@ -301,7 +301,7 @@ function drop($table, $item)
 
 
 
-// Функция преобразует координаты из серверных в игровые
+// 函数将坐标从服务器转换为游戏坐标。
 function transform_point($at, $point)
 {
 	$result = $point;
@@ -316,7 +316,7 @@ function transform_point($at, $point)
 	return $result;
 }
 
-// Функция выбирает подходящую зону для точки из списка
+// 函数从列表中选择合适的位置。
 function select_zone($at_data, $point)
 {
 	global $cached_images, $at_dataoffsets;
@@ -372,8 +372,8 @@ function select_zone($at_data, $point)
 	return $chosen_area;
 }
 
-// Функция преобразовывает массив серверных координат
-// в массив координат и локаций клиента
+// 函数转换服务器坐标数组
+// 客户坐标和位置数组
 function transform_coords($recv)
 {
 	global $DB, $at_dataoffsets;
@@ -387,16 +387,16 @@ function transform_coords($recv)
 	$loaded_areas = array();
 
 	$data = array();
-	$i = -1; // на самом деле в этой переменной хранится id последнего элемента в $data
+	$i = -1; // 事实上，这个变量包含了最后一个元素的id，即数据 $data
 
-	// Собираем номера всех карт, где находятся точки
+	// 收集所有地图上所有点的数字。
 	$mapids = array();
 	foreach($recv as $point)
 	{
 		if(!in_array($point['m'], $mapids))
 			$mapids[] = $point['m'];
 	}
-	// Считываем сколько всего карт существует
+	// 读出有多少张牌
 	$result = $DB->select('SELECT mapID, areatableID, name_loc?d AS name, x_min, COUNT(*) AS c FROM ?_zones WHERE mapID IN (?a) GROUP BY mapID', $_SESSION['locale'], $mapids);
 
 	if(!$result)
@@ -409,22 +409,22 @@ function transform_coords($recv)
 		$map_data[$mapid] = array(
 			'name' => $record['name']
 		);
-		// Для этой карты существует всего одна локация,
-		// причем неизвестно, есть для нее карта или нет.
+		// 这张地图只有一个位置，
+		// 我们不知道她是否有地图。
 		if($record['c'] == 1)
 		{
-			if(file_exists('images/maps/enus/normal/'.$atid.'.jpg'))
+			if(file_exists('images/maps/zhcn/normal/'.$atid.'.jpg'))
 			{
 				$map_data[$mapid]['atid'] = $atid;
-				// Это хак, но пусть так
+				// 这是哈克，但没关系。
 				if($record['x_min'] == 0)
 					$map_data[$mapid]['coords_not_available'] = true;
 				else
-					// Задаем директиву не использовать негативы
+					// 指示不要使用底片。
 					$map_data[$mapid]['ignore_negatives'] = true;
 			}
 			else
-				// Карта не доступна - записываем, что бы потом не жрать ресурсы.
+				// 没有地图，我们把它写下来，这样我们就不会消耗资源。
 				$map_data[$mapid]['map_not_available'] = true;
 		}
 		else
@@ -436,20 +436,20 @@ function transform_coords($recv)
 		$mapid = $point['m'];
 		$md = $map_data[$mapid];
 		$point['n'] = $md['ignore_negatives'];
-		// Карта не доступна
+		// 没有地图
 		if($md['map_not_available'] || $md['coords_not_available'])
 		{
 			if(isset($map_dataoffsets[$mapid]))
 			{
 				
-				// Если у нас уже была точка с такой картой,
-				// то увеличиваем население на ней.
+				// 如果我们已经有了地图上的点，
+				// 我们用它来增加人口。
 				if ($point['type'] <> 3)
 					$data[$map_dataoffsets[$mapid]]['population']++;
 			}
 			else
 			{
-				// Если нет - создаем новую.
+				// 如果没有，我们就创造一个新的。
 				if ($point['type'] <> 3)
 					$data[++$i] = array(
 						'population' => 1,
@@ -460,18 +460,18 @@ function transform_coords($recv)
 			}
 			continue;
 		}
-		// Если всего одна зона на карту,
-		// и для нее есть изображение и координаты,
-		// сразу же указываем номер зоны
+		// 如果地图上只有一个区域，
+		// 它有图像和坐标，
+		// 我们马上给你区域号码。
 		if(!$md['multiple_areas'])
 			$chosen_area = $md['atid'];
 		else
 			$chosen_area = select_zone($at_data, $point);
 
-		// Если зон на карту много и/или нужная нам не загружена
+		// 如果地图上有很多区域，而我们需要的区域没有加载
 		if(!$chosen_area || !in_array($chosen_area, $loaded_areas))
 		{
-			// Загружаем зоны
+			// 下载区
 			$result = $DB->select('
 					SELECT mapID, areatableID, x_min, x_max, y_min, y_max, name_loc?d AS name
 					FROM ?_zones
@@ -493,16 +493,16 @@ function transform_coords($recv)
 			$at_data = array_merge($at_data, $result);
 			$chosen_area = select_zone($at_data, $point);
 		}
-		// Если зона так и не найдена (исключительный случай)
-		// просто этой точки не будет на карте.
+		// 如果该区域从未被发现(特例)
+		// 只是这个点不会出现在地图上。
 
-		// Если мы в финальном массиве уже имеем запись на
-		// данный номер зоны
+		// 如果我们已经在最后一组了，
+		// 区域编号
 		if(isset($zone_dataoffsets[$chosen_area]))
 		{
 			$offset = $zone_dataoffsets[$chosen_area];
-			// Если у нас уже была точка с такой картой,
-			// то увеличиваем население на ней, записываем новую точку
+			// 如果我们已经有了地图上的点，
+			// 我们用它来增加人口，写下一个新点。
 			if ($point['type'] <> 3)
 				$data[$offset]['population']++;
 
@@ -512,7 +512,7 @@ function transform_coords($recv)
 		else
 		{
 			$points_array = $chosen_area ? array(transform_point($at_data[$at_dataoffsets[$chosen_area]], $point)) : array();
-			// Если нет - создаем новую.
+			// 如果没有，我们就创造一个新的。
 			if ($point['type'] <> 3)
 				$data[++$i] = array(
 					'population' => 1,
@@ -527,7 +527,7 @@ function transform_coords($recv)
 	return $data;
 }
 
-// Функция создает полный и окончательный массив информации о местоположении объектов или НПС
+// 函数产生一个完整的和最终的位置信息阵列或ntc
 function position($id, $type, $spawnMask = 0)
 {
 	global $smarty, $exdata, $zonedata, $DB, $AoWoWconf, $cached_images, $data;
@@ -613,13 +613,13 @@ function position($id, $type, $spawnMask = 0)
 	{
 		$data = transform_coords($data);
 
-		// Сортируем массив
+		// 分类质量
 		do
 		{
 			$changed = false;
 			for($i = 0; $i < count($data); $i++)
 			{
-				// $l - предыдущий элемент массива
+				// $l - 数组前元素
 				if(isset($l) && $data[$l]['population'] < $data[$i]['population'])
 				{
 					$tmp = $data[$l];
@@ -632,7 +632,7 @@ function position($id, $type, $spawnMask = 0)
 			unset($l);
 		} while($changed);
 
-		// Удаляем карты
+		// 删除地图
 		if($cached_images)
 			foreach($cached_images as $img)
 				imagedestroy($img);
