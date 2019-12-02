@@ -413,7 +413,7 @@ function transform_coords($recv)
 		// 我们不知道她是否有地图。
 		if($record['c'] == 1)
 		{
-			if(file_exists('images/maps/zhcn/normal/'.$atid.'.jpg'))
+			if(file_exists('images/maps/zhcn/normal/'.$atid.'.jpg')||file_exists('images/maps/zhcn/normal/'.$atid.'.gif')||file_exists('images/maps/zhcn/normal/'.$atid.'-1.jpg'))
 			{
 				$map_data[$mapid]['atid'] = $atid;
 				// 这是哈克，但没关系。
