@@ -63,7 +63,7 @@ if(!$zone = load_cache(16, $id))
 		  AND c.position_y > ?f
 		  AND c.position_y < ?f
 		';
-		if($id==209||$id==1581||$id==491||$id==1176||$id==1584||$id==3429) {//影牙城堡等
+		if($id==209||$id==1581||$id==491||$id==1176||$id==1584||$id==3429||$id==2677) {//影牙城堡等
 			$sql='
 			SELECT ct.entry, ct.name, ct.subname, ct.Rank, ct.faction_A, lc.name_loc?d, lc.subname_loc?d, ct.npcflag, position_x, position_y
 			FROM creature c, creature_template ct
