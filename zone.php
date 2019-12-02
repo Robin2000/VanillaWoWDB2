@@ -230,7 +230,7 @@ if(!$zone = load_cache(16, $id))
 					$point = array(
 						'name' => $name,
 						'type' => $type, // affects pin color (style=pin-$type)
-						'url' => '/npc-'.$row['entry'],
+						'url' => '/npc-'.$row['entry'].'.html',
 						'x' => $row['matrixX'],
 						'y' => $row['matrixY'],
 					);
@@ -238,7 +238,7 @@ if(!$zone = load_cache(16, $id))
 					$point = array(
 						'name' => $name,
 						'type' => $type, // affects pin color (style=pin-$type)
-						'url' => '/npc-'.$row['entry'],
+						'url' => '/npc-'.$row['entry'].'.html',
 						'x' => round(100 - ($row['position_y']-$zone['y_min']) / (($zone['y_max']-$zone['y_min']) / 100), 2),
 						'y' => round(100 - ($row['position_x']-$zone['x_min']) / (($zone['x_max']-$zone['x_min']) / 100), 2)
 					);

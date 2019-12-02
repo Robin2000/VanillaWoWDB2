@@ -87,7 +87,7 @@
 				<td><div class="infobox-spacer"></div>
 					
 
-					<img id="thumbimg" onclick="showbig()" onerror="this.style.display='none1'" style="cursor:pointer"/>
+					<img id="thumbimg" onclick="showbig()" onerror="this.style.display='none'" onload="this.style.display=''" style="cursor:pointer"/>
 
 					<div id="bigbg" style="display:none" onClick="this.style.display='none'">
 						<img id='bigimg' src='' style="height:80%;margin-top:5%">
