@@ -15,7 +15,7 @@ if(!$npc = load_cache(1, $cache_key))
 {
 	unset($npc);
 
-	// Ищем NPC:
+	// 在找 NPC:
 	$npc = array();
 	$row = $DB->selectRow('
 		SELECT
@@ -70,7 +70,7 @@ if(!$npc = load_cache(1, $cache_key))
 		$npc['resistance6'] = $row['resistance6'];
 		
 		$toDiv = array('minhealth', 'maxmana', 'minmana', 'maxhealth', 'armor', 'mindmg', 'maxdmg');
-		// Разделяем на тысячи (ххххххххх => ххх,ххх,ххх)
+		// 把它分成一千份(ххххххххх => ххх,ххх,ххх)
 		foreach($toDiv as $e)
 			$npc[$e] = number_format($npc[$e]);
 
@@ -78,7 +78,7 @@ if(!$npc = load_cache(1, $cache_key))
 		// faction_A = faction_H
 		$npc['faction_num'] = $row['factionID'];
 		$npc['faction'] = $row['faction-name'];
-		// Деньги
+		// 钱
 		$money = ($row['mingold']+$row['maxgold']) / 2;
 		$npc = array_merge($npc, money2coins($money));
 
@@ -88,9 +88,9 @@ if(!$npc = load_cache(1, $cache_key))
 			$npc['event_ai']=loadCreatureAiEvent($npc['entry']);
 		}*/
 
-		// Дроп
+		// 放下
 		$lootid=$row['lootid'];
-		// Используемые спеллы
+		// 常用的拼字
 		$npc['ablities'] = array();
 		$tmp = array();
 		for($j=0;$j<=4;++$j)
@@ -133,8 +133,8 @@ if(!$npc = load_cache(1, $cache_key))
 		if(!$npc['ablities'])
 			unset($npc['ablities']);
 
-		// Обучает:
-		// Если это пет со способностью:
+		// 训练:
+		// 如果是有能力的宠物:
 		/* // Временно закомментировано
 		$row = $DB->selectRow('
 			SELECT Spell1, Spell2, Spell3, Spell4
@@ -172,7 +172,7 @@ if(!$npc = load_cache(1, $cache_key))
 		}
 		unset ($row);*/
 
-		// Если это просто тренер
+		// 如果只是教练的话
 		$teachspells = $DB->select('
 			SELECT ?#, spellID
 			FROM npc_trainer, ?_spell, ?_spellicons
@@ -197,7 +197,7 @@ if(!$npc = load_cache(1, $cache_key))
 		}
 		unset ($teachspells);
 
-		// Продает:
+		// 卖:
 		$rows_s = $DB->select('
 			SELECT ?#, i.entry, i.max_count, n.`maxcount` as `drop-maxcount`
 				{, l.name_loc?d AS `name_loc`}
@@ -232,19 +232,19 @@ if(!$npc = load_cache(1, $cache_key))
 		}
 		unset ($rows_s);
 
-		// Дроп
+		// 爆落
 		if(!($npc['drop'] = loot('creature_loot_template', $lootid)))
 			unset ($npc['drop']);
 
-		// Кожа
+		// 剥皮
 		if(!($npc['skinning'] = loot('skinning_loot_template', $lootid)))
 			unset ($npc['skinning']);
 
-		// Воруеццо
+		// 扒窃
 		if(!($npc['pickpocketing'] = loot('pickpocketing_loot_template', $lootid)))
 			unset ($npc['pickpocketing']);
 
-		// Начиниают квесты...
+		// 取的任务...
 		$rows_qs = $DB->select('
 			SELECT ?#
 			FROM creature_questrelation c, quest_template q
@@ -264,7 +264,7 @@ if(!$npc = load_cache(1, $cache_key))
 		}
 		unset ($rows_qs);
 
-		// Заканчивают квесты...
+		// 完成任务...
 		$rows_qe = $DB->select('
 			SELECT ?#
 			FROM creature_involvedrelation c, quest_template q
@@ -284,7 +284,7 @@ if(!$npc = load_cache(1, $cache_key))
 		}
 		unset ($rows_qe);
 
-		// Необходимы для квеста..
+		// 任务的必要条件..
 		$rows_qo = $DB->select('
 			SELECT ?#
 			FROM quest_template
@@ -305,12 +305,12 @@ if(!$npc = load_cache(1, $cache_key))
 		}
 		unset ($rows_qo);
 
-		// Положения созданий божих (для героик НПС не задана карта, юзаем из нормала):
+		// 神的创造物的位置(对ntc的英雄来说，没有地图，是正常的。):
 		if($normal_entry)
-			// мы - героик НПС, определяем позицию по нормалу
+			// 我们是ntc的英雄，决定了我们的位置。
 			$npc['position'] = position($normal_entry, 'creature', 2);
 		else
-			// мы - нормал НПС или НПС без сложности
+			// 我们是正常的ntc或ntc，没有问题。
 			$npc['position'] = position($npc['entry'], 'creature', 1);
 
 		save_cache(1, $cache_key, $npc);

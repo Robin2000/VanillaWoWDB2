@@ -305,9 +305,13 @@ function drop($table, $item)
 function transform_point($at, $point)
 {
 	$result = $point;
-
-	$result['x'] = round(100 - ($point['y']-$at['y_min']) / (($at['y_max']-$at['y_min']) / 100), 2);
-	$result['y'] = round(100 - ($point['x']-$at['x_min']) / (($at['x_max']-$at['x_min']) / 100), 2);
+	if(matrixTransform($at['areatableID'], $result, 'x', 'y')) {
+		$result['x'] = $result['matrixX'];
+		$result['y'] = $result['matrixY'];
+	} else {
+		$result['x'] = round(100 - ($point['y']-$at['y_min']) / (($at['y_max']-$at['y_min']) / 100), 2);
+		$result['y'] = round(100 - ($point['x']-$at['x_min']) / (($at['x_max']-$at['x_min']) / 100), 2);
+	}
 	$result['r'] = sec_to_time($point['spawntimesecsmin']);
 	$result['rmax'] = sec_to_time($point['spawntimesecsmax']);
 	unset($result['spawntimesecsmin']);
@@ -329,7 +333,7 @@ $matrix = array(
 	3429=>array('a'=>0.03505819407074284,'b'=>-2.137268211103158,'c'=>-1.711805373849078,'d'=>0.24007053639752174,'m'=>8392.515516834934,'n'=>-3137.188474303275)
 );
 /*$id和区域id, $point变量中需要包含x和y */
-function matrixTransform($id, $point, $x, $y) {
+function matrixTransform($id, &$point, $x, $y) {
 	global $matrix;
 	if(array_key_exists($id,$matrix)){
 		$mapw=1280.0;
@@ -346,9 +350,9 @@ function matrixTransform($id, $point, $x, $y) {
 		$oldy = $point[$y];
 		$point[$x]= ($oldx*$v['d']/$v['c'] + $v['m']*$v['d']/$v['c'] - $oldy - $v['n']) / ($v['a'] * $v['d']/$v['c'] - $v['b']);
 		$point[$y]= ($oldx*$v['b']/$v['a'] + $v['m']*$v['b']/$v['a'] - $oldy - $v['n']) / ($v['c'] * $v['b']/$v['a'] - $v['d']);
-		/*echo $oldx.',',$oldy.'->'.$row['position_x'].'->'.$row['position_y']."\r\n";*/
 		$point['matrixX'] = 100*round($point[$x] / $mapw, 2);
 		$point['matrixY'] = 100*round($point[$y] / $maph, 2);
+		/*echo $oldx.',',$oldy.'->'.$point['matrixX'].'->'.$point['matrixY']."\r\n";*/
 		return true;
 	}
 	return false;
