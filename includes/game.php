@@ -315,7 +315,44 @@ function transform_point($at, $point)
 
 	return $result;
 }
-
+//转换距阵
+$matrix = array(
+	209=>array('a'=>0.18438167797700108,'b'=>-0.1076046670449391,'c'=>-0.08411858460264626,'d'=>-0.22194004962929226,'m'=>274.62392828620904,'n'=>-2344.4213611074288),
+	1581=>array('a'=>0.0025961230451272688,'b'=>-0.6041522819379475,'c'=>-0.6392524626094266,'d'=>-0.057852431684940364,'m'=>-62.836687841769546,'n'=>292.6034926496562),
+	2159=>array('a'=>0.04834194649218716,'b'=>-0.37985036703927655,'c'=>-0.3989263762615558,'d'=>0.018054318384316193,'m'=>-57.29639489376527,'n'=>-112.3157096767963),
+	1583=>array('a'=>-0.5496700294323891,'b'=>0.011303394468760497,'c'=>-0.002731067553093214,'d'=>0.5581618104752952,'m'=>-405.3192794931457,'n'=>615.5694905173766),
+	15830=>array('a'=>-0.5496700294323891,'b'=>0.011303394468760497,'c'=>-0.002731067553093214,'d'=>0.5581618104752952,'m'=>-405.3192794931457,'n'=>615.5694905173766),
+	491=>array('a'=>0.29112633776417773,'b'=>-1.3536535076025622,'c'=>-1.3803368228937556,'d'=>-0.2943863628765402,'m'=>-2241.3766244616045,'n'=>-2087.6518513266715),
+	1176=>array('a'=>0.07369018483754619,'b'=>-2.6712114583935014,'c'=>-2.435315397833935,'d'=>0.21814916191335776,'m'=>-2051.2302196519854,'n'=>-1648.5362164109201),
+	1584=>array('a'=>-0.2461026476713104,'b'=>-3.8860904719994376,'c'=>-3.9913283890530455,'d'=>0.38938584008723764,'m'=>-1584.8084097132405,'n'=>-610.6006738933447),
+	3428=>array('a'=>1.4996881266053559,'b'=>-4.094917027094208,'c'=>-3.98632960477255,'d'=>-1.6547145413870252,'m'=>8289.01584257188,'n'=>-2822.8936526969924),
+	3429=>array('a'=>0.03505819407074284,'b'=>-2.137268211103158,'c'=>-1.711805373849078,'d'=>0.24007053639752174,'m'=>8392.515516834934,'n'=>-3137.188474303275)
+);
+/*$id和区域id, $point变量中需要包含x和y */
+function matrixTransform($id, $point, $x, $y) {
+	global $matrix;
+	if(array_key_exists($id,$matrix)){
+		$mapw=1280.0;
+		$maph=853.0;
+		if($id==491||$id==1584||$id==3428) {
+			$mapw=488.0;
+			$maph=325.0;
+		}else if($id==1176) {
+			$mapw=580.0;
+			$maph=388.0;
+		}
+		$v = $matrix[$id];
+		$oldx = $point[$x];
+		$oldy = $point[$y];
+		$point[$x]= ($oldx*$v['d']/$v['c'] + $v['m']*$v['d']/$v['c'] - $oldy - $v['n']) / ($v['a'] * $v['d']/$v['c'] - $v['b']);
+		$point[$y]= ($oldx*$v['b']/$v['a'] + $v['m']*$v['b']/$v['a'] - $oldy - $v['n']) / ($v['c'] * $v['b']/$v['a'] - $v['d']);
+		/*echo $oldx.',',$oldy.'->'.$row['position_x'].'->'.$row['position_y']."\r\n";*/
+		$point['matrixX'] = 100*round($point[$x] / $mapw, 2);
+		$point['matrixY'] = 100*round($point[$y] / $maph, 2);
+		return true;
+	}
+	return false;
+}
 // 函数从列表中选择合适的位置。
 function select_zone($at_data, $point)
 {
@@ -340,11 +377,18 @@ function select_zone($at_data, $point)
 					$cached_images[$at['areatableID']] = imagecreatefrompng($filename);
 				}
 
-				$game_x = 100 - ($point['y']-$at['y_min']) / (($at['y_max']-$at['y_min']) / 100);
-				$game_y = 100 - ($point['x']-$at['x_min']) / (($at['x_max']-$at['x_min']) / 100);
-
-				if(imagecolorat($cached_images[$at['areatableID']], round($game_x * 10), round($game_y * 10)) !== 0)
+				if(matrixTransform($at['areatableID'], $point,'x','y')){
+					$game_x = $point['matrixX'];
+					$game_y = $point['matrixY'];
+					if(imagecolorat($cached_images[$at['areatableID']], round($game_x * 10), round($game_y * 10)) !== 0)
 					continue;
+				} else {
+					$game_x = 100 - ($point['y']-$at['y_min']) / (($at['y_max']-$at['y_min']) / 100);
+					$game_y = 100 - ($point['x']-$at['x_min']) / (($at['x_max']-$at['x_min']) / 100);
+					if(imagecolorat($cached_images[$at['areatableID']], round($game_x * 10), round($game_y * 10)) !== 0)
+					continue;
+				}
+
 			}
 
 			$matching_locations[] = $at['areatableID'];
@@ -411,7 +455,8 @@ function transform_coords($recv)
 		);
 		// 这张地图只有一个位置，
 		// 我们不知道她是否有地图。
-		if($record['c'] == 1)
+
+		if($record['c'] >= 1)
 		{
 			if(file_exists('images/maps/zhcn/normal/'.$atid.'.jpg')||file_exists('images/maps/zhcn/normal/'.$atid.'.gif')||file_exists('images/maps/zhcn/normal/'.$atid.'-1.jpg'))
 			{
