@@ -9,9 +9,13 @@
 				g_initPath([0,4,{$npc.type}]);
 			</script>
 
-			<table class="infobox">
-				<tr><th>{#Quick_Facts#}</th></tr>
-				<tr><td><div class="infobox-spacer"></div>
+			<div class="text">				
+				<h1>{$npc.name}{if $npc.subname} &lt;{$npc.subname}&gt;{/if}</h1>
+
+			<div class="infobox">
+				<div>{#Quick_Facts#}</div>
+				<div class="infobox-spacer"></div>
+				<div>
 					<ul>
 						<li><div>{#Level#}: {if $npc.minlevel<>$npc.maxlevel}{$npc.minlevel} - {/if}{$npc.maxlevel}</div></li>
 						<li><div>{#Classification#}: {$npc.rank}</div></li>
@@ -43,8 +47,11 @@
 						{/if} 
 						</ul>
 
-					<tr><th>{#Resistances#}</th></tr>
-					<tr><td><div class="infobox-spacer"></div>
+					</div>
+					<div>{#Resistances#}</div>
+					<div class="infobox-spacer"></div>
+					
+					<div>
 						{if $npc.resistance1 eq 0 and $npc.resistance2 eq 0 and $npc.resistance3 eq 0 and $npc.resistance4 eq 0 and $npc.resistance5 eq 0 and $npc.resistance6 eq 0}
 							<div><center>{#None#}</center></div>
 						{else}
@@ -82,32 +89,26 @@
 						</ul>
 						{/if}
 					
-				</td></tr>
-				<tr>
-				<td><div class="infobox-spacer"></div>
-					
+				</div>
+				<div class="infobox-spacer">&nbsp;</div>
+				<div style="width:165px;overflow:hidden">
+					<div style="padding-top:15px;">
 
-					<img id="thumbimg" onclick="showbig()" onerror="this.style.display='none'" onload="this.style.display=''" style="cursor:pointer"/>
+						<img id="thumbimg" onclick="showbig()" onerror="this.style.display='none'" onload="this.style.display=''" style="width:177px;cursor:pointer"/>
 
-					<div id="bigbg" style="display:none" onClick="this.style.display='none'">
-						<img id='bigimg' src='' style="height:80%;margin-top:5%">
+						<div id="bigbg" style="display:none" onClick="this.style.display='none'">
+							<img id='bigimg' src='' style="height:80%;margin-top:5%">
+						</div>
+
+						{if $npc.wiki}
+							<a target="_blank" href="{$npc.wiki}">
+							<p style="text-align:center">百科知识</p>	
+							</a>
+						{/if}	
+
 					</div>
-
-					{if $npc.wiki}
-						<a target="_blank" href="{$npc.wiki}">
-						<p style="text-align:center">百科知识</p>	
-						</a>
-					{/if}	
-
-						
-
-
-				</td>
-				</tr>
-			</table>
-
-			<div class="text">				
-				<h1>{$npc.name}{if $npc.subname} &lt;{$npc.subname}&gt;{/if}</h1>
+				</div>
+			</div>
 
 {if $npc.heroic}
 				<div>{if $npc.heroic.type == 1}{#This_is_heroic_NPC#}{else}{#This_is_normal_NPC#}{/if} <a href="http://www.topwow.top/npc-{$npc.heroic.entry}.html">{$npc.heroic.name}</a>.</div>
@@ -162,6 +163,7 @@
 				</span></div>
 {/strip}
 				<div id="mapper-generic"></div>
+
 				<div class="clear"></div>
 
 				<script type="text/javascript">

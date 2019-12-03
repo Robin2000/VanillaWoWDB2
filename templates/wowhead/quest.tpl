@@ -456,7 +456,7 @@
 {if isset($quest.xp) and $quest.xp or isset($quest.reprewards) or isset($quest.titlereward) or isset($quest.mailrewards) or isset($quest.RewHonorableKills) and $quest.RewHonorableKills}
 					<h3>{#Gains#}</h3>
 					{#Upon_completion_of_this_quest_you_will_gain#}:
-					<ul>{strip}
+					<ul style="list-style-type:none;">{strip}
 {if isset($quest.xp) and $quest.xp}
 						<li><div>{$quest.xp} {#experience#}
 							{if isset($quest.moneymaxlevel)} (
@@ -486,7 +486,7 @@
 						{/if}
 						</div></li>
 {/if}
-					</ul>{/strip}
+					{/strip}</ul>
 {/if}
 
 				<h2>{#Related#}</h2>
