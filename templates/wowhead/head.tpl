@@ -22,7 +22,7 @@
 {if $page.Talent}
 		{if $page.typeid eq 0}
 		<link rel="stylesheet" type="text/css" href="templates/wowhead/css/TalentCalc.css" />
-		<link rel="stylesheet" type="text/css" href="templates/wowhead/css/talent.css" />
+		<link rel="stylesheet" type="text/css" href="templates/wowhead/css/talent2.css" />
 		<!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="templates/wowhead/css/TalentCalc_ie6.css?{$AOWOW_REVISION}" /><![endif]-->
 		<!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="templates/wowhead/css/TalentCalc_ie67.css?{$AOWOW_REVISION}" /><![endif]-->
 		{else}
