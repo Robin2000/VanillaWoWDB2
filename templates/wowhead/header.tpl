@@ -34,12 +34,12 @@
 		<div id="topbar-right"><div>
 		<form action=".">
 		<a href="javascript:;"></a>
-		<input id="oh2345v5ks" name="search" size="35" value="" />
+		<input id="oh2345v5ks" name="search" size="35">
 		</form>
 		</div>
 </div><br>
 
-		<script type="text/javascript">
+		<script type="text/javascript" defer="true">
 		window.onload=function(){ldelim}
 			try{ldelim}g_initHeader({$page.tab});{rdelim}catch(e){ldelim}{rdelim} LiveSearch.attach(ge('oh2345v5ks'));
    		{rdelim}
