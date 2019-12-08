@@ -50,7 +50,7 @@ var mn_database=[
 	[7,"阵营","http://www.topwow.top/factions.html",mn_factions]
 ];
 var mn_tools = [ [0, "天赋计算", "http://www.topwow.top/talent.html", mn_talentCalc],[1, "地图", "http://www.topwow.top/maps.html"]];
-var mn_path = [[0, "数据库", , mn_database], [1, "工具", , mn_tools]];
+var mn_path = [[0, "数据库", , mn_database], [1, "工具", , mn_tools], [2, "故事","http://www.topwow.top/object-21581.html"], [2, "攻略","http://www.topwow.top/story-18.html"]];
 var g_chr_classes = {
 	1 : "战士",
 	2 : "圣骑士",
