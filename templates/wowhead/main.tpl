@@ -8,7 +8,7 @@
 {/literal}
 	</style>
 </head>
-<body>
+<body style="overflow:hidden">
 	<div id="layers"></div>
 	<div id="home">
 		<h1>{$title}</h1>
@@ -42,8 +42,7 @@
 	<div>
 <video loop="loop" autoplay="autoplay" muted="muted" style="position: absolute;left: 0;top: 0;z-index:-999">
 <source src="https://blz.nosdn.127.net/1/war3-website/home/A8L9ZJSRG9NP1540311048168.mp4" type="video/mp4"> 
-<source src="https://blz.nosdn.127.net/1/war3-website/home/7WL1TA0SXSBK1540311039182.webm" type="video/webm"></video>	
-
+<source src="https://blz.nosdn.127.net/1/war3-website/home/7WL1TA0SXSBK1540311039182.webm" type="video/webm"></video>
 </div>
 </div>
 <!--[if lte IE 6]></td><th class="ie6layout-th"></th></tr></table><![endif]-->
