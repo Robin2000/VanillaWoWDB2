@@ -8,7 +8,7 @@
 {/literal}
 	</style>
 </head>
-<body style="overflow:hidden">
+<body style="overflow:hidden;background:url(https://cms.cnc.blzstatic.cn/cms/blog_header/rn/RNRVLMIHIO1Q1567577246912.jpg) no-repeat;background-size:100% 100%;background-attachment:fixed;width:100%;height:100%">
 	<div id="layers"></div>
 	<div id="home">
 		<h1>{$title}</h1>
@@ -38,13 +38,7 @@
 	
 	<noscript><div id="noscript-bg"></div><div id="noscript-text"><b>{#js_err#}</div></noscript>
 	<script type="text/javascript">DomContentLoaded.now()</script>
-<div>
-	<div>
-<video loop="loop" autoplay="autoplay" muted="muted" style="position: absolute;left: 0;top: 0;z-index:-999">
-<source src="https://blz.nosdn.127.net/1/war3-website/home/A8L9ZJSRG9NP1540311048168.mp4" type="video/mp4"> 
-<source src="https://blz.nosdn.127.net/1/war3-website/home/7WL1TA0SXSBK1540311039182.webm" type="video/webm"></video>
-</div>
-</div>
+
 <!--[if lte IE 6]></td><th class="ie6layout-th"></th></tr></table><![endif]-->
 
 <div style="display:none">
