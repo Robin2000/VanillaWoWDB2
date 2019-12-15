@@ -120,6 +120,22 @@
 		</script>
 	{/strip}
 {/if}
+
+
+{if $item.entry==19019}
+魔兽世界著名的传奇武器：风剑 雷霆之怒逐风者的祝福之剑
+<iframe id=sbrxp src="//player.bilibili.com/player.html?aid=46210680&cid=80961691&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%; height: 430px; max-width: 100%"> </iframe>
+{/if}
+{if $item.entry==17802}
+魔兽世界著名的传奇武器：风剑 雷霆之怒逐风者的祝福之剑
+<iframe id=sbrxp src="//player.bilibili.com/player.html?aid=46210680&cid=80961691&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%; height: 430px; max-width: 100%"> </iframe>
+{/if}
+{if $item.entry==13262}
+魔兽世界中那些著名的传奇武器：灰烬使者
+<iframe id=sbrxp src="//player.bilibili.com/player.html?aid=43879227&cid=76870834&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%; height: 430px; max-width: 100%"> </iframe>
+{/if}
+
+
 					<h2>{#Related#}</h2>
 
 				</div>
