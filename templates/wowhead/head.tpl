@@ -30,10 +30,9 @@
       	{/if}
 {/if}
 
-
 	<script src="templates/wowhead/js/locale_{$language}3.js" type="text/javascript"></script>
 
-	<script src="templates/wowhead/js/global3.js" type="text/javascript"></script>
+	<script src="templates/wowhead/js/global4.js" type="text/javascript"></script>
 	<script src="templates/wowhead/js/Markup.js" type="text/javascript"></script>
 	
 {if $page.Mapper}
@@ -45,32 +44,31 @@
 {/if}
 
 {if $npc}
-
-<script>
-var ms_ie = false;
-var ua = window.navigator.userAgent;
-var old_ie = ua.indexOf('MSIE ');
-var new_ie = ua.indexOf('Trident/');
-var ext="webp";
-if ((old_ie > -1) || (new_ie > -1)) 
-{ldelim}
-    ms_ie = true;
-	ext="jpg";
-{rdelim}
-
-window.onload=function() 
-{ldelim}
-	document.getElementById('thumbimg').src="http://www.topwow.top/screenshots/thumb/{$npc.entry}."+ext;
-{rdelim}
-
+<script type="text/javascript" defer="true">
+var entry = {$npc.entry};
+{literal}
+	var ms_ie = false;
+	var ua = window.navigator.userAgent;
+	var old_ie = ua.indexOf('MSIE ');
+	var new_ie = ua.indexOf('Trident/');
+	var ext="webp";
+	if ((old_ie > -1) || (new_ie > -1)) {
+		ms_ie = true;
+		ext="jpg";
+	}
 
 function showbig()
-{ldelim}
+{
 	document.getElementById('bigbg').style.display='block';
-	document.getElementById('bigimg').src='http://www.topwow.top/screenshots/big/{$npc.entry}.'+ext;
-{rdelim} 	
+	document.getElementById('bigimg').src='http://www.topwow.top/screenshots/big/'+entry+'.'+ext;
+} 	
 
+window.onload=function(){
+	document.getElementById('thumbimg').src="http://www.topwow.top/screenshots/thumb/"+entry+"."+ext;
+}
+{/literal}
 </script>
+
 {/if}
 
 {if $page.Talent}

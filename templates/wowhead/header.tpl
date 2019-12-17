@@ -39,8 +39,10 @@
 		</div>
 </div><br>
 
-		<script type="text/javascript" defer="true">
-		window.onload=function(){ldelim}
-			try{ldelim}g_initHeader({$page.tab});{rdelim}catch(e){ldelim}{rdelim} LiveSearch.attach(ge('oh2345v5ks'));
-   		{rdelim}
-		</script>
+<script type="text/javascript" defer="true">
+var _tab={$page.tab};
+{literal}
+	try{g_initHeader(_tab);}catch(e){} 
+	try{LiveSearch.attach(ge('oh2345v5ks'));}catch(r){}
+{/literal}
+</script>
