@@ -365,7 +365,11 @@ $page = array(
 
 $smarty->assign('page', $page);
 
+$zoneRelation = "zoneRelation/".$zone['areatableID'].".tpl";
 
+if(file_exists(__DIR__."/templates/wowhead/zoneRelation/".$id.".tpl")) {
+	$smarty->assign('zoneRelation', $zoneRelation);
+} 
 // Количество MySQL запросов
 $smarty->assign('mysql', $DB->getStatistics());
 $smarty->assign('allitems', $allitems);

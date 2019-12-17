@@ -75,21 +75,7 @@
 
 <!---->
 
-{if $map0Poi}
-  <h2>艾泽拉斯地图</h2>
-  <script>
-  var map0Poi=[{foreach from=$map0Poi item=zone name=zone}[{$zone.x}, {$zone.y}, {$zone.type}, "{$zone.name}",{$zone.entry}],{/foreach}];
-  </script>
-  <iframe style="overflow:hidden" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" width="100%" height="500px" src="http://www.topwow.top/wowgis/map-0.html"></iframe>
-{/if} 
 
-{if $map1Poi}
-  <h2>卡利姆多地图</h2>
-  <script>
-  var map1Poi=[{foreach from=$map1Poi item=zone name=zone}[{$zone.x}, {$zone.y}, {$zone.type}, "{$zone.name}",{$zone.entry}],{/foreach}];
-  </script>
-  <iframe style="overflow:hidden" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" width="100%" height="500px" src="http://www.topwow.top/wowgis/map-1.html"></iframe>
-{/if} 
 <!---->
 
 				<h2>{#Related#}</h2>
@@ -97,14 +83,11 @@
 
 			<div id="tabs-generic"></div>
 			<div id="listview-generic" class="listview"></div>
-<script type="text/javascript">
-var tabsRelated = new Tabs({ldelim}parent: ge('tabs-generic'){rdelim});
-{if isset($allitems)}{include			file='bricks/allitems_table.tpl'		data=$allitems			}{/if}
-{if isset($zone.fishing)}{include file='bricks/item_table.tpl' id='fishing' name='fishing' tabsid='tabsRelated' data=$zone.fishing}{/if}
-{if isset($zone.subzones)}{include file='bricks/zone_table.tpl' id='zones' tabsid='tabsRelated' data=$zone.subzones name='zones'}{/if}
 
-tabsRelated.flush();
-</script>
+
+{if isset($zoneRelation)}
+	{include file=$zoneRelation}
+{/if}
 
 {include file='bricks/contribute.tpl'}
 
