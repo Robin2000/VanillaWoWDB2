@@ -9935,11 +9935,6 @@ function filterItem(type,val) {
 	var test = url.lastIndexOf('.html');
 	if(test!=-1) {
 		url = url.substring(0,test);	
-	} else {
-		var test = url.lastIndexOf('#');
-		if(test!=-1) {
-			url = url.substring(0,test);
-		}
 	}
 
 	var paramPos = url.lastIndexOf('-');

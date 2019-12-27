@@ -15,15 +15,16 @@ if(!$items = load_cache(7, $cache_key))
 	unset($items);
 
 	$test = '';
-	switch($resistance){
-		case 0: $test = 'fire_res>0';break;
-		case 1: $test = 'nature_res>0';break;
-		case 2: $test = 'frost_res>0';break;
-		case 3: $test = 'shadow_res>0';break;
-		case 4: $test = 'arcane_res>0';break;
-		case 5: $test = 'holy_res>0';break;
+	if(isset($resistance)){
+		switch($resistance){
+			case 0: $test = 'AND fire_res>0';break;
+			case 1: $test = 'AND nature_res>0';break;
+			case 2: $test = 'AND frost_res>0';break;
+			case 3: $test = 'AND shadow_res>0';break;
+			case 4: $test = 'AND arcane_res>0';break;
+			case 5: $test = 'AND holy_res>0';break;
+		}
 	}
-
 	// 我们正在起草一份bd请求，对所指定的类和子类进行搜索。
 	$rows = $DB->select('
 		SELECT ?#, i.entry, max_count
@@ -47,7 +48,7 @@ if(!$items = load_cache(7, $cache_key))
 			{ OR stat_type8=? }
 			{ OR stat_type9=? }
 			{ OR stat_type10=?) }
-			{ AND '.$test.' }
+			{ '.$test.' }
 		ORDER BY quality DESC, name
 		{ LIMIT ?d }
 		',
