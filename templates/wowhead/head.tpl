@@ -7,7 +7,7 @@
 	<link rel="search" type="application/opensearchdescription+xml" title="VanillaWoWDB" href="http://www.topwow.top/opensearch.xml" />
 	<link rel="SHORTCUT ICON" href="http://www.topwow.top/favicon.ico">
 
-	<link rel="stylesheet" type="text/css" href="templates/wowhead/css/global5.css" />
+	<link rel="stylesheet" type="text/css" href="templates/wowhead/css/global6.css" />
 	<link rel="stylesheet" type="text/css" href="templates/wowhead/css/locale_{$language}.css" />
 	<!--[if IE]><link rel="stylesheet" type="text/css" href="templates/wowhead/css/global_ie.css?{$AOWOW_REVISION}" /><![endif]-->
 	<!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="templates/wowhead/css/global_ie6.css?{$AOWOW_REVISION}" /><![endif]-->
@@ -32,7 +32,7 @@
 
 	<script src="templates/wowhead/js/locale_{$language}4.js" type="text/javascript"></script>
 
-	<script src="templates/wowhead/js/global4.js" type="text/javascript"></script>
+	<script src="templates/wowhead/js/global5.js" type="text/javascript"></script>
 	<script src="templates/wowhead/js/Markup.js" type="text/javascript"></script>
 	
 {if $page.Mapper}

@@ -5,16 +5,26 @@ require_once('includes/allitems.php');
 
 $smarty->config_load($conf_file, 'items');
 
-// Разделяем из запроса класс, подкласс и тип вещей
-@list($class, $subclass, $type) = extract_values($podrazdel);
+// 从查询中划分类、子类和类型
+@list($class, $subclass, $type, $bond, $quality, $nature, $resistance) = extract_values($podrazdel);
 
-$cache_key = cache_key($class, $subclass, $type);
+$cache_key = cache_key($class, $subclass, $type, $bond, $quality, $nature, $resistance);
 
 if(!$items = load_cache(7, $cache_key))
 {
 	unset($items);
 
-	// Составляем запрос к БД, выполняющий поиск по заданным классу и подклассу
+	$test = '';
+	switch($resistance){
+		case 0: $test = 'fire_res>0';break;
+		case 1: $test = 'nature_res>0';break;
+		case 2: $test = 'frost_res>0';break;
+		case 3: $test = 'shadow_res>0';break;
+		case 4: $test = 'arcane_res>0';break;
+		case 5: $test = 'holy_res>0';break;
+	}
+
+	// 我们正在起草一份bd请求，对所指定的类和子类进行搜索。
 	$rows = $DB->select('
 		SELECT ?#, i.entry, max_count
 			{, l.name_loc?d AS name_loc}
@@ -25,6 +35,19 @@ if(!$items = load_cache(7, $cache_key))
 			{ AND class = ? }
 			{ AND subclass = ? }
 			{ AND inventory_type = ? }
+			{ AND bonding = ? }
+			{ AND quality = ? }
+			{ AND (stat_type1=? }
+			{ OR stat_type2=? }
+			{ OR stat_type3=? }
+			{ OR stat_type4=? }
+			{ OR stat_type5=? }
+			{ OR stat_type6=? }
+			{ OR stat_type7=? }
+			{ OR stat_type8=? }
+			{ OR stat_type9=? }
+			{ OR stat_type10=?) }
+			{ AND '.$test.' }
 		ORDER BY quality DESC, name
 		{ LIMIT ?d }
 		',
@@ -34,6 +57,18 @@ if(!$items = load_cache(7, $cache_key))
 		isset($class) ? $class : DBSIMPLE_SKIP,
 		isset($subclass) ? $subclass : DBSIMPLE_SKIP,
 		isset($type) ? $type : DBSIMPLE_SKIP,
+		isset($bond) ? $bond : DBSIMPLE_SKIP,
+		isset($quality) ? $quality : DBSIMPLE_SKIP,
+		isset($nature) ? $nature : DBSIMPLE_SKIP,
+		isset($nature) ? $nature : DBSIMPLE_SKIP,
+		isset($nature) ? $nature : DBSIMPLE_SKIP,
+		isset($nature) ? $nature : DBSIMPLE_SKIP,
+		isset($nature) ? $nature : DBSIMPLE_SKIP,
+		isset($nature) ? $nature : DBSIMPLE_SKIP,
+		isset($nature) ? $nature : DBSIMPLE_SKIP,
+		isset($nature) ? $nature : DBSIMPLE_SKIP,
+		isset($nature) ? $nature : DBSIMPLE_SKIP,
+		isset($nature) ? $nature : DBSIMPLE_SKIP,	
 		($AoWoWconf['limit']!=0)? $AoWoWconf['limit']: DBSIMPLE_SKIP
 	);
 	$rows = sanitiseitemrows($rows);

@@ -2826,3 +2826,59 @@ padding:10px 0 10px 10px;
     padding: 20px 15px;
     margin: 10px 0;
 }
+@media screen and (max-width: 659px)
+.shxlisttit {
+    margin-bottom: 5px;
+}
+@media screen and (max-width: 659px)
+.shxlisttit {
+    margin-bottom: 5px;
+}
+
+.shxlisttit {
+    padding-bottom: 8px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #232323;
+}
+@media screen and (max-width: 659px)
+.filter-condition {
+    height: auto;
+}
+.filter-condition {
+    padding: 10px 0 0px 0;
+    margin-bottom: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 32px;
+}
+
+@media screen and (max-width: 659px)
+.filter-condition dl.item-screen {
+    width: 105%;
+}
+.filter-condition dl.item-screen {
+    display: block;
+    float: left;
+    padding: 0;
+    margin: 0;
+    padding-top: 10px;
+}
+
+dl {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+dt {
+    display: block;
+}
+.filter-condition span {
+    display: block;
+    float: left;
+    padding-top: 10px;
+    color: #999;
+}
+

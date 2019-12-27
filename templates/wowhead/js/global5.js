@@ -9802,6 +9802,123 @@ function () {
 	};
 	DomContentLoaded.addEvent(this.checkPound)
 };
+var Ads = {
+	dimensions: {
+		leaderboard: [728, 90],
+		skyscraper: [160, 600],
+		medrect: [300, 250]
+	},
+	spots: {
+		leaderboard: ["header-ad"],
+		skyscraper: ["sidebar-ad"],
+		medrect: ["infobox-ad", "blog-sidebar-medrect", "talentcalc-sidebar-ad", "pl-rightbar-ad", "contribute-ad", "profiler-inventory-medrect", "profiler-reputation-medrect", "profiler-achievements-medrect"]
+	},
+	hidden: [],
+	removed: false,
+	install: function () {
+		for (var f in Ads.dimensions) {
+			var c = Ads.spots[f],
+			e = false;
+			for (var b = 0, a = c.length; b < a; ++b) {
+				if (f == "medrect" && location.href.indexOf("?profile") != -1) {
+					e = true
+				}
+				var d = ge(c[b]);
+				if (d) {
+					if (!e) {
+						Ads.fillSpot(f, d);
+						e = true
+					}
+				}
+			}
+		}
+	},
+	fillSpot: function (c, b) {
+		if (Ads.removed) {
+			de(b);
+			return
+		}
+		var a = ce("iframe");
+		a.width = Ads.dimensions[c][0];
+		a.height = Ads.dimensions[c][1];
+		a.frameBorder = 0;
+		a.scrolling = "no";
+		a.src = "http://static.wowhead.com/ads/dynamic/" + c + ".html?4";
+		ae(b, a)
+	},
+	removeAll: function () {
+		for (var e in Ads.dimensions) {
+			var c = Ads.spots[e];
+			for (var b = 0, a = c.length; b < a; ++b) {
+				var d = ge(c[b]);
+				if (d) {
+					de(d)
+				}
+			}
+		}
+		Ads.removed = true
+	},
+	hide: function (b) {
+		var a = gE(b, "iframe")[0];
+		if (a) {
+			a.style.display = "none";
+			Ads.hidden.push(b)
+		}
+	},
+	hideAll: function () {
+		for (var e in Ads.dimensions) {
+			var c = Ads.spots[e];
+			for (var b = 0, a = c.length; b < a; ++b) {
+				var d = ge(c[b]);
+				if (d && !Ads.isHidden(d)) {
+					Ads.hide(d)
+				}
+			}
+		}
+	},
+	isHidden: function (b) {
+		var a = gE(b, "iframe")[0];
+		if (a) {
+			return a.style.display == "none"
+		}
+		return false
+	},
+	intersect: function (g, e) {
+		var b;
+		for (var h in Ads.dimensions) {
+			var d = Ads.spots[h];
+			for (var c = 0, a = d.length; c < a; ++c) {
+				var f = ge(d[c]);
+				if (f) {
+					if (!Ads.isHidden(f)) {
+						coords = ac(f);
+						b = g_createRect(coords.x, coords.y, f.offsetWidth, f.offsetHeight);
+						if (g_intersectRect(g, b)) {
+							if (e) {
+								Ads.hide(f)
+							}
+							return true
+						}
+					}
+				}
+			}
+		}
+		return false
+	},
+	restoreHidden: function () {
+		if (Ads.hidden.length) {
+			for (var c = 0, a = Ads.hidden.length; c < a; ++c) {
+				var d = Ads.hidden[c],
+				b = gE(d, "iframe")[0];
+				if (b) {
+					b.style.display = ""
+				}
+			}
+			Ads.hidden = []
+		}
+	}
+};
+DomContentLoaded.addEvent(Ads.install);
 
 /*class, subclass, type, bond, quality, nature, resistance*/
 function getItemQueryPos(type) {
@@ -9815,11 +9932,24 @@ function getItemQueryPos(type) {
 }
 function filterItem(type,val) {
 	var url = window.location.href;
-	var uri = url.substring(0,url.lastIndexOf('-'));
-	var file = url.substring(url.lastIndexOf('-'));
+	if(url.endsWith('.html')) {
+		url = url.substring(0,url.length-5);	
+	}
+
+	var paramPos = url.lastIndexOf('-');
+	var uri,file;
+	if (paramPos==-1) {
+		uri = url+'-';
+		file = 'n';
+	} else {
+		uri = url.substring(0,paramPos+1);
+		file = url.substring(paramPos+1);
+	}
+
+
 	var arr = file.split('.');
 	var pos = getItemQueryPos(type);
-	var offset = pos - arr.length;
+	var offset = pos - arr.length + 1;
 	if(offset<0) {
 		arr[pos] = val;
 	} else {
@@ -9828,8 +9958,8 @@ function filterItem(type,val) {
 		}
 		arr[arr.length-1]=val;
 	}
-	if(arr[arr.length-1]!='html'){
-		arr.push('html');
-	}
-	console.log(uri+arr.join('.'));
+
+	arr.push('html');
+
+	location.href=uri+arr.join('.');
 }
