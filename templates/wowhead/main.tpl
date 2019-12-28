@@ -685,6 +685,11 @@
 <div>17173是中国游戏门户站,全年365天保持不间断更新,您可以在这里获得专业的游戏新闻资讯,完善的游戏攻略专区,人气游戏论坛以及游戏测试账号等,是游戏玩家首选网络游戏资讯</div>
 </div>
 
+<div id="footer">
+	魔兽世界经典旧世怀旧服资料 | <a href="mailto:xudingbing@foxmail.com" style="text-decoration:none;color:#566666" target="_blank">QQ群：460266109</a> 
+	<div style="padding-bottom:5px;font-size: 12px;text-align:center"> 版权所有 <a style="text-decoration: none;color:gray" href="http://www.beian.miit.gov.cn/">京ICP备19021883号-1</a></div>
+	<div style="padding-bottom:15px;font-size: 12px;text-align:center">Copyright 2019 - 2020 topwow.top. All Rights Reserved</div>
+</div>
 </body>
 </html>
 

@@ -25,3 +25,6 @@ CREATE INDEX `aowow_faction`        ON `item_template`     (`RequiredReputationF
 
 --新表结构非驼峰
 CREATE INDEX `aowow_faction`        ON `item_template`     (`required_reputation_faction`);
+
+CREATE INDEX `cq_quest`         ON `creature_questrelation` (`quest`);
+CREATE INDEX `cq_quest`         ON `creature_questrelation` (`quest`);

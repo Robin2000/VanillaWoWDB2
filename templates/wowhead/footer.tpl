@@ -4,7 +4,9 @@
 <!--[if lte IE 6]></td><th class="ie6layout-th"></th></tr></table><![endif]-->
 
 <div id="footer">
-	魔兽世界经典旧世怀旧服资料 | <a href="mailto:xudingbing@foxmail.com" style="text-decoration:none;color:#566666" target="_blank">BUG联系QQ：3168687633</a> 
+	魔兽世界经典旧世怀旧服资料 | <a href="mailto:xudingbing@foxmail.com" style="text-decoration:none;color:#566666" target="_blank">QQ群：460266109</a> 
+	<div style="padding-bottom:5px;font-size: 12px;text-align:center"> 版权所有 <a style="text-decoration: none;" href="http://www.beian.miit.gov.cn/">京ICP备19021883号-1</a></div>
+	<div style="padding-bottom:15px;font-size: 12px;text-align:center">Copyright 2019 - 2020 topwow.top. All Rights Reserved</div>
 </div>
 
 <div style="display:none">
