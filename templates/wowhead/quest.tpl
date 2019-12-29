@@ -197,7 +197,7 @@
 				<script type="text/javascript">ss_appendSticky()</script>
 
 				<div class="text">
-					<h1>{$quest.Title}</h1>
+					<span id="questTitle"><h1>{$quest.Title}</h1></span>
 
 					{if isset($quest.RequiredMinRep) or isset($quest.RequiredMaxRep)}
 						{#Additional_requirements_to_obtain_this_quest#}:<br>
@@ -211,17 +211,17 @@
 					{/if}
 
 					{if $quest.Objectives}
-						{$quest.Objectives}
+						<span id="objectives">{$quest.Objectives}</span>
 					{else $quest.RequestItemsText}
 						<h3>{#Progress#}</h3>
-						{$quest.RequestItemsText}
+						<span id="requestItemsText">{$quest.RequestItemsText}</span>
 					{/if}
 
 
 {if isset($quest.itemreqs) or isset($quest.coreqs) or isset($quest.factionreq) or isset($quest.splayers) or isset($quest.moneyreq) or !empty($quest.EndText) or isset($quest.PlayersSlain) and $quest.PlayersSlain}
 <table class="iconlist">
 {strip}
-	{* Перечень созданий, требуемых для квеста *}
+	{* 任务所需的创建列表 *}
 	{if isset($quest.coreqs)}
 		{foreach from=$quest.coreqs key=i item=req}
 			<tr>
@@ -229,7 +229,7 @@
 				<td>
 					<a href="?{$req.req_type}={$req.entry}">
 					{if !empty($quest.EndText)}
-						{$quest.EndText}
+						<span id="endText">{$quest.EndText}</span>
 					</a>
 					{else}
 						{if !empty($quest.ObjectiveText[$i])}
@@ -249,7 +249,7 @@
 			<tr>
 				<th><ul><li><var>&nbsp;</var></li></ul></th>
 				<td>
-					{$quest.EndText}
+					<span id="endText">{$quest.EndText}</span>
 				</td>
 			</tr>
 	{/if}
@@ -353,7 +353,7 @@
 
 {if $quest.Details}
 						<h3>{#Description#}</h3>
-						{$quest.Details}
+						<div id="questDetails">{$quest.Details}</div>
 {/if}
 
 {if (isset($quest.itemchoices) or isset($quest.itemrewards) or isset($quest.money) or isset($quest.spellreward)) or isset($quest.BonusTalents) and $quest.BonusTalents}
@@ -450,7 +450,7 @@
 
 {if $quest.OfferRewardText}
 						<h3>{#Completion#}</h3>
-						{$quest.OfferRewardText}
+						<span id="completion">{$quest.OfferRewardText}</span>
 {/if}
 
 {if isset($quest.xp) and $quest.xp or isset($quest.reprewards) or isset($quest.titlereward) or isset($quest.mailrewards) or isset($quest.RewHonorableKills) and $quest.RewHonorableKills}
@@ -488,7 +488,7 @@
 {/if}
 					{/strip}</ul>
 {/if}
-
+<iframe allowfullscreen="true" style="overflow:hidden" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" width="100%" height="500px" src="http://www.topwow.top/tts/index.html"></iframe>
 				<h2>{#Related#}</h2>
 
 			</div>

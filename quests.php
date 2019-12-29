@@ -88,6 +88,12 @@ $smarty->assign('max_options', $max_options);
 if(isset($minLvl)) {
  $smarty->assign('sel_min_lvl', $minLvl);
 }
+
+$smarty->assign('difficulty',isset($difficulty)?$difficulty:'n');
+$smarty->assign('side',isset($side)?$side:'n');
+$smarty->assign('reward',isset($reward)?$reward:'n');
+$smarty->assign('job',isset($job)?$job:'n');
+
 // Если хоть одна информация о вещи найдена - передаём массив с информацией о вещях шаблонизатору
 $smarty->assign('allitems',$allitems);
 $smarty->assign('quests',$quests);
@@ -95,5 +101,8 @@ $smarty->assign('quests',$quests);
 $smarty->assign('mysql', $DB->getStatistics());
 // Загружаем страницу
 $smarty->display('quests.tpl');
+
+
+
 
 ?>

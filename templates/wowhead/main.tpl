@@ -672,23 +672,13 @@
               </ul>
 </div>
 
-<div style="display:none">
-	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1277448314'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1277448314%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
-</div>
-
-<div style="display:none">
-<h1>60wow</h1>
-<div>六零数据库最专业的经典旧世数据库 数据针对「60级 经典旧世 地球时代 香草魔兽」1.12版本</div>
-<h1>nfuwow</h1>
-<div>NFU魔兽世界1.13版数据库2019年10月11日更新修复了物品掉落地区，副本掉落物品一览与NPC显示。增加了任务的一些数据、截图，主要是用于任务更方便。</div>
-<h1>17173</h1>
-<div>17173是中国游戏门户站,全年365天保持不间断更新,您可以在这里获得专业的游戏新闻资讯,完善的游戏攻略专区,人气游戏论坛以及游戏测试账号等,是游戏玩家首选网络游戏资讯</div>
-</div>
-
-<div id="footer">
+<div id="footer" style="position:fixed;bottom:0px;z-index:99999;">
 	魔兽世界经典旧世怀旧服资料 | <a href="mailto:xudingbing@foxmail.com" style="text-decoration:none;color:#566666" target="_blank">QQ群：460266109</a> 
 	<div style="padding-bottom:5px;font-size: 12px;text-align:center"> 版权所有 <a style="text-decoration: none;color:gray" href="http://www.beian.miit.gov.cn/">京ICP备19021883号-1</a></div>
 	<div style="padding-bottom:15px;font-size: 12px;text-align:center">Copyright 2019 - 2020 topwow.top. All Rights Reserved</div>
+</div>
+<div style="display:none">
+	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1277448314'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1277448314%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
 </div>
 </body>
 </html>
