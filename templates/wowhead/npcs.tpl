@@ -157,25 +157,28 @@
                         <a href="javascript:filterNpcs('trainerRace','n')" class="filter-a {if $trainerRace eq 'n'}current{/if}" title="全部">全部</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('trainerRace',1)" class="filter-a {if $trainerRace eq '1'}current{/if}" title="人类">人类</a>
+                        <a href="javascript:filterNpcs('trainerRace',1)" class="filter-a {if $trainerRace eq '1'}current{/if}" title="人类" style="color:#7B989E">人类</a>
                     </span>                    
                     <span >
-                        <a href="javascript:filterNpcs('trainerRace',2)" class="filter-a {if $trainerRace eq '2'}current{/if}" title="兽人">兽人</a>
+                        <a href="javascript:filterNpcs('trainerRace',2)" class="filter-a {if $trainerRace eq '2'}current{/if}" title="兽人" style="color:#6C9839">兽人</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('trainerRace',4)" class="filter-a {if $trainerRace eq '4'}current{/if}" title="暗夜精灵">暗夜精灵</a>
+                        <a href="javascript:filterNpcs('trainerRace',3)" class="filter-a {if $trainerRace eq '3'}current{/if}" title="矮人" style="color:#FB8C5E">矮人</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('trainerRace',5)" class="filter-a {if $trainerRace eq '5'}current{/if}" title="亡灵">亡灵</a>
+                        <a href="javascript:filterNpcs('trainerRace',4)" class="filter-a {if $trainerRace eq '4'}current{/if}" title="暗夜精灵" style="color:#4847A4">暗夜精灵</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('trainerRace',6)" class="filter-a {if $trainerRace eq '6'}current{/if}" title="牛头人">牛头人</a>
+                        <a href="javascript:filterNpcs('trainerRace',5)" class="filter-a {if $trainerRace eq '5'}current{/if}" title="亡灵" style="color:#2B3A28">亡灵</a>
+                    </span>
+                    <span >
+                        <a href="javascript:filterNpcs('trainerRace',6)" class="filter-a {if $trainerRace eq '6'}current{/if}" title="牛头人" style="color:#E47C47">牛头人</a>
                     </span>
                    <span >
-                        <a href="javascript:filterNpcs('trainerRace',7)" class="filter-a {if $trainerRace eq '7'}current{/if}" title="侏儒">侏儒</a>
+                        <a href="javascript:filterNpcs('trainerRace',7)" class="filter-a {if $trainerRace eq '7'}current{/if}" title="侏儒" style="color:#D24500">侏儒</a>
                     </span>
                    <span >
-                        <a href="javascript:filterNpcs('trainerRace',8)" class="filter-a {if $trainerRace eq '8'}current{/if}" title="巨魔">巨魔</a>
+                        <a href="javascript:filterNpcs('trainerRace',8)" class="filter-a {if $trainerRace eq '8'}current{/if}" title="巨魔" style="color:#6093A9">巨魔</a>
                     </span>
 					<!--	
                    <span>
@@ -185,7 +188,7 @@
                         <a href="javascript:filterNpcs('trainerRace',10)" class="filter-a {if $trainerRace eq '10'}current{/if}" title="血精灵">血精灵</a>
                     </span>	
                    <span >
-                        <a href="javascript:filterNpcs('trainerRace',11)" class="filter-a {if $trainerRace eq '11'}current{/if}" title="德莱尼">德莱尼</a>
+                        <a href="javascript:filterNpcs('trainerRace',11)" class="filter-a {if $trainerRace eq '11'}current{/if}" title="德莱尼" style="color:#CF5CF7">德莱尼</a>
                     </span>
 					-->																			
             </div>
