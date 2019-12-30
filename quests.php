@@ -18,6 +18,7 @@ if(!$quests = load_cache(12, $cache_key))
 	if(isset($side)) {
 		if($side==1)$testSide="AND A=1 AND H=-1";
 		if($side==2)$testSide="AND A=-1 AND H=1";
+		if($side==3)$testSide="AND A=1 AND H=1";
 	}
 	$testReward="";
 	if(isset($reward)) {
@@ -34,14 +35,13 @@ if(!$quests = load_cache(12, $cache_key))
 		}
 		FROM quest_template q
 		{ LEFT JOIN (locales_quest l) ON l.entry=q.entry AND ? }
-		{ INNER JOIN creature_questrelation r ON q.entry=r.quest INNER JOIN creature_template c ON c.entry=r.id INNER JOIN aowow_factiontemplate f ON f.factiontemplateID=c.faction_A AND ?}
+		{ INNER JOIN creature_questrelation r ON q.entry=r.quest INNER JOIN creature_template c ON c.entry=r.id INNER JOIN aowow_factiontemplate f ON f.factiontemplateID=c.faction_A '.$testSide.' AND ?}
 		WHERE
 			1 = 1
 			{ AND ZoneOrSort = ? }
 			{ AND ZoneOrSort IN (?a) }
 			{ AND q.type=? }
-			{ '.$testSide.' }
-			{ '.$testReward.' }
+			 '.$testReward.' 
 			{ AND q.RequiredClasses=?d }
 			{ AND q.MinLevel=?d }
 			{ AND q.MaxLevel=?d }
