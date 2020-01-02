@@ -32,7 +32,7 @@
 
 	<script src="templates/wowhead/js/locale_{$language}6.js" type="text/javascript"></script>
 
-	<script src="templates/wowhead/js/global9.js" type="text/javascript"></script>
+	<script src="templates/wowhead/js/global10.js" type="text/javascript"></script>
 	<script src="templates/wowhead/js/Markup.js" type="text/javascript"></script>
 	
 {if $page.Mapper}

@@ -6,14 +6,28 @@ require_once('includes/allitems.php');
 $smarty->config_load($conf_file, 'items');
 
 // 从查询中划分类、子类和类型
-@list($class, $subclass, $type, $bond, $quality, $nature, $resistance, $minLvl) = extract_values($podrazdel);
+@list($class, $subclass, $type, $allowClass, $allowRace, $bond, $quality, $nature, $resistance, $minLvl) = extract_values($podrazdel);
 
-$cache_key = cache_key($class, $subclass, $type, $bond, $quality, $nature, $resistance, $minLvl);
+$cache_key = cache_key($class, $subclass, $type, $allowClass, $allowRace, $bond, $quality, $nature, $resistance, $minLvl);
 
 if(!$items = load_cache(7, $cache_key))
 {
 	unset($items);
 
+	$testWepon="";
+	if(isset($allowClass)){
+		switch($allowClass){
+			case 1: $testWepon= " AND (class !=2 OR (class=2 AND subclass in(14,20,7,8,4,5,0,1,15,6,13,10,2,3,18,16))) AND (class!=4 OR (class=4 AND subclass in(1,2,3,4,5,6,7,8)))";break;
+			case 2: $testWepon= " AND (class !=2 OR (class=2 AND subclass in(14,20,7,8,0,1,4,5,6))) AND (class!=4 OR (class=4 AND subclass in(1,2,3,4,5,6,7,8)))";break;
+			case 3: $testWepon= " AND (class !=2 OR (class=2 AND subclass in(14,20,2,3,18,6,16,10,13,15,0,1,7,8))) AND (class!=4  OR (class=4 AND subclass in(1,2,3,7,8)))";break;
+			case 4: $testWepon= " AND (class !=2 OR (class=2 AND subclass in(14,20,15,7,13,4,16,2,3,18))) AND (class!=4  OR (class=4 AND subclass in(1,2,7,8)))";break;
+			case 5: $testWepon= " AND (class !=2 OR (class=2 AND subclass in(14,20,10,15,4))) AND (class!=4  OR (class=4 AND subclass in(1,7,8)))";break;
+			case 7: $testWepon= " AND (class !=2 OR (class=2 AND subclass in(14,20,10,15,13,4,5,0,1))) AND (class!=4 OR (class=4 AND subclass in(1,2,3,7,8,9)))";break;
+			case 8: $testWepon= " AND (class !=2 OR (class=2 AND subclass in(14,20,10,15,7))) AND (class!=4 OR (class=4 AND subclass in(1,7,8)))";break;
+			case 9: $testWepon= " AND (class !=2 OR (class=2 AND subclass in(14,20,10,15,7))) AND (class!=4 OR (class=4 AND subclass in(1,7,8)))";break;
+			case 11: $testWepon= " AND (class !=2 OR (class=2 AND subclass in(14,20,10,15,6,4,5 ))) AND (class!=4 OR (class=4 AND subclass in(1,2,7,8)))";break;
+		}
+	}
 	$test = '';
 	if(isset($resistance)){
 		switch($resistance){
@@ -36,6 +50,9 @@ if(!$items = load_cache(7, $cache_key))
 			{ AND class = ? }
 			{ AND subclass = ? }
 			{ AND inventory_type = ? }
+			'.$testWepon.'
+			{ AND (allowable_class>0 AND (allowable_class&(1<<(?-1))) != 0) }
+			{ AND (allowable_race>0 AND (allowable_race&(1<<(?-1))) != 0) }
 			{ AND bonding = ? }
 			{ AND quality = ? }
 			{ AND (stat_type1=? }
@@ -59,6 +76,8 @@ if(!$items = load_cache(7, $cache_key))
 		isset($class) ? $class : DBSIMPLE_SKIP,
 		isset($subclass) ? $subclass : DBSIMPLE_SKIP,
 		isset($type) ? $type : DBSIMPLE_SKIP,
+		isset($allowClass) ? $allowClass : DBSIMPLE_SKIP,
+		isset($allowRace) ? $allowRace : DBSIMPLE_SKIP,
 		isset($bond) ? $bond : DBSIMPLE_SKIP,
 		isset($quality) ? $quality : DBSIMPLE_SKIP,
 		isset($nature) ? $nature : DBSIMPLE_SKIP,
@@ -102,6 +121,8 @@ if(isset($minLvl)) {
  $smarty->assign('sel_min_lvl', $minLvl);
 }
 
+$smarty->assign('allowClass',isset($allowClass)?$allowClass:'n');
+$smarty->assign('allowRace',isset($allowRace)?$allowRace:'n');
 $smarty->assign('bond',isset($bond)?$bond:'n');
 $smarty->assign('quality',isset($quality)?$quality:'n');
 $smarty->assign('nature',isset($nature)?$nature:'n');

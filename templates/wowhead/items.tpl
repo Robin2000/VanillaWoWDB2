@@ -12,6 +12,75 @@
             条件筛选
         </div>
         <div class="filter-condition">
+            <div class="bdfs">限定职业：</div>
+            <div class="item-screen">
+                   <span >
+                        <a href="javascript:filterItem('allowClass','n')" class="filter-a {if $allowClass eq 'n'}current{/if}" title="全部">全部</a>
+                    </span>
+                    <span >
+                        <a href="javascript:filterItem('allowClass',1)" class="filter-a {if $allowClass eq '1'}current{/if}" title="战士" style="color:#CF9766">战士</a>
+                    </span>
+                    <span >
+                        <a href="javascript:filterItem('allowClass',2)" class="filter-a {if $allowClass eq '2'}current{/if}" title="圣骑士" style="color:#F14C74">圣骑士</a>
+                    </span>
+                    <span >
+                        <a href="javascript:filterItem('allowClass',3)" class="filter-a {if $allowClass eq '3'}current{/if}" title="猎人" style="color:#AAD372">猎人</a>
+                    </span>
+                    <span >
+                        <a href="javascript:filterItem('allowClass',4)" class="filter-a {if $allowClass eq '4'}current{/if}" title="盗贼" style="color:#FFF468">盗贼</a>
+                    </span>
+                    <span >
+                        <a href="javascript:filterItem('allowClass',5)" class="filter-a {if $allowClass eq '5'}current{/if}" title="牧师" style="color:#FDFCF8">牧师</a>
+                    </span>
+                    <span >
+                        <a href="javascript:filterItem('allowClass',7)" class="filter-a {if $allowClass eq '7'}current{/if}" title="萨满" style="color:#2359FF">萨满</a>
+                    </span>
+                    <span >
+                        <a href="javascript:filterItem('allowClass',8)" class="filter-a {if $allowClass eq '8'}current{/if}" title="法师" style="color:#68CCEF">法师</a>
+                    </span>
+                    <span >
+                        <a href="javascript:filterItem('allowClass',9)" class="filter-a {if $allowClass eq '9'}current{/if}" title="术士" style="color:#977DC7">术士</a>
+                    </span>
+                    <span >
+                        <a href="javascript:filterItem('allowClass',11)" class="filter-a {if $allowClass eq '11'}current{/if}" title="德鲁伊" style="color:#FE7900">德鲁伊</a>
+                    </span>
+               </div>
+        </div>
+        <p style="line-height:5px"/>
+        <div class="filter-condition">
+            <div class="bdfs">限定种族：</div>
+            <div class="item-screen">
+                   <span style="list-style: none;float: left;padding-right: 10px;">
+                        <a href="javascript:filterItem('allowRace','n')" class="filter-a {if $allowRace eq 'n'}current{/if}" title="全部">全部</a>
+                    </span>
+                    <span style="list-style: none;float: left;padding-right: 10px;">
+                        <a href="javascript:filterItem('allowRace',1)" class="filter-a {if $allowRace eq '1'}current{/if}" title="人类">人类</a>
+                    </span>
+                    <span style="list-style: none;float: left;padding-right: 10px;">
+                        <a href="javascript:filterItem('allowRace',2)" class="filter-a {if $allowRace eq '2'}current{/if}" title="兽人">兽人</a>
+                    </span>
+                    <span style="list-style: none;float: left;padding-right: 10px;">
+                        <a href="javascript:filterItem('allowRace',3)" class="filter-a {if $allowRace eq '3'}current{/if}" title="矮人">矮人</a>
+                    </span>
+                    <span style="list-style: none;float: left;padding-right: 10px;">
+                        <a href="javascript:filterItem('allowRace',4)" class="filter-a {if $allowRace eq '4'}current{/if}" title="暗夜精灵">暗夜精灵</a>
+                    </span>
+                    <span style="list-style: none;float: left;padding-right: 10px;">
+                        <a href="javascript:filterItem('allowRace',5)" class="filter-a {if $allowRace eq '5'}current{/if}" title="亡灵">亡灵</a>
+                    </span>
+                    <span style="list-style: none;float: left;padding-right: 10px;">
+                        <a href="javascript:filterItem('allowRace',6)" class="filter-a {if $allowRace eq '6'}current{/if}" title="牛头人">牛头人</a>
+                    </span>
+                    <span style="list-style: none;float: left;padding-right: 10px;">
+                        <a href="javascript:filterItem('allowRace',7)" class="filter-a {if $allowRace eq '7'}current{/if}" title="侏儒">侏儒</a>
+                    </span> 
+                    <span style="list-style: none;float: left;padding-right: 10px;">
+                        <a href="javascript:filterItem('allowRace',8)" class="filter-a {if $allowRace eq '8'}current{/if}" title="巨魔">巨魔</a>
+                    </span>                     
+           </div>
+        </div>
+        <p style="line-height:5px"/>
+        <div class="filter-condition">
             <div class="bdfs">绑定方式：</div>
             <div class="item-screen">
                    <span style="list-style: none;float: left;padding-right: 10px;">
@@ -34,6 +103,7 @@
                     </span>
                             </div>
         </div>
+        <p style="line-height:5px"/>
         <div class="filter-condition">
             <div class="bdfs">物品品质：</div>
             <div class="item-screen">
@@ -63,6 +133,7 @@
                     </span-->
                             </div>
         </div>
+        <p style="line-height:5px"/>
         <div class="filter-condition">
             <div class="bdfs">基础属性：</div>
             <div class="item-screen">
@@ -89,6 +160,7 @@
                     </span>
                             </div>
         </div>
+        <p style="line-height:5px"/>
         <div class="filter-condition">
             <div class="bdfs">包含抗性：</div>
             <div class="item-screen">
@@ -115,7 +187,7 @@
                     </span-->
             </div>
         </div>
-
+        <p style="line-height:5px"/>
 			<div class="filter-condition">
 
 			<div class="bdfs">最低要求等级：</div>
