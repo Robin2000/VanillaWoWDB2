@@ -290,17 +290,27 @@ $('textarea').on('change', function () {
   experience.setConfig({text});
   $(this).keyup();
 })
+
+function showButton(){
+  try{
+    var title=$('#questTitle', window.parent.document).text();
+    var objectives=$('#objectives', window.parent.document).text();
+    var requestItemsText=$('#requestItemsText', window.parent.document).text();
+    var detail=$('#questDetails', window.parent.document).text();
+    var endText=$('#endText', window.parent.document).text();
+    var completion=$('#completion', window.parent.document).text();
+    $('textarea').val(title+"\r\n"+objectives+"\r\n"+requestItemsText+"\r\n"+detail+"\r\n"+endText+"\r\n"+completion);
+    $('.audio-ctrl-btn').show();
+  } catch(e) {
+    setTimeout(function(){ 
+      showButton();
+    }, 2000);
+  }
+}
 $(function(){
   $('.audio-ctrl-btn').hide();
+  setTimeout(function(){ 
+    showButton();
+  }, 2000);
 
-  var title=$('#questTitle', window.parent.document).text();
-  var objectives=$('#objectives', window.parent.document).text();
-  var requestItemsText=$('#requestItemsText', window.parent.document).text();
-  var detail=$('#questDetails', window.parent.document).text();
-  var endText=$('#endText', window.parent.document).text();
-  var completion=$('#completion', window.parent.document).text();
-
-  $('textarea').val(title+"\r\n"+objectives+"\r\n"+requestItemsText+"\r\n"+detail+"\r\n"+endText+"\r\n"+completion);
-
-  $('.audio-ctrl-btn').show();
 });
