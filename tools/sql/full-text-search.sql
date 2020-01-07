@@ -28,5 +28,7 @@ create index zone_xmax on aowow_zones(x_max);
 create index zone_ymin on aowow_zones(y_min);
 create index zone_ymax on aowow_zones(y_max);
 
+alter table aowow_map_search add fulltext index map_searchfulltextloc4(name_loc4) with parser ngram;
+
 
 
