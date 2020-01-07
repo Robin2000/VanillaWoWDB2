@@ -192,7 +192,7 @@ var mn_database=[
 	[6,"区域","http://www.topwow.top/zones.html",mn_zones],
 	[1,"法术","http://www.topwow.top/spells.html",mn_spells],
 	[5,"道具","http://www.topwow.top/objects.html",mn_objects],
-	[7,"声望","http://www.topwow.top/factions.html",mn_factions]
+	[7,"阵营","http://www.topwow.top/factions.html",mn_factions]
 ];
 var mn_tools = [ [0, "天赋计算", "http://www.topwow.top/talent.html", mn_talentCalc],[1, "地图", "http://www.topwow.top/maps.html"]];
 var mn_path = [[0, "数据库", , mn_database], [1, "工具", , mn_tools], [2, "故事","http://www.topwow.top/object-21581.html"], [3, "艾泽拉斯","http://www.topwow.top/wowgis/map-0.html"], [4, "卡利姆多","http://www.topwow.top/wowgis/map-1.html"]];
