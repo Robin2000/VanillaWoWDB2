@@ -21,7 +21,7 @@
 		<div class="pad"></div>
 
 		<form method="get" action="." onsubmit="if(trim(this.elements[0].value) == '') return false">
-			<input placeholder="{#searchHoder#}" type="text" name="search" size="38" id="kghjklvhj43v6" class="searbox"/>
+			<input placeholder="{#searchHoder#}" type="text" name="search" size="30" id="kghjklvhj43v6" class="searbox"/>
 		</form>
 		
 		<script type="text/javascript">var _ = ge('kghjklvhj43v6'); LiveSearch.attach(_); _.focus();</script>
