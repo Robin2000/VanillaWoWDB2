@@ -37,11 +37,11 @@
     display: block;
 }
 
-/*打开这一句代码，可以使当鼠标移动到下拉列表时，就展开子级列表*/
+/*打开这一句代码，可以使当鼠标移动到下拉列表时，就展开子级列表
 .navbar .dropdown:hover > .dropdown-menu{
     display: block;
 }
-
+*/
 .navbar .dropdown {
     position: static;
 }
