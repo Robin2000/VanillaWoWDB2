@@ -193,6 +193,12 @@
                                                     <a href="http://www.topwow.top/items-1.2.html">草药袋</a>
                                                     <a href="http://www.topwow.top/items-1.1.html">灵魂袋</a>
                                                 </div>
+                                                <!--div class="dropdown-header">
+                                                    <a href="http://www.topwow.top/items-1.5.html">宝石袋</a>
+                                                    <a href="http://www.topwow.top/items-1.8.html">铭文包</a>
+                                                    <a href="http://www.topwow.top/items-1.7.html">制皮材料包</a>
+                                                    <a href="http://www.topwow.top/items-1.6.html">矿石袋</a>
+                                                </div-->
                                             </li>
                                             <li><a href="http://www.topwow.top/items-11.html">射击袋</a>
                                                 <div class="dropdown-header">
@@ -223,6 +229,7 @@
                                                     <a href="http://www.topwow.top/items-9.7.html">急救</a>
                                                     <a href="http://www.topwow.top/items-9.9.html">钓鱼</a>
                                                     <a href="http://www.topwow.top/items-9.5.html">烹饪</a>
+                                                    <!--a href="http://www.topwow.top/items-9.10.html">珠宝加工</a-->
                                                 </div>
                                             </li>
                                             <!-- End Default -->
@@ -242,9 +249,24 @@
                                                     <a href="http://www.topwow.top/items-7.3.html">装置</a>
                                                     <a href="http://www.topwow.top/items-7.2.html">爆炸物</a>
                                                     <a href="http://www.topwow.top/items-7.1.html">零件</a>
+                                                    <a href="http://www.topwow.top/items-7.6.html">制皮</a>
                                                 </div>
                                             </li>
-                                            <li><a href="http://www.topwow.top/items-0.html">消耗品</a></li>
+                                            <li><a href="http://www.topwow.top/items-0.html">消耗品</a>
+                                                <div class="dropdown-header">
+                                                    <a href="http://www.topwow.top/items-0.7.html">绷带</a>
+                                                    <a href="http://www.topwow.top/items-0.0.html">消耗品</a>
+                                                    <a href="http://www.topwow.top/items-0.2.html">药剂</a>
+                                                    <a href="http://www.topwow.top/items-0.3.html">合剂</a>
+                                                    <a href="http://www.topwow.top/items-0.5.html">食物饮料</a>
+                                                </div>
+                                                <div class="dropdown-header">
+                                                    <a href="http://www.topwow.top/items-0.6.html">物品强化（永久）</a>
+                                                    <a href="http://www.topwow.top/items-0.1.html">药水</a>
+                                                    <a href="http://www.topwow.top/items-0.4.html">卷轴</a>
+                                                    <a href="http://www.topwow.top/items-0.8.html">其他</a>
+                                                </div>
+                                            </li>
                                             <li><a href="http://www.topwow.top/items-12.html">任务物品</a></li>
                                             <li><a href="http://www.topwow.top/items-13.html">钥匙</a></li>
                                             <li><a href="http://www.topwow.top/items-15.html">废旧物品</a></li>
