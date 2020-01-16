@@ -12,28 +12,41 @@ if(!$itemsets = load_cache(9, $cache_key))
 {
 	unset($itemsets);
 
-	$allowClass="";
+	$armorClass="";
+
 	if(isset($class)){
 		switch($class){
+			case 0:
+				$armorClass=" AND armorClass is null ";break;/*不限*/
 			case 1:
 			case 2:
-				$allowClass=" AND (armorClass=4 OR armorClass is null)";break;/*1战士，2圣骑士 4板 */
+				$armorClass=" AND (armorClass=4 OR armorClass is null)";break;/*1战士，2圣骑士 4板 */
 			case 3:
 			case 7:
-				$allowClass=" AND (armorClass=3 OR armorClass is null)";break;/*3猎人，7萨满  3锁链 */
+				$armorClass=" AND (armorClass=3 OR armorClass is null)";break;/*3猎人，7萨满  3锁链 */
 			case 4:
 			case 11:
-				$allowClass=" AND (armorClass=2 OR armorClass is null)";break;/*4潜行者，11德鲁伊    2皮甲 */
+				$armorClass=" AND (armorClass=2 OR armorClass is null)";break;/*4潜行者，11德鲁伊    2皮甲 */
 			case 8:
 			case 5:
 			case 9:
-				$allowClass=" AND (armorClass=1 OR armorClass is null)";break;/*8法师，5牧师，9术士  1布 */
+				$armorClass=" AND (armorClass=1 OR armorClass is null)";break;/*8法师，5牧师，9术士  1布 */
 		}
 	}
+	$allowClass="";
+	if(isset($class)){
+		if($class==0){
+			$allowClass=" AND (allowClass=-1 OR allowClass is null)";
+		}else {
+			$allowClass=" AND (allowClass & power(2,$class-1)=power(2,$class-1) OR allowClass=-1 OR allowClass is null)";
+		}
+	}
+	
 	$rows = $DB->select('
 		SELECT ?#
 		FROM ?_itemset s
 		WHERE 1=1 
+		'.$armorClass.'
 		'.$allowClass.'
 		ORDER by name_loc'.$_SESSION['locale'].'
 		{LIMIT ?d}',

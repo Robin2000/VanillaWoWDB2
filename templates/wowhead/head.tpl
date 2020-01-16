@@ -30,9 +30,9 @@
       	{/if}
 {/if}
 
-	<script src="templates/wowhead/js/locale_{$language}7.js" type="text/javascript"></script>
+	<script src="templates/wowhead/js/locale_{$language}8.js" type="text/javascript"></script>
 
-	<script src="templates/wowhead/js/global10.js" type="text/javascript"></script>
+	<script src="templates/wowhead/js/global11.js" type="text/javascript"></script>
 	<script src="templates/wowhead/js/Markup.js" type="text/javascript"></script>
 	
 {if $page.Mapper}

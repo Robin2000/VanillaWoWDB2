@@ -2,8 +2,8 @@
 
 require_once('includes/allitems.php');
 
-$itemset_col[0] = array('itemsetID', 'name_loc'.$_SESSION['locale'], 'item1', 'item2', 'item3', 'item4', 'item5', 'item6', 'item7', 'item8', 'item9', 'item10',);
-$itemset_col[1] = array('itemsetID', 'name_loc'.$_SESSION['locale'], 'item1', 'item2', 'item3', 'item4', 'item5', 'item6', 'item7', 'item8', 'item9', 'item10', 'spell1', 'spell2', 'spell3', 'spell4', 'spell5', 'spell6', 'spell7', 'spell8', 'skillID', 'bonus1', 'bonus2', 'bonus3', 'bonus4', 'bonus5', 'bonus6', 'bonus7', 'bonus8', 'skilllevel');
+$itemset_col[0] = array('itemsetID', 'name_loc'.$_SESSION['locale'], 'item1', 'item2', 'item3', 'item4', 'item5', 'item6', 'item7', 'item8', 'item9', 'item10','allowClass');
+$itemset_col[1] = array('itemsetID', 'name_loc'.$_SESSION['locale'], 'item1', 'item2', 'item3', 'item4', 'item5', 'item6', 'item7', 'item8', 'item9', 'item10', 'allowClass', 'spell1', 'spell2', 'spell3', 'spell4', 'spell5', 'spell6', 'spell7', 'spell8', 'skillID', 'bonus1', 'bonus2', 'bonus3', 'bonus4', 'bonus5', 'bonus6', 'bonus7', 'bonus8', 'skilllevel');
 
 function itemsetinfo2(&$row)
 {
@@ -31,7 +31,23 @@ function itemsetinfo2(&$row)
 		$itemset['quality2'] = 7;
 	}
 	// TODO: classes
-	$itemset['classes'][] = 0;
+	$itemsetClasses = array();
+	$allowClass =  $row['allowClass'];
+	if(isset($allowClass) && $allowClass > 0) {
+		$allClass=array(1,2,3,4,5,7,8,9,11);
+		$classCount = count($allClass);
+		for($i=0;$i<$classCount;$i++) {
+			$v=$allClass[$i];
+			if(($allowClass & pow(2,$v-1)) == pow(2,$v-1)) {
+				array_push($itemsetClasses,$v);
+			}
+		}
+		if(count($itemsetClasses) == $classCount) {
+			$itemsetClasses=array();
+		}
+	}
+	
+	$itemset['classes'] = $itemsetClasses;
 	return $itemset;
 }
 
