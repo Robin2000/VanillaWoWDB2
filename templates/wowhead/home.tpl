@@ -956,7 +956,7 @@
 
     <div class="searchBg">
         <div class="searchCenter">
-            <form method="get" action="." onsubmit="if(trim(this.elements[0].value) == '') return false">
+            <form method="get" action="." onsubmit="if(this.elements[0].value == '') return false">
                 <input placeholder="{#searchHoder#}" type="text" name="search" size="30" class="searbox"/>
                 <input type="submit" value="" class="searbtn"/>
             </form>
