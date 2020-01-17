@@ -30,7 +30,7 @@
       	{/if}
 {/if}
 
-	<script src="templates/wowhead/js/locale_{$language}8.js" type="text/javascript"></script>
+	<script src="templates/wowhead/js/locale_{$language}9.js" type="text/javascript"></script>
 
 	<script src="templates/wowhead/js/global11.js" type="text/javascript"></script>
 	<script src="templates/wowhead/js/Markup.js" type="text/javascript"></script>
