@@ -101,7 +101,7 @@
 
                                             <li class="big-screen-space"></li>
                                             
-                                            <li><h3>消耗</a></li>
+                                            <li><h3>消耗品</a></li>
 
                                             <li><a href="http://www.topwow.top/items-6.html">弹药</a>
                                                 <div class="dropdown-header">
@@ -109,7 +109,19 @@
                                                     <a href="http://www.topwow.top/items-6.3.html">子弹</a>
                                                 </div>
                                             </li>
+                                            <li class="big-screen-space"></li>
+                                            
+                                            <li><h3>贸易品</a></li>
 
+                                            <li><a href="http://www.topwow.top/items-7.html">商贸</a>
+                                                <div class="dropdown-header">
+                                                    <a href="http://www.topwow.top/items-7.0.html">商品</a>
+                                                    <a href="http://www.topwow.top/items-7.3.html">装置</a>
+                                                    <a href="http://www.topwow.top/items-7.2.html">爆炸物</a>
+                                                    <a href="http://www.topwow.top/items-7.1.html">零件</a>
+                                                    <a href="http://www.topwow.top/items-7.6.html">制皮</a>
+                                                </div>
+                                            </li>
                                             <!-- End Default -->
                                         </ul>
                                     </div><!--武器-->
@@ -127,11 +139,13 @@
                                                     <a href="http://www.topwow.top/items-4.1.8.html">脚</a>
                                                     <a href="http://www.topwow.top/items-4.1.10.html">手套</a>
                                                     <a href="http://www.topwow.top/items-4.1.1.html">头部</a>
+                                                </div>
+                                                <div class="dropdown-header">
                                                     <a href="http://www.topwow.top/items-4.1.7.html">腿部</a>
                                                     <a href="http://www.topwow.top/items-4.1.3.html">肩部</a>
                                                     <a href="http://www.topwow.top/items-4.1.6.html">腰部</a>
                                                     <a href="http://www.topwow.top/items-4.1.9.html">手腕</a>
-                                                </div>
+                                                </div>                                                
                                             </li>
                                             <li><a href="http://www.topwow.top/items-4.2.html">皮甲</a>
                                                 <div class="dropdown-header">
@@ -139,11 +153,13 @@
                                                     <a href="http://www.topwow.top/items-4.2.8.html">脚</a>
                                                     <a href="http://www.topwow.top/items-4.2.10.html">手套</a>
                                                     <a href="http://www.topwow.top/items-4.2.1.html">头部</a>
+                                                </div>
+                                                <div class="dropdown-header">
                                                     <a href="http://www.topwow.top/items-4.2.7.html">腿部</a>
                                                     <a href="http://www.topwow.top/items-4.2.3.html">肩部</a>
                                                     <a href="http://www.topwow.top/items-4.2.6.html">腰部</a>
                                                     <a href="http://www.topwow.top/items-4.2.9.html">手腕</a>
-                                                </div>
+                                                </div>                                                
                                             </li>
                                             <li><a href="http://www.topwow.top/items-4.3.html">锁甲</a>
                                                 <div class="dropdown-header">
@@ -151,11 +167,13 @@
                                                     <a href="http://www.topwow.top/items-4.3.8.html">脚</a>
                                                     <a href="http://www.topwow.top/items-4.3.10.html">手套</a>
                                                     <a href="http://www.topwow.top/items-4.3.1.html">头部</a>
+                                                </div>
+                                                <div class="dropdown-header">
                                                     <a href="http://www.topwow.top/items-4.3.7.html">腿部</a>
                                                     <a href="http://www.topwow.top/items-4.3.3.html">肩部</a>
                                                     <a href="http://www.topwow.top/items-4.3.6.html">腰部</a>
                                                     <a href="http://www.topwow.top/items-4.3.9.html">手腕</a>
-                                                </div>
+                                                </div>                                                
                                             </li>
                                             <li><a href="http://www.topwow.top/items-4.4.html">板甲</a>
                                                 <div class="dropdown-header">
@@ -163,23 +181,27 @@
                                                     <a href="http://www.topwow.top/items-4.4.8.html">脚</a>
                                                     <a href="http://www.topwow.top/items-4.4.10.html">手套</a>
                                                     <a href="http://www.topwow.top/items-4.4.1.html">头部</a>
+                                                </div>
+                                                <div class="dropdown-header">
                                                     <a href="http://www.topwow.top/items-4.4.7.html">腿部</a>
                                                     <a href="http://www.topwow.top/items-4.4.3.html">肩部</a>
                                                     <a href="http://www.topwow.top/items-4.4.6.html">腰部</a>
                                                     <a href="http://www.topwow.top/items-4.4.9.html">手腕</a>
-                                                </div>
+                                                </div>                                                
                                             </li>
-                                            <li><a href="http://www.topwow.top/items-4.0.html">其他装备</a>
+                                            <li><a href="http://www.topwow.top/items-4.0.html">其它装备</a>
                                                 <div class="dropdown-header">
                                                     <a href="http://www.topwow.top/items-4.6.html">盾牌</a>
                                                     <a href="http://www.topwow.top/items-4.1.16.html">披风</a>
                                                     <a href="http://www.topwow.top/items-4.0.2.html">颈部</a>
                                                     <a href="http://www.topwow.top/items-4.0.4.html">衬衣</a>
+                                                </div>
+                                                <div class="dropdown-header">
                                                     <a href="http://www.topwow.top/items-4.0.11.html">戒指</a>
                                                     <a href="http://www.topwow.top/items-4.0.12.html">饰品</a>
                                                     <a href="http://www.topwow.top/items-4.0.19.html">战袍</a>
                                                     <a href="http://www.topwow.top/items-4.0.23.html">副手物品</a>
-                                                </div>
+                                                </div>                                                
                                             </li>
                                             <li><span class="sub-header">圣物</span>
                                                 <div class="dropdown-header">
@@ -190,19 +212,6 @@
                                             </li>
                                             <!-- End Default -->
 
-                                                                                        <li class="big-screen-space"></li>
-                                            
-                                            <li><h3>贸易品</a></li>
-
-                                            <li><a href="http://www.topwow.top/items-7.html">商贸</a>
-                                                <div class="dropdown-header">
-                                                    <a href="http://www.topwow.top/items-7.0.html">商品</a>
-                                                    <a href="http://www.topwow.top/items-7.3.html">装置</a>
-                                                    <a href="http://www.topwow.top/items-7.2.html">爆炸物</a>
-                                                    <a href="http://www.topwow.top/items-7.1.html">零件</a>
-                                                    <a href="http://www.topwow.top/items-7.6.html">制皮</a>
-                                                </div>
-                                            </li>
                                         </ul>
                                     </div><!--护甲-->
 
@@ -245,10 +254,12 @@
                                                     <a href="http://www.topwow.top/items-9.6.html">炼金术</a>
                                                     <a href="http://www.topwow.top/items-9.4.html">锻造</a>
                                                     <a href="http://www.topwow.top/items-9.8.html">附魔</a>
+                                                </div>
+                                                <div class="dropdown-header">
                                                     <a href="http://www.topwow.top/items-9.3.html">工程学</a>
                                                     <a href="http://www.topwow.top/items-9.1.html">制皮</a>
                                                     <a href="http://www.topwow.top/items-9.2.html">裁缝</a>
-                                                </div>
+                                                </div>                                                
                                             </li>
                                             <li><span class="sub-header">辅助技能</span>
                                                 <div class="dropdown-header">
@@ -335,33 +346,201 @@
             <a href="http://www.topwow.top/itemsets.html" class="dropdown-toggle" data-toggle="dropdown">套装 <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="http://www.topwow.top/itemsets-0.html">不限职业</a></li>
-                    <li><a href="http://www.topwow.top/itemsets-1.html">战士（板甲）</a></li>
-                    <li><a href="http://www.topwow.top/itemsets-2.html">圣骑士（板甲）</a></li>
-                    <li><a href="http://www.topwow.top/itemsets-3.html">猎人（锁甲）</a></li>
-                    <li><a href="http://www.topwow.top/itemsets-4.html">潜行者（皮甲）</a></li>
-                    <li><a href="http://www.topwow.top/itemsets-5.html">牧师（布甲）</a></li>
-                    <li><a href="http://www.topwow.top/itemsets-11.html">德鲁伊（皮甲）</a></li>
-                    <li><a href="http://www.topwow.top/itemsets-7.html">萨满（锁甲）</a></li>
-                    <li><a href="http://www.topwow.top/itemsets-8.html">法师（布甲）</a></li>
-                    <li><a href="http://www.topwow.top/itemsets-9.html">术士（布甲）</a></li>
+                    <li><a href="http://www.topwow.top/itemsets-1.html" style="color:#CF9766">战士（板甲）</a></li>
+                    <li><a href="http://www.topwow.top/itemsets-2.html" style="color:#F14C74">圣骑士（板甲）</a></li>
+                    <li><a href="http://www.topwow.top/itemsets-3.html" style="color:#AAD372">猎人（锁甲）</a></li>
+                    <li><a href="http://www.topwow.top/itemsets-4.html" style="color:#FFF468">潜行者（皮甲）</a></li>
+                    <li><a href="http://www.topwow.top/itemsets-5.html" style="color:#c0c0c0">牧师（布甲）</a></li>
+                    <li><a href="http://www.topwow.top/itemsets-11.html" style="color:#FE7900">德鲁伊（皮甲）</a></li>
+                    <li><a href="http://www.topwow.top/itemsets-7.html" style="color:#2359FF">萨满（锁甲）</a></li>
+                    <li><a href="http://www.topwow.top/itemsets-8.html" style="color:#68CCEF">法师（布甲）</a></li>
+                    <li><a href="http://www.topwow.top/itemsets-9.html" style="color:#977DC7">术士（布甲）</a></li>
                 </ul>
             </li>
-            
-            <li class="dropdown">
-            <a href="http://www.topwow.top/npcs.html" class="dropdown-toggle" data-toggle="dropdown">NPC <span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="http://www.topwow.top/npcs-1.html">野兽</a></li>
-                    <li><a href="http://www.topwow.top/npcs-8.html">小动物</a></li>
-                    <li><a href="http://www.topwow.top/npcs-3.html">恶魔</a></li>
-                    <li><a href="http://www.topwow.top/npcs-2.html">龙类</a></li>
-                    <li><a href="http://www.topwow.top/npcs-4.html">元素生物</a></li>
-                    <li><a href="http://www.topwow.top/npcs-5.html">巨人</a></li>
-                    <li><a href="http://www.topwow.top/npcs-7.html">人型生物</a></li>
-                    <li><a href="http://www.topwow.top/npcs-9.html">机械</a></li>
-                    <li><a href="http://www.topwow.top/npcs-6.html">亡灵</a></li>
-                    <li><a href="http://www.topwow.top/npcs-10.html">未指定</a></li>
+
+            <!--NPC-->
+            <li class="dropdown mega-menu-fullwidth">
+                <a href="http://www.topwow.top/npcs.html" class="dropdown-toggle" data-toggle="dropdown">
+                    NPC <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <div class="mega-menu-content">
+                            <div class="container">
+                                <div class="row equal-height">
+
+                                      <!--职业训练师-->
+                                    <div class="col-md-3 equal-height-in">
+                                        <ul class="list-unstyled equal-height-list">
+                                            <li><h3>阵营</h3>
+                                                <div class="dropdown-header">
+                                                 <a href="http://www.topwow.top/npcs.html">全部npc</a>
+                                                 <a href="http://www.topwow.top/npcs-n.1.n.n.n.html">联盟</a>
+                                                 <a href="http://www.topwow.top/npcs-n.2.n.n.n.html">部落</a>                                              
+                                                </div>
+                                            </li>
+                                            <li class="big-screen-space"></li>
+                                            <li><h3>大类</a>
+                                            <!-- Default -->
+                                            <div class="dropdown-header">
+                                                <a href="http://www.topwow.top/npcs-n.n.n.n.n.n.n.8.html">飞行大师</a>
+                                                <a href="http://www.topwow.top/npcs-n.n.n.n.n.n.n.128.html">客栈老板</a>
+                                                <a href="http://www.topwow.top/npcs-n.n.n.n.n.n.n.256.html">银行</a>
+                                                <a href="http://www.topwow.top/npcs-n.n.n.n.n.n.n.2048.html">战场</a>
+                                            </div>
+                                            <div class="dropdown-header">
+                                                <a href="http://www.topwow.top/npcs-n.n.n.n.n.n.n.4096.html">拍卖</a>
+                                                <a href="http://www.topwow.top/npcs-n.n.n.n.n.n.n.8192.html">兽栏</a>
+                                                <a href="http://www.topwow.top/npcs-n.n.n.n.n.n.n.16384.html">装备商</a>
+                                            </div>
+                                            </li>       
+                                            <li class="big-screen-space"></li>
+                                            <li><h3>训练大类</a>
+                                            <!-- Default -->
+                                            <div class="dropdown-header">
+                                                <a href="http://www.topwow.top/npcs-n.n.n.0.n.n.n.n.html">职业训练</a>
+                                                <a href="http://www.topwow.top/npcs-n.n.n.1.n.n.n.n.html">骑术训练</a>
+                                                <a href="http://www.topwow.top/npcs-n.n.n.2.n.n.n.n.html">生活技能</a>
+                                            </div>
+                                            <div class="dropdown-header">
+                                                <a href="http://www.topwow.top/npcs-n.n.n.3.n.n.n.n.html">宠物训练</a>
+                                            </div>
+                                            </li>                                                                                                                                                                                                                                                                                                          
+                                            <!-- End Default -->
+
+                                        </ul>
+                                    </div>
+
+                                      <!--前置专业训练师-->
+                                    <div class="col-md-3 equal-height-in">
+                                        <ul class="list-unstyled equal-height-list">
+
+                                            <li><h3>职业训练师</a>
+                                            <!-- Default -->
+                                            <div class="dropdown-header">
+                                                <a href="http://www.topwow.top/npcs-n.n.n.n.1.html" style="color:#CF9766">战士</a>
+                                                <a href="http://www.topwow.top/npcs-n.n.n.n.2.html" style="color:#F14C74">圣骑士</a>
+                                                <a href="http://www.topwow.top/npcs-n.n.n.n.3.html" style="color:#AAD372">猎人</a>
+                                                <a href="http://www.topwow.top/npcs-n.n.n.n.4.html" style="color:#FFF468">潜行者</a>
+                                            </div>
+                                            <div class="dropdown-header">
+                                                <a href="http://www.topwow.top/npcs-n.n.n.n.5.html" style="color:#c0c0c0;">牧师</a>
+                                                <a href="http://www.topwow.top/npcs-n.n.n.n.7.html" style="color:#2359FF">萨满</a>
+                                                <a href="http://www.topwow.top/npcs-n.n.n.n.8.html" style="color:#68CCEF">法师</a>
+                                                <a href="http://www.topwow.top/npcs-n.n.n.n.9.html" style="color:#977DC7">术士</a>
+                                            </div>
+                                            <div class="dropdown-header">
+                                                <a href="http://www.topwow.top/npcs-n.n.n.n.11.html" style="color:#FE7900">德鲁伊</a>
+                                            </div>
+                                            </li>   
+                                            <li class="big-screen-space"></li>
+                                            <li><h3>前置专业训练师</a>
+                                            <div class="dropdown-header">
+                                                <a href="http://www.topwow.top/npcs-n.n.n.n.n.n.2575.html">采矿</a>
+                                                <a href="http://www.topwow.top/npcs-n.n.n.n.n.n.9787.html">武器锻造</a>
+                                                <a href="http://www.topwow.top/npcs-n.n.n.n.n.n.9788.html">防具锻造</a>
+                                                <a href="http://www.topwow.top/npcs-n.n.n.n.n.n.10656.html">龙鳞制皮</a>
+                                            </div>
+                                            <div class="dropdown-header">
+                                                <a href="http://www.topwow.top/npcs-n.n.n.n.n.n.10658.html">元素制皮</a>
+                                                <a href="http://www.topwow.top/npcs-n.n.n.n.n.n.10660.html">部族制皮</a>
+                                                <a href="http://www.topwow.top/npcs-n.n.n.n.n.n.20219.html">侏儒工程师</a>
+                                            </div>
+                                            <div class="dropdown-header">
+                                                <a href="http://www.topwow.top/npcs-n.n.n.n.n.n.20222.html">地精工程师</a>
+                                            </div>
+                                            </li>                                                                                                                                                                                                                                                                                                       
+                                            <!-- End Default -->
+
+                                        </ul>
+                                    </div>   
+
+                                    
+                                      <!--分类-->
+                                    <div class="col-md-3 equal-height-in">
+                                        <ul class="list-unstyled equal-height-list">
+                                            
+                                            <li><h3>种族骑术训练师</h3>
+                                            <div class="dropdown-header">
+                                                <a href="http://www.topwow.top/npcs-n.n.n.n.n.1.html" style="color:#7B989E">人类</a>
+                                                <a href="http://www.topwow.top/npcs-n.n.n.n.n.2.html" style="color:#6C9839">兽人</a>
+                                                <a href="http://www.topwow.top/npcs-n.n.n.n.n.3.html" style="color:#FB8C5E">矮人</a>
+                                                <a href="http://www.topwow.top/npcs-n.n.n.n.n.4.html" style="color:#4847A4">暗夜精灵</a>
+                                            </div>
+                                            <div class="dropdown-header">    
+                                                <a href="http://www.topwow.top/npcs-n.n.n.n.n.5.html" style="color:#2B3A28">亡灵</a>
+                                                <a href="http://www.topwow.top/npcs-n.n.n.n.n.6.html" style="color:#E47C47">牛头人</a>
+                                                <a href="http://www.topwow.top/npcs-n.n.n.n.n.7.html" style="color:#D24500">侏儒</a>
+                                                <a href="http://www.topwow.top/npcs-n.n.n.n.n.8.html" style="color:#6093A9">巨魔</a>
+                                            </div>
+                                            </li>
+                                            <li class="big-screen-space"></li>
+                                            <li><h3>怪物类别</h3>
+                                                <div class="dropdown-header">
+                                                    <a href="http://www.topwow.top/npcs-1.html">野兽</a>
+                                                    <a href="http://www.topwow.top/npcs-8.html">小动物</a>
+                                                    <a href="http://www.topwow.top/npcs-3.html">恶魔</a>
+                                                    <a href="http://www.topwow.top/npcs-2.html">龙类</a>                                                 
+                                                </div>
+                                                <div class="dropdown-header">
+                                                    <a href="http://www.topwow.top/npcs-4.html">元素生物</a>
+                                                    <a href="http://www.topwow.top/npcs-7.html">人型生物</a>
+                                                    <a href="http://www.topwow.top/npcs-6.html">亡灵</a>
+                                                    <a href="http://www.topwow.top/npcs-5.html">巨人</a>                                                       
+                                                </div>
+                                                <div class="dropdown-header">
+                                                    <a href="http://www.topwow.top/npcs-9.html">机械</a>
+                                                    <a href="http://www.topwow.top/npcs-10.html">未指定</a>
+                                                </div>    
+                                            </li>
+                                        </ul>
+                                    </div><!--宠物技能-->      
+
+                                    <!--其他分类-->
+                                    <div class="col-md-3 equal-height-in">
+                                        <ul class="list-unstyled equal-height-list">
+                                            <li><h3>武器训练</h3></li>
+
+                                            <!-- Default -->
+                                            <li><span class="sub-header">单手武器</span>
+                                                <div class="dropdown-header">
+                                                    <a href="http://www.topwow.top/npcs-n.n.1.n.n.html">匕首</a>
+                                                    <a href="http://www.topwow.top/npcs-n.n.2.n.n.html">单手剑</a>
+                                                    <a href="http://www.topwow.top/npcs-n.n.4.n.n.html">单手斧</a>
+                                                    <a href="http://www.topwow.top/npcs-n.n.6.n.n.html">单手锤</a>
+                                                    <a href="http://www.topwow.top/npcs-n.n.8.n.n.html">拳套</a>
+                                                </div>
+                                            </li>
+                                            <li><span class="sub-header">双手武器</span>
+                                                <div class="dropdown-header">
+                                                    <a href="http://www.topwow.top/npcs-n.n.3.n.n.html">双手剑</a>
+                                                    <a href="http://www.topwow.top/npcs-n.n.5.n.n.html">双手斧</a>
+                                                    <a href="http://www.topwow.top/npcs-n.n.7.n.n.html">双手锤</a>
+                                                    <a href="http://www.topwow.top/npcs-n.n.13.n.n.html">长柄武器</a>
+                                                </div>
+                                            </li>                                              
+                                            <!-- End Default -->
+                                            <!-- Default -->
+                                            <li><span class="sub-header">远程武器</span>
+                                                <div class="dropdown-header">
+                                                    <a href="http://www.topwow.top/npcs-n.n.9.n.n.html">法杖</a>
+                                                    <a href="http://www.topwow.top/npcs-n.n.10.n.n.html">枪</a>
+                                                    <a href="http://www.topwow.top/npcs-n.n.11.n.n.html">弓箭</a>
+                                                    <a href="http://www.topwow.top/npcs-n.n.12.n.n.html">弩</a>
+                                                    <a href="http://www.topwow.top/npcs-n.n.14.n.n.html">投掷武器</a>
+                                                </div>
+                                            </li>                                                                                                                                          
+                                            <!-- End Default -->
+                                        </ul>
+                                    </div><!--宠物技能-->                              
+
+                                </div>
+                            </div>    
+                        </div>    
+                    </li>
                 </ul>
             </li>
+
 
             <!--任务-->
             <li class="dropdown mega-menu-fullwidth">
@@ -511,17 +690,17 @@
                                             <!-- Default -->
                                             <li><a href="http://www.topwow.top/quests-4.html">职业</a>
                                                 <div class="dropdown-header">
-                                                    <a href="http://www.topwow.top/quests-4.1.html">战士</a>
-                                                    <a href="http://www.topwow.top/quests-4.2.html">圣骑士</a>
-                                                    <a href="http://www.topwow.top/quests-4.3.html">猎人</a>
-                                                    <a href="http://www.topwow.top/quests-4.4.html">萨满</a>
-                                                    <a href="http://www.topwow.top/quests-4.5.html">盗贼</a>
+                                                    <a href="http://www.topwow.top/quests-4.1.html" style="color:#CF9766">战士</a>
+                                                    <a href="http://www.topwow.top/quests-4.2.html" style="color:#F14C74">圣骑士</a>
+                                                    <a href="http://www.topwow.top/quests-4.3.html" style="color:#AAD372">猎人</a>
+                                                    <a href="http://www.topwow.top/quests-4.4.html" style="color:#2359FF">萨满</a>
+                                                    <a href="http://www.topwow.top/quests-4.5.html" style="color:#FFF468">盗贼</a>
                                                 </div>
                                                 <div class="dropdown-header">    
-                                                    <a href="http://www.topwow.top/quests-4.6.html">德鲁伊</a>
-                                                    <a href="http://www.topwow.top/quests-4.7.html">法师</a>
-                                                    <a href="http://www.topwow.top/quests-4.8.html">术士</a>
-                                                    <a href="http://www.topwow.top/quests-4.9.html">牧师</a>
+                                                    <a href="http://www.topwow.top/quests-4.6.html" style="color:#FE7900">德鲁伊</a>
+                                                    <a href="http://www.topwow.top/quests-4.7.html" style="color:#68CCEF">法师</a>
+                                                    <a href="http://www.topwow.top/quests-4.8.html" style="color:#977DC7">术士</a>
+                                                    <a href="http://www.topwow.top/quests-4.9.html" style="color:#c0c0c0">牧师</a>
                                                 </div>
                                             </li>
                                             <li><a href="http://www.topwow.top/quests-5.html">专业</a>
@@ -608,28 +787,28 @@
                                             <li><h3><a href="http://www.topwow.top/spells-7.html">职业技能</a></h3></li>
 
                                             <!-- Default -->
-                                            <li><a herf="http://www.topwow.top/spells-7.1.html">战士</a>
+                                            <li><a herf="http://www.topwow.top/spells-7.1.html" style="color:#CF9766">战士</a>
                                                 <div class="dropdown-header">
                                                     <a href="http://www.topwow.top/spells-7.1.26.html">武器</a>
                                                     <a href="http://www.topwow.top/spells-7.1.256.html">狂暴</a>
                                                     <a href="http://www.topwow.top/spells-7.1.257.html">防御</a>
                                                 </div>
                                             </li>    
-                                            <li><a herf="http://www.topwow.top/spells-7.2.html">圣骑士</a>
+                                            <li><a herf="http://www.topwow.top/spells-7.2.html" style="color:#F14C74">圣骑士</a>
                                                 <div class="dropdown-header">
                                                     <a href="http://www.topwow.top/spells-7.2.594.html">圣神</a>
                                                     <a href="http://www.topwow.top/spells-7.2.267.html">防护</a>
                                                     <a href="http://www.topwow.top/spells-7.2.184.html">惩戒</a>
                                                 </div>
                                             </li>
-                                            <li><a herf="http://www.topwow.top/spells-7.3.html">猎人</a>
+                                            <li><a herf="http://www.topwow.top/spells-7.3.html" style="color:#AAD372">猎人</a>
                                                 <div class="dropdown-header">
                                                     <a href="http://www.topwow.top/spells-7.3.50.html">野兽支配</a>
                                                     <a href="http://www.topwow.top/spells-7.3.163.html">射击</a>
                                                     <a href="http://www.topwow.top/spells-7.3.51.html">生存</a>
                                                 </div>
                                             </li>     
-                                            <li><a herf="http://www.topwow.top/spells-7.4.html">潜行者</a>
+                                            <li><a herf="http://www.topwow.top/spells-7.4.html" style="color:#FFF468">潜行者</a>
                                                 <div class="dropdown-header">
                                                     <a href="http://www.topwow.top/spells-7.4.253.html">刺杀</a>
                                                     <a href="http://www.topwow.top/spells-7.4.38.html">战斗</a>
@@ -637,35 +816,35 @@
                                                     <a href="http://www.topwow.top/spells-7.4.633.html">开锁</a>
                                                 </div>
                                             </li>    
-                                            <li><a herf="http://www.topwow.top/spells-7.5.html">牧师</a>
+                                            <li><a herf="http://www.topwow.top/spells-7.5.html" style="color:#c0c0c0">牧师</a>
                                                 <div class="dropdown-header">
                                                     <a href="http://www.topwow.top/spells-7.5.613.html">戒律</a>
                                                     <a href="http://www.topwow.top/spells-7.5.56.html">圣神</a>
                                                     <a href="http://www.topwow.top/spells-7.5.78.html">暗影魔法</a>
                                                 </div>
                                             </li>     
-                                            <li><a herf="http://www.topwow.top/spells-7.7.html">萨满</a>
+                                            <li><a herf="http://www.topwow.top/spells-7.7.html" style="color:#2359FF">萨满</a>
                                                 <div class="dropdown-header">
                                                     <a href="http://www.topwow.top/spells-7.7.375.html">元素战斗</a>
                                                     <a href="http://www.topwow.top/spells-7.7.373.html">增强</a>
                                                     <a href="http://www.topwow.top/spells-7.7.374.html">恢复</a>
                                                 </div>
                                             </li>   
-                                            <li><a herf="http://www.topwow.top/spells-7.8.html">法师</a>
+                                            <li><a herf="http://www.topwow.top/spells-7.8.html" style="color:#68CCEF">法师</a>
                                                 <div class="dropdown-header">
                                                     <a href="http://www.topwow.top/spells-7.8.237.html">奥术</a>
                                                     <a href="http://www.topwow.top/spells-7.8.8.html">火焰</a>
                                                     <a href="http://www.topwow.top/spells-7.8.6.html">冰霜</a>
                                                 </div>
                                             </li>    
-                                            <li><a herf="http://www.topwow.top/spells-7.9.html">术士</a>
+                                            <li><a herf="http://www.topwow.top/spells-7.9.html" style="color:#977DC7">术士</a>
                                                 <div class="dropdown-header">
                                                     <a href="http://www.topwow.top/spells-7.9.355.html">痛苦</a>
                                                     <a href="http://www.topwow.top/spells-7.9.354.html">恶魔学识</a>
                                                     <a href="http://www.topwow.top/spells-7.9.593.html">毁灭</a>
                                                 </div>
                                             </li>
-                                            <li><a herf="http://www.topwow.top/spells-7.11.html">德鲁伊</a>
+                                            <li><a herf="http://www.topwow.top/spells-7.11.html" style="color:#FE7900">德鲁伊</a>
                                                 <div class="dropdown-header">
                                                     <a href="http://www.topwow.top/spells-7.11.574.html">平衡</a>
                                                     <a href="http://www.topwow.top/spells-7.11.134.html">野性战斗</a>
@@ -679,33 +858,34 @@
                                       <!--专业技能-->
                                     <div class="col-md-3 equal-height-in">
                                         <ul class="list-unstyled equal-height-list">
-                                            <li><h3><a href="http://www.topwow.top/spells-11.html">专业技能</a></h3></li>
-
-                                            <!-- Default -->
-                                            <li><a herf="http://www.topwow.top/spells-11.171.html">炼金术</a></li>
-                                            <li><a herf="http://www.topwow.top/spells-11.164.html">锻造</a>
-                                                <!--div class="dropdown-header">
-                                                    <a href="http://www.topwow.top/spells-11.164.9788.html">护甲锻造</a>
-                                                    <a href="http://www.topwow.top/spells-11.164.9787.html">武器锻造</a>
-                                                    <a href="http://www.topwow.top/spells-11.164.17041.html">斧锻造精通</a>
-                                                    <a href="http://www.topwow.top/spells-11.164.17040.html">锤锻造精通</a>
-                                                    <a href="http://www.topwow.top/spells-11.164.17039.html">剑锻造精通</a>                                                    
-                                                </div-->
+                                            <li><h3><a href="http://www.topwow.top/spells-11.html">专业技能</a></h3>
+                                                <div class="dropdown-header">
+                                                    <!-- Default -->
+                                                    <a herf="http://www.topwow.top/spells-11.171.html">炼金术</a>
+                                                    <a herf="http://www.topwow.top/spells-11.164.html">锻造</a>
+                                                    <a herf="http://www.topwow.top/spells-11.333.html">附魔</a>
+                                                    <a herf="http://www.topwow.top/spells-11.202.html">工程</a>
+                                                </div>
+                                                <div class="dropdown-header">
+                                                    <a herf="http://www.topwow.top/spells-11.165.html">制皮</a>
+                                                    <a herf="http://www.topwow.top/spells-11.186.html">采矿</a>
+                                                    <a herf="http://www.topwow.top/spells-11.393.html">剥皮</a>
+                                                    <a herf="http://www.topwow.top/spells-11.197.html">裁缝</a>
+                                                </div>
+                                                <div class="dropdown-header">
+                                                    <a herf="http://www.topwow.top/spells-11.182.html">草药学</a>
+                                                </div>                                                
                                             </li>
-                                            <li><a herf="http://www.topwow.top/spells-11.333.html">附魔</a></li>
-                                            <li><a herf="http://www.topwow.top/spells-11.202.html">工程</a></li>
-                                            <li><a herf="http://www.topwow.top/spells-11.182.html">草药学</a></li>
-                                            <li><a herf="http://www.topwow.top/spells-11.165.html">制皮</a></li>
-                                            <li><a herf="http://www.topwow.top/spells-11.186.html">采矿</a></li>
-                                            <li><a herf="http://www.topwow.top/spells-11.393.html">剥皮</a></li>
-                                            <li><a herf="http://www.topwow.top/spells-11.197.html">裁缝</a></li>
                                             <!-- End Default -->
-                                            <li class="big-screen-space"></li>
-                                            <li><h3><a href="http://www.topwow.top/spells-9.html">第二技能</a></h3></li>
-                                            <li><a herf="http://www.topwow.top/spells-9.185.html">烹饪</a></li>
-                                            <li><a herf="http://www.topwow.top/spells-9.129.html">急救</a></li>
-                                            <li><a herf="http://www.topwow.top/spells-9.356.html">钓鱼</a></li>
-                                            <li><a herf="http://www.topwow.top/spells-9.762.html">骑术</a></li>
+                                            <li class="big-screen-space">
+                                            <div class="dropdown-header">
+                                            <h3><a href="http://www.topwow.top/spells-9.html">第二技能</a></h3>
+                                                <a herf="http://www.topwow.top/spells-9.185.html">烹饪</a>
+                                                <a herf="http://www.topwow.top/spells-9.129.html">急救</a>
+                                                <a herf="http://www.topwow.top/spells-9.356.html">钓鱼</a>
+                                                <a herf="http://www.topwow.top/spells-9.762.html">骑术</a>
+                                            </div>
+                                            </li>
                                         </ul>
                                     </div><!--专业技能-->     
 
@@ -776,7 +956,7 @@
 
     <div class="searchBg">
         <div class="searchCenter">
-            <form method="get" action="." onsubmit="if(trim(this.elements[0].value) == '') return false">
+            <form method="get" action="." onsubmit="if(this.elements[0].value == '') return false">
                 <input placeholder="{#searchHoder#}" type="text" name="search" size="30" class="searbox"/>
                 <input type="submit" value="" class="searbtn"/>
             </form>
@@ -786,8 +966,8 @@
 	
 
  
-<div id="footer" style="position:fixed;bottom:0px;z-index:99999;text-align:center;width:100%">
-	魔兽世界经典旧世怀旧服资料 | <a href="mailto:xudingbing@foxmail.com" style="text-decoration:none;color:#566666" target="_blank">QQ群：460266109</a> 
+<div id="footer" style="position:fixed;bottom:0px;z-index:99999;text-align:center;width:100%;filter:alpha(Opacity=38);-moz-opacity:0.38;opacity: 0.38;">
+	魔兽世界怀旧服地图资料
 	<div style="padding-bottom:5px;font-size: 12px;text-align:center"> 版权所有 <a style="text-decoration: none;color:gray" href="http://www.beian.miit.gov.cn/">京ICP备19021883号-1</a></div>
 	<div style="padding-bottom:15px;font-size: 12px;text-align:center">Copyright 2019 - 2020 topwow.top. All Rights Reserved</div>
 </div>
