@@ -893,50 +893,80 @@
                                       <!--宠物技能-->
                                     <div class="col-md-3 equal-height-in">
                                         <ul class="list-unstyled equal-height-list">
-                                            <li><h3><a href="http://www.topwow.top/spells-11.html">宠物技能</a></h3></li>
+                                            <li><h3><a href="http://www.topwow.top/spells--3.html">宠物技能</a></h3></li>
 
                                             <!-- Default -->
-                                            <li><a herf="http://www.topwow.top/spells-1.1.html">战士</a>
+                                            <li><span class="sub-header">猎人</span>
                                                 <div class="dropdown-header">
-                                                    <a href="http://www.topwow.top/spells-1.1.26.html">武器</a>
-                                                    <a href="http://www.topwow.top/spells-1.1.256.html">狂暴</a>
-                                                    <a href="http://www.topwow.top/spells-1.1.257.html">防御</a>
+                                                    <a href="http://www.topwow.top/spells--3.270.html">通用</a>
+                                                    <a href="http://www.topwow.top/spells--3.653.html">蝙蝠</a>
+                                                    <a href="http://www.topwow.top/spells--3.210.html">熊</a>
+                                                    <a href="http://www.topwow.top/spells--3.655.html">食肉鸟</a>
                                                 </div>
+                                                <div class="dropdown-header">
+                                                    <a href="http://www.topwow.top/spells--3.211.html">野猪</a>
+                                                    <a href="http://www.topwow.top/spells--3.213.html">秃鹰</a>
+                                                    <a href="http://www.topwow.top/spells--3.209.html">猫</a>
+                                                    <!--a href="http://www.topwow.top/spells--3.780.html">奇美拉</a-->
+                                                    <!--a href="http://www.topwow.top/spells--3.787.html">熔核猎犬</a-->
+                                                    <a href="http://www.topwow.top/spells--3.214.html">螃蟹</a>
+                                                </div>
+                                                <div class="dropdown-header">
+
+                                                    <a href="http://www.topwow.top/spells--3.212.html">鳄鱼</a>
+                                                    <!--a href="http://www.topwow.top/spells--3.781.html">魔暴龙</a-->
+                                                    <!--a href="http://www.topwow.top/spells--3.763.html">龙鹰</a-->
+                                                    <a href="http://www.topwow.top/spells--3.215.html">猩猩</a>
+                                                    <a href="http://www.topwow.top/spells--3.654.html">土狼</a>
+                                                    <!--a href="http://www.topwow.top/spells--3.775.html">蛾子</a-->
+                                                    <a href="http://www.topwow.top/spells--3.217.html">迅猛龙</a>
+                                                </div> 
+                                                <div class="dropdown-header">
+                                                    <!--a href="http://www.topwow.top/spells--3.767.html">劫掠者</a-->
+                                                    <!--a href="http://www.topwow.top/spells--3.786.html">犀牛</a-->
+                                                    <a href="http://www.topwow.top/spells--3.236.html">蝎子</a>
+                                                    <!--a href="http://www.topwow.top/spells--3.768.html">毒蛇</a-->
+                                                    <!--a href="http://www.topwow.top/spells--3.783.html">异种蝎</a-->
+                                                    <a href="http://www.topwow.top/spells--3.203.html">蜘蛛</a>
+                                                    <!--a href="http://www.topwow.top/spells--3.788.html">灵魂兽</a-->
+                                                    <!--a href="http://www.topwow.top/spells--3.765.html">孢子蝙蝠</a-->
+                                                    <a href="http://www.topwow.top/spells--3.218.html">陆行鸟</a>
+                                                    <a href="http://www.topwow.top/spells--3.251.html">海龟</a>
+                                                    <!--a href="http://www.topwow.top/spells--3.766.html">蜥蜴</a-->
+                                                </div>     
+                                                <div class="dropdown-header">
+                                                    <!--a href="http://www.topwow.top/spells--3.785.html">黄蜂</a-->
+                                                    <a href="http://www.topwow.top/spells--3.656.html">风蛇</a>
+                                                    <a href="http://www.topwow.top/spells--3.208.html">狼</a>
+                                                    <!--a href="http://www.topwow.top/spells--3.784.html">蠕虫</a-->
+                                                </div>                                                                                                                                                                                                                                                                                             
                                             <!-- End Default -->
                                             <!-- Default -->
-                                            <li><a herf="http://www.topwow.top/spells-1.2.html">圣骑士</a>
+                                            <li><span class="sub-header">术士</span>
                                                 <div class="dropdown-header">
-                                                    <a href="http://www.topwow.top/spells-1.1.594.html">圣神</a>
-                                                    <a href="http://www.topwow.top/spells-1.1.267.html">防御</a>
-                                                    <a href="http://www.topwow.top/spells-1.1.184.html">惩戒</a>
+                                                    <!--a href="http://www.topwow.top/spells--3.761.html">恶魔卫士</a-->
+                                                    <a href="http://www.topwow.top/spells--3.189.html">地狱犬</a>
+                                                    <a href="http://www.topwow.top/spells--3.188.html">小鬼</a>
+                                                    <a href="http://www.topwow.top/spells--3.205.html">魅魔</a>
+                                                    <a href="http://www.topwow.top/spells--3.204.html">虚空行者</a>
                                                 </div>
                                             <!-- End Default -->
                                         </ul>
-                                    </div><!--宠物技能-->      
+                                    </div><!--宠物技能--> 
 
-                                    <!--宠物技能-->
+                                    <!--其它技能-->
                                     <div class="col-md-3 equal-height-in">
                                         <ul class="list-unstyled equal-height-list">
-                                            <li><h3><a href="http://www.topwow.top/spells-11.html">宠物技能</a></h3></li>
+                                            <li><h3><a href="http://www.topwow.top/spells-0.html">其它技能</a></h3></li>
 
                                             <!-- Default -->
-                                            <li><a herf="http://www.topwow.top/spells-1.1.html">战士</a>
-                                                <div class="dropdown-header">
-                                                    <a href="http://www.topwow.top/spells-1.1.26.html">武器</a>
-                                                    <a href="http://www.topwow.top/spells-1.1.256.html">狂暴</a>
-                                                    <a href="http://www.topwow.top/spells-1.1.257.html">防御</a>
-                                                </div>
-                                            <!-- End Default -->
-                                            <!-- Default -->
-                                            <li><a herf="http://www.topwow.top/spells-1.2.html">圣骑士</a>
-                                                <div class="dropdown-header">
-                                                    <a href="http://www.topwow.top/spells-1.1.594.html">圣神</a>
-                                                    <a href="http://www.topwow.top/spells-1.1.267.html">防御</a>
-                                                    <a href="http://www.topwow.top/spells-1.1.184.html">惩戒</a>
-                                                </div>
-                                            <!-- End Default -->
+                                            <li><a href="http://www.topwow.top/spells-8.html">护甲专精</a></li>
+                                            <li><a href="http://www.topwow.top/spells-6.html">武器技能</a></li>
+                                            <li><a href="http://www.topwow.top/spells-10.html">语言</a></li>
+                                            <li><a href="http://www.topwow.top/spells--4.html">种族特长</a></li>
+
                                         </ul>
-                                    </div><!--宠物技能-->                              
+                                    </div><!--其它技能-->                                 
 
                                 </div>
                             </div>    
