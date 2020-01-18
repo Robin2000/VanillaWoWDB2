@@ -190,7 +190,7 @@
         <p style="line-height:5px"/>
 			<div class="filter-condition">
 
-			<div class="bdfs">最低要求等级：</div>
+			<div class="bdfs">最低需求等级：</div>
 				<span style="display: inline-block;">
 					<select onchange="filterItem('minLvl',this.value)">
 					{html_options options=$min_options selected=$sel_min_lvl}

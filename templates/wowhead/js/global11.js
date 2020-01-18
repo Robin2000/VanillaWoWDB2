@@ -5605,7 +5605,7 @@ Listview.templates = {
 		},
 		{
 			id: "reqlevel",
-			name: LANG.req,
+			name: LANG.lvitem_reqlevel,
 			tooltip: LANG.tooltip_reqlevel,
 			value: "reqlevel",
 			compute: function (a, b) {
@@ -6313,7 +6313,7 @@ Listview.templates = {
 		},
 		{
 			id: "reqlevel",
-			name: LANG.req,
+			name: LANG.lvitem_reqlevel,
 			tooltip: LANG.tooltip_reqlevel,
 			width: "7%",
 			value: "reqlevel"

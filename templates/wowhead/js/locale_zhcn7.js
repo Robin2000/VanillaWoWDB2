@@ -1458,7 +1458,7 @@ var LANG = {
 	lvitem_normal: " (N)",
 	lvitem_heroic: " (H)",
 	lvitem_vendorin: "供应商 ",
-	lvitem_reqlevel: "需求. ",
+	lvitem_reqlevel: "需求等级. ",
 	lvnpc_alliance: "A",
 	lvnpc_horde: "H",
 	lvquest_daily: "每日 $1",

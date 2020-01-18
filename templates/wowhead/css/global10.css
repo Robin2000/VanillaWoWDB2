@@ -293,7 +293,7 @@ left:0;
 top:20px;
 width:160px;
 height:66px;
-background:url(../images/logo.png) left center no-repeat;
+background:url(/templates/wowhead/images/logoLarge.png) left center no-repeat;
 -webkit-background-size: cover; /* For WebKit*/
 -moz-background-size: cover;    /* Mozilla*/
 -o-background-size: cover;      /* Opera*/
@@ -550,7 +550,7 @@ margin-right:4px;
 cursor:default;
 font-size:15px;
 padding:0 0 10px 20px;
-background:url(../images/favicon.gif) left 1px no-repeat;
+background:url(../images/toolbar-quote.png) left 1px no-repeat;
 }
 
 #footer {
