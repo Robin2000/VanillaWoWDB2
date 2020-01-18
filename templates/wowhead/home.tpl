@@ -44,7 +44,6 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">首页</a></li>
             <li><a href="http://www.topwow.top/wowgis/map-0.html">艾泽拉斯</a></li>
             <li><a href="http://www.topwow.top/wowgis/map-1.html">卡利姆多</a></li>
             
