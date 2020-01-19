@@ -1,0 +1,37 @@
+default.css
+kindeditor-all-min.js
+zh-CN.js
+
+<textarea name="content" id="content">	</textarea>
+
+<script>
+    $(function() {
+	/* kindEditer 可视化编辑器 */
+	var editor = KindEditor.create('textarea[name="content"]', {
+          uploadJson :  '.../fileUpload.html',  
+          fileManagerJson : '../fileManager.html',
+          allowFileManager : false,
+          items : ['undo', 'redo', '|', 'preview','|', 'formatblock', 'fontname', 
+	       	  	   'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 
+	       	  	   'underline', 'lineheight', 'removeformat', '|', 'justifyleft', 
+	       	  	   'justifycenter', 'justifyright', 'justifyfull', 'indent', 'outdent', 
+	       	  	   'subscript', 'superscript', 'clearhtml', 'quickformat', '|', 
+	       	  	   'image', 'fullscreen'],
+          urlType:'domain',
+          resizeType:'0',
+          themeType:'simple',
+          height:'250',
+          minHeight:'200',
+          pasteType : 1,	// 纯文本粘贴【粘贴类型：0（禁止粘贴），1（纯文本粘贴），2（HTML粘贴，默认）】
+          afterBlur: function () { 
+          		this.sync();  //失去焦点 将KindEditor的值同步给textarea
+          },
+          afterChange:function(){
+        	  this.sync();
+       	  },
+          afterUpload : function(url) {
+          } 
+     });
+});
+
+</script>

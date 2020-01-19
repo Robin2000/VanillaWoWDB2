@@ -14,8 +14,6 @@
   <link rel="apple-touch-icon" href="icon.png">
   <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
   <link rel="stylesheet" href="/templates/topwow/css/home.css">
 
   <link rel="search" type="application/opensearchdescription+xml" title="VanillaWoWDB" href="http://www.topwow.top/opensearch.xml" />
@@ -26,21 +24,29 @@
   <script src="/templates/wowhead/js/jquery-1.9.1.min.js"></script>  
   <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 </head>
-<body style="overflow:hidden;background:url(http://www.topwow.top/images/bg.jpg) no-repeat;background-size:cover;width:100%;height:100%">
+<body style="overflow-x:hidden;background:url(http://www.topwow.top/images/bg.jpg) no-repeat;background-size:cover;width:100%;">
 <div id="layers"></div>
 <div id="home">
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">导航切换</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#"><img src="/templates/wowhead/images/logoLarge.png"></a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">导航切换</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="searchBg">
+                <a class="navbar-brand" href="#"><img src="/templates/wowhead/images/logo.png"></a>
+                <div class="searchCenter">
+                    <form method="get" action="." onsubmit="if(this.elements[0].value == '') return false">
+                        <input placeholder="{#searchHoder#}" type="text" name="search" size="30" class="searbox"/>
+                        <input type="submit" value="" class="searbtn"/>
+                    </form>
+                </div>
+            </div>        
         </div>
         <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
@@ -1000,28 +1006,65 @@
         </div><!--/.nav-collapse -->
     </div>
     </nav>
-
-
-    <div class="searchBg">
-        <div class="searchCenter">
-            <form method="get" action="." onsubmit="if(this.elements[0].value == '') return false">
-                <input placeholder="{#searchHoder#}" type="text" name="search" size="30" class="searbox"/>
-                <input type="submit" value="" class="searbtn"/>
-            </form>
-        </div>
-    </div>
 </div>
-	
 
- 
-<div id="footer" style="position:fixed;bottom:0px;z-index:99999;text-align:center;width:100%;filter:alpha(Opacity=38);-moz-opacity:0.38;opacity: 0.38;">
+ <div class="n-wrapper">
+        <div class="n-container">
+            <div class="grid">
+                <div class="grid-item">
+                    <div class="thumbnail">
+                        <img src="/news/thumb/1.jpg" alt="...">
+                        <img src="/news/thumb/2.jpg" alt="...">
+                        <img src="/news/thumb/3.jpg" alt="...">
+                        <div class="caption">
+                            <div class="n-img3">魔兽世界：怀旧服BWL之DKP制度设计和职业分配，保证效率和稳定性</div> 
+                            <p><div class="n_tip">游戏爱好者之声 188评论</div></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="thumbnail n-img1">
+                        <video controls="controls" width="100%" height="100%" loop="loop" tabindex="2" mediatype="video" 
+                            src="https://vdept.bdstatic.com/70784c42767976714a65784942386a72/6a4a36524b4b556d/d8c38d911226267b87c00a6b1e93f98f12024bbc50a028a4b8a0b5ba9ff2ae2c16b2c3d35c8546e17ad47c7d4a3a1b42.mp4?auth_key=1579362268-0-0-730e7a895fc07564b95c76c808b2c496" 
+                            poster="/news/video/1.jpg">
+                        </video>
+                        <div class="caption">
+                            <div class="n-img1">魔兽怀旧服：删除60级战士号，这是打算弃坑不玩了？</div>
+                            <p><div class="n_tip">魏斌说 128评论</div></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="thumbnail">
+                        <img src="/news/thumb/5.jpg" alt="...">
+                        <div class="caption">
+                            <div class="n-img1">魔兽世界：怀旧服玩家问法师要水喝，不给钱合理吗？</div>
+                            <p><div class="n_tip">游戏世界 128评论</div></p>
+                        </div>
+                    </div>
+                </div>             
+
+            </div><!--row-->                                                            
+        </div><!--n-container-->
+    </div><!--n-wrapper-->
+
+<div id="footer" style="margin-top:20px;z-index:99999;text-align:center;width:100%;filter:alpha(Opacity=38);-moz-opacity:0.38;opacity: 0.38;">
 	魔兽世界怀旧服地图资料
-	<div style="padding-bottom:5px;font-size: 12px;text-align:center"> 版权所有 <a style="text-decoration: none;color:gray" href="http://www.beian.miit.gov.cn/">京ICP备19021883号-1</a></div>
+	<div style="padding-bottom:5px;font-size: 12px;text-align:center"> <a style="text-decoration: none;color:gray" href="http://www.beian.miit.gov.cn/">京ICP备19021883号-1</a></div>
 	<div style="padding-bottom:15px;font-size: 12px;text-align:center">Copyright 2019 - 2020 topwow.top. All Rights Reserved</div>
 </div>
 <div style="display:none">
 	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1277448314'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1277448314%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
 </div>
 </body>
+  <script>
+  {literal}
+$('.grid').masonry({
+  // options
+  itemSelector: '.grid-item',
+  columnWidth: 200
+});
+  {/literal}
+  </script>
 </html>
 
