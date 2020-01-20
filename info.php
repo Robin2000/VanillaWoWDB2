@@ -19,6 +19,12 @@ if(!$info = load_cache(20001, $cache_key))
 				",
 				$id
 	);
+	$thumbSize=0;
+	$thumb=$row['thumb'];
+	if (isset($thumb)){
+		$thumb = explode(",",$thumb);
+		$thumbSize = count($thumb);
+	}
 
 	$info = array(
 		"nid" => $row['nid'],
@@ -32,7 +38,8 @@ if(!$info = load_cache(20001, $cache_key))
 		"title" => $row['title'],
 		"body"  => $row['body'],
 		"tag" => $row['tag'], 
-		"thumb" => $row['thumb'], 
+		"thumb" => $thumb, 
+		"thumbSize" => $thumbSize, 
 		"talks" => $row['talks'], 
 		"likes" => $row['likes'], 
 	);

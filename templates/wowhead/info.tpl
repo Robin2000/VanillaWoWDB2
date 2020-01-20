@@ -1022,7 +1022,18 @@
             </div>
 			<hr>
             <div>
-				{$info.body}
+            {if ($info.media_type=='video')}
+                <div class="video-box" >
+                    <video width="100%" height="100%" loop="loop" tabindex="2" mediatype="video" 
+                        src="{$info.thumb[1]}"
+                        poster="{$info.thumb[0]}">
+                    </video>
+                    <div class="video-img"></div>
+                </div> 
+            {else}
+                {$info.body}
+            {/if}    
+				
 			</div>
 		</div>
 	</div>
@@ -1037,14 +1048,19 @@
 	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1277448314'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1277448314%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
 </div>
 </body>
-  <script>
-  {literal}
+<script>
+{literal}
 $('.grid').masonry({
   // options
   itemSelector: '.grid-item',
   columnWidth: 200
 });
-  {/literal}
-  </script>
+$(".video-img").click(function(){
+		$(this).hide();
+		$(this).prev().get(0).play();
+        $(this).prev().attr('controls', 1);
+})
+{/literal}
+</script>
 </html>
 
