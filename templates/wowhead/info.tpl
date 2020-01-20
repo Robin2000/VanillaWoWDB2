@@ -26,7 +26,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 </head>
-<body style="overflow-x:hidden;background:url(http://www.topwow.top/images/bg.jpg) no-repeat;background-size:cover;width:100%;">
+<body style="overflow-x:hidden;width:100%;">
 <div id="layers"></div>
 <div id="home">
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -39,7 +39,7 @@
                 <span class="icon-bar"></span>
             </button>
             <div class="searchBg">
-                <a class="navbar-brand" href="#"><img src="/templates/wowhead/images/logo.png"></a>
+                <a class="navbar-brand" href="/"><img src="/templates/wowhead/images/logo.png"></a>
                 <div class="searchCenter">
                     <form method="get" action="." onsubmit="if(this.elements[0].value == '') return false">
                         <input placeholder="{#searchHoder#}" type="text" name="search" size="30" class="searbox"/>
@@ -1008,43 +1008,25 @@
     </nav>
 </div>
 
+<div class="container-fluid" style="max-width:780px;padding-top:100px;min-height:600px">
+	<div class="row">
+		<div class="col-md-12">
+			<h3>
+				{$info.title}
+			</h3>
 
- <div class="n-wrapper">
-        <div class="n-container">
-            <div class="grid">
-                {foreach from=$news item=curr}
-                <div class="grid-item">
-                    <div class="thumbnail n-img{$curr.thumbSize}">
-                    {if ($curr.media_type=='video')}
-                    <div class="video-box" >
-                        <video width="100%" height="100%" loop="loop" tabindex="2" mediatype="video" 
-                            src="{$curr.thumb[1]}"
-                            poster="{$curr.thumb[0]}">
-                        </video>
-                        <div class="video-img"></div>
-                    </div>    
-                    {elseif isset($curr.thumb)}
-                        {foreach from=$curr.thumb item=url}
-                        <a href="/info-{$curr.nid}.html" target="_blank"><img src="{$url}" alt=""></a>
-                        {/foreach}
-                    {/if}
-                    
-                        <div class="caption">
-                            <div class="n-img{$curr.thumbSize}">
-                            {if ($curr.media_type=='video')}
-                                {$curr.title}
-                            {else}
-                                <a href="/info-{$curr.nid}.html" target="_blank">{$curr.title}</a>
-                            {/if}    
-                            </div> 
-                            <p><div class="n_tip">{$curr.source} {$curr.author} </div></p>
-                        </div>
-                    </div>
-                </div>
-                {/foreach}
-            </div><!--row-->                                                            
-        </div><!--n-container-->
-    </div><!--n-wrapper-->
+            <div class="author">
+                <img src="{$info.avatar}" alt="{$info.nick}"> <span class="name">{$info.author} </span> 
+                <span class="time">{$info.pub_time}</span>
+                <span class="source">{$info.source}</span>
+            </div>
+			<hr>
+            <div>
+				{$info.body}
+			</div>
+		</div>
+	</div>
+</div>
 
 <div id="footer" style="margin-top:20px;z-index:99999;text-align:center;width:100%;filter:alpha(Opacity=38);-moz-opacity:0.38;opacity: 0.38;">
 	魔兽世界怀旧服地图资料
@@ -1058,15 +1040,11 @@
   <script>
   {literal}
 $('.grid').masonry({
+  // options
   itemSelector: '.grid-item',
   columnWidth: 200
 });
-$(".video-img").click(function(){
-		$(this).hide();
-		$(this).prev().get(0).play();
-        $(this).prev().attr('controls', 1);
-})
-{/literal}
+  {/literal}
   </script>
 </html>
 

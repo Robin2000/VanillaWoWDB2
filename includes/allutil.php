@@ -299,10 +299,11 @@ $cache_types = array(
 	10001	=> 'npc_map1',
 	10002	=> 'zonenpc_map0',
 	10003	=> 'zonenpc_map1',
+	20000   => 'newslist',
+	20001   => 'info',
 
-	20001   => 'info'
 );
-function save_cache($type, $type_id, $data, $prefix = '')
+function save_cache($type, $type_id, $data, $prefix = '', $cache_time = 0)
 {
 	global $cache_types, $allitems, $allspells, $AoWoWconf;
 
@@ -319,8 +320,13 @@ function save_cache($type, $type_id, $data, $prefix = '')
 	// {$type_str}_{$type_id}.aww
 	$file = $prefix.'cache/mangos/'.$type_str.'_'.$type_id.'_'.($type_id == 21 ? 0 : $_SESSION['locale']).'.aww';
 
-	$time = time()+$AoWoWconf['aowow']['cache_time'];
-
+	$time = time();
+	
+	if($cache_time == 0) {
+		$time += $AoWoWconf['aowow']['cache_time'];
+	} else {
+		$time += $cache_time;
+	}
 	if(!$file)
 		return false;
 
