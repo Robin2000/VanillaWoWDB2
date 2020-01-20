@@ -1,20 +1,3 @@
-$.fn.parseForm=function(){
-    var serializeObj={};
-    var array=this.serializeArray();
-    var str=this.serialize();
-    $(array).each(function(){
-        if(serializeObj[this.name]){
-            if($.isArray(serializeObj[this.name])){
-                serializeObj[this.name].push(this.value);
-            }else{
-                serializeObj[this.name]=[serializeObj[this.name],this.value];
-            }
-        }else{
-            serializeObj[this.name]=this.value; 
-        }
-    });
-    return serializeObj;
-};
 function get(url,sucessFunc,errorFunc){
     $.ajax({
             type: 'get',
@@ -94,6 +77,8 @@ function applyPage(data) {
     });
 }
 function retriveImg() {
+    $('#iframeID').contents().find('body');
+
     var cnt = editor.html();
     if($.trim(cnt)=='') {
         return;
@@ -113,14 +98,16 @@ function retriveImg() {
         if(src==null) {
             continue;
         }
-        
+        console.log(src[1]);
         var urlOld = src[1];
+        var url = urlOld;
         if(urlOld.indexOf("/cms/js/attached/image")>=0) {
             continue;
         }
         if(urlOld.indexOf("https")==0) {
             url = "http"+urlOld.substring(5);
         }
+        
         get("/cms/js/php/grap_json.php?img="+encodeURIComponent (url),function(e) {
             if(e.error==0) {
                 var cnt = editor.html();
@@ -141,10 +128,25 @@ function retriveImg() {
     }
 }
 function saveForm() {
+    var thumbStr = '';
+    $("input[name='thumb']").each(function(){
+        if(thumbStr!='') {
+            thumbStr += ',';
+        }
+        thumbStr += $(this).val();
+     });
+    var param = {
+        title: $('#title').val(),
+        author: $('#author').val(),
+        source: $('#source').val(),
+        channel: $('#channel').val(),
+        templateType: $('#templateType').val(),
+        body: editor.html(),
+        tag: $('#tag').val(),
+        thumb: thumbStr,
+    };
 
-    var param = $("#form").parseForm();
-    
-    post("http://api.topwow.top/rest/api2/news/add",JSON.stringify(param),function(e){
+    post("http://api.topwow.top/rest/api2/news/add",param,function(e){
         if(e.code==0) {
             alert("提交成功");
         } else {

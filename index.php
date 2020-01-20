@@ -133,7 +133,10 @@ switch($razdel)
         break;
 	case 'zones':
         include 'zones.php';
-        break;
+		break;
+	case 'info':
+			include 'info.php';
+			break;		
 	default:
 		include 'main.php';
 		break;

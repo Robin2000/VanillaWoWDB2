@@ -66,10 +66,11 @@ function reSizeImg($imgSrc, $resize_width, $resize_height, $dstimg, $isCut = fal
         ImageDestroy($im);
  }
 function getExt($imgUrl) {
-	$ext = strrchr($imgUrl, ".");
+    /*有时后缀名是错的
+    $ext = strrchr($imgUrl, ".");
 	if ($ext == ".gif" || $ext == ".jpg" || $ext == 'png' || $ext == 'jpeg'){
 		return $ext;
-	}
+	}*/
 	$imgSize = getimagesize($imgUrl);
 	
     if(!in_array($imgSize['mime'],array('image/jpg', 'image/gif', 'image/png', 'image/jpeg'),true)){
