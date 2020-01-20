@@ -1,3 +1,20 @@
+$.fn.parseForm=function(){
+    var serializeObj={};
+    var array=this.serializeArray();
+    var str=this.serialize();
+    $(array).each(function(){
+        if(serializeObj[this.name]){
+            if($.isArray(serializeObj[this.name])){
+                serializeObj[this.name].push(this.value);
+            }else{
+                serializeObj[this.name]=[serializeObj[this.name],this.value];
+            }
+        }else{
+            serializeObj[this.name]=this.value; 
+        }
+    });
+    return serializeObj;
+};
 function get(url,sucessFunc,errorFunc){
     $.ajax({
             type: 'get',
@@ -118,16 +135,24 @@ function retriveImg() {
                 alert(e.message);
             }
         },function(){
-            alert("请求失败");
+            alert("网络请求失败");
         });
         return;
     }
 }
 function saveForm() {
-    console.log(111);  
 
-    var data = $("#form").serialize(); 
-    console.log(data);  
+    var param = $("#form").parseForm();
+    
+    post("http://api.topwow.top/rest/api2/news/add",JSON.stringify(param),function(e){
+        if(e.code==0) {
+            alert("提交成功");
+        } else {
+            alert(e.msg);
+        }
+    },function(){
+        alert("网络请求失败");
+    });
 }
 $(function(){
     initPage();     
