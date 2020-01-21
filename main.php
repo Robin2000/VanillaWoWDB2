@@ -9,7 +9,7 @@ if(!$news = load_cache(20000, $cache_key))
 
 
 	$rows = $DB->select("
-                SELECT nid,media_type,source,author,tag,title,thumb,talks,likes
+                SELECT nid,media_type,source,author,tag,title,thumb,talks,likes,part
                 FROM n_news 
                 ORDER By nid DESC limit 40
 				",
@@ -34,6 +34,7 @@ if(!$news = load_cache(20000, $cache_key))
             "thumbSize"=> $thumbSize, 
             "talks" => $row['talks'], 
             "likes" => $row['likes'], 
+            "part" => $row['part'], 
         );
     }
 

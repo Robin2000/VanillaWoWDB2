@@ -25,6 +25,7 @@
   <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="/templates/topwow/js/vendor/masonry.pkgd.min.js"></script>
+  <script src="/templates/topwow/js/home.js"></script>
 </head>
 <body style="overflow-x:hidden;background:url(http://www.topwow.top/images/bg.jpg) no-repeat;background-size:cover;width:100%;">
 <div id="layers"></div>
@@ -1017,11 +1018,12 @@
                     <div class="thumbnail n-img{$curr.thumbSize}">
                     {if ($curr.media_type=='video')}
                     <div class="video-box" >
-                        <video width="100%" height="100%" loop="loop" tabindex="2" mediatype="video" 
+                        <video width="100%" height="100%" loop="loop" tabindex="2" mediatype="video" preload="none"
                             src="{$curr.thumb[1]}"
                             poster="{$curr.thumb[0]}">
                         </video>
                         <div class="video-img"></div>
+                        <span>{$curr.part}</span>
                     </div>    
                     {elseif isset($curr.thumb)}
                         {foreach from=$curr.thumb item=url}
@@ -1051,60 +1053,5 @@
 	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1277448314'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1277448314%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
 </div>
 </body>
-<script>
-{literal}
-$(document).ready(function(){ 
-    initPage();
-});
-function initPage() {
-    $('.grid').masonry({
-    itemSelector: '.grid-item',
-    columnWidth: 200
-    });
-
-    var oldVideo = null;
-    var oldImg = null;
-    $(".video-img").click(function() {
-        var video = $(this).prev();
-        $(this).hide();
-
-        try{
-            if(oldImg!=null) {
-                oldImg.show();
-            }
-            oldImg = $(this);
-        }catch(e){}
-        try{
-            if(oldVideo!=null) {
-                oldVideo.get(0).pause();
-                oldVideo.get(0).controls=false;;
-            }
-            oldVideo = video;
-        }catch(e){}
-
-
-            video.get(0).play();
-            video.attr('controls', 1);
-
-            video.get(0).onended = function () {
-                video.css("object-fit","scale-down");
-                video.get(0).poster = "/media/loading.gif";
-                var oldUrl = video.get(0).src;
-                if(part>curPart) {
-                    var newPart = curPart+1;
-                    video.get(0).src=oldUrl.split('part'+curPart).join('part'+newPart);
-                    video.get(0).play();
-                    curPart++;
-                } else {
-                    var newPart = 0;
-                    video.get(0).src=oldUrl.split('part'+curPart).join('part'+newPart);;
-                    video.get(0).play();
-                    curPart=0;
-                }
-            }
-    });
-}
-{/literal}
-</script>
 </html>
 
