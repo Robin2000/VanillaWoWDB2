@@ -25,7 +25,7 @@
   <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="/templates/topwow/js/vendor/masonry.pkgd.min.js"></script>
-  <script src="/templates/topwow/js/home.js"></script>
+  <script src="/templates/topwow/js/home3.js"></script>
 </head>
 <body style="overflow-x:hidden;background:url(http://www.topwow.top/images/bg.jpg) no-repeat;background-size:cover;width:100%;">
 <div id="layers"></div>
@@ -1018,7 +1018,7 @@
                     <div class="thumbnail n-img{$curr.thumbSize}">
                     {if ($curr.media_type=='video')}
                     <div class="video-box" >
-                        <video width="100%" height="100%" loop="loop" tabindex="2" mediatype="video" preload="none"
+                        <video width="100%" height="100%" tabindex="2" mediatype="video" preload="none"
                             src="{$curr.thumb[1]}"
                             poster="{$curr.thumb[0]}">
                         </video>

@@ -1,22 +1,44 @@
+function get(url,sucessFunc,errorFunc){
+    $.ajax({
+            type: 'get',
+            url: url,
+            dataType: "json",
+            ifModified: false,
+            crossDomain: true,
+            success: function (data) {
+                if(sucessFunc){
+                    sucessFunc(data);
+                }
+            },
+            error: function (data) {
+                if(errorFunc){
+                    errorFunc(data);
+                }
+            }
+    });
+}
 
 $(document).ready(function(){ 
     initPage();
 });
+
+var curPart = 0;
+var part = 0;
+var oldVideo = null;
+var oldImg = null;
+
 function initPage() {
     $('.grid').masonry({
     itemSelector: '.grid-item',
     columnWidth: 200
     });
 
-    var oldVideo = null;
-    var oldImg = null;
-    $(".video-img").click(function() {
-        
-        var part = 0;
+    $(".video-img").click(function() {       
+        curPart = 0;
+        part = 0;
         try{
             part = parseInt($(this).next().text());
         }catch(e){}
-        console.log(part);
         
         var video = $(this).prev();
         $(this).hide();
@@ -49,7 +71,7 @@ function initPage() {
                     curPart++;
                 } else {
                     var newPart = 0;
-                    video.get(0).src=oldUrl.split('part'+curPart).join('part'+newPart);;
+                    video.get(0).src=oldUrl.split('part'+curPart).join('part'+newPart);
                     video.get(0).play();
                     curPart=0;
                 }
@@ -70,5 +92,9 @@ $(document).scroll(function()
 });
 
 function loadData() {
-    
+    get("/api2/",function(){
+
+    },function(){
+
+    });
 }

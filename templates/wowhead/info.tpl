@@ -1033,7 +1033,7 @@
             <div>
             {if ($info.media_type=='video')}
                 <div class="video-box" >
-                    <video width="100%" height="100%" tabindex="2" mediatype="video"
+                    <video width="100%" height="100%" tabindex="2" mediatype="video" preload="none"
                         src="{$info.thumb[1]}"
                         poster="{$info.thumb[0]}">
                     </video>
