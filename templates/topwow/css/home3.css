@@ -128,7 +128,7 @@
 .n-container {
     max-width:850px; text-align:center;margin:auto
 }
-.grid-item { width: 375px; }
+.grid-item { width: 375px; min-height:130px;margin-bottom:5px}
 .grid-item--width2 { width: 750px; }
 .thumbnail {
     margin:0 0 1px !important;
@@ -176,6 +176,7 @@
 
 .video-box{
     position: relative;
+    height:200px;
 }
 .video-box video{
     display: inline-block;

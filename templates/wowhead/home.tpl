@@ -14,7 +14,7 @@
   <link rel="apple-touch-icon" href="icon.png">
   <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="/templates/topwow/css/home2.css">
+  <link rel="stylesheet" href="/templates/topwow/css/home3.css">
 
   <link rel="search" type="application/opensearchdescription+xml" title="VanillaWoWDB" href="http://www.topwow.top/opensearch.xml" />
   <link rel="SHORTCUT ICON" href="http://www.topwow.top/favicon.ico">
@@ -24,7 +24,7 @@
   <script src="/templates/wowhead/js/jquery-1.9.1.min.js"></script>  
   <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+  <script src="/templates/topwow/js/vendor/masonry.pkgd.min.js"></script>
 </head>
 <body style="overflow-x:hidden;background:url(http://www.topwow.top/images/bg.jpg) no-repeat;background-size:cover;width:100%;">
 <div id="layers"></div>
@@ -1053,52 +1053,57 @@
 </body>
 <script>
 {literal}
-$('.grid').masonry({
-  itemSelector: '.grid-item',
-  columnWidth: 200
+$(document).ready(function(){ 
+    initPage();
 });
+function initPage() {
+    $('.grid').masonry({
+    itemSelector: '.grid-item',
+    columnWidth: 200
+    });
 
-var oldVideo = null;
-var oldImg = null;
-$(".video-img").click(function() {
-    var video = $(this).prev();
-    $(this).hide();
+    var oldVideo = null;
+    var oldImg = null;
+    $(".video-img").click(function() {
+        var video = $(this).prev();
+        $(this).hide();
 
-    try{
-        if(oldImg!=null) {
-		    oldImg.show();
-        }
-        oldImg = $(this);
-    }catch(e){}
-    try{
-        if(oldVideo!=null) {
-            oldVideo.get(0).pause();
-            oldVideo.get(0).controls=false;;
-        }
-        oldVideo = video;
-    }catch(e){}
-
-
-		video.get(0).play();
-        video.attr('controls', 1);
-
-        video.get(0).onended = function () {
-            video.css("object-fit","scale-down");
-            video.get(0).poster = "/media/loading.gif";
-            var oldUrl = video.get(0).src;
-            if(part>curPart) {
-                var newPart = curPart+1;
-                video.get(0).src=oldUrl.split('part'+curPart).join('part'+newPart);
-                video.get(0).play();
-                curPart++;
-            } else {
-                var newPart = 0;
-                video.get(0).src=oldUrl.split('part'+curPart).join('part'+newPart);;
-                video.get(0).play();
-                curPart=0;
+        try{
+            if(oldImg!=null) {
+                oldImg.show();
             }
-        }
-});
+            oldImg = $(this);
+        }catch(e){}
+        try{
+            if(oldVideo!=null) {
+                oldVideo.get(0).pause();
+                oldVideo.get(0).controls=false;;
+            }
+            oldVideo = video;
+        }catch(e){}
+
+
+            video.get(0).play();
+            video.attr('controls', 1);
+
+            video.get(0).onended = function () {
+                video.css("object-fit","scale-down");
+                video.get(0).poster = "/media/loading.gif";
+                var oldUrl = video.get(0).src;
+                if(part>curPart) {
+                    var newPart = curPart+1;
+                    video.get(0).src=oldUrl.split('part'+curPart).join('part'+newPart);
+                    video.get(0).play();
+                    curPart++;
+                } else {
+                    var newPart = 0;
+                    video.get(0).src=oldUrl.split('part'+curPart).join('part'+newPart);;
+                    video.get(0).play();
+                    curPart=0;
+                }
+            }
+    });
+}
 {/literal}
 </script>
 </html>
