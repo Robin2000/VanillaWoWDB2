@@ -1061,11 +1061,48 @@ $('.grid').masonry({
   itemSelector: '.grid-item',
   columnWidth: 200
 });
-$(".video-img").click(function(){
-		$(this).hide();
-		$(this).prev().get(0).play();
-        $(this).prev().attr('controls', 1);
-})
+
+var oldVideo = null;
+var oldImg = null;
+$(".video-img").click(function() {
+    var video = $(this).prev();
+    $(this).hide();
+
+    try{
+        if(oldImg!=null) {
+		    oldImg.show();
+        }
+        oldImg = $(this);
+    }catch(e){}
+    try{
+        if(oldVideo!=null) {
+            oldVideo.get(0).pause();
+            oldVideo.get(0).controls=false;;
+        }
+        oldVideo = video;
+    }catch(e){}
+
+
+		video.get(0).play();
+        video.attr('controls', 1);
+
+        video.get(0).onended = function () {
+            video.css("object-fit","scale-down");
+            video.get(0).poster = "/media/loading.gif";
+            var oldUrl = video.get(0).src;
+            if(part>curPart) {
+                var newPart = curPart+1;
+                video.get(0).src=oldUrl.split('part'+curPart).join('part'+newPart);
+                video.get(0).play();
+                curPart++;
+            } else {
+                var newPart = 0;
+                video.get(0).src=oldUrl.split('part'+curPart).join('part'+newPart);;
+                video.get(0).play();
+                curPart=0;
+            }
+        }
+});
 {/literal}
 </script>
 </html>

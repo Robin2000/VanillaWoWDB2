@@ -1033,7 +1033,7 @@
             <div>
             {if ($info.media_type=='video')}
                 <div class="video-box" >
-                    <video width="100%" height="100%" loop="loop" tabindex="2" mediatype="video" 
+                    <video width="100%" height="100%" tabindex="2" mediatype="video"
                         src="{$info.thumb[1]}"
                         poster="{$info.thumb[0]}">
                     </video>
@@ -1081,17 +1081,56 @@
 </div>
 </body>
 <script>
+var curPart = 0;
+var part = {$info.part};
 {literal}
 $('.grid').masonry({
   // options
   itemSelector: '.grid-item',
   columnWidth: 200
 });
-$(".video-img").click(function(){
-		$(this).hide();
-		$(this).prev().get(0).play();
-        $(this).prev().attr('controls', 1);
-})
+var oldVideo = null;
+var oldImg = null;
+$(".video-img").click(function() {
+    var video = $(this).prev();
+    $(this).hide();
+
+    try{
+        if(oldImg!=null) {
+		    oldImg.show();
+        }
+        oldImg = $(this);
+    }catch(e){}
+    try{
+        if(oldVideo!=null) {
+            oldVideo.get(0).pause();
+            oldVideo.get(0).controls=false;;
+        }
+        oldVideo = video;
+    }catch(e){}
+
+
+		video.get(0).play();
+        video.attr('controls', 1);
+
+        video.get(0).onended = function () {
+            video.css("object-fit","scale-down");
+            video.get(0).poster = "/media/loading.gif";
+            var oldUrl = video.get(0).src;
+            if(part>curPart) {
+                var newPart = curPart+1;
+                video.get(0).src=oldUrl.split('part'+curPart).join('part'+newPart);
+                video.get(0).play();
+                curPart++;
+            } else {
+                var newPart = 0;
+                video.get(0).src=oldUrl.split('part'+curPart).join('part'+newPart);;
+                video.get(0).play();
+                curPart=0;
+            }
+        }
+});
+
 {/literal}
 </script>
 </html>
