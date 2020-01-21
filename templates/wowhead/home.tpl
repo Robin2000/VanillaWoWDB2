@@ -1012,7 +1012,7 @@
 
  <div class="n-wrapper">
         <div class="n-container">
-            <div class="grid">
+            <div class="grid" id="mainGrid">
                 {foreach from=$news item=curr}
                 <div class="grid-item">
                     <div class="thumbnail n-img{$curr.thumbSize}">
@@ -1035,7 +1035,7 @@
                             <div class="n-img{$curr.thumbSize}">
                                 <a href="/info-{$curr.nid}.html" target="_blank">{$curr.title}</a>
                             </div> 
-                            <p><div class="n_tip">{$curr.source} {$curr.author} </div></p>
+                            <p><div class="n_tip">{$curr.source}&nbsp;{$curr.author} </div></p>
                         </div>
                     </div>
                 </div>
@@ -1043,7 +1043,7 @@
             </div><!--row-->                                                            
         </div><!--n-container-->
     </div><!--n-wrapper-->
-<div style="display:none">{$minID}</div>
+<div id="minID" style="color:red;display:n1one">{$minID}</div>
 <div id="footer" style="margin-top:20px;z-index:99999;text-align:center;width:100%;filter:alpha(Opacity=38);-moz-opacity:0.38;opacity: 0.38;">
 	魔兽世界怀旧服地图资料
 	<div style="padding-bottom:5px;font-size: 12px;text-align:center"> <a style="text-decoration: none;color:gray" href="http://www.beian.miit.gov.cn/">京ICP备19021883号-1</a></div>

@@ -87,14 +87,58 @@ $(document).scroll(function()
         if(loadEvent!=null) {
             clearTimeout(loadEvent);
         }
-        loadEvent = setTimeout("loadData()",500);
+        loadEvent = setTimeout("loadNextData()",500);
     }
 });
 
-function loadData() {
-    get("/api2/",function(){
+function loadNextData() {
+
+    var minID = $('#minID').text();
+
+    if(minID==undefined || minID==null || minID=='undefined' || minID =='') {
+        return;
+    }
+    if(parseInt(minID)<=1) {
+        return;
+    }
+    get("http://localhost:8080/rest/api2/news/next/"+minID,function(e){
+        $('#minID').text(e.minID);
+
+        for(var i=0;i<e.news.length;i++) {
+            var el = e.news[i];
+            var s = '<div class="grid-item"> \r\n';
+            s += '<div class="thumbnail n-img' + el.thumbSize +'"> \r\n' ;
+            if(el.media_type=='video') {
+                s += '<div class="video-box" > ' ;
+                s += '        <video width="100%" height="100%" tabindex="2" mediatype="video" preload="none" \r\n' ;
+                s += '            src="' + el.thumb[1] + '" \r\n' ;
+                s += '            poster="' + el.thumb[0] + '"> \r\n' ;
+                s += '        </video> \r\n';
+                s += '        <div class="video-img"></div> \r\n' ;
+                s += '       <span style="display:none">' + el.part + '</span> \r\n' ;
+                s += '    </div> \r\n' ;
+            } else if(el.thumb!=null && el.thumb != undefined){
+                $.each( el.thumb, function( key, val ) {
+                    s += '<a href="/info-' + val.nid + '.html" target="_blank"><img src="' + val.url + '" alt=""></a> \r\n' ;
+                });
+            }
+
+            s += '<div class="caption"> \r\n' ;
+            s += '<div class="n-img' + el.thumbSize +'"> \r\n' ;
+            s += '    <a href="/info-' + el.nid +'.html" target="_blank">' + el.title + '</a> \r\n' ;
+            s += '</div>  \r\n' ;
+            s += '<p><div class="n_tip">' + el.source + '&nbsp;' + el.author + '</div></p> \r\n' ;
+            s += '</div> \r\n' ;
+
+            s += ' </div> \r\n' ;
+            s += '</div>';
+            /*$('#mainGrid').append(s);*/
+            var $boxHtml = $(s);
+
+            $('.grid').append($boxHtml).masonry('appended', $boxHtml);
+        }
 
     },function(){
-
+        alert("请求服务失败");
     });
 }

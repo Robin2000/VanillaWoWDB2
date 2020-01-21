@@ -3,9 +3,9 @@ require_once('includes/allutil.php');
 
 $cache_key = cache_key(20000);
 
-if(!$news = load_cache(20000, $cache_key))
+if(!$result = load_cache(20000, $cache_key))
 {
-	unset($news);
+	unset($result);
 
 
 	$rows = $DB->select("
@@ -42,14 +42,15 @@ if(!$news = load_cache(20000, $cache_key))
         $minID = $row['nid'];
     }
 
+    $result = array('minID'=>$minID,'news'=>$news);
 
 	unset($rows);
 	
-	save_cache(20000, $cache_key, $news, '', 60);/*60秒不会刷新*/
+	save_cache(20000, $cache_key, $result, '', 60);/*60秒不会刷新*/
 }
 
-$smarty->assign('news', $news);
-$smarty->assign('minID', $minID);
+$smarty->assign('news', $result['news']);
+$smarty->assign('minID', $result['minID']);
 
 $smarty->config_load($conf_file);
 global $page;
