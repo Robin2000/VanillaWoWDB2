@@ -1020,6 +1020,15 @@
                 <span class="time">{$info.pub_time}</span>
                 <span class="source">{$info.source}</span>
             </div>
+            
+            {if isset($info.tag)}
+            <div style="float:right">
+                {section name=i loop=$info.tag}
+                    <span class="label label-default">{$info.tag[i]}</span> 
+			    {/section}
+            </div>
+            {/if}    
+
 			<hr>
             <div>
             {if ($info.media_type=='video')}
@@ -1033,13 +1042,36 @@
             {else}
                 {$info.body}
             {/if}    
-				
 			</div>
+            <hr>
+            <div style="float:right;height:25px;line-height:30px;">
+             {if isset($info.zones)}
+                <div>相关地区</div>
+                {section name=i loop=$info.zones}
+                    <span class="button button-primary"><a target="_blank" href='/zone-{$info.zones[i].id}.html'>{$info.zones[i].name}</a></span> 
+			    {/section}               
+             {elseif isset($info.items)}
+                <div>相关物品</div>
+                {section name=i loop=$info.items}
+                    <span class="button button-primary"><a target="_blank" href='/item-{$info.items[i].id}.html'>{$info.items[i].name}</a></span> 
+			    {/section}              
+             {elseif isset($info.npcs)}
+                <div>相关npc</div>
+                {section name=i loop=$info.npcs}
+                    <span class="button button-primary"><a target="_blank" href='/npc-{$info.npcs[i].id}.html'>{$info.npcs[i].name}</a></span> 
+			    {/section}              
+             {elseif isset($info.quests)}
+                <div>相关任务</div>
+                {section name=i loop=$info.quests}
+                    <span class="button button-primary"><a target="_blank" href='/quest-{$info.quests[i].id}.html'>{$info.quests[i].name}</a></span> 
+			    {/section}              
+             {/if} 
+            </div>
 		</div>
 	</div>
 </div>
 
-<div id="footer" style="margin-top:20px;z-index:99999;text-align:center;width:100%;filter:alpha(Opacity=38);-moz-opacity:0.38;opacity: 0.38;">
+<div id="footer" style="margin-top:50px;text-align:center;width:100%;filter:alpha(Opacity=38);-moz-opacity:0.38;opacity: 0.38;">
 	魔兽世界怀旧服地图资料
 	<div style="padding-bottom:5px;font-size: 12px;text-align:center"> <a style="text-decoration: none;color:gray" href="http://www.beian.miit.gov.cn/">京ICP备19021883号-1</a></div>
 	<div style="padding-bottom:15px;font-size: 12px;text-align:center">Copyright 2019 - 2020 topwow.top. All Rights Reserved</div>
