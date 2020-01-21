@@ -14,9 +14,11 @@ if(!$news = load_cache(20000, $cache_key))
                 ORDER By nid DESC limit 40
 				",
 				$id
-	);
+    );
+    $minID = 0;
     $news = array();
 	foreach($rows as $row) {
+
         $thumbSize=0;
         $thumb=$row['thumb'];
         if (isset($thumb)){
@@ -36,6 +38,8 @@ if(!$news = load_cache(20000, $cache_key))
             "likes" => $row['likes'], 
             "part" => $row['part'], 
         );
+
+        $minID = $row['nid'];
     }
 
 
@@ -45,6 +49,7 @@ if(!$news = load_cache(20000, $cache_key))
 }
 
 $smarty->assign('news', $news);
+$smarty->assign('minID', $minID);
 
 $smarty->config_load($conf_file);
 global $page;
