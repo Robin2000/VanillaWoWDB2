@@ -23,7 +23,7 @@ $AoWoWconf['aowow']['name'] = 'TopWoW经典魔兽数据库';
 // Skin, only 'wowhead' is supported currently
 $AoWoWconf['aowow']['template'] = 'wowhead';
 // Time to keep cache in seconds (Default: 1 day = (60*60*24*1))
-$AoWoWconf['aowow']['cache_time'] = 5;
+$AoWoWconf['aowow']['cache_time'] = 60*60*24*1;
 // Default locale
 $AoWoWconf['locale'] = 4;
 // Allow account creating
