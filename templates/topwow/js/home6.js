@@ -80,6 +80,7 @@ function initPage() {
 }
 
 var loadEvent=null;
+var lastLoadEvent = 0;
 $(document).scroll(function() 
 {
     /*当页面滚动到距离底部400px， 尝试加载数据*/
@@ -101,7 +102,15 @@ function loadNextData() {
     if(parseInt(minID)<=1) {
         return;
     }
-    get("http://localhost:8080/rest/api2/news/next/"+minID,function(e){
+    if(lastLoadEvent>0) {
+        var now = Date.parse(new Date());
+        if(now - lastLoadEvent < 5*1000) {
+            return;
+        }
+    }
+
+    lastLoadEvent = Date.parse(new Date());
+    get("http://api.topwow.top/rest/api2/news/next/"+minID,function(e){
         $('#minID').text(e.minID);
 
         for(var i=0;i<e.news.length;i++) {
@@ -139,6 +148,6 @@ function loadNextData() {
         }
 
     },function(){
-        alert("请求服务失败");
+        
     });
 }
