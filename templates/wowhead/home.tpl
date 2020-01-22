@@ -25,7 +25,7 @@
   <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="/templates/topwow/js/vendor/masonry.pkgd.min.js"></script>
-  <script src="/templates/topwow/js/home6.js"></script>
+  <script src="/templates/topwow/js/home7.js"></script>
 </head>
 <body style="overflow-x:hidden;background:url(http://www.topwow.top/images/bg.jpg) no-repeat;background-size:cover;width:100%;">
 <div id="layers"></div>
@@ -1044,7 +1044,7 @@
         </div><!--n-container-->
     </div><!--n-wrapper-->
 <div id="minID" style="display:none">{$minID}</div>
-<div id="footer" style="margin-top:20px;z-index:99999;text-align:center;width:100%;filter:alpha(Opacity=38);-moz-opacity:0.38;opacity: 0.38;">
+<div id="footer" style="margin-top:100px;z-index:99999;text-align:center;width:100%;filter:alpha(Opacity=38);-moz-opacity:0.38;opacity: 0.38;">
 	魔兽世界怀旧服地图资料
 	<div style="padding-bottom:5px;font-size: 12px;text-align:center"> <a style="text-decoration: none;color:gray" href="http://www.beian.miit.gov.cn/">京ICP备19021883号-1</a></div>
 	<div style="padding-bottom:15px;font-size: 12px;text-align:center">Copyright 2019 - 2020 topwow.top. All Rights Reserved</div>

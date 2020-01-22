@@ -230,7 +230,7 @@ tabsRelated.flush();
 			<video width="100%" height="100%" tabindex="2" mediatype="video" preload="none" src="{$curr.thumb[1]}" poster="{$curr.thumb[0]}" id="video{$curr.nid}">
 			</video>
 			<div class="video-img" onclick="playVideoNow({$curr.nid})" id="img{$curr.nid}"></div>
-			<span style="display:none" id="part{$curr.nid}">{$curr.part}</span>
+			<span style="visibility:hidden" id="part{$curr.nid}">{$curr.part}</span>
 		</div>    
 		{elseif isset($curr.thumb)}
 			{foreach from=$curr.thumb item=url}

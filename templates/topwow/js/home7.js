@@ -126,11 +126,10 @@ function loadNextData() {
                 s += '        <div class="video-img"></div> \r\n' ;
                 s += '       <span style="display:none">' + el.part + '</span> \r\n' ;
                 s += '    </div> \r\n' ;
-            } else if(el.thumb!=null && el.thumb != undefined){
+            } else if(el.thumb!=null && el.thumb!=undefined){
                 for(var j=0;j<el.thumb.length;j++) {
-                    var val = el.thumb[j];
-                    s += '<a href="/info-' + val.nid + '.html" target="_blank"><img src="' + val.url + '" alt=""></a> \r\n' ;
-                )
+                    s += '<a href="/info-' + el.nid + '.html" target="_blank"><img src="' + el.thumb[j] + '" alt=""></a> \r\n' ;
+                }
             }
 
             s += '<div class="caption"> \r\n' ;

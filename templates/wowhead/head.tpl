@@ -49,7 +49,7 @@
 
 {if (isset($npc) || isset($item) || isset($zone) || isset($quest))}
    <script src="/templates/topwow/js/vendor/masonry.pkgd.min.js"></script>
-   <script src="/templates/topwow/js/custom.js"></script>
+   <script src="/templates/topwow/js/custom2.js"></script>
 {/if}
 
 {if $npc}

@@ -9,8 +9,12 @@ function playVideoNow(nid) {
 		part = 0;
 
 		try{
-			part = parseInt(document.getElementById("part"+nid).innerText());
-		}catch(e){}
+			part = parseInt(document.getElementById("part"+nid).textContent);
+		}catch(e){
+            try{
+            part = parseInt(document.getElementById("part"+nid).innerText);
+            }catch(e){}
+        }
         
         var video = document.getElementById("video"+nid);
         document.getElementById("img"+nid).style.display="none";
