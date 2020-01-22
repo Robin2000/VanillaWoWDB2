@@ -30,7 +30,14 @@
   <script src="/cms/js/kindeditor-all-min.js"></script>
   <script src="/cms/js/cms.js?v=6"></script>
   <script charset="utf-8" src="/cms/js/lang/zh-CN.js"></script>
-
+  <style>
+      .form-group label {
+        height:30px;line-height:30px
+      }
+      .flow {
+        margin-left:5px;float:right;width:150px
+      }
+  </style>
 </head>
 <body style="background:url(http://www.topwow.top/images/bg.jpg) no-repeat;background-size:cover;width:100%;">
     <div id="layers"></div>
@@ -55,53 +62,61 @@
                 <form role="form" id="form">
                     <div class="form-group">
                         <label for="title">
-                            标题
+                            标题 <input type="input" class="form-control flow" name="title" id="title"/>
                         </label>
-                        <input type="input" class="form-control" name="title" id="title"/>
+
                     </div>
                     <div class="form-group">
                          
                         <label for="author">
-                            作者
+                            作者 <input type="input" class="form-control flow" name="author" id="author"/>
                         </label>
-                        <input type="input" class="form-control" name="author" id="author" style="width:150px"/>
-                    </div>
-                    <div class="form-group">
-                         
                         <label for="source">
-                            来源
+                            来源 <input type="input" class="form-control flow" name="source" id="source"/>
                         </label>
-                        <input type="input" class="form-control" name="source" id="source" style="width:150px"/>
-                    </div>                    
+                    </div>
+                 
                     <div class="form-group">
                          
                         <label for="channel">
-                            栏目
+                            栏目   <select class="form-control flow" name="channel" id="channel" style="width:150px">
+                                <option value="1">新闻</option>
+                                <option value="2">攻略</option>
+                                <option value="3">资料</option>
+                            </select>
                         </label>
-                        <select class="form-control" name="channel" id="channel" style="width:150px">
-							<option value="1">新闻</option>
-                            <option value="2">攻略</option>
-                            <option value="3">资料</option>
-						</select>
+
                     </div>       
                     <div class="form-group">
                         <label for="templateType">
-                            模板类型
+                            模板  <select class="form-control flow" name="templateType" id="templateType" style="width:150px">
+                                <option value="article">文章</option>
+                                <option value="video">视频</option>
+                                <option value="photo">图集</option>
+                                <option value="ad">广告</option>
+                            </select>
                         </label>
-                        <select class="form-control" name="templateType" id="templateType" style="width:150px">
-							<option value="article">文章</option>
-							<option value="video">视频</option>
-                            <option value="photo">图集</option>
-                            <option value="ad">广告</option>
-						</select>
                     </div>
-                    <div class="form-group">
-                         
+                    <div class="form-group">                         
                         <label for="tag">
-                            标签(逗号分割)
+                            标签  <input type="input" class="form-control flow" name="tag" id="tag" style="width:150px"/> 
+                        </label>(空格分割)
+                    </div>   
+                    <div class="form-group">                         
+                        <label for="items">
+                            物品 <input type="input" class="form-control flow" name="items" id="items" style="float:right;width:150px"/>
                         </label>
-                        <input type="input" class="form-control" name="tag" id="tag" style="width:150px"/>
-                    </div>                       
+                        <label for="zones">
+                            地区 <input type="input" class="form-control flow" name="zones" id="zones" style="float:right;width:150px"/>
+                        </label>
+                        <label for="npcs">
+                            npcs <input type="input" class="form-control flow" name="npcs" id="npcs" style="float:right;width:150px"/>
+                        </label>
+                        <label for="quests">
+                            任务 <input type="input" class="form-control flow" name="quests" id="quests" style="float:right;width:150px"/>
+                        </label>(逗号分割)
+                    </div>
+                   
                     <div class="form-group">
                         <label for="body">
                             内容
