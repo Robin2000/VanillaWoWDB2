@@ -6,6 +6,10 @@
 
 	<link rel="search" type="application/opensearchdescription+xml" title="VanillaWoWDB" href="http://www.topwow.top/opensearch.xml" />
 	<link rel="SHORTCUT ICON" href="http://www.topwow.top/favicon.ico">
+	{if (isset($npc) || isset($item) || isset($zone) || isset($quest))}
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="/templates/topwow/css/home3.css">
+	{/if}
 
 	<link rel="stylesheet" type="text/css" href="templates/wowhead/css/global10.css" />
 	<link rel="stylesheet" type="text/css" href="templates/wowhead/css/locale_{$language}.css" />
@@ -43,32 +47,15 @@
 	<script src="templates/wowhead/js/Book.js" type="text/javascript"></script>
 {/if}
 
+{if (isset($npc) || isset($item) || isset($zone) || isset($quest))}
+   <script src="/templates/topwow/js/vendor/masonry.pkgd.min.js"></script>
+   <script src="/templates/topwow/js/custom.js"></script>
+{/if}
+
 {if $npc}
 <script type="text/javascript" defer="true">
 var entry = {$npc.entry};
-{literal}
-	var ms_ie = false;
-	var ua = window.navigator.userAgent;
-	var old_ie = ua.indexOf('MSIE ');
-	var new_ie = ua.indexOf('Trident/');
-	var ext="webp";
-	if ((old_ie > -1) || (new_ie > -1)) {
-		ms_ie = true;
-		ext="jpg";
-	}
-
-function showbig()
-{
-	document.getElementById('bigbg').style.display='block';
-	document.getElementById('bigimg').src='http://www.topwow.top/screenshots/big/'+entry+'.'+ext;
-} 	
-
-window.onload=function(){
-	document.getElementById('thumbimg').src="http://www.topwow.top/screenshots/thumb/"+entry+"."+ext;
-}
-{/literal}
 </script>
-
 {/if}
 
 {if $page.Talent}

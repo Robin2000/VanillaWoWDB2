@@ -500,6 +500,43 @@ if(!$item = load_cache(5, $cache_key))
 	}
 	unset($drops_fi);
 
+	/*查询出相关文章并附加到item上面*/
+	$rows = $DB->select("
+		SELECT nid,media_type,source,author,tag,title,thumb,talks,likes,part
+		FROM n_ref A,n_news B
+		WHERE A.entry = ? AND A.news_id = B.nid AND A.ref_type = 'items'
+		LIMIT 20
+		",
+		$id
+	);
+	$refnews=array();
+	if($rows) {
+		foreach($rows as $row) {
+			$thumbSize=0;
+			$thumb=$row['thumb'];
+			if (isset($thumb)){
+				$thumb = explode(",",$thumb);
+				$thumbSize = count($thumb);
+			}			
+			$refnews[] = array(
+				"nid" => $row['nid'],
+				"media_type" => $row['media_type'],
+				"source" => $row['source'],
+				"author" => $row['author'],
+				"title" => $row['title'],
+				"tag" => $row['tag'], 
+				"thumb" => $thumb, 
+				"thumbSize"=> $thumbSize, 
+				"talks" => $row['talks'], 
+				"likes" => $row['likes'], 
+				"part" => $row['part'], 
+			);
+		}
+		unset($rows);
+	}
+	$item['refnews'] = $refnews;
+	/*查询出相关文章并附加到item上面 结束*/
+
 	save_cache(5, $cache_key, $item);
 }
 global $page;

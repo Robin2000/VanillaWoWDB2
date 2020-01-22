@@ -506,6 +506,44 @@ if(!$quest = load_cache(10, $cache_key))
 	if ($quest['RewMailDelaySecs'])
 		$quest['maildelay'] = sec_to_time($quest['RewMailDelaySecs']);
 
+	/*查询出相关文章并附加到quest上面*/
+	$rows = $DB->select("
+		SELECT nid,media_type,source,author,tag,title,thumb,talks,likes,part
+		FROM n_ref A,n_news B
+		WHERE A.entry = ? AND A.news_id = B.nid AND A.ref_type = 'quests'
+		LIMIT 20
+		",
+		$id
+	);
+	$refnews=array();
+	if($rows) {
+		foreach($rows as $row) {
+			$thumbSize=0;
+			$thumb=$row['thumb'];
+			if (isset($thumb)){
+				$thumb = explode(",",$thumb);
+				$thumbSize = count($thumb);
+			}			
+			$refnews[] = array(
+				"nid" => $row['nid'],
+				"media_type" => $row['media_type'],
+				"source" => $row['source'],
+				"author" => $row['author'],
+				"title" => $row['title'],
+				"tag" => $row['tag'], 
+				"thumb" => $thumb, 
+				"thumbSize"=> $thumbSize, 
+				"talks" => $row['talks'], 
+				"likes" => $row['likes'], 
+				"part" => $row['part'], 
+			);
+		}
+		unset($rows);
+	}
+	$quest['refnews'] = $refnews;
+	/*查询出相关文章并附加到quest上面 结束*/
+
+
 	save_cache(10, $cache_key, $quest);
 }
 

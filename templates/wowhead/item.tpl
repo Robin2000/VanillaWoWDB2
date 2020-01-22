@@ -1,5 +1,4 @@
 {include file='header.tpl'}
-
 		<div id="main">
 
 			<div id="main-precontents"></div>
@@ -44,7 +43,7 @@
 						{if $item.wiki}
 						<a target="_blank" href="{$item.wiki}">
 						{/if}
-					<img src="http://wowdb60ss.wow-classic.com/{$item.thumb}.jpg!thumb" onerror="this.style.display='none'"/>
+					
 						{if $item.wiki}
 						<p style="text-align:center">百科知识</p>	
 						</a>
@@ -122,23 +121,9 @@
 {/if}
 
 
-{if $item.entry==19019}
-魔兽世界著名的传奇武器：风剑 雷霆之怒逐风者的祝福之剑
-<iframe id=sbrxp src="//player.bilibili.com/player.html?aid=46210680&cid=80961691&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%; height: 430px; max-width: 100%"> </iframe>
-{/if}
-{if $item.entry==17802}
-魔兽世界著名的传奇武器：风剑 雷霆之怒逐风者的祝福之剑
-<iframe id=sbrxp src="//player.bilibili.com/player.html?aid=46210680&cid=80961691&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%; height: 430px; max-width: 100%"> </iframe>
-{/if}
-{if $item.entry==13262}
-魔兽世界中那些著名的传奇武器：灰烬使者
-<iframe id=sbrxp src="//player.bilibili.com/player.html?aid=43879227&cid=76870834&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%; height: 430px; max-width: 100%"> </iframe>
-{/if}
+<h2>{#Related#}</h2>
 
-
-					<h2>{#Related#}</h2>
-
-				</div>
+</div>
 
 				<div id="tabs-generic"></div>
 				<div id="listview-generic" class="listview"></div>
@@ -173,6 +158,38 @@ var tabsRelated = new Tabs({ldelim}parent: ge('tabs-generic'){rdelim});
 {if isset($item.criteria_of)}{include 			file='bricks/achievement_table.tpl' 	id='criteria-of'			tabsid='tabsRelated' data=$item.criteria_of			name='criteriaof'		}{/if}
 tabsRelated.flush();
 </script>
+
+
+
+
+<div class="grid" id="mainGrid">
+	{foreach from=$item.refnews item=curr name=j}
+	<div class="grid-item">
+		<div class="thumbnail n-img{$curr.thumbSize}">
+		{if ($curr.media_type=='video')}
+		<div class="video-box" >
+			<video width="100%" height="100%" tabindex="2" mediatype="video" preload="none" src="{$curr.thumb[1]}" poster="{$curr.thumb[0]}" id="video{$curr.nid}">
+			</video>
+			<div class="video-img" onclick="playVideoNow({$curr.nid})" id="img{$curr.nid}"></div>
+			<span style="display:none" id="part{$curr.nid}">{$curr.part}</span>
+		</div>    
+		{elseif isset($curr.thumb)}
+			{foreach from=$curr.thumb item=url}
+			<a href="/info-{$curr.nid}.html" target="_blank"><img src="{$url}" alt=""></a>
+			{/foreach}
+		{/if}
+		
+			<div class="caption">
+				<div class="n-img{$curr.thumbSize}">
+					<a href="/info-{$curr.nid}.html" target="_blank">{$curr.title}</a>
+				</div> 
+				<p><div class="n_tip">{$curr.source}&nbsp;{$curr.author} </div></p>
+			</div>
+		</div>
+	</div>
+	{/foreach}
+</div><!--row-->                                                            
+
 
 				{include file='bricks/contribute.tpl'}
 			</div>

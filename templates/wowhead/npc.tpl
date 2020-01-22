@@ -220,6 +220,35 @@ var tabsRelated = new Tabs({ldelim}parent: ge('tabs-generic'){rdelim});
 tabsRelated.flush();
 </script>
 
+
+<div class="grid" id="mainGrid">
+	{foreach from=$npc.refnews item=curr name=j}
+	<div class="grid-item">
+		<div class="thumbnail n-img{$curr.thumbSize}">
+		{if ($curr.media_type=='video')}
+		<div class="video-box" >
+			<video width="100%" height="100%" tabindex="2" mediatype="video" preload="none" src="{$curr.thumb[1]}" poster="{$curr.thumb[0]}" id="video{$curr.nid}">
+			</video>
+			<div class="video-img" onclick="playVideoNow({$curr.nid})" id="img{$curr.nid}"></div>
+			<span style="display:none" id="part{$curr.nid}">{$curr.part}</span>
+		</div>    
+		{elseif isset($curr.thumb)}
+			{foreach from=$curr.thumb item=url}
+			<a href="/info-{$curr.nid}.html" target="_blank"><img src="{$url}" alt=""></a>
+			{/foreach}
+		{/if}
+		
+			<div class="caption">
+				<div class="n-img{$curr.thumbSize}">
+					<a href="/info-{$curr.nid}.html" target="_blank">{$curr.title}</a>
+				</div> 
+				<p><div class="n_tip">{$curr.source}&nbsp;{$curr.author} </div></p>
+			</div>
+		</div>
+	</div>
+	{/foreach}
+</div><!--row-->     
+
 			{include file='bricks/contribute.tpl'}
 
 			<div class="clear"></div>

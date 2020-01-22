@@ -313,6 +313,44 @@ if(!$npc = load_cache(1, $cache_key))
 			// 我们是正常的ntc或ntc，没有问题。
 			$npc['position'] = position($npc['entry'], 'creature', 1);
 
+
+		/*查询出相关文章并附加到npc上面*/
+		$rows = $DB->select("
+		SELECT nid,media_type,source,author,tag,title,thumb,talks,likes,part
+		FROM n_ref A,n_news B
+		WHERE A.entry = ? AND A.news_id = B.nid AND A.ref_type = 'npcs'
+		LIMIT 20
+		",
+		$id
+		);
+		$refnews=array();
+		if($rows) {
+		foreach($rows as $row) {
+			$thumbSize=0;
+			$thumb=$row['thumb'];
+			if (isset($thumb)){
+				$thumb = explode(",",$thumb);
+				$thumbSize = count($thumb);
+			}			
+			$refnews[] = array(
+				"nid" => $row['nid'],
+				"media_type" => $row['media_type'],
+				"source" => $row['source'],
+				"author" => $row['author'],
+				"title" => $row['title'],
+				"tag" => $row['tag'], 
+				"thumb" => $thumb, 
+				"thumbSize"=> $thumbSize, 
+				"talks" => $row['talks'], 
+				"likes" => $row['likes'], 
+				"part" => $row['part'], 
+			);
+		}
+		unset($rows);
+		}
+		$npc['refnews'] = $refnews;
+		/*查询出相关文章并附加到npc上面 结束*/
+
 		save_cache(1, $cache_key, $npc);
 	}
 } else {
