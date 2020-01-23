@@ -98,7 +98,6 @@ function retriveImg() {
         if(src==null) {
             continue;
         }
-        console.log(src[1]);
         var urlOld = src[1];
         var url = urlOld;
         if(urlOld.indexOf("/cms/js/attached/image")>=0) {
@@ -143,6 +142,10 @@ function saveForm() {
         templateType: $('#templateType').val(),
         body: editor.html(),
         tag: $('#tag').val(),
+        items: $('#items').val(),
+        zones: $('#zones').val(),
+        npcs: $('#npcs').val(),
+        quests: $('#quests').val(),
         thumb: thumbStr,
     };
 

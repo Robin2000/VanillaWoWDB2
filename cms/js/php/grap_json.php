@@ -154,6 +154,7 @@ try {
     $ymd = date("Ymd");
     $save_path .= $ymd . "/";
     $save_url .= $ymd . "/";
+   
     if (!file_exists($save_path)) {
         mkdir($save_path);
     }
@@ -170,6 +171,7 @@ try {
         $save_path = realpath($save_path) . '/';
 
         $imgUrl = $_GET["img"];
+        
         if(!isset($imgUrl)) {
             alert("no img parameter!");
         }
