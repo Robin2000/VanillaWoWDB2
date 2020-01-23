@@ -74,6 +74,11 @@ function applyPage(data) {
         $("#saveBtn").click(function() {
             saveForm();
         });
+        $("#loginBtn").click(function() {
+            loginFrom();
+        });
+
+        
     });
 }
 function retriveImg() {
@@ -98,19 +103,17 @@ function retriveImg() {
         if(src==null) {
             continue;
         }
-        var urlOld = src[1];
-        var url = urlOld;
-        if(urlOld.indexOf("/cms/js/attached/image")>=0) {
+
+        var url = src[1];
+        if(url.indexOf("/cms/js/attached/image")>=0) {
             continue;
         }
-        if(urlOld.indexOf("https")==0) {
-            url = "http"+urlOld.substring(5);
-        }
+
         
-        get("/cms/js/php/grap_json.php?img="+encodeURIComponent (url),function(e) {
+        get("http://api.topwow.top/rest/api2/news/grap?img="+encodeURIComponent (url),function(e) {
             if(e.error==0) {
                 var cnt = editor.html();
-                cnt = cnt.split(urlOld).join(e.url);
+                cnt = cnt.split(urlOld).join(e.data);
                 editor.html(cnt);
                 $("#thumblist").append("<div style='float:left'><input name='thumb' type='checkbox' value='"+e.thumb+"'><img src='"+e.thumb+"' class='thumbnail'><div>");
                 setTimeout(() => {
@@ -118,7 +121,7 @@ function retriveImg() {
                 }, 100);
                 
             } else {
-                alert(e.message);
+                alert(e.msg);
             }
         },function(){
             alert("网络请求失败");
@@ -150,6 +153,41 @@ function saveForm() {
     };
 
     post("http://api.topwow.top/rest/api2/news/add",param,function(e){
+        if(e.code==0) {
+            alert("提交成功");
+        } else {
+            alert(e.msg);
+        }
+    },function(){
+        alert("网络请求失败");
+    });
+}
+
+
+function loginForm(){
+    var param = {
+        u: $('#uid').val(),
+    };
+    post("http://api.topwow.top/rest/api2/login/check",param,function(e){
+            if(e.error==0) {
+                loginFrom2(e.data);
+            } else {
+                alert(e.msg);
+            }
+        },function(){
+            alert("网络请求失败");
+        });
+}
+function loginFrom2(pubkey) {
+    
+    var passwd = CryptoJS.AES.encrypt($('#passwd').val(), pubkey, cfg);
+
+    var param = {
+        u: $('#uid').val(),
+        p: passwd,
+    };
+
+    post("http://api.topwow.top/rest/api2/login/check",param,function(e){
         if(e.code==0) {
             alert("提交成功");
         } else {
@@ -192,3 +230,57 @@ var editor;
 				});
 			});
 */
+
+
+function getAesString(data,key,iv){
+    var key  = CryptoJS.enc.Utf8.parse(key); 
+    var iv   = CryptoJS.enc.Utf8.parse(iv); 
+    var encrypted =CryptoJS.AES.encrypt(data,key,{
+        iv:iv, 
+        mode:CryptoJS.mode.CBC,
+        padding:CryptoJS.pad.Pkcs7 
+    });
+    return encrypted.toString();  //返回的是base64格式的密文
+}
+function getDAesString(encrypted,key,iv){
+    var key  = CryptoJS.enc.Utf8.parse(key);
+    var iv   = CryptoJS.enc.Utf8.parse(iv);
+    var decrypted =CryptoJS.AES.decrypt(encrypted,key,{
+        iv:iv,
+        mode:CryptoJS.mode.CBC,
+        padding:CryptoJS.pad.Pkcs7
+    });
+    return decrypted.toString(CryptoJS.enc.Utf8);
+}
+function getAES(){//加密
+    var data =document.getElementById("data-ipt").value;//明文 
+    var key  = 'abcdefghijklmn12';  //密钥
+    var iv   = 'abcdefghijklmn12';
+    var encrypted =getAesString(data,key,iv); //密文
+    var encrypted1 =CryptoJS.enc.Utf8.parse(encrypted);
+    document.getElementById("encrypted").innerHTML = encrypted; 
+}
+function getDAes(){//解密  
+    var encrypted =document.getElementById("encrypted").innerHTML; //密文
+    var key  = 'abcdefghijklmn12'; 
+    var iv   = 'abcdefghijklmn12'; 
+    var decryptedStr =getDAesString(encrypted,key,iv);  
+    document.getElementById("decrypted").innerHTML = decryptedStr; 
+}
+
+var data = "hello,您好";
+
+var key  = "sde@5f98H*^hsff%dfs$r344&df8543*er";  //密钥
+var iv   = "sde@5f98H*^hsff%dfs$r344&df8543*er";
+var encrypted =getAesString(data,key,iv); //密文
+var encrypted1 =CryptoJS.enc.Utf8.parse(encrypted);
+
+console.log(encrypted);
+console.log(encrypted1);
+
+var key  = 'sde@5f98H*^hsff%dfs$r344&df8543*er'; 
+var iv   = 'sde@5f98H*^hsff%dfs$r344&df8543*er'; 
+var decryptedStr =getDAesString(encrypted,key,iv);  
+var decryptedStr1 =getDAesString(encrypted1,key,iv);  
+console.log(decryptedStr);
+console.log(decryptedStr1);
