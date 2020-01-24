@@ -2,7 +2,7 @@
 global $AoWoWconf;
 
 // -- MaNGOS Database --
-$AoWoWconf['mangos']['host']	= '127.0.0.1:3306';
+$AoWoWconf['mangos']['host']	= '127.0.0.1:3307';
 $AoWoWconf['mangos']['user']	= 'root';
 $AoWoWconf['mangos']['pass']	= 'java112233';
 $AoWoWconf['mangos']['db']		= 'world_lighthope';

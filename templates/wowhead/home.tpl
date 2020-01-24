@@ -4,7 +4,7 @@
 <title>经典魔图官方网站</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes, maximum-scale=3.0, minimum-scale=0.3, user-scalable=yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes, maximum-scale=1.0, minimum-scale=0.3, user-scalable=no">
    
    <meta name="keywords" content="经典魔图,topwow,魔兽世界,怀旧服,60wow,地图,nfu" />
    <meta name="description" content="最好的魔兽世界怀旧服地图资料网站" />
@@ -14,7 +14,7 @@
   <link rel="apple-touch-icon" href="icon.png">
   <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="/templates/topwow/css/home3.css">
+  <link rel="stylesheet" href="/templates/topwow/css/home4.css">
 
   <link rel="search" type="application/opensearchdescription+xml" title="VanillaWoWDB" href="http://www.topwow.top/opensearch.xml" />
   <link rel="SHORTCUT ICON" href="http://www.topwow.top/favicon.ico">
@@ -25,10 +25,10 @@
   <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="/templates/topwow/js/vendor/masonry.pkgd.min.js"></script>
-  <script src="/templates/topwow/js/home7.js"></script>
+  <script src="/templates/topwow/js/home8.js"></script>
 </head>
-<body style="overflow-x:hidden;background:url(http://www.topwow.top/images/bg.jpg) no-repeat;background-size:cover;width:100%;">
-<div id="layers"></div>
+<body style="text-align:center;width:100%;background:url(/images/2020bg.jpg) !important">
+
 <div id="home">
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
@@ -39,16 +39,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <div class="searchBg">
-                <a class="navbar-brand" href="#"><img src="/templates/wowhead/images/logo.png"></a>
-                <div class="searchCenter">
-                    <form method="get" action="." onsubmit="if(this.elements[0].value == '') return false">
-                        <input placeholder="{#searchHoder#}" type="text" name="search" size="30" class="searbox"/>
-                        <input type="submit" value="" class="searbtn"/>
-                    </form>
-                </div>
-            </div>        
+            <a class="navbar-brand" href="#"><img src="/templates/wowhead/images/logo.png"></a>
         </div>
+   
         <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
             <li><a href="http://www.topwow.top/wowgis/map-0.html">艾泽拉斯</a></li>
@@ -1005,6 +998,15 @@
     
         </ul>
         </div><!--/.nav-collapse -->
+
+            <div class="searchBg">
+                    <div class="searchCenter">
+                        <form method="get" action="." onsubmit="if(this.elements[0].value == '') return false">
+                            <input placeholder="{#searchHoder#}" type="text" name="search" size="30" class="searbox"/>
+                            <input type="submit" value="" class="searbtn"/>
+                        </form>
+                    </div>
+            </div> 
     </div>
     </nav>
 </div>
@@ -1026,9 +1028,11 @@
                         <span style="display:none">{$curr.part}</span>
                     </div>    
                     {elseif isset($curr.thumb)}
+                    <div>
                         {foreach from=$curr.thumb item=url}
-                        <a href="/info-{$curr.nid}.html" target="_blank"><img src="{$url}" alt=""></a>
+                        <a href="/info-{$curr.nid}.html" target="_blank"><img style="width:33.33%" src="{$url}" alt=""></a>
                         {/foreach}
+                    </div>
                     {/if}
                     
                         <div class="caption">

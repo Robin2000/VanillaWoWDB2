@@ -1,10 +1,17 @@
 function get(url,sucessFunc,errorFunc){
+    var uid= getCookie("uid");
+    var token= getCookie("token");
     $.ajax({
             type: 'get',
             url: url,
             dataType: "json",
             ifModified: false,
             crossDomain: true,
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader("uid:"+uid);
+                xhr.setRequestHeader("token:'"+token+"'");
+            },
+            headers:{'uid':uid,'token':token},            
             success: function (data) {
                 if(sucessFunc){
                     sucessFunc(data);
@@ -18,12 +25,19 @@ function get(url,sucessFunc,errorFunc){
     });
 }
 function post(url,paramJson,sucessFunc,errorFunc){
+    var uid= getCookie("uid");
+    var token= getCookie("token");
     $.ajax({
             type: 'post',
             url: url,
             data: paramJson,
             dataType: "json",
             crossDomain: true,
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader("uid:"+uid);
+                xhr.setRequestHeader("token:'"+token+"'");
+            },
+            headers:{'uid':uid,'token':token},
             success: function (data) {
                 if(sucessFunc){
                     sucessFunc(data);
@@ -46,8 +60,18 @@ function getQueryVariable(variable)
        }
        return(false);
 }
+function isLogin() {
+    var token = getCookie("token");
+    if(token==null) {
+        return false;
+    }
+    return true;
+}
 function initPage(){
-    
+
+    if(location.href.indexOf('/cms/login')==-1&&!isLogin()) {
+       location.href="/cms/login.html";
+    }
     var id=getQueryVariable("id");
     
     /*get("http://www.topwow.top/api2/rest/"+id,function(){
@@ -75,7 +99,7 @@ function applyPage(data) {
             saveForm();
         });
         $("#loginBtn").click(function() {
-            loginFrom();
+            loginNow();
         });
 
         
@@ -111,11 +135,11 @@ function retriveImg() {
 
         
         get("http://api.topwow.top/rest/api2/news/grap?img="+encodeURIComponent (url),function(e) {
-            if(e.error==0) {
+            if(e.code==0) {
                 var cnt = editor.html();
-                cnt = cnt.split(urlOld).join(e.data);
+                cnt = cnt.split(url).join(e.data.url);
                 editor.html(cnt);
-                $("#thumblist").append("<div style='float:left'><input name='thumb' type='checkbox' value='"+e.thumb+"'><img src='"+e.thumb+"' class='thumbnail'><div>");
+                $("#thumblist").append("<div style='float:left'><input name='thumb' type='checkbox' value='"+e.data.thumb+"'><img src='"+e.data.thumb+"' class='thumbnail'><div>");
                 setTimeout(() => {
                     retriveImg();
                 }, 100);
@@ -164,13 +188,13 @@ function saveForm() {
 }
 
 
-function loginForm(){
+function loginNow(){
     var param = {
         u: $('#uid').val(),
     };
-    post("http://api.topwow.top/rest/api2/login/check",param,function(e){
-            if(e.error==0) {
-                loginFrom2(e.data);
+    post("http://api.topwow.top/rest/api2/login/key",param,function(e){
+            if(e.code==0) {
+                loginNow2(e.data);
             } else {
                 alert(e.msg);
             }
@@ -178,18 +202,19 @@ function loginForm(){
             alert("网络请求失败");
         });
 }
-function loginFrom2(pubkey) {
-    
-    var passwd = CryptoJS.AES.encrypt($('#passwd').val(), pubkey, cfg);
+function loginNow2(pubkey) {
 
+    var passwd = $('#passwd').val();
+    var mi=AES_CBC_encrypt(passwd,pubkey,"4567890000000123")
     var param = {
         u: $('#uid').val(),
-        p: passwd,
+        p: mi
     };
-
     post("http://api.topwow.top/rest/api2/login/check",param,function(e){
         if(e.code==0) {
-            alert("提交成功");
+            setCookie("token",e.data);
+            setCookie("uid",$('#uid').val());
+            location.href="/cms/add.html";
         } else {
             alert(e.msg);
         }
@@ -200,7 +225,27 @@ function loginFrom2(pubkey) {
 $(function(){
     initPage();     
 });
-    
+function myTrim(x) {
+    return x.replace(/^\s+|\s+$/gm,'');
+  }
+function setCookie(name, value) {
+    document.cookie = name + "=" + value + ";path=" + "/"; 
+    /*var date = new Date();
+    var expires = 10;
+    date.setTime(date.getTime() + expires * 24 * 60 * 60 * 1000)
+    document.cookie = name + "=" + value + ";expires=" + date.toGMTString() + ";path=" + "/"; */
+}
+function getCookie(name) {           
+    var arr = document.cookie.split(';');           
+    for (var i = 0; i < arr.length; i++) {
+        var arr2 = arr[i].split('=');
+        var arrTest = myTrim(arr2[0]);            
+        if (arrTest == name) {   
+            return arr2[1];
+        }
+    }
+    return null;
+}
 /*help
 
 editor.html('<h3>Hello KindEditor</h3>');
@@ -230,57 +275,17 @@ var editor;
 				});
 			});
 */
-
-
-function getAesString(data,key,iv){
-    var key  = CryptoJS.enc.Utf8.parse(key); 
-    var iv   = CryptoJS.enc.Utf8.parse(iv); 
-    var encrypted =CryptoJS.AES.encrypt(data,key,{
-        iv:iv, 
-        mode:CryptoJS.mode.CBC,
-        padding:CryptoJS.pad.Pkcs7 
+function AES_CBC_encrypt(message, key, iv) {
+    // utf8字符串—>WordArray对象，WordArray是一个保存32位整数的数组，相当于转成了二进制
+    let keyHex = CryptoJS.enc.Utf8.parse(key); //
+    let ivHex = CryptoJS.enc.Utf8.parse(iv);
+    let messageHex = CryptoJS.enc.Utf8.parse(message);
+    let encrypted = CryptoJS.AES.encrypt(messageHex, keyHex, {
+        iv: ivHex,
+        mode: CryptoJS.mode.CBC,
+        padding: CryptoJS.pad.Pkcs7
     });
-    return encrypted.toString();  //返回的是base64格式的密文
-}
-function getDAesString(encrypted,key,iv){
-    var key  = CryptoJS.enc.Utf8.parse(key);
-    var iv   = CryptoJS.enc.Utf8.parse(iv);
-    var decrypted =CryptoJS.AES.decrypt(encrypted,key,{
-        iv:iv,
-        mode:CryptoJS.mode.CBC,
-        padding:CryptoJS.pad.Pkcs7
-    });
-    return decrypted.toString(CryptoJS.enc.Utf8);
-}
-function getAES(){//加密
-    var data =document.getElementById("data-ipt").value;//明文 
-    var key  = 'abcdefghijklmn12';  //密钥
-    var iv   = 'abcdefghijklmn12';
-    var encrypted =getAesString(data,key,iv); //密文
-    var encrypted1 =CryptoJS.enc.Utf8.parse(encrypted);
-    document.getElementById("encrypted").innerHTML = encrypted; 
-}
-function getDAes(){//解密  
-    var encrypted =document.getElementById("encrypted").innerHTML; //密文
-    var key  = 'abcdefghijklmn12'; 
-    var iv   = 'abcdefghijklmn12'; 
-    var decryptedStr =getDAesString(encrypted,key,iv);  
-    document.getElementById("decrypted").innerHTML = decryptedStr; 
+    return encrypted.toString();// base64结果
+    //return encrypted.ciphertext.toString();   // 二进制结果
 }
 
-var data = "hello,您好";
-
-var key  = "sde@5f98H*^hsff%dfs$r344&df8543*er";  //密钥
-var iv   = "sde@5f98H*^hsff%dfs$r344&df8543*er";
-var encrypted =getAesString(data,key,iv); //密文
-var encrypted1 =CryptoJS.enc.Utf8.parse(encrypted);
-
-console.log(encrypted);
-console.log(encrypted1);
-
-var key  = 'sde@5f98H*^hsff%dfs$r344&df8543*er'; 
-var iv   = 'sde@5f98H*^hsff%dfs$r344&df8543*er'; 
-var decryptedStr =getDAesString(encrypted,key,iv);  
-var decryptedStr1 =getDAesString(encrypted1,key,iv);  
-console.log(decryptedStr);
-console.log(decryptedStr1);
