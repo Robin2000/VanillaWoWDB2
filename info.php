@@ -39,7 +39,7 @@ if(!$info = load_cache(20001, $cache_key))
 	unset($info);
 
 	$row = $DB->selectRow("
-				SELECT nid,media_type,cid,source,B.avatar,B.nick,author,DATE_FORMAT(pub_time,'%Y-%m-%d %H:%i') as pub_time,title,body,tag,thumb,talks,likes,part,zones,items,npcs
+				SELECT nid,media_type,cid,source,B.avatar,B.nick,author,DATE_FORMAT(pub_time,'%Y-%m-%d %H:%i') as pub_time,title,body,tag,thumb,talks,likes,part,zones,items,npcs,quests
 				FROM n_news A
 				LEFT JOIN n_author B ON A.uid=B.uid
 				WHERE nid=?d

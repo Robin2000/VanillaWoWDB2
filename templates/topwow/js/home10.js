@@ -132,7 +132,7 @@ function loadNextData() {
             } else if(el.thumb!=null && el.thumb!=undefined){
                 s += '<div>';
                 for(var j=0;j<el.thumb.length;j++) {
-                    s += '<a href="/info-' + el.nid + '.html" target="_blank"><img style="width:33.33%" src="' + el.thumb[j] + '" alt=""></a> \r\n' ;
+                    s += '<a href="/info-' + el.nid + '.html" target="_blank"><img style="width:33.33%;height:75px" src="' + el.thumb[j] + '" alt=""></a> \r\n' ;
                 }
                 s += '</div>';
             }

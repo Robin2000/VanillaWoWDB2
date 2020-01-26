@@ -194,6 +194,7 @@ function saveForm() {
         zones: $('#zones').val(),
         npcs: $('#npcs').val(),
         quests: $('#quests').val(),
+        refer: $('#refer').val(),
         thumb: thumbStr,
     };
 

@@ -118,7 +118,7 @@
 		{elseif isset($curr.thumb)}
 		<div class="n-div{$curr.thumbSize}">
 			{foreach from=$curr.thumb item=url}
-			<a href="/info-{$curr.nid}.html" target="_blank"><img style="width:33.33%" src="{$url}" alt=""></a>
+			<a href="/info-{$curr.nid}.html" target="_blank"><img style="width:33.33%;height:75px" src="{$url}" alt=""></a>
 			{/foreach}
 		</div>
 		{/if}
