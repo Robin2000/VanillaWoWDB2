@@ -145,7 +145,14 @@ function retriveImg() {
         if(url.indexOf("/cms/js/attached/image")>=0) {
             continue;
         }
-        get("http://www.topwow.top/rest/api2/editor/grap?img="+preEncodingUrl(url),function(e) {
+        var requestUrl = url.split('&amp;').join('&');
+        var param = {
+            img: requestUrl,
+            refer: $('#refer').val(),
+        };
+
+        
+        post("http://www.topwow.top/rest/api2/editor/grap",param,function(e) {
             if(e.code==0) {
                 var cnt = editor.html();
                 cnt = cnt.split(url).join(e.data.url);
@@ -165,7 +172,6 @@ function retriveImg() {
     }
 }
 function preEncodingUrl(url) {
-    var requestUrl = url.split('&amp;').join('&');
     return encodeURIComponent(requestUrl);
 }
 function saveForm() {
