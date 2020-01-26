@@ -14,7 +14,7 @@
   <link rel="apple-touch-icon" href="icon.png">
   <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="/templates/topwow/css/home4.css">
+  <link rel="stylesheet" href="/templates/topwow/css/home6.css">
 
   <link rel="search" type="application/opensearchdescription+xml" title="VanillaWoWDB" href="http://www.topwow.top/opensearch.xml" />
   <link rel="SHORTCUT ICON" href="http://www.topwow.top/favicon.ico">
@@ -25,7 +25,7 @@
   <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="/templates/topwow/js/vendor/masonry.pkgd.min.js"></script>
-  <script src="/templates/topwow/js/home8.js"></script>
+  <script src="/templates/topwow/js/home9.js"></script>
 </head>
 <body style="text-align:center;width:100%;background:url(/images/2020bg.jpg) !important">
 

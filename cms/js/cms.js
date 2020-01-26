@@ -1,17 +1,18 @@
 function get(url,sucessFunc,errorFunc){
-    var uid= getCookie("uid");
-    var token= getCookie("token");
+    /*var uid= getCookie("uid");
+    var token= getCookie("token");*/
     $.ajax({
             type: 'get',
             url: url,
             dataType: "json",
             ifModified: false,
             crossDomain: true,
-            beforeSend: function(xhr) {
+            /*beforeSend: function(xhr) {
                 xhr.setRequestHeader("uid:"+uid);
                 xhr.setRequestHeader("token:'"+token+"'");
             },
-            headers:{'uid':uid,'token':token},            
+            headers:{'uid':uid,'token':token},
+            */       
             success: function (data) {
                 if(sucessFunc){
                     sucessFunc(data);
@@ -25,19 +26,20 @@ function get(url,sucessFunc,errorFunc){
     });
 }
 function post(url,paramJson,sucessFunc,errorFunc){
-    var uid= getCookie("uid");
-    var token= getCookie("token");
+    /*var uid= getCookie("uid");
+    var token= getCookie("token");*/
     $.ajax({
             type: 'post',
             url: url,
             data: paramJson,
             dataType: "json",
             crossDomain: true,
-            beforeSend: function(xhr) {
+            /*beforeSend: function(xhr) {
                 xhr.setRequestHeader("uid:"+uid);
                 xhr.setRequestHeader("token:'"+token+"'");
             },
             headers:{'uid':uid,'token':token},
+            */
             success: function (data) {
                 if(sucessFunc){
                     sucessFunc(data);
@@ -89,7 +91,18 @@ var editor;
 function applyPage(data) {
     KindEditor.ready(function(K) {
         editor = K.create('#body', {
-            allowFileManager : true
+            allowFileManager : true,
+            fileManagerJson : 'http://www.topwow.top/rest/api2/editor/filemanager',
+            uploadJson : 'http://www.topwow.top/rest/api2/editor/upload',
+            afterUpload : function(url,e){
+                console.log(e.error==0);
+                if(e.error==0) {
+                    console.dir($("#thumblist"));
+                    $("#thumblist").append("<div style='float:left'><input name='thumb' type='checkbox' value='"+e.thumb+"'><img src='"+e.thumb+"' class='thumbnail'><div>");
+                    console.log("end");
+                }
+
+            }
         });
 
         $("#retriveBtn").click(function() {
@@ -132,9 +145,7 @@ function retriveImg() {
         if(url.indexOf("/cms/js/attached/image")>=0) {
             continue;
         }
-
-        
-        get("http://api.topwow.top/rest/api2/news/grap?img="+encodeURIComponent (url),function(e) {
+        get("http://www.topwow.top/rest/api2/editor/grap?img="+preEncodingUrl(url),function(e) {
             if(e.code==0) {
                 var cnt = editor.html();
                 cnt = cnt.split(url).join(e.data.url);
@@ -153,9 +164,13 @@ function retriveImg() {
         return;
     }
 }
+function preEncodingUrl(url) {
+    var requestUrl = url.split('&amp;').join('&');
+    return encodeURIComponent(requestUrl);
+}
 function saveForm() {
     var thumbStr = '';
-    $("input[name='thumb']").each(function(){
+    $("input[name='thumb']:checked").each(function(){
         if(thumbStr!='') {
             thumbStr += ',';
         }
@@ -176,7 +191,7 @@ function saveForm() {
         thumb: thumbStr,
     };
 
-    post("http://api.topwow.top/rest/api2/news/add",param,function(e){
+    post("http://www.topwow.top/rest/api2/news/add",param,function(e){
         if(e.code==0) {
             alert("提交成功");
         } else {
@@ -192,7 +207,7 @@ function loginNow(){
     var param = {
         u: $('#uid').val(),
     };
-    post("http://api.topwow.top/rest/api2/login/key",param,function(e){
+    post("http://www.topwow.top/rest/api2/login/key",param,function(e){
             if(e.code==0) {
                 loginNow2(e.data);
             } else {
@@ -210,7 +225,7 @@ function loginNow2(pubkey) {
         u: $('#uid').val(),
         p: mi
     };
-    post("http://api.topwow.top/rest/api2/login/check",param,function(e){
+    post("http://www.topwow.top/rest/api2/login/check",param,function(e){
         if(e.code==0) {
             setCookie("token",e.data);
             setCookie("uid",$('#uid').val());
