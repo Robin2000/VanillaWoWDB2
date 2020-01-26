@@ -51,7 +51,8 @@ function initPage() {
         try{
             if(oldVideo!=null) {
                 oldVideo.get(0).pause();
-                oldVideo.get(0).controls=false;;
+                oldVideo.get(0).controls=false;
+                oldVideo.get(0).preload='none';
             }
             oldVideo = video;
         }catch(e){}
@@ -67,11 +68,13 @@ function initPage() {
                 if(part>curPart) {
                     var newPart = curPart+1;
                     video.get(0).src=oldUrl.split('part'+curPart).join('part'+newPart);
+                    video.get(0).preload='auto';
                     video.get(0).play();
                     curPart++;
                 } else {
                     var newPart = 0;
                     video.get(0).src=oldUrl.split('part'+curPart).join('part'+newPart);
+                    video.get(0).preload='auto';
                     video.get(0).play();
                     curPart=0;
                 }

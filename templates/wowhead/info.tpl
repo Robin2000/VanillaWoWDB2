@@ -1104,12 +1104,13 @@ $(".video-img").click(function() {
     try{
         if(oldVideo!=null) {
             oldVideo.get(0).pause();
-            oldVideo.get(0).controls=false;;
+            oldVideo.get(0).controls=false;
+            oldVideo.get(0).preload="none";
         }
         oldVideo = video;
     }catch(e){}
 
-
+        video.get(0).preload="auto";
 		video.get(0).play();
         video.attr('controls', 1);
 
@@ -1117,6 +1118,7 @@ $(".video-img").click(function() {
             video.css("object-fit","scale-down");
             video.get(0).poster = "/media/loading.gif";
             var oldUrl = video.get(0).src;
+            video.get(0).preload="auto";
             if(part>curPart) {
                 var newPart = curPart+1;
                 video.get(0).src=oldUrl.split('part'+curPart).join('part'+newPart);
