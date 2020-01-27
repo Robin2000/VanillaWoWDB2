@@ -14,7 +14,7 @@
   <link rel="apple-touch-icon" href="icon.png">
   <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="/templates/topwow/css/home7.css">
+  <link rel="stylesheet" href="/templates/topwow/css/home8.css">
 
   <link rel="search" type="application/opensearchdescription+xml" title="VanillaWoWDB" href="http://www.topwow.top/opensearch.xml" />
   <link rel="SHORTCUT ICON" href="http://www.topwow.top/favicon.ico">
@@ -25,11 +25,12 @@
   <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="/templates/topwow/js/vendor/masonry.pkgd.min.js"></script>
+  <script src="/templates/topwow/js/home11.js"></script>
   <script>
     var part = {$info.part};
     var nid = {$info.nid};
   </script>
-  <script src="/templates/topwow/js/info.js"></script>
+  <script src="/templates/topwow/js/info2.js"></script>
 </head>
 <body style="overflow-x:hidden;width:100%;">
 <div id="layers"></div>
@@ -1003,12 +1004,13 @@
         </div><!--/.nav-collapse -->
             <div class="searchBg">
                     <div class="searchCenter">
-                        <form method="get" action="." onsubmit="if(this.elements[0].value == '') return false">
-                            <input placeholder="{#searchHoder#}" type="text" name="search" size="30" class="searbox"/>
-                            <input type="submit" value="" class="searbtn"/>
+                        <form method="get" action="." onsubmit="return searchKey()">
+                            <input placeholder="{#searchHoder#}" type="text" name="search" size="30" class="searbox" id="search_input" autocomplete="off"/>
+                            <input type="button" value="" class="searbtn"/>
                         </form>
+                        <div class="suggest" id="search-suggest" style="top: 38px; left: 0px; position: absolute;">
                     </div>
-            </div>
+            </div> 
     </div>
     </nav>
 </div>

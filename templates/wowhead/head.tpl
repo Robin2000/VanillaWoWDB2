@@ -8,7 +8,7 @@
 	<link rel="SHORTCUT ICON" href="http://www.topwow.top/favicon.ico">
 	{if (isset($npc) || isset($item) || isset($zone) || isset($quest))}
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link rel="stylesheet" href="/templates/topwow/css/home7.css">
+	<link rel="stylesheet" href="/templates/topwow/css/home8.css">
 	{/if}
 
 	<link rel="stylesheet" type="text/css" href="templates/wowhead/css/global10.css" />

@@ -19,7 +19,8 @@ function get(url,sucessFunc,errorFunc){
 }
 
 $(document).ready(function(){ 
-    initPage();
+    try{initSearch();}catch(e){}
+    try{initPage();}catch(e){}
 });
 
 var curPart = 0;
@@ -113,7 +114,7 @@ function loadNextData() {
     }
 
     lastLoadEvent = Date.parse(new Date());
-    get("http://api.topwow.top/rest/api2/news/next/"+minID,function(e){
+    get("http://www.topwow.top/rest/api2/news/next/"+minID,function(e){
         $('#minID').text(e.minID);
 
         for(var i=0;i<e.news.length;i++) {
@@ -155,4 +156,103 @@ function loadNextData() {
     },function(){
         
     });
+}
+function searchKey(){
+    $('#search-suggest').hide();
+    var searchText=$('#search_input').val();
+    if(searchText==''||searchText.length<2) return false;
+    get('http://www.topwow.top/opensearch.php?search='+searchText,function(d){
+        if(d.length<=0)return;
+        $('#search-suggest').html(makeSuggest(d));
+        $('#search-suggest').show();
+    });
+    return false;
+}
+function initSearch(){
+    $('#search-suggest').hide();
+    $('#search_input').click(function(e){
+        var e = e || window.event;
+        if(e.stopPropagation){
+            e.stopPropagation();
+        }else if(window.event){
+            window.event.cancelBubble = true;//兼容IE
+        }
+    });
+    $('#search_input').bind('keyup',function(e){ 
+        var searchText=$('#search_input').val();
+        if(searchText==''||searchText.length<2) return;
+        get('http://www.topwow.top/opensearch.php?search='+searchText,function(d){
+            if(d.length<=0)return;
+            $('#search-suggest').html(makeSuggest(d));
+            $('#search-suggest').show();
+        });
+    });
+    $(document).bind('click',function(){
+        $('#search-suggest').hide();
+    });
+    $(document).delegate('li','click',function(){
+        var id = $(this).find("span").attr('id');
+        var type = $(this).find("span").text();
+        var url="";
+        switch(type) {
+            case "NPC":url="http://www.topwow.top/npc-"+id+".html";break;
+            case "地物":url="http://www.topwow.top/object-"+id+".html";break;
+            case "装备物品":url="http://www.topwow.top/item-"+id+".html";break;
+            case "任务":url="http://www.topwow.top/quest-"+id+".html";break;
+            default:
+                return "";
+        }
+        location.href=url;
+    });
+}
+function makeSuggest(d){
+    var names=d[1];
+    var infos=d[d.length-1];
+    if(names.length==0) {
+        return
+    }
+    var result="<ul>";
+    for(var i=0;i<names.length;i++){
+        result += "<li class=\""+getSuggestClass(infos[i])+"\" style=\""+getSuggestStyle(infos[i])+"\">"+getSuggestName(names[i])+"<span id='"+infos[i][1]+"'>"+getSuggestType(infos[i])+"</span></li>";
+    }
+    result+="</ul>";
+    return result;
+}
+
+function getSuggestName(name){
+    return name.split('(')[0];
+}
+
+function getSuggestType(info){
+    if(info==undefined||info.length<2) {
+        return;
+    }
+    var type = info[0];
+    var entry = info[1];
+
+    switch(type) {
+        case 1:return "NPC";
+        case 2:return "地物";        
+        case 3:return "装备物品";
+        case 5:return "任务";
+        default:
+            return "";
+    }
+}
+
+function getSuggestClass(info) {
+    if(info.length>=4&&info[0]==3) {
+       return "wow-item-"+info[3];
+    }
+    if(info.length>=3&&info[0]==5) {
+        return "wow-faction-"+info[2];
+    }
+}
+/*[3, 12820, "INV_Potion_92", 1], */
+/*[1, 7455],*/
+function getSuggestStyle(info){
+    if(info==undefined||info.length<3){
+        return '';
+    }
+    return "text-align:left;padding-left:25px;background:url(images/icons/small/"+info[2]+".png) no-repeat left center;";
 }
