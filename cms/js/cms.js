@@ -202,6 +202,7 @@ function saveForm() {
             thumbStr += $(this).val();
         }
      });
+
     var param = {
         title: $('#title').val(),
         author: $('#author').val(),
@@ -215,7 +216,7 @@ function saveForm() {
         npcs: $('#npcs').val(),
         quests: $('#quests').val(),
         refer: $('#refer').val(),
-        thumb: thumbStr,
+        thumb: thumbStr
     };
 
     var postUrl="http://www.topwow.top/rest/api2/news/add";
@@ -226,7 +227,10 @@ function saveForm() {
     }
     post(postUrl,param,function(e){
         if(e.code==0) {
-            alert("提交成功");
+            confirm("提交成功，点击确定进入详情页面。",function(){
+                location.href="http://www.topwow.top/info-"+nid+".html";
+            });
+
         } else {
             alert(e.msg);
         }
@@ -337,3 +341,129 @@ function AES_CBC_encrypt(message, key, iv) {
     //return encrypted.ciphertext.toString();   // 二进制结果
 }
 
+
+function alert(msg) { LyDialog.alert({msg: msg}); }
+function info(msg) { LyDialog.info({msg: msg});}
+function warn(msg) { LyDialog.warn({msg: msg}); }
+function error(msg) { LyDialog.error({msg: msg});}
+function confirm(msg,okFunction,cancleFunction) {
+    LyDialog.confirm({msg: msg, onOk: function() {
+        if(okFunction){
+            okFunction();
+        }
+    }, onCancel: function(){
+        if(cancleFunction){
+            cancleFunction();
+        }
+    }})
+}
+function prompt1() {
+    LyDialog.prompt({msg: "请输入sid：(多个sid用英文逗号分隔)", onOk: function(val) {
+        console.log("prompt: onOk, ", val);
+    }, onCancel: function(){
+        console.log("prompt: onCancel");
+    }})
+}
+function prompt2() {
+    LyDialog.prompt({msg: "请输入意见反馈：", rows:2, onOk: function(val) {
+        console.log("prompt: onOk, ", val);
+    }, onCancel: function(){
+        console.log("prompt: onCancel");
+    }})
+}	
+var LyDialog = (function($) {
+    var _html = function() {/*
+        <div id="ly-dialog" class="modal modal-primary ly-dialog" tabindex="-1">
+        <div class="modal-dialog" style="width:400px;">
+        <div class="modal-content">
+            <div class='modal-header'>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove"></span></button>
+                <h4 class="modal-title font-14">{title}</h4>
+            </div>
+            <div class="modal-body">
+                {msg}
+            </div>
+            <div class="modal-footer">
+                <button id="lydialog-btncancel" type="button" class="btn btn-warning btn-xs" data-dismiss="modal">取消</button>
+                <button id="lydialog-btnok" type="button" class="btn btn-primary btn-xs">确定</button>
+            </div>
+        </div>
+        </div>
+        </div>
+    */};
+    var _msgTypes = {
+            info:"glyphicon glyphicon-info-sign", 
+            warn:"glyphicon glyphicon-warning-sign",
+            error:"glyphicon glyphicon-remove-sign"};
+    var _format = function() {
+        if(arguments.length == 0) return null;
+        var str = arguments[0], a = arguments.length > 1 ? arguments[1] : null;
+        for(var i=1;i<arguments.length;i++) {
+            var re = new RegExp('\\{' + (i-1) + '\\}','gm');
+            str = str.replace(re, arguments[i]);
+        }
+        return str;
+    };		
+    var _show = function(o) {
+            var _opts = {type: 'alert', msg: '请设置内容!', icon: 'info', val: '', rows: 1};
+            o = $.extend({}, _opts, o);
+            _init(o);
+            var _title = o.title, _body = o.msg, _openarg = {backdrop: 'static'}, $lydialog = $("#ly-dialog");
+            switch(o.type) {
+            case 'alert':
+                if(_title === undefined) _title = '信息';
+                _body = _format("<div class='msg msg-{0} clearfix'><span class='icon {1} fl' style='font-size:18px; margin-right:6px'></span>{2}</div>", 
+                        o.icon, _msgTypes[o.icon], o.msg);
+                $("#lydialog-btncancel").hide();
+                break;
+            case 'confirm':
+                if(_title === undefined) _title = '提示框';
+                $("#lydialog-btncancel").show();
+                break;
+            case 'prompt':
+                console.log("afdf")
+                if(_title === undefined) _title = '';
+                _body = _format("<label class='c-999'>{0}</label>", o.msg);
+                if(o.rows > 1) {
+                    _body += _format("<textarea id='lydialog-input' class='form-control input-sm' value='{0}' οnfοcus='this.select();' rows={1} style='resize:none;'></textarea>", o.val, o.rows);
+                } else {
+                    _body += _format("<input id='lydialog-input' class='form-control input-sm' value='{0}' οnfοcus='this.select();'>", o.val);
+                }
+                $("#lydialog-btncancel").show();
+                break;	
+            }
+            _title = _title || '';
+            if(_title == '') {
+                $lydialog.find(".modal-header").hide();
+            }else{
+                $lydialog.find(".modal-header").show(); $lydialog.find(".modal-title").html(_title);
+            }
+            $lydialog.find(".modal-body").html(_body);
+            $lydialog.modal(_openarg);
+        },
+        _confirm = function(o) { _show($.extend(_types.confirm, o));},
+        _prompt = function(o) {_show($.extend(_types.prompt, o));},
+        _init = function(o) {
+            if($("#ly-dialog").length == 0) {
+                var _strhtml = _html.toString(), _reg = /\/\*([\s\S]*)\*\//gm, _rst = _reg.exec(_strhtml);
+                $(document.body).append(_rst[1]);
+            }
+            $("#lydialog-btnok").off("click").on("click", function(e){
+                $("#ly-dialog").modal('hide');
+                if(o.onOk) o.onOk($("#lydialog-input").val());
+            });
+            $("#lydialog-btncancel").off("click").on("click", function(e){
+                $("#ly-dialog").modal('hide');
+                if(o.onCancel) o.onCancel();
+            });
+        };
+        //
+    return {
+        alert: _show,
+        info: _show,
+        warn: function(o) {o = o || {}, o.title = '警告', o.icon = 'warn', _show(o);},
+        error: function(o) {o = o || {}, o.title = '错误', o.icon = 'error', _show(o);},
+        confirm: function(o) {o = o || {}, o.type = 'confirm', _show(o);},
+        prompt: function(o) {o = o || {}, o.type = 'prompt', _show(o);},
+    };
+})(jQuery);

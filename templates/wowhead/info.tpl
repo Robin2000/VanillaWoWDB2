@@ -43,7 +43,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><img src="/templates/wowhead/images/logo.png"></a>
+            <a class="navbar-brand" href="http://www.topwow.top/"><img src="/templates/wowhead/images/logo.png"></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
