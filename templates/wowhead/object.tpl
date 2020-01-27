@@ -240,24 +240,6 @@
 				{#This_Object_cant_be_found#}
 {/if}
 
-<!---->
-
-{if $map0Poi}
-  <h2>艾泽拉斯地图</h2>
-  <script>
-  var map0Poi=[{foreach from=$map0Poi item=zone name=zone}[{$zone.x}, {$zone.y}],{/foreach}];
-  </script>
-  <iframe allowfullscreen="true" style="overflow:hidden" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" width="100%" height="500px" src="http://www.topwow.top/wowgis/map-0.html"></iframe>
-{/if} 
-
-{if $map1Poi}
-  <h2>卡利姆多地图</h2>
-  <script>
-  var map1Poi=[{foreach from=$map1Poi item=zone name=zone}[{$zone.x}, {$zone.y}],{/foreach}];
-  </script>
-  <iframe allowfullscreen="true" style="overflow:hidden" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" width="100%" height="500px" src="http://www.topwow.top/wowgis/map-1.html"></iframe>
-{/if} 
-<!---->
 
 				<div class="clear"></div>
 				<h2>{#Related#}</h2>
@@ -277,6 +259,24 @@ var tabsRelated = new Tabs({ldelim}parent: ge('tabs-generic'){rdelim});
 tabsRelated.flush();
 </script>
 
+<!---->
+
+{if $map0Poi}
+  <h2>东部王国地图</h2>
+  <script>
+  var map0Poi=[{foreach from=$map0Poi item=zone name=zone}[{$zone.x}, {$zone.y}],{/foreach}];
+  </script>
+  <iframe allowfullscreen="true" style="overflow:hidden" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" width="100%" height="500px" src="http://www.topwow.top/wowgis/map-0.html"></iframe>
+{/if} 
+
+{if $map1Poi}
+  <h2>卡利姆多地图</h2>
+  <script>
+  var map1Poi=[{foreach from=$map1Poi item=zone name=zone}[{$zone.x}, {$zone.y}],{/foreach}];
+  </script>
+  <iframe allowfullscreen="true" style="overflow:hidden" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" width="100%" height="500px" src="http://www.topwow.top/wowgis/map-1.html"></iframe>
+{/if} 
+<!---->
 {include file='bricks/contribute.tpl'}
 
 			</div>
