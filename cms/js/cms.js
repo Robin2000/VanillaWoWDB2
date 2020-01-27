@@ -2,7 +2,7 @@ function get(url,sucessFunc,errorFunc){
     /*var uid= getCookie("uid");
     var token= getCookie("token");*/
     $.ajax({
-            type: 'get',
+            type: 'GET',
             url: url,
             dataType: "json",
             ifModified: false,
@@ -29,7 +29,7 @@ function post(url,paramJson,sucessFunc,errorFunc){
     /*var uid= getCookie("uid");
     var token= getCookie("token");*/
     $.ajax({
-            type: 'post',
+            type: 'POST',
             url: url,
             data: paramJson,
             dataType: "json",
@@ -74,32 +74,43 @@ function initPage(){
     if(location.href.indexOf('/cms/login')==-1&&!isLogin()) {
        location.href="/cms/login.html";
     }
-    var id=getQueryVariable("id");
-    
-    /*get("http://www.topwow.top/api2/rest/"+id,function(){
-
-    },function(){
-
-    });*/
-
-    applyPage({
-        
-    });
-
+    applyPage();
+}
+function initData(data){
+    $("#nid").val(data.nid);
+    $("#templateType").val(data.media_type);
+    $("#channel").val(data.cid);
+    $("#source").val(data.source);
+    $("#author").val(data.author);
+    $("#title").val(data.title);
+    editor.html(data.body);
+    $("#tag").val(data.tag);
+    $("#zones").val(data.zones);
+    $("#items").val(data.items);
+    $("#npcs").val(data.npcs);
+    $("#quests").val(data.quests);
+    $("#refer").val(data.refer);
+    if(data.thumb==null||data.thumb==undefined) {
+        return;
+    }
+    var thumbs=data.thumb.split(',');
+    for(var i=0;i<thumbs.length;i++){
+        if(thumbs[i]==''){
+            continue;
+        }
+        $("#thumblist").append("<div style='float:left'><input name='thumb' type='checkbox' value='"+thumbs[i]+"' checked><img src='"+thumbs[i]+"' class='thumbnail'><div>");
+    }
 }
 var editor;
-function applyPage(data) {
+function applyPage() {
     KindEditor.ready(function(K) {
         editor = K.create('#body', {
             allowFileManager : true,
             fileManagerJson : 'http://www.topwow.top/rest/api2/editor/filemanager',
             uploadJson : 'http://www.topwow.top/rest/api2/editor/upload',
             afterUpload : function(url,e){
-                console.log(e.error==0);
                 if(e.error==0) {
-                    console.dir($("#thumblist"));
                     $("#thumblist").append("<div style='float:left'><input name='thumb' type='checkbox' value='"+e.thumb+"'><img src='"+e.thumb+"' class='thumbnail'><div>");
-                    console.log("end");
                 }
 
             }
@@ -114,8 +125,15 @@ function applyPage(data) {
         $("#loginBtn").click(function() {
             loginNow();
         });
-
-        
+        var id=getQueryVariable("id");
+        if(id==false) {
+            return;
+        }
+        get("http://www.topwow.top/rest/api2/news/info/"+id,function(e){
+            initData(e.data);
+        },function(){
+            alert("加载失败");
+        });
     });
 }
 function retriveImg() {
@@ -177,10 +195,12 @@ function preEncodingUrl(url) {
 function saveForm() {
     var thumbStr = '';
     $("input[name='thumb']:checked").each(function(){
-        if(thumbStr!='') {
-            thumbStr += ',';
+        if($(this).val()!='') {
+            if(thumbStr!='') {
+                thumbStr += ',';
+            }
+            thumbStr += $(this).val();
         }
-        thumbStr += $(this).val();
      });
     var param = {
         title: $('#title').val(),
@@ -198,7 +218,13 @@ function saveForm() {
         thumb: thumbStr,
     };
 
-    post("http://www.topwow.top/rest/api2/news/add",param,function(e){
+    var postUrl="http://www.topwow.top/rest/api2/news/add";
+    var nid = $("#nid").val();
+    if(nid!="") {
+        param['nid']=nid;
+        postUrl="http://www.topwow.top/rest/api2/news/update";
+    }
+    post(postUrl,param,function(e){
         if(e.code==0) {
             alert("提交成功");
         } else {
@@ -249,7 +275,7 @@ $(function(){
 });
 function myTrim(x) {
     return x.replace(/^\s+|\s+$/gm,'');
-  }
+}
 function setCookie(name, value) {
     document.cookie = name + "=" + value + ";path=" + "/"; 
     /*var date = new Date();

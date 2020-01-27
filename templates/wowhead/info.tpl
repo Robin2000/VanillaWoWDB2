@@ -14,7 +14,7 @@
   <link rel="apple-touch-icon" href="icon.png">
   <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="/templates/topwow/css/home6.css">
+  <link rel="stylesheet" href="/templates/topwow/css/home7.css">
 
   <link rel="search" type="application/opensearchdescription+xml" title="VanillaWoWDB" href="http://www.topwow.top/opensearch.xml" />
   <link rel="SHORTCUT ICON" href="http://www.topwow.top/favicon.ico">
@@ -25,6 +25,11 @@
   <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="/templates/topwow/js/vendor/masonry.pkgd.min.js"></script>
+  <script>
+    var part = {$info.part};
+    var nid = {$info.nid};
+  </script>
+  <script src="/templates/topwow/js/info.js"></script>
 </head>
 <body style="overflow-x:hidden;width:100%;">
 <div id="layers"></div>
@@ -1008,7 +1013,7 @@
     </nav>
 </div>
 
-<div class="container-fluid" style="max-width:780px;padding-top:100px;min-height:600px">
+<div class="container-fluid" style="max-width:780px;padding-top:150px;min-height:600px">
 	<div class="row">
 		<div class="col-md-12">
 			<h3>
@@ -1020,7 +1025,7 @@
                 <span class="time">{$info.pub_time}</span>
                 <span class="source">{$info.source}</span>
             </div>
-            
+
             {if isset($info.tag)}
             <div style="float:right">
                 {section name=i loop=$info.tag}
@@ -1040,34 +1045,40 @@
                     <div class="video-img"></div>
                 </div> 
             {else}
+                <div class="body" style="font-size:12px">
                 {$info.body}
+                <div>
             {/if}    
 			</div>
             <hr>
-            <div style="float:right;height:25px;line-height:30px;">
+            <div style="clear:both;"></div>
+            <div>
              {if isset($info.zones)}
-                <div><h6>相关地区</h6>
+                <div>
+                <span style="height:30px;line-height:30px;"><h6>相关地区</h6></span>
                 {section name=i loop=$info.zones}
                     <span class="button button-primary"><a target="_blank" href='/zone-{$info.zones[i].id}.html'>{$info.zones[i].name}</a></span> 
 			    {/section}
                 </div>           
              {/if}
              {if isset($info.items)}
-                <div><h6>相关物品</h6>
+                <div><span style="height:30px;line-height:30px;"><h6>相关物品</h6></span>
                 {section name=i loop=$info.items}
                     <span class="button button-primary"><a target="_blank" href='/item-{$info.items[i].id}.html'>{$info.items[i].name}</a></span> 
 			    {/section}
                 </div>           
              {/if} 
              {if isset($info.npcs)}
-                <div><h6>相关npc</h6>
+                <div>
+                <span style="height:30px;line-height:30px;"><h6>相关npc</h6></span>
                 {section name=i loop=$info.npcs}
                     <span class="button button-primary"><a target="_blank" href='/npc-{$info.npcs[i].id}.html'>{$info.npcs[i].name}</a></span> 
 			    {/section}
                 </div>
              {/if}               
              {if isset($info.quests)}
-                <div><h6>相关任务</h6>
+                <div>
+                <span style="height:30px;line-height:30px;"><h6>相关任务</h6></span>
                 {section name=i loop=$info.quests}
                     <span class="button button-primary"><a target="_blank" href='/quest-{$info.quests[i].id}.html'>{$info.quests[i].name}</a></span> 
 			    {/section}  
@@ -1077,8 +1088,8 @@
 		</div>
 	</div>
 </div>
-
-<div id="footer" style="margin-top:300px;text-align:center;width:100%;filter:alpha(Opacity=38);-moz-opacity:0.38;opacity: 0.38;">
+<div style="clear:both;"></div>
+<div id="footer" style="margin-top:100px;text-align:center;width:100%;filter:alpha(Opacity=38);-moz-opacity:0.38;opacity: 0.38;">
 	魔兽世界怀旧服地图资料
 	<div style="padding-bottom:5px;font-size: 12px;text-align:center"> <a style="text-decoration: none;color:gray" href="http://www.beian.miit.gov.cn/">京ICP备19021883号-1</a></div>
 	<div style="padding-bottom:15px;font-size: 12px;text-align:center">Copyright 2019 - 2020 topwow.top. All Rights Reserved</div>
@@ -1087,60 +1098,5 @@
 	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1277448314'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1277448314%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
 </div>
 </body>
-<script>
-var curPart = 0;
-var part = {$info.part};
-{literal}
-$('.grid').masonry({
-  // options
-  itemSelector: '.grid-item',
-  columnWidth: 200
-});
-var oldVideo = null;
-var oldImg = null;
-$(".video-img").click(function() {
-    var video = $(this).prev();
-    $(this).hide();
-
-    try{
-        if(oldImg!=null) {
-		    oldImg.show();
-        }
-        oldImg = $(this);
-    }catch(e){}
-    try{
-        if(oldVideo!=null) {
-            oldVideo.get(0).pause();
-            oldVideo.get(0).controls=false;
-            oldVideo.get(0).preload="none";
-        }
-        oldVideo = video;
-    }catch(e){}
-
-        video.get(0).preload="auto";
-		video.get(0).play();
-        video.attr('controls', 1);
-
-        video.get(0).onended = function () {
-            video.css("object-fit","scale-down");
-            video.get(0).poster = "/media/loading.gif";
-            var oldUrl = video.get(0).src;
-            video.get(0).preload="auto";
-            if(part>curPart) {
-                var newPart = curPart+1;
-                video.get(0).src=oldUrl.split('part'+curPart).join('part'+newPart);
-                video.get(0).play();
-                curPart++;
-            } else {
-                var newPart = 0;
-                video.get(0).src=oldUrl.split('part'+curPart).join('part'+newPart);;
-                video.get(0).play();
-                curPart=0;
-            }
-        }
-});
-
-{/literal}
-</script>
 </html>
 

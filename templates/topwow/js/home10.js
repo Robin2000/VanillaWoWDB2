@@ -1,6 +1,6 @@
 function get(url,sucessFunc,errorFunc){
     $.ajax({
-            type: 'get',
+            type: 'GET',
             url: url,
             dataType: "json",
             ifModified: false,
