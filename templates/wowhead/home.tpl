@@ -44,8 +44,8 @@
    
         <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-            <li><a href="http://www.topwow.top/wowgis/map-0.html">东部王国</a></li>
-            <li><a href="http://www.topwow.top/wowgis/map-1.html">卡利姆多</a></li>
+            <li><a target="_blank" href="http://www.topwow.top/wowgis/map-0.html">东部王国</a></li>
+            <li><a target="_blank" href="http://www.topwow.top/wowgis/map-1.html">卡利姆多</a></li>
             
             <!--装备道具-->
             <li class="dropdown mega-menu-fullwidth">
@@ -1002,7 +1002,7 @@
             <div class="searchBg">
                     <div class="searchCenter">
                         <form method="get" action="." onsubmit="return searchKey()">
-                            <input placeholder="{#searchHoder#}" type="text" name="search" size="30" class="searbox" id="search_input" autocomplete="off"/>
+                            <input placeholder="输入物品,道具,NPC,任务,技能,地区,阵营等" type="text" name="search" size="30" class="searbox" id="search_input" autocomplete="off"/>
                             <input type="button" value="" class="searbtn" onclick="searchNow()"/>
                         </form>
                         <div class="suggest" id="search-suggest" style="top: 38px; left: 0px; position: absolute;">

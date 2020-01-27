@@ -51,7 +51,7 @@ foreach($rows as $row){
 	$found[$row['name'].' (Item)'] = array(
 		'type'		=> 3,
 		'entry'		=> $row['entry'],
-		'iconname'	=> $row['iconname'],
+		'iconname'	=> strtolower($row['iconname']),
 		'quality'	=> $row['quality']
 	);
 }
