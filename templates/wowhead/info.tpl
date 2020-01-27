@@ -38,19 +38,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <div class="searchBg">
-                <a class="navbar-brand" href="/"><img src="/templates/wowhead/images/logo.png"></a>
-                <div class="searchCenter">
-                    <form method="get" action="." onsubmit="if(this.elements[0].value == '') return false">
-                        <input placeholder="{#searchHoder#}" type="text" name="search" size="30" class="searbox"/>
-                        <input type="submit" value="" class="searbtn"/>
-                    </form>
-                </div>
-            </div>        
+            <a class="navbar-brand" href="#"><img src="/templates/wowhead/images/logo.png"></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-            <li><a href="http://www.topwow.top/wowgis/map-0.html">艾泽拉斯</a></li>
+            <li><a href="http://www.topwow.top/wowgis/map-0.html">东部王国</a></li>
             <li><a href="http://www.topwow.top/wowgis/map-1.html">卡利姆多</a></li>
             
             <!--装备道具-->
@@ -1004,6 +996,14 @@
     
         </ul>
         </div><!--/.nav-collapse -->
+            <div class="searchBg">
+                    <div class="searchCenter">
+                        <form method="get" action="." onsubmit="if(this.elements[0].value == '') return false">
+                            <input placeholder="{#searchHoder#}" type="text" name="search" size="30" class="searbox"/>
+                            <input type="submit" value="" class="searbtn"/>
+                        </form>
+                    </div>
+            </div>
     </div>
     </nav>
 </div>
