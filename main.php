@@ -23,7 +23,12 @@ if(!$result = load_cache(20000, $cache_key))
         $thumb=$row['thumb'];
         if (isset($thumb)){
             $thumb = explode(",",$thumb);
-            $thumbSize = count($thumb);
+            foreach($thumb as $t) {
+                if(!empty($t)) {
+                    $thumbSize++;
+                }
+            }
+            if($thumbSize>3)$thumbSize=3;
         }
         $news[] = array(
             "nid" => $row['nid'],

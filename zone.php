@@ -359,7 +359,12 @@ if(!$zone = load_cache(16, $id))
 			$thumb=$row['thumb'];
 			if (isset($thumb)){
 				$thumb = explode(",",$thumb);
-				$thumbSize = count($thumb);
+				foreach($thumb as $t) {
+					if(!empty($t)) {
+						$thumbSize++;
+					}
+				}
+				if($thumbSize>3)$thumbSize=3;
 			}			
 			$refnews[] = array(
 				"nid" => $row['nid'],
