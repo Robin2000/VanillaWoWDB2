@@ -121,7 +121,7 @@
 						<a href="http://www.topwow.top/object-175757.html" title="太阳之井-奎尔萨拉斯的陷落">太阳之井-奎尔萨拉斯的陷落</a>
 						</li>
 						<li class="info-list">
-						<a href="http://www.topwow.top/object-175758.html" title="阿克蒙德的归来和卡里姆多之旅">阿克蒙德的归来和卡里姆多之旅</a>
+						<a href="http://www.topwow.top/object-175758.html" title="阿克蒙德的归来和卡利姆多姆多之旅">阿克蒙德的归来和卡利姆多姆多之旅</a>
 						</li>
 						<li class="info-list">
 						<a href="http://www.topwow.top/object-175759.html" title="背叛者的胜利">背叛者的胜利</a>
