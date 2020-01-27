@@ -25,7 +25,7 @@
   <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="/templates/topwow/js/vendor/masonry.pkgd.min.js"></script>
-  <script src="/templates/topwow/js/home11.js"></script>
+  <script src="/templates/topwow/js/home13.js"></script>
   <script>
     var part = {$info.part};
     var nid = {$info.nid};
@@ -1006,11 +1006,11 @@
                     <div class="searchCenter">
                         <form method="get" action="." onsubmit="return searchKey()">
                             <input placeholder="{#searchHoder#}" type="text" name="search" size="30" class="searbox" id="search_input" autocomplete="off"/>
-                            <input type="button" value="" class="searbtn"/>
+                            <input type="button" value="" class="searbtn" onclick="searchNow()"/>
                         </form>
                         <div class="suggest" id="search-suggest" style="top: 38px; left: 0px; position: absolute;">
                     </div>
-            </div> 
+            </div>  
     </div>
     </nav>
 </div>

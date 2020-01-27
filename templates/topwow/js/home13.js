@@ -157,6 +157,12 @@ function loadNextData() {
         
     });
 }
+function searchNow() {
+    $('#search-suggest').hide();
+    var searchText=$('#search_input').val();
+    if(searchText==''||searchText.length<2) return false;
+    location.href="http://www.topwow.top/search-"+searchText;
+}
 function searchKey(){
     $('#search-suggest').hide();
     var searchText=$('#search_input').val();
