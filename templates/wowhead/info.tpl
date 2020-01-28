@@ -30,7 +30,7 @@
     var part = {$info.part};
     var nid = {$info.nid};
   </script>
-  <script src="/templates/topwow/js/info2.js"></script>
+  <script src="/templates/topwow/js/info3.js"></script>
 </head>
 <body style="overflow-x:hidden;width:100%;">
 <div id="layers"></div>

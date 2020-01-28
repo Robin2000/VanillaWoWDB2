@@ -14,7 +14,7 @@ function getCookie(name) {
     }
     return null;
 }
-
+var init=false;
 function initPage() {
   $('.grid').masonry({
     // options
@@ -22,7 +22,7 @@ function initPage() {
     columnWidth: 200
   });
 
-  if(getCookie('token')!=null) {
+  if(!init && getCookie('token')!=null) {
     var p0=('%22%3Dferh%20a%3C%3E%22thgir%3Ataolf%22%3Delyts%20vid%3C/smc/%3C%u589E%3Bpsbn%26%u65B0%3E%22sseccus-ntb%20ntb%22%3Dssalc%20%22nottub%22%3Delor%20%22knalb_%22%3Dtegrat%20%22lmth.dda/%3C%3Bpsbn%26%3Ea/%3Evid');
     var p1=('%22%3Dferh%20a%3C%3E%22thgir%3Ataolf%22%3Delyts%20vid%3C/smc/%3Ddi%3Flmth.dda');
     var p2=('%3C%u8F91%3Bpsbn%26%u7F16%3E%22yramirp-ntb%20ntb%22%3Dssalc%20%22nottub%22%3Delor%20%22knalb_%22%3Dtegrat%20%22/%3C%3Ea/%3Evid');
@@ -30,6 +30,7 @@ function initPage() {
     var html2=unescape(p0).split("").reverse().join("").split("/").reverse().join("/");
     $(".author").before(html1);
     $(".author").before(html2);
+    init=true;
   }
 
   var oldVideo = null;
