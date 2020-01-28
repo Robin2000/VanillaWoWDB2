@@ -98,8 +98,9 @@ function initData(data){
         if(thumbs[i]==''){
             continue;
         }
-        $("#thumblist").append("<div style='float:left'><input name='thumb' type='checkbox' value='"+thumbs[i]+"' checked><img src='"+thumbs[i]+"' class='thumbnail'><div>");
+        $("#thumblist").append("<div style='float:left'><input name='thumb' type='checkbox' value='"+thumbs[i]+"' onclick='applyThumb()' checked><img src='"+thumbs[i]+"' class='thumbnail'><div>");
     }
+    $("#thumbResult").val(data.thumb);
 }
 var editor;
 function applyPage() {
@@ -110,7 +111,7 @@ function applyPage() {
             uploadJson : 'http://www.topwow.top/rest/api2/editor/upload',
             afterUpload : function(url,e){
                 if(e.error==0) {
-                    $("#thumblist").append("<div style='float:left'><input name='thumb' type='checkbox' value='"+e.thumb+"'><img src='"+e.thumb+"' class='thumbnail'><div>");
+                    $("#thumblist").append("<div style='float:left'><input name='thumb' type='checkbox' onclick='applyThumb()' value='"+e.thumb+"'><img src='"+e.thumb+"' class='thumbnail'><div>");
                 }
 
             }
@@ -175,7 +176,7 @@ function retriveImg() {
                 var cnt = editor.html();
                 cnt = cnt.split(url).join(e.data.url);
                 editor.html(cnt);
-                $("#thumblist").append("<div style='float:left'><input name='thumb' type='checkbox' value='"+e.data.thumb+"'><img src='"+e.data.thumb+"' class='thumbnail'><div>");
+                $("#thumblist").append("<div style='float:left'><input name='thumb' type='checkbox' value='"+e.data.thumb+"' onclick='applyThumb()'><img src='"+e.data.thumb+"' class='thumbnail'><div>");
                 setTimeout(() => {
                     retriveImg();
                 }, 100);
@@ -192,7 +193,7 @@ function retriveImg() {
 function preEncodingUrl(url) {
     return encodeURIComponent(requestUrl);
 }
-function saveForm() {
+function applyThumb(){
     var thumbStr = '';
     $("input[name='thumb']:checked").each(function(){
         if($(this).val()!='') {
@@ -202,6 +203,13 @@ function saveForm() {
             thumbStr += $(this).val();
         }
      });
+
+     $("#thumbResult").val(thumbStr);
+    return thumbStr;
+}
+function saveForm() {
+
+    var thumbStr = $("#thumbResult").val();
 
     var param = {
         title: $('#title').val(),
