@@ -139,7 +139,7 @@
     float:right;
 }
 .caption {
-    margin:15px;text-align:left !important;
+    text-align:left !important;
 }
 .caption a{
     font-size:1.0em;color:#191919;text-decoration:none;
@@ -150,17 +150,22 @@
     min-height:75px;
     padding-top:5px;
 }
-.n-img1{
+.n-img3 img{
+    padding-bottom:5px;
+  }
+.n-img1 img{
+  padding-left:5px;
+}
+.caption .n-img1{
     text-align:left;
-    min-height:75px;
-    margin-right:5px;
+    min-height:75px;    
 }
 .n-img0{
     text-align:left;
     min-height:75px;
 }
 .n_tip {
-    width:100%;color:gray;text-align:right;
+    width:100%;color:gray;text-align:right;padding-top:8px;font-size:11px
 }
 .thumbnail p{
     margin: 0 0 1px !important;
