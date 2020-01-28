@@ -14,7 +14,7 @@
   <link rel="apple-touch-icon" href="icon.png">
   <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="/templates/topwow/css/home8.css">
+  <link rel="stylesheet" href="/templates/topwow/css/home9.css">
 
   <link rel="search" type="application/opensearchdescription+xml" title="VanillaWoWDB" href="http://www.topwow.top/opensearch.xml" />
   <link rel="SHORTCUT ICON" href="http://www.topwow.top/favicon.ico">
@@ -25,7 +25,7 @@
   <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="/templates/topwow/js/vendor/masonry.pkgd.min.js"></script>
-  <script src="/templates/topwow/js/home13.js"></script>
+  <script src="/templates/topwow/js/home15.js"></script>
   <script>
     var part = {$info.part};
     var nid = {$info.nid};
@@ -677,7 +677,7 @@
                                             <li><h3>大型副本</h3></li>
 
                                             <!-- Default -->
-                                            <li><a herf="http://www.topwow.top/quests-3.html">团队副本</a>
+                                            <li><a href="http://www.topwow.top/quests-3.html">团队副本</a>
                                                 <div class="dropdown-header">
                                                     <a href="http://www.topwow.top/quests-3.2677.html">黑翼之巢</a>
                                                     <a href="http://www.topwow.top/quests-3.2717.html">熔火之心</a>
@@ -809,28 +809,28 @@
                                             <li><h3><a href="http://www.topwow.top/spells-7.html">职业技能</a></h3></li>
 
                                             <!-- Default -->
-                                            <li><a herf="http://www.topwow.top/spells-7.1.html" style="color:#CF9766">战士</a>
+                                            <li><a href="http://www.topwow.top/spells-7.1.html" style="color:#CF9766">战士</a>
                                                 <div class="dropdown-header">
                                                     <a href="http://www.topwow.top/spells-7.1.26.html">武器</a>
                                                     <a href="http://www.topwow.top/spells-7.1.256.html">狂暴</a>
                                                     <a href="http://www.topwow.top/spells-7.1.257.html">防御</a>
                                                 </div>
                                             </li>    
-                                            <li><a herf="http://www.topwow.top/spells-7.2.html" style="color:#F14C74">圣骑士</a>
+                                            <li><a href="http://www.topwow.top/spells-7.2.html" style="color:#F14C74">圣骑士</a>
                                                 <div class="dropdown-header">
                                                     <a href="http://www.topwow.top/spells-7.2.594.html">圣神</a>
                                                     <a href="http://www.topwow.top/spells-7.2.267.html">防护</a>
                                                     <a href="http://www.topwow.top/spells-7.2.184.html">惩戒</a>
                                                 </div>
                                             </li>
-                                            <li><a herf="http://www.topwow.top/spells-7.3.html" style="color:#AAD372">猎人</a>
+                                            <li><a href="http://www.topwow.top/spells-7.3.html" style="color:#AAD372">猎人</a>
                                                 <div class="dropdown-header">
                                                     <a href="http://www.topwow.top/spells-7.3.50.html">野兽支配</a>
                                                     <a href="http://www.topwow.top/spells-7.3.163.html">射击</a>
                                                     <a href="http://www.topwow.top/spells-7.3.51.html">生存</a>
                                                 </div>
                                             </li>     
-                                            <li><a herf="http://www.topwow.top/spells-7.4.html" style="color:#FFF468">潜行者</a>
+                                            <li><a href="http://www.topwow.top/spells-7.4.html" style="color:#FFF468">潜行者</a>
                                                 <div class="dropdown-header">
                                                     <a href="http://www.topwow.top/spells-7.4.253.html">刺杀</a>
                                                     <a href="http://www.topwow.top/spells-7.4.38.html">战斗</a>
@@ -838,35 +838,35 @@
                                                     <a href="http://www.topwow.top/spells-7.4.633.html">开锁</a>
                                                 </div>
                                             </li>    
-                                            <li><a herf="http://www.topwow.top/spells-7.5.html" style="color:#c0c0c0">牧师</a>
+                                            <li><a href="http://www.topwow.top/spells-7.5.html" style="color:#c0c0c0">牧师</a>
                                                 <div class="dropdown-header">
                                                     <a href="http://www.topwow.top/spells-7.5.613.html">戒律</a>
                                                     <a href="http://www.topwow.top/spells-7.5.56.html">圣神</a>
                                                     <a href="http://www.topwow.top/spells-7.5.78.html">暗影魔法</a>
                                                 </div>
                                             </li>     
-                                            <li><a herf="http://www.topwow.top/spells-7.7.html" style="color:#2359FF">萨满</a>
+                                            <li><a href="http://www.topwow.top/spells-7.7.html" style="color:#2359FF">萨满</a>
                                                 <div class="dropdown-header">
                                                     <a href="http://www.topwow.top/spells-7.7.375.html">元素战斗</a>
                                                     <a href="http://www.topwow.top/spells-7.7.373.html">增强</a>
                                                     <a href="http://www.topwow.top/spells-7.7.374.html">恢复</a>
                                                 </div>
                                             </li>   
-                                            <li><a herf="http://www.topwow.top/spells-7.8.html" style="color:#68CCEF">法师</a>
+                                            <li><a href="http://www.topwow.top/spells-7.8.html" style="color:#68CCEF">法师</a>
                                                 <div class="dropdown-header">
                                                     <a href="http://www.topwow.top/spells-7.8.237.html">奥术</a>
                                                     <a href="http://www.topwow.top/spells-7.8.8.html">火焰</a>
                                                     <a href="http://www.topwow.top/spells-7.8.6.html">冰霜</a>
                                                 </div>
                                             </li>    
-                                            <li><a herf="http://www.topwow.top/spells-7.9.html" style="color:#977DC7">术士</a>
+                                            <li><a href="http://www.topwow.top/spells-7.9.html" style="color:#977DC7">术士</a>
                                                 <div class="dropdown-header">
                                                     <a href="http://www.topwow.top/spells-7.9.355.html">痛苦</a>
                                                     <a href="http://www.topwow.top/spells-7.9.354.html">恶魔学识</a>
                                                     <a href="http://www.topwow.top/spells-7.9.593.html">毁灭</a>
                                                 </div>
                                             </li>
-                                            <li><a herf="http://www.topwow.top/spells-7.11.html" style="color:#FE7900">德鲁伊</a>
+                                            <li><a href="http://www.topwow.top/spells-7.11.html" style="color:#FE7900">德鲁伊</a>
                                                 <div class="dropdown-header">
                                                     <a href="http://www.topwow.top/spells-7.11.574.html">平衡</a>
                                                     <a href="http://www.topwow.top/spells-7.11.134.html">野性战斗</a>
@@ -883,29 +883,29 @@
                                             <li><h3><a href="http://www.topwow.top/spells-11.html">专业技能</a></h3>
                                                 <div class="dropdown-header">
                                                     <!-- Default -->
-                                                    <a herf="http://www.topwow.top/spells-11.171.html">炼金术</a>
-                                                    <a herf="http://www.topwow.top/spells-11.164.html">锻造</a>
-                                                    <a herf="http://www.topwow.top/spells-11.333.html">附魔</a>
-                                                    <a herf="http://www.topwow.top/spells-11.202.html">工程</a>
+                                                    <a href="http://www.topwow.top/spells-11.171.html">炼金术</a>
+                                                    <a href="http://www.topwow.top/spells-11.164.html">锻造</a>
+                                                    <a href="http://www.topwow.top/spells-11.333.html">附魔</a>
+                                                    <a href="http://www.topwow.top/spells-11.202.html">工程</a>
                                                 </div>
                                                 <div class="dropdown-header">
-                                                    <a herf="http://www.topwow.top/spells-11.165.html">制皮</a>
-                                                    <a herf="http://www.topwow.top/spells-11.186.html">采矿</a>
-                                                    <a herf="http://www.topwow.top/spells-11.393.html">剥皮</a>
-                                                    <a herf="http://www.topwow.top/spells-11.197.html">裁缝</a>
+                                                    <a href="http://www.topwow.top/spells-11.165.html">制皮</a>
+                                                    <a href="http://www.topwow.top/spells-11.186.html">采矿</a>
+                                                    <a href="http://www.topwow.top/spells-11.393.html">剥皮</a>
+                                                    <a href="http://www.topwow.top/spells-11.197.html">裁缝</a>
                                                 </div>
                                                 <div class="dropdown-header">
-                                                    <a herf="http://www.topwow.top/spells-11.182.html">草药学</a>
+                                                    <a href="http://www.topwow.top/spells-11.182.html">草药学</a>
                                                 </div>                                                
                                             </li>
                                             <!-- End Default -->
                                             <li class="big-screen-space">
                                             <h3><a href="http://www.topwow.top/spells-9.html">第二技能</a></h3>
                                             <div class="dropdown-header">
-                                                <a herf="http://www.topwow.top/spells-9.185.html">烹饪</a>
-                                                <a herf="http://www.topwow.top/spells-9.129.html">急救</a>
-                                                <a herf="http://www.topwow.top/spells-9.356.html">钓鱼</a>
-                                                <a herf="http://www.topwow.top/spells-9.762.html">骑术</a>
+                                                <a href="http://www.topwow.top/spells-9.185.html">烹饪</a>
+                                                <a href="http://www.topwow.top/spells-9.129.html">急救</a>
+                                                <a href="http://www.topwow.top/spells-9.356.html">钓鱼</a>
+                                                <a href="http://www.topwow.top/spells-9.762.html">骑术</a>
                                             </div>
                                             </li>
                                         </ul>
@@ -1066,7 +1066,9 @@
              {if isset($info.items)}
                 <div><span style="height:30px;line-height:30px;"><h6>相关物品</h6></span>
                 {section name=i loop=$info.items}
-                    <span class="button button-primary"><a target="_blank" href='/item-{$info.items[i].id}.html'>{$info.items[i].name}</a></span> 
+                    <span style="padding-left:25px;background:url(images/icons/small/{$info.items[i].iconname}.png) no-repeat left center;" class="button button-primary">
+                    <a target="_blank" href='/item-{$info.items[i].id}.html' class="wow-item-{$info.items[i].quality}">{$info.items[i].name}</a>
+                    </span> 
 			    {/section}
                 </div>           
              {/if} 
@@ -1074,7 +1076,14 @@
                 <div>
                 <span style="height:30px;line-height:30px;"><h6>相关npc</h6></span>
                 {section name=i loop=$info.npcs}
-                    <span class="button button-primary"><a target="_blank" href='/npc-{$info.npcs[i].id}.html'>{$info.npcs[i].name}</a></span> 
+                    <span class="button button-primary faction-{$info.npcs[i].side}">
+                    <a target="_blank" href='/npc-{$info.npcs[i].id}.html'>
+                        <div class="div-icon32">
+                        <img src="/screenshots/thumb/{$info.npcs[i].id}.jpg" style="width:32px;height:32px" onerror="this.src='/images/icons/medium/temp.png'">
+                        {$info.npcs[i].name}
+                        </div>
+                    </a>
+                    </span> 
 			    {/section}
                 </div>
              {/if}               
@@ -1082,7 +1091,9 @@
                 <div>
                 <span style="height:30px;line-height:30px;"><h6>相关任务</h6></span>
                 {section name=i loop=$info.quests}
-                    <span class="button button-primary"><a target="_blank" href='/quest-{$info.quests[i].id}.html'>{$info.quests[i].name}</a></span> 
+                    <span class="button button-primary faction-{$info.quests[i].side}">
+                    <a target="_blank" href='/quest-{$info.quests[i].id}.html'>{$info.quests[i].name}</a>
+                    </span> 
 			    {/section}  
                 </div>           
              {/if} 

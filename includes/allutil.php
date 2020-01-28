@@ -376,13 +376,13 @@ function SideByRace($race)
 	switch ($race)
 	{
 		case '0':
-			// Для всех?
+			// both
 			return 3;
 		case '690':
-			// Орда?
+			// Horde?
 			return 2;
 		case '1101':
-			// Альянс?
+			// Alliance?
 			return 1;
 		default:
 			return 0;

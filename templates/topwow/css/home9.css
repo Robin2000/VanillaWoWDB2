@@ -200,12 +200,14 @@
 }
 .navbar-inverse {background-color:#c73623 !important;border-color:#c73623}
 
-.suggest{overflow:hidden;width:280px; background-color:darkred;position:absolute;margin:0;padding:0;border-width:1px;border-style:solid;border-color: #999;}
+.suggest{overflow:hidden;width:320px; background-color:darkred;position:absolute;margin:0;padding:0;border-width:1px;border-style:solid;border-color: #999;}
 .suggest ul{list-style:none;display:block;margin:0;padding:0}
 .suggest ul li {padding:3px;line-height:25px;font-size: 14px;color: #777;cursor: pointer;padding:3px;}
 .suggest ul li:hover{background-color:#e5e5e5;text-decoration: underline;}
 .suggest ul li span{float:right}
 .suggest strong{color:#000;}
+
+/* wow factions */ .faction-0{ padding-left:16px;background:url(/templates/wowhead/images/alliance-icon.gif) no-repeat left top;color: #0078ff; } /* alliance */ .faction-1{ padding-left:16px;background:url(/templates/wowhead/images/horde-icon.gif) no-repeat left top;color: #b30000; } /* horde */
 
 /* wow factions */ .wow-faction-0, .wow-faction-0 a { color: #0078ff; } /* alliance */ .wow-faction-1, .wow-faction-1 a { color: #b30000; } /* horde */
 
@@ -218,3 +220,18 @@
 /* sc2 races */ .sc2-race-0, .sc2-race-0 a { color: green !important; } /* random */ .sc2-race-1, .sc2-race-1 a { color: red !important; } /* terran */ .sc2-race-2, .sc2-race-2 a { color: blue !important; } /* protoss */ .sc2-race-3, .sc2-race-3 a { color: purple !important; } /* zerg */
 
 /* sc2 factions */ .sc2-exp-0, .sc2-exp-0 a { color: blue !important; } /* wings of liberty */ .sc2-exp-1, .sc2-exp-1 a { color: purple !important; } /* heart of the swarm */ .sc2-exp-2, .sc2-exp-2 a { color: green !important; } /* legacy of the void */
+
+.div-icon32 {
+    line-height:32px;
+    height:32px;
+}
+.div-icon32 img{
+    text-align: center;
+    vertical-align:middle;
+    float:left;
+    width: 32px;
+    border: 2px solid #FFF;
+    margin: 0 5px;
+    border-radius: 30px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.65)
+}

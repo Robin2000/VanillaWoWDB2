@@ -203,7 +203,7 @@ function initSearch(){
         switch(type) {
             case "NPC":url="http://www.topwow.top/npc-"+id+".html";break;
             case "地物":url="http://www.topwow.top/object-"+id+".html";break;
-            case "装备物品":url="http://www.topwow.top/item-"+id+".html";break;
+            case "物品":url="http://www.topwow.top/item-"+id+".html";break;
             case "任务":url="http://www.topwow.top/quest-"+id+".html";break;
             default:
                 return "";
@@ -239,7 +239,7 @@ function getSuggestType(info){
     switch(type) {
         case 1:return "NPC";
         case 2:return "地物";        
-        case 3:return "装备物品";
+        case 3:return "物品";
         case 5:return "任务";
         default:
             return "";
@@ -253,12 +253,13 @@ function getSuggestClass(info) {
     if(info.length>=3&&info[0]==5) {
         return "wow-faction-"+info[2];
     }
+    return "";
 }
 /*[3, 12820, "INV_Potion_92", 1], */
 /*[1, 7455],*/
 function getSuggestStyle(info){
     if(info==undefined||info.length<3){
-        return '';
+        return 'text-align:left;padding-left:25px;';
     }
     return "text-align:left;padding-left:25px;background:url(images/icons/small/"+info[2]+".png) no-repeat left center;";
 }
