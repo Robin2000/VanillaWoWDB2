@@ -25,6 +25,9 @@
 									{if $item.buycopper}<span class="moneycopper">{$item.buycopper}</span>{/if}
 								</div></li>
 							{/if}
+							{if $item.info}
+								<li><div>{$item.info}</div></li>
+							{/if}
 							{if $item.sellgold or $item.sellsilver or $item.sellcopper}
 								<li><div>
 									{#Sells_for#}:
@@ -33,6 +36,7 @@
 									{if $item.sellcopper}<span class="moneycopper">{$item.sellcopper}</span>{/if}
 								</div></li>
 							{/if}
+
 							{if isset($item.disenchantskill)}<li><div>{#Disenchantable#} (<span class="tip" onmouseover="Tooltip.showAtCursor(event, LANG.tooltip_reqenchanting, 0, 0, 'q')" onmousemove="Tooltip.cursorUpdate(event)" onmouseout="Tooltip.hide()">{$item.disenchantskill}</span>)</div></li>{/if}
 							{if isset($item.key)}<li><div>{#Can_be_placed_in_the_keyring#}</div></li>{/if}
 						</ul>
