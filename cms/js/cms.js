@@ -126,6 +126,10 @@ function applyPage() {
         $("#loginBtn").click(function() {
             loginNow();
         });
+        $("#autoFeedBtn").click(function() {
+            autoFeed();
+        });
+        
         var id=getQueryVariable("id");
         if(id==false) {
             return;
@@ -136,6 +140,28 @@ function applyPage() {
             alert("加载失败");
         });
     });
+}
+function autoFeed() {
+    var requestUrl = $('#refer').val().split('&amp;').join('&');
+    var param = {
+        refer: requestUrl
+    };
+    post("http://www.topwow.top/rest/api2/editor/refer",param,function(e) {
+        if(e.code==0) {
+            /*todo:解析到页面*/
+            $('#templateType').val(e.data.mediaType);
+            $('#author').val(e.data.author);
+            $('#refer').val(e.data.refer);
+            $('#source').val(e.data.source);
+            $('#title').val(e.data.title);
+            $('#thumbResult').val(e.data.poster+","+e.data.src);
+        } else {
+            alert(e.msg);
+        }
+    },function(){
+        alert("网络请求失败");
+    });
+    
 }
 function retriveImg() {
     $('#iframeID').contents().find('body');
@@ -236,7 +262,7 @@ function saveForm() {
     post(postUrl,param,function(e){
         if(e.code==0) {
             confirm("提交成功，点击确定进入详情页面。",function(){
-                location.href="http://www.topwow.top/info-"+nid+".html";
+                location.href="http://www.topwow.top/info-"+$("#nid").val()+".html";
             });
 
         } else {
