@@ -2,20 +2,77 @@
 		<div id="main">
 
 			<div id="main-precontents"></div>
-			<div id="main-contents" class="main-contents">
+			<div id="main-contents" class="main-contents iteminfo">
 
 				<script type="text/javascript">
 					var g_pageInfo = {ldelim}type: {$page.type}, typeId: {$page.typeid}, name: '{$item.name|escape:"quotes"}'{rdelim};
 					g_initPath({$page.path});
 				</script>
 
+
+				<div class="text">
+					{strip}
+					<!--a href="javascript:;" class="button-red" onclick="this.blur(); g_getIngameLink(
+						{if $item.quality==0}
+							'ff9d9d9d',
+						{elseif $item.quality==1}
+							'ffffffff',
+						{elseif $item.quality==2}
+							'ff1eff00',
+						{elseif $item.quality==3}
+							'ff0070dd',
+						{elseif $item.quality==4}
+							'ffa335ee',
+						{elseif $item.quality==5}
+							'ffff8000',
+						{elseif $item.quality==6}
+							'ffe5cc80',
+						{elseif $item.quality==7}
+							'ffe5cc80',
+						{elseif $item.quality==8}
+							'ffffff98',
+						{else}
+							'ff71d5ff',
+						{/if}
+						'item:{$item.entry}:0:0:0:0:0:0:0:0', '{$item.name|replace:'"':'\\\\&quot;'}')">
+					<em><b><i>Link</i></b><span>{#Game_link#}</span></em></a-->
+					{/strip}
+					<h1>{$item.name}</h1>
+
+					<div id="icon{$item.entry}-generic" style="float:left"></div>
+					<!--div id="tooltip{$item.entry}-generic" class="tooltip" style="padding-top: 1px;visible:1">
+					<table >
+					<tr><td>{$item.info}</td><th style="background-position: top right"></th></tr>
+					<tr><th style="background-position: bottom left"></th><th style="background-position: bottom right"></th></tr>
+					</table>
+
+					</div-->
+
+
+
+
+					<script type="text/javascript">
+						ge('icon{$item.entry}-generic').appendChild(Icon.create('{$item.iconname}', 2, 0, 0, {$item.stackable}));
+						Tooltip.fix(ge('tooltip{$item.entry}-generic'), 1, 1);
+					</script>
+
+
+
 				<table class="infobox">
-					<tr><th>{#Quick_Facts#}</th></tr>
+					<td>
+					<div style="max-width:300px;white-space:normal">
+							{if $item.info}
+								{$item.info}
+							{/if}
+					</div>				
+					</td>
+					</tr>
+
 					<tr><td>
 						<div class="infobox-spacer"></div>
 						<ul>
 							{* Уровень вещи *}
-							{if $item.level}<li><div>{#level#}: {$item.level}</div></li>{/if}
+							{if $item.level}<li><div>物品品级: {$item.level}</div></li>{/if}
 							{* Стоимость вещи *}
 							{if $item.buygold or $item.buysilver or $item.buycopper}
 								<li><div>
@@ -24,9 +81,6 @@
 									{if $item.buysilver}<span class="moneysilver">{$item.buysilver}</span>{/if}
 									{if $item.buycopper}<span class="moneycopper">{$item.buycopper}</span>{/if}
 								</div></li>
-							{/if}
-							{if $item.info}
-								<li><div>{$item.info}</div></li>
 							{/if}
 							{if $item.sellgold or $item.sellsilver or $item.sellcopper}
 								<li><div>
@@ -57,52 +111,7 @@
 					</tr>
 				</table>
 
-				<div class="text">
-										{strip}
-					<a href="javascript:;" class="button-red" onclick="this.blur(); g_getIngameLink(
-						{if $item.quality==0}
-							'ff9d9d9d',
-						{elseif $item.quality==1}
-							'ffffffff',
-						{elseif $item.quality==2}
-							'ff1eff00',
-						{elseif $item.quality==3}
-							'ff0070dd',
-						{elseif $item.quality==4}
-							'ffa335ee',
-						{elseif $item.quality==5}
-							'ffff8000',
-						{elseif $item.quality==6}
-							'ffe5cc80',
-						{elseif $item.quality==7}
-							'ffe5cc80',
-						{elseif $item.quality==8}
-							'ffffff98',
-						{else}
-							'ff71d5ff',
-						{/if}
-						'item:{$item.entry}:0:0:0:0:0:0:0:0', '{$item.name|replace:'"':'\\\\&quot;'}')">
-					<em><b><i>Link</i></b><span>{#Game_link#}</span></em></a>
-					{/strip}
-					<h1>{$item.name}</h1>
-
-					<div id="icon{$item.entry}-generic" style="float: left"></div>
-					<div id="tooltip{$item.entry}-generic" class="tooltip" style="float: left; padding-top: 1px">
-					<table>
-					<tr><td>{$item.info}</td><th style="background-position: top right"></th></tr>
-					<tr><th style="background-position: bottom left"></th><th style="background-position: bottom right"></th></tr>
-					</table>
-
-					</div>
-
-
-					<div style="clear: left"></div>
-
-					<script type="text/javascript">
-						ge('icon{$item.entry}-generic').appendChild(Icon.create('{$item.iconname}', 2, 0, 0, {$item.stackable}));
-						Tooltip.fix(ge('tooltip{$item.entry}-generic'), 1, 1);
-					</script>
-
+				<div style="clear: left"></div>
 {if isset($item.pageTexts)}
 	<h3>
 	{if $smarty.session.locale==4}

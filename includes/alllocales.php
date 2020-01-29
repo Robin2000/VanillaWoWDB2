@@ -80,7 +80,7 @@ switch($_SESSION['locale'])
 		'LOCALE_HOLY_RESISTANCE'	=>	'不存在抗性',
 		// binds
 		'LOCALE_BIND_PICKUP'		=>	'拾取绑定',
-		'LOCALE_BIND_EQUIP'			=>	'物品绑定',
+		'LOCALE_BIND_EQUIP'			=>	'装备后绑定',
 		'LOCALE_BIND_USE'			=>	'使用绑定',
 		'LOCALE_BIND_SOULBOUND'		=>	'灵魂绑定',
 		'LOCALE_BIND_QUEST_ITEM'	=>	'任务物品',

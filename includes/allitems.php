@@ -314,9 +314,15 @@ function render_item_tooltip(&$Row)
 
 	$x = '';
 	// Начальный тег таблицы
-	$x .= '<table><tr><td>';
+	$x .= '<ul><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>';
 	// Название и цвет названия
-	$x .= '<b class="q'.$Row['quality'].'">'.localizedName($Row).'</b>';
+	$x .= '<h5 class="q'.$Row['quality'].'">'.localizedName($Row).'<p>'.$Row['name'].'</p></h5>';
+
+	// Требуемый уровень
+	if($Row['required_level']>0)
+		$x .= '<font color="#ffca00">'.LOCALE_REQUIRES_LEVEL.' '.$Row['required_level'].'</font><br />';
+	else
+		$x .= '<font color="#ffca00">'.LOCALE_REQUIRES_LEVEL.' 无限制</font><br />';
 	// Биндинг вещи
 	$x .= $bond[$Row['bonding']];
 
@@ -341,17 +347,17 @@ function render_item_tooltip(&$Row)
 	{
 		// Броня (4), Оружие(2), Патроны(6)
 		// Начало таблицы св-в брони
-		$x .= '<table width="100%">';
+		$x .= '<table width="100%" border="0" cellpadding="0" cellspacing="0">';
 		$x .= '<tr>';
 		// Слот
-		$x .= '<td>'.$slot[$Row['inventory_type']].'</td>';
+		$x .= '<td align="left">'.$slot[$Row['inventory_type']].'</td>';
 		// Тип брони
 		if($Row['class'] == 4)
-			$x .= '<th>'.$armor_type[$Row['subclass']].'</th>';
+			$x .= '<td align="right"><div class="right">'.$armor_type[$Row['subclass']].'</div></td>';
 		elseif($Row['class'] == 2)
-			$x .= '<th>'.$weapon_type[$Row['subclass']].'</th>';
+			$x .= '<td align="right"><div class="right">'.$weapon_type[$Row['subclass']].'</div></td>';
 		elseif($Row['class'] == 6)
-			$x .= '<th>'.$projectile_type[$Row['subclass']].'</th>';
+			$x .= '<td align="right"><div class="right">'.$projectile_type[$Row['subclass']].'</div></td>';
 		$x .= '</tr></table>';
 	} else {
 		$x .= '<br />';
@@ -411,10 +417,6 @@ function render_item_tooltip(&$Row)
 	if(classes($Row['allowable_class']))
 		$x .= LOCALE_CLASSES.': '.classes($Row['allowable_class']).'<br />';
 
-	// Требуемый уровень
-	if($Row['required_level']>1)
-		$x .= LOCALE_REQUIRES_LEVEL.' '.$Row['required_level'].'<br />';
-
 	// Требуемый скилл (755 - Jewecrafting)
 	if(($Row['required_skill']) and ($Row['required_skill']!=755))
 	{
@@ -437,7 +439,7 @@ function render_item_tooltip(&$Row)
 		$x .= LOCALE_REQUIRES.' '.$row['name'].' - '.$rep_levels[$Row['required_reputation_rank']];
 	}
 
-	$x .= '</td></tr></table>';
+	$x .= '</td></tr></table></ul>';
 
 	// Спеллы
 	for($j=1;$j<=5;$j++)
@@ -447,7 +449,7 @@ function render_item_tooltip(&$Row)
 	}
 
 	// Перебираем все "зеленые" бонусы
-	$x .= '<table><tr><td>';
+	$x .= '<ul><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>';
 	if($green)
 	{
 		foreach($green as $j => $bonus)
@@ -458,7 +460,7 @@ function render_item_tooltip(&$Row)
 	if($Row['description'])
 	{
 		if($Row['spelltrigger_2']==6)
-			$x .= '<span class="q2">'.LOCALE_GBONUS_USE.' <a href="http://www.topwow.top/spell-'.$Row['spellid_2'].'.html">'.localizedName($Row, 'description').'</a></span>';
+			$x .= '<span class="q2 ">'.LOCALE_GBONUS_USE.' <a href="http://www.topwow.top/spell-'.$Row['spellid_2'].'.html">'.localizedName($Row, 'description').'</a></span>';
 		else
 			$x .= '<span class="q">"'.localizedName($Row, 'description').'"</span>';
 	}
@@ -521,7 +523,7 @@ function render_item_tooltip(&$Row)
 		}
 		$x .= '</span></span>';
 	}
-	$x .= '</td></tr></table>';
+	$x .= '</td></tr></table></ul>';
 	return $x;
 }
 

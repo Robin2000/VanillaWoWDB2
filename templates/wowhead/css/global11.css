@@ -596,6 +596,7 @@ margin:0 0 3px;
 }
 
 .infobox {
+white-space:normal;
 width:176px;
 float:left;
 margin-top:30px;
@@ -605,6 +606,29 @@ border-collapse:collapse;
 background-color:#181818;
 border:1px solid #404040;
 }
+.iteminfo .infobox {
+    margin-top:0;
+    width:280px;
+    float:none !important;
+}
+.iteminfo .infobox table{
+    border-spacing:0;
+    width:240px;
+}
+.iteminfo .infobox table td{
+    padding:0; 
+}
+
+.iteminfo .infobox ul{
+    list-style-type:none;
+    padding-right:15px;
+}
+.iteminfo .infobox span{
+    white-space:normal;
+    width:300px;
+    float:none !important;
+}
+
 
 .infobox-spacer {
 width:174px;

@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="/templates/topwow/css/home10.css">
 	{/if}
 
-	<link rel="stylesheet" type="text/css" href="templates/wowhead/css/global10.css" />
+	<link rel="stylesheet" type="text/css" href="templates/wowhead/css/global11.css" />
 	<link rel="stylesheet" type="text/css" href="templates/wowhead/css/locale_{$language}.css" />
 	<!--[if IE]><link rel="stylesheet" type="text/css" href="templates/wowhead/css/global_ie.css?{$AOWOW_REVISION}" /><![endif]-->
 	<!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="templates/wowhead/css/global_ie6.css?{$AOWOW_REVISION}" /><![endif]-->
