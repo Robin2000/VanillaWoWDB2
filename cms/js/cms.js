@@ -262,7 +262,7 @@ function saveForm() {
     post(postUrl,param,function(e){
         if(e.code==0) {
             confirm("提交成功，点击确定进入详情页面。",function(){
-                location.href="http://www.topwow.top/info-"+$("#nid").val()+".html";
+                location.href="http://www.topwow.top/info-"+e.data+".html";
             });
 
         } else {
