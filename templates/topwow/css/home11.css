@@ -240,3 +240,9 @@
     border-radius: 30px;
     box-shadow: 0 1px 5px rgba(0,0,0,0.65)
 }
+.homeThumb {
+    height:76px;overflow-y:hidden;display:inline
+}
+.homeThumb img{
+    width:33.33%;height:76px !important;padding-left:1px;padding-right:1px;
+}
