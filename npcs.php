@@ -45,7 +45,7 @@ if(!$npcs = load_cache(2, $cache_key))
 	}
 
 	$rows = $DB->select('
-		SELECT c.?#, c.entry
+		SELECT name, patch,subname, minlevel, maxlevel, type, rank, A as faction_A, H as faction_H, c.entry
 		{
 			, l.name_loc?d AS name_loc
 			, l.subname_loc?d AS subname_loc
@@ -66,7 +66,6 @@ if(!$npcs = load_cache(2, $cache_key))
 		ORDER BY minlevel DESC, name
 		{LIMIT ?d}
 		',
-		$npc_cols[0],
 		($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
 		($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
 		($_SESSION['locale']>0)? 1: DBSIMPLE_SKIP,
@@ -80,8 +79,9 @@ if(!$npcs = load_cache(2, $cache_key))
 	);
 
 	$npcs = array();
-	foreach($rows as $row)
+	foreach($rows as $row) {
 		$npcs[] = creatureinfo2($row);
+	}
 	save_cache(5, $cache_key, $npcs);
 }
 
