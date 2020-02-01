@@ -231,28 +231,28 @@
             <div class="bdfs">其它类别：<br></div>
             <div class="item-screen">
                    <span >
-                        <a href="javascript:filterNpcs('npcFlag','n')" class="filter-a {if $npcFlag eq 'n'}current{/if}" title="全部">全部</a>
+                        <a href="javascript:filterNpcs('npc_flags','n')" class="filter-a {if $npc_flags eq 'n'}current{/if}" title="全部">全部</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('npcFlag',8)" class="filter-a {if $npcFlag eq '8'}current{/if}" title="飞行管理">飞行管理</a>
+                        <a href="javascript:filterNpcs('npc_flags',8)" class="filter-a {if $npc_flags eq '8'}current{/if}" title="飞行管理">飞行管理</a>
                     </span>                    
                     <span >
-                        <a href="javascript:filterNpcs('npcFlag',128)" class="filter-a {if $npcFlag eq '128'}current{/if}" title="客栈">客栈</a>
+                        <a href="javascript:filterNpcs('npc_flags',128)" class="filter-a {if $npc_flags eq '128'}current{/if}" title="客栈">客栈</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('npcFlag',256)" class="filter-a {if $npcFlag eq '256'}current{/if}" title="银行">银行</a>
+                        <a href="javascript:filterNpcs('npc_flags',256)" class="filter-a {if $npc_flags eq '256'}current{/if}" title="银行">银行</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('npcFlag',2048)" class="filter-a {if $npcFlag eq '2048'}current{/if}" title="战场">战场</a>
+                        <a href="javascript:filterNpcs('npc_flags',2048)" class="filter-a {if $npc_flags eq '2048'}current{/if}" title="战场">战场</a>
                     </span>			
                     <span >
-                        <a href="javascript:filterNpcs('npcFlag',4096)" class="filter-a {if $npcFlag eq '4096'}current{/if}" title="拍卖">拍卖</a>
+                        <a href="javascript:filterNpcs('npc_flags',4096)" class="filter-a {if $npc_flags eq '4096'}current{/if}" title="拍卖">拍卖</a>
                     </span>	
                     <span >
-                        <a href="javascript:filterNpcs('npcFlag',8192)" class="filter-a {if $npcFlag eq '8192'}current{/if}" title="兽栏">兽栏</a>
+                        <a href="javascript:filterNpcs('npc_flags',8192)" class="filter-a {if $npc_flags eq '8192'}current{/if}" title="兽栏">兽栏</a>
                     </span>	
                     <span >
-                        <a href="javascript:filterNpcs('npcFlag',16384)" class="filter-a {if $npcFlag eq '16384'}current{/if}" title="装备商">装备商</a>
+                        <a href="javascript:filterNpcs('npc_flags',16384)" class="filter-a {if $npc_flags eq '16384'}current{/if}" title="装备商">装备商</a>
                     </span>																																
             </div>
         </div>

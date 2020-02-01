@@ -3,8 +3,8 @@ require_once('includes/alllocales.php');
 require_once('includes/game.php');
 
 // Для списка creatureinfo()
-$npc_cols[0] = array('name', 'patch','subname', 'minlevel', 'maxlevel', 'type', 'rank', 'faction_A','faction_H');
-$npc_cols[1] = array('subname', 'minlevel', 'maxlevel', 'type', 'rank', 'minhealth', 'maxhealth', 'minmana', 'maxmana', 'mingold', 'maxgold', 'AIName','lootid', 'spell1', 'spell2', 'spell3', 'spell4', 'A', 'H', 'mindmg', 'maxdmg', 'attackpower', 'dmg_multiplier', 'armor', 'baseattacktime', 'resistance1','resistance2','resistance3','resistance4','resistance5','resistance6');
+$npc_cols[0] = array('name', 'patch','subname', 'level_min', 'level_max', 'type', 'rank', 'faction');
+$npc_cols[1] = array('subname', 'level_min', 'level_max', 'type', 'rank', 'health_min', 'health_max', 'mana_min', 'mana_max', 'gold_min', 'gold_max', 'ai_name','loot_id', 'spell_id1', 'spell_id2', 'spell_id3', 'spell_id4', 'A', 'H', 'dmg_min', 'dmg_max', 'attack_power', 'dmg_multiplier', 'armor', 'base_attack_time', 'holy_res','fire_res','nature_res','frost_res','shadow_res','arcane_res');
 $npc_type = array(LOCALE_TYPENPC_UNDEFINED,LOCALE_TYPENPC_BEAST,LOCALE_TYPENPC_DRAGON,LOCALE_TYPENPC_DEMON,LOCALE_TYPENPC_ELEM,LOCALE_TYPENPC_GIANT,LOCALE_TYPENPC_UNDEAD,LOCALE_TYPENPC_HUMAN,LOCALE_TYPENPC_CRITTER,LOCALE_TYPENPC_MECHANIC,LOCALE_TYPENPC_UNCATEGORY,LOCALE_TYPENPC_TOTEM,LOCALE_TYPENPC_COMPANION,LOCALE_TYPENPC_GAS_CLOUD);
 $npc_rank = array(LOCALE_NORMAL,LOCALE_ELITE,LOCALE_RARE_ELITE,LOCALE_BOSS,LOCALE_RARE,LOCALE_UNKNOWN);
 
@@ -21,8 +21,8 @@ function creatureinfo2(&$Row)
 	// Подимя создания
 	$creature['subname'] = localizedName($Row, 'subname');
 	// Min/Max уровни
-	$creature['minlevel'] = $Row['minlevel'];
-	$creature['maxlevel'] = $Row['maxlevel'];
+	$creature['level_min'] = $Row['level_min'];
+	$creature['level_max'] = $Row['level_max'];
 	// Get Location
 	$creature['location'] = getLocation($creature['entry'], "creature");
 	// Reaction
@@ -457,7 +457,7 @@ function creatureinfo($id)
 		}
 		WHERE
 			c.entry=?d
-			AND factiontemplateID=faction_A
+			AND factiontemplateID=faction
 		LIMIT 1
 		',
 		$npc_cols[0],
@@ -476,8 +476,8 @@ function GetNPCTooltip($row)
         'source_name'    => $row['name'],
         'name'           => localizedName($row),
         'subname'        => localizedName($row, 'subname'),
-        'minlevel'       => $row['minlevel'],
-        'maxlevel'       => $row['maxlevel'],
+        'level_min'       => $row['level_min'],
+        'level_max'       => $row['level_max'],
         'react'          => $row['A'].','.$row['H'],
         'type'           => $row['type'],
         'classification' => $row['classification'],
@@ -490,14 +490,14 @@ function GetNPCTooltip($row)
     if($creature['subname'])
         $x .= '<'.htmlspecialchars($creature['subname']).'>';
     $x .= '</td></tr><tr><td>';
-    if (isset($creature['minlevel']))
+    if (isset($creature['level_min']))
     {
         if($creature['classification'] == 3)
             $x .= LOCALE_LEVEL.' ?? ';
-        elseif($creature['minlevel'] == $creature['maxlevel'])
-            $x .= LOCALE_LEVEL.' '.$creature['minlevel'].' ';
+        elseif($creature['level_min'] == $creature['level_max'])
+            $x .= LOCALE_LEVEL.' '.$creature['level_min'].' ';
         else
-            $x .= LOCALE_LEVEL.' '.$creature['minlevel'].'-'.$creature['maxlevel'].' ';
+            $x .= LOCALE_LEVEL.' '.$creature['level_min'].'-'.$creature['level_max'].' ';
     }
     if($creature['type'] && $creature['type'] != 10)
         $x .= $npc_type[$creature['type']].' ';

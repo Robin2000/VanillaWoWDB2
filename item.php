@@ -26,10 +26,10 @@ if(!$item = load_cache(5, $cache_key))
 	if($drops_cr)
 	{
 		$item['droppedby'] = array();
-		foreach($drops_cr as $lootid => $drop)
+		foreach($drops_cr as $loot_id => $drop)
 		{
 			$rows = $DB->select('
-				SELECT c.?#, c.entry
+				SELECT c.?#, c.entry, A as faction_A,H as faction_H
 				{
 					, l.name_loc?d AS name_loc
 					, l.subname_loc?d AS subname_loc
@@ -37,20 +37,20 @@ if(!$item = load_cache(5, $cache_key))
 				FROM ?_factiontemplate, creature_template c
 				{ LEFT JOIN (locales_creature l) ON l.entry=c.entry AND ? }
 				WHERE
-					lootid=?d
-					AND factiontemplateID=faction_A
+					loot_id=?d
+					AND factiontemplateID=faction
 				',
 				$npc_cols[0],
 				($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
 				($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
 				($_SESSION['locale']>0)? 1: DBSIMPLE_SKIP,
-				$lootid
+				$loot_id
 			);
 			foreach($rows as $row)
 				$item['droppedby'][] = array_merge(creatureinfo2($row), $drop);
 		}
 		unset($rows);
-		unset($lootid);
+		unset($loot_id);
 		unset($drop);
 	}
 	unset($drops_cr);
@@ -62,7 +62,7 @@ if(!$item = load_cache(5, $cache_key))
 		$item['containedinobject'] = array();
 		$item['minedfromobject'] = array();
 		$item['gatheredfromobject'] = array();
-		foreach($drops_go as $lootid => $drop)
+		foreach($drops_go as $loot_id => $drop)
 		{
 			// Сундуки
 			$rows = $DB->select('
@@ -76,7 +76,7 @@ if(!$item = load_cache(5, $cache_key))
 				',
 				($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
 				($_SESSION['locale']>0)? 1: DBSIMPLE_SKIP,
-				$lootid,
+				$loot_id,
 				GAMEOBJECT_TYPE_CHEST,
 				LOCK_PROPERTIES_HERBALISM,
 				LOCK_PROPERTIES_MINING
@@ -108,7 +108,7 @@ if(!$item = load_cache(5, $cache_key))
 
 	// Поиск вендеров, которые эту вещь продают
 	$rows_soldby = $DB->select('
-			SELECT ?#, c.entry, v.maxcount AS stock
+			SELECT ?#, c.entry, v.maxcount AS stock, A as faction_A,H as faction_H
 			{
 				, l.name_loc?d AS name_loc
 				, l.subname_loc?d AS subname_loc
@@ -118,7 +118,7 @@ if(!$item = load_cache(5, $cache_key))
 			WHERE
 				v.item=?d
 				AND c.entry=v.entry
-				AND factiontemplateID=faction_A
+				AND factiontemplateID=faction
 			ORDER BY 1 DESC, 2 DESC
 		',
 		$npc_cols['0'],
@@ -201,7 +201,7 @@ if(!$item = load_cache(5, $cache_key))
 	if($drops_cii)
 	{
 		$item['containedinitem'] = array();
-		foreach($drops_cii as $lootid => $drop)
+		foreach($drops_cii as $loot_id => $drop)
 		{
 			$rows = $DB->select('
 					SELECT c.?#, c.entry, max_count
@@ -215,7 +215,7 @@ if(!$item = load_cache(5, $cache_key))
 				$item_cols[2],
 				($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
 				($_SESSION['locale']>0)? 1: DBSIMPLE_SKIP,
-				$lootid
+				$loot_id
 			);
 			$rows = sanitiseitemrows($rows);
 			foreach($rows as $row)
@@ -223,7 +223,7 @@ if(!$item = load_cache(5, $cache_key))
 		}
 		unset($drops_cii);
 		unset($rows);
-		unset($lootid);
+		unset($loot_id);
 		unset($drop);
 	}
 
@@ -236,10 +236,10 @@ if(!$item = load_cache(5, $cache_key))
 	if($drops_pp)
 	{
 		$item['pickpocketingloot'] = array();
-		foreach($drops_pp as $lootid => $drop)
+		foreach($drops_pp as $loot_id => $drop)
 		{
 			$rows = $DB->select('
-					SELECT c.?#, c.entry
+					SELECT c.?#, c.entry, A as faction_A,H as faction_H
 					{
 						, l.name_loc?d AS name_loc
 						, l.subname_loc?d AS subname_loc
@@ -248,19 +248,19 @@ if(!$item = load_cache(5, $cache_key))
 					{ LEFT JOIN (locales_creature l) ON l.entry=c.entry AND ? }
 					WHERE
 						pickpocketloot=?d
-						AND factiontemplateID=faction_A
+						AND factiontemplateID=faction
 				',
 				$npc_cols[0],
 				($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
 				($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
 				($_SESSION['locale']>0)? 1: DBSIMPLE_SKIP,
-				$lootid
+				$loot_id
 			);
 			foreach($rows as $row)
 				$item['pickpocketingloot'][] = array_merge(creatureinfo2($row), $drop);
 		}
 		unset($rows);
-		unset($lootid);
+		unset($loot_id);
 		unset($drop);
 	}
 	unset($drops_pp);
@@ -270,10 +270,10 @@ if(!$item = load_cache(5, $cache_key))
 	if($drops_sk)
 	{
 		$item['skinnedfrom'] = array();
-		foreach($drops_sk as $lootid => $drop)
+		foreach($drops_sk as $loot_id => $drop)
 		{
 			$rows = $DB->select('
-					SELECT c.?#, c.entry
+					SELECT c.?#, c.entry, A as faction_A,H as faction_H
 					{
 						, l.name_loc?d AS name_loc
 						, l.subname_loc?d AS subname_loc
@@ -282,19 +282,19 @@ if(!$item = load_cache(5, $cache_key))
 					{ LEFT JOIN (locales_creature l) ON l.entry=c.entry AND ? }
 					WHERE
 						skinloot=?d
-						AND factiontemplateID=faction_A
+						AND factiontemplateID=faction
 				',
 				$npc_cols[0],
 				($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
 				($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
 				($_SESSION['locale']>0)? 1: DBSIMPLE_SKIP,
-				$lootid
+				$loot_id
 			);
 			foreach($rows as $row)
 				$item['skinnedfrom'][] = array_merge(creatureinfo2($row), $drop);
 		}
 		unset($rows);
-		unset($lootid);
+		unset($loot_id);
 		unset($drop);
 	}
 	unset($drops_sk);
@@ -308,7 +308,7 @@ if(!$item = load_cache(5, $cache_key))
 	if($drops_de)
 	{
 		$item['disenchantedfrom'] = array();
-		foreach($drops_de as $lootid => $drop)
+		foreach($drops_de as $loot_id => $drop)
 		{
 			$rows = $DB->select('
 					SELECT c.?#, c.entry, max_count
@@ -324,14 +324,14 @@ if(!$item = load_cache(5, $cache_key))
 				$item_cols[2],
 				($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
 				($_SESSION['locale']>0)? 1: DBSIMPLE_SKIP,
-				$lootid
+				$loot_id
 			);
 			$rows = sanitiseitemrows($rows);
 			foreach($rows as $row)
 				$item['disenchantedfrom'][] = array_merge(iteminfo2($row, 0), $drop);
 		}
 		unset($rows);
-		unset($lootid);
+		unset($loot_id);
 		unset($drop);
 	}
 	unset($drops_de);
@@ -462,7 +462,7 @@ if(!$item = load_cache(5, $cache_key))
 	if($drops_fi)
 	{
 		$item['fishedin'] = array();
-		foreach($drops_fi as $lootid => $drop)
+		foreach($drops_fi as $loot_id => $drop)
 		{
 			// Обычные локации
 			$row = $DB->selectRow('
@@ -473,7 +473,7 @@ if(!$item = load_cache(5, $cache_key))
 						AND (x_min!=0 AND x_max!=0 AND y_min!=0 AND y_max!=0)
 					LIMIT 1
 				',
-				$lootid
+				$loot_id
 			);
 			if($row)
 			{
@@ -489,7 +489,7 @@ if(!$item = load_cache(5, $cache_key))
 							areatableID=?d
 						LIMIT 1
 					',
-					$lootid
+					$loot_id
 				);
 				if($row)
 					$item['fishedin'][] = array_merge($row, $drop);

@@ -38,7 +38,7 @@ function add_loot(&$loot, $newloot)
 }
 
 // Что дропает
-function loot($table, $lootid, $mod = 1)
+function loot($table, $loot_id, $mod = 1)
 {
 	// Все элементы
 	global $DB, $item_cols;
@@ -60,7 +60,7 @@ function loot($table, $lootid, $mod = 1)
 		($_SESSION['locale'])? $_SESSION['locale']: DBSIMPLE_SKIP,
 		$table,
 		($_SESSION['locale'])? 1: DBSIMPLE_SKIP,
-		$lootid,
+		$loot_id,
 		($AoWoWconf['limit']!=0)? $AoWoWconf['limit']: DBSIMPLE_SKIP
 	);
 	// Check patch validity

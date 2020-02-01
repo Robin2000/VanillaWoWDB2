@@ -83,8 +83,8 @@ switch($what)
             $x .= 'name_'.$locales[$_SESSION['locale']].': \''.ajax_str_normalize($creature['name']).'\',';
         if($creature['subname'])
             $x .= 'subname_'.$locales[$_SESSION['locale']].': \''.ajax_str_normalize($creature['subname']).'\',';
-        if($creature['minlevel'])
-            $x .= 'level:\''.$creature['minlevel'].'\',';
+        if($creature['level_min'])
+            $x .= 'level:\''.$creature['level_min'].'\',';
         if($creature['type'])
             $x .= 'type:\''.$creature['type'].'\',';
         if($creature['rank'])

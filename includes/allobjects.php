@@ -157,7 +157,7 @@ function objectinfo2(&$Row, $level=0)
 						* data15: use group loot rules (Boolean flag)
 				*/
 				$object['lockid'] = $Row['data0'];
-				$object['lootid'] = $Row['data1'];
+				$object['loot_id'] = $Row['data1'];
 				break;
 			case GAMEOBJECT_TYPE_BINDER:
 				/*	Object type not used */
@@ -292,8 +292,8 @@ function objectinfo2(&$Row, $level=0)
 				break;
 			case GAMEOBJECT_TYPE_MEETINGSTONE:
 				/*
-						* data0: minLevel
-						* data1: maxLevel
+						* data0: level_min
+						* data1: level_max
 						* data2: areaID (From AreaTable.dbc)
 				*/
 				break;
@@ -317,7 +317,7 @@ function objectinfo2(&$Row, $level=0)
 						* data2: minRestock
 						* data3: maxRestock
 				*/
-				$object['lootid'] = $Row['data1'];
+				$object['loot_id'] = $Row['data1'];
 				break;
 			case GAMEOBJECT_TYPE_FLAGDROP:
 				/*
@@ -491,10 +491,10 @@ function objectinfo2(&$Row, $level=0)
 			}
 		}
 		// Лут...
-		if(isset($object['lootid']))
+		if(isset($object['loot_id']))
 		{
 			$object['drop'] = array();
-			if(!$object['drop'] = loot('gameobject_loot_template', $object['lootid']))
+			if(!$object['drop'] = loot('gameobject_loot_template', $object['loot_id']))
 				unset($object['drop']);
 		}
 	}

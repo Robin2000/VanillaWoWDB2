@@ -35,7 +35,7 @@ if(!$quests = load_cache(12, $cache_key))
 		}
 		FROM quest_template q
 		{ LEFT JOIN (locales_quest l) ON l.entry=q.entry AND ? }
-		{ INNER JOIN creature_questrelation r ON q.entry=r.quest INNER JOIN creature_template c ON c.entry=r.id INNER JOIN aowow_factiontemplate f ON f.factiontemplateID=c.faction_A '.$testSide.' AND ?}
+		{ INNER JOIN creature_questrelation r ON q.entry=r.quest INNER JOIN creature_template c ON c.entry=r.id INNER JOIN aowow_factiontemplate f ON f.factiontemplateID=c.faction '.$testSide.' AND ?}
 		WHERE
 			1 = 1
 			{ AND ZoneOrSort = ? }

@@ -282,13 +282,13 @@ if(!$spell = load_cache(13, $cache_key))
 		if($trainers)
 		{
 			$taughtbytrainers = $DB->select('
-				SELECT ?#, c.entry
+				SELECT ?#, c.entry, A as faction_A,H as faction_H
 				{ , name_loc?d AS name_loc, subname_loc'.$_SESSION['locale'].' AS subname_loc }
 				FROM ?_factiontemplate, creature_template c
 				{ LEFT JOIN (locales_creature l) ON c.entry = l.entry AND ? }
 				WHERE
 					c.entry IN (?a)
-					AND factiontemplateID=faction_A
+					AND factiontemplateID=faction
 				',
 				$npc_cols[0],
 				($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
@@ -344,13 +344,13 @@ if(!$spell = load_cache(13, $cache_key))
 			// Список петов, кастующих спелл, обучающий нужному спеллу
 			/*
 			$taughtbypets = $DB->select('
-				SELECT ?#, c.entry
+				SELECT ?#, c.entry, A as faction_A,H as faction_H
 				{ , name_loc?d AS name_loc, subname_loc'.$_SESSION['locale'].' AS subname_loc }
 				FROM ?_factiontemplate, creature_template c
 				{ LEFT JOIN (locales_creature l) ON c.entry = l.entry AND ? }
 				WHERE
-					c.entry IN (SELECT entry FROM petcreateinfo_spell WHERE (Spell1 IN (?a)) OR (Spell2 IN (?a)) OR (Spell3 IN (?a)) OR (Spell4 IN (?a)))
-					AND factiontemplateID=faction_A
+					c.entry IN (SELECT entry FROM petcreateinfo_spell WHERE (spell_id1 IN (?a)) OR (spell_id2 IN (?a)) OR (spell_id3 IN (?a)) OR (spell_id4 IN (?a)))
+					AND factiontemplateID=faction
 				',
 				$npc_cols[0],
 				($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
@@ -390,13 +390,13 @@ if(!$spell = load_cache(13, $cache_key))
 
 			// Список НПЦ, кастующих нужный спелл, бла-бла-бла
 			$taughtbytrainers = $DB->select('
-				SELECT ?#, c.entry
+				SELECT ?#, c.entry, A as faction_A,H as faction_H
 				{ , name_loc?d AS name_loc, subname_loc'.$_SESSION['locale'].' AS subname_loc }
 				FROM ?_factiontemplate, creature_template c
 				{ LEFT JOIN (locales_creature l) ON c.entry = l.entry AND ? }
 				WHERE
 					c.entry IN (SELECT entry FROM npc_trainer WHERE spell in (?a))
-					AND factiontemplateID=faction_A
+					AND factiontemplateID=faction
 				',
 				$npc_cols[0],
 				($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
@@ -440,16 +440,16 @@ if(!$spell = load_cache(13, $cache_key))
 
 		// Используется NPC:
 		$usedbynpc = $DB->select('
-			SELECT ?#, c.entry
+			SELECT ?#, c.entry, A as faction_A,H as faction_H
 			{ , name_loc?d AS name_loc, subname_loc'.$_SESSION['locale'].' AS subname_loc }
 			FROM ?_factiontemplate, creature_template c
 			{ LEFT JOIN (locales_creature l) ON c.entry = l.entry AND ? }
 			WHERE
-				(spell1 = ?d
-				OR spell2 = ?d
-				OR spell3 = ?d
-				OR spell4 = ?d)
-				AND factiontemplateID=faction_A
+				(spell_id1 = ?d
+				OR spell_id2 = ?d
+				OR spell_id3 = ?d
+				OR spell_id4 = ?d)
+				AND factiontemplateID=faction
 			',
 			$npc_cols[0],
 			($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
@@ -492,7 +492,7 @@ if(!$spell = load_cache(13, $cache_key))
 		$usedbyitemset = $DB->select('
 			SELECT *
 			FROM ?_itemset
-			WHERE spell1 = ?d OR spell2 = ?d OR spell3 = ?d OR spell4 = ?d OR spell5 = ?d OR spell6 = ?d OR spell7 = ?d OR spell8 = ?d
+			WHERE spell_id1 = ?d OR spell_id2 = ?d OR spell_id3 = ?d OR spell_id4 = ?d OR spell_id5 = ?d OR spell_id6 = ?d OR spell_id7 = ?d OR spell_id8 = ?d
 			',
 			$spell['entry'], $spell['entry'], $spell['entry'], $spell['entry'], $spell['entry'], $spell['entry'], $spell['entry'], $spell['entry']
 		);

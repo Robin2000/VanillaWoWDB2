@@ -16,10 +16,10 @@ CREATE INDEX `aowow_item_pk_loot` ON `pickpocketing_loot_template`(`item`);
 CREATE INDEX `aowow_item_sk_loot` ON `skinning_loot_template`     (`item`);
 CREATE INDEX `aowow_item_ref_loot` ON `reference_loot_template`    (`item`);
 
-CREATE INDEX `aowow_lootid`         ON `creature_template` (`lootid`);
+CREATE INDEX `aowow_lootid`         ON `creature_template` (`loot_id`);
 CREATE INDEX `aowow_skinloot`       ON `creature_template` (`skinloot`);
 CREATE INDEX `aowow_pickpocketloot` ON `creature_template` (`pickpocketloot`);
-CREATE INDEX `aowow_faction_A`      ON `creature_template` (`faction_A`);
+CREATE INDEX `aowow_faction_A`      ON `creature_template` (`faction`);
 
 CREATE INDEX `aowow_faction`        ON `item_template`     (`RequiredReputationFaction`);
 

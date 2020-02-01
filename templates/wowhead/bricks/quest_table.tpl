@@ -10,8 +10,8 @@
 					id:'{$data[i].entry}',
 					name:'{$data[i].Title|escape:"quotes"}',
 					level:'{$data[i].QuestLevel}',
-					{if ($data[i].MinLevel)}
-						reqlevel:{$data[i].MinLevel},
+					{if ($data[i].level_min)}
+						reqlevel:{$data[i].level_min},
 					{/if}
 					side:'{$data[i].side.side}'
 					{if isset($data[i].itemrewards)}

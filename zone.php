@@ -52,11 +52,11 @@ if(!$zone = load_cache(16, $id))
 	if ($zone['x_min'] && $zone['y_min'] && $zone['x_max'] && $zone['y_max'])
 	{
 		$sql='
-		SELECT ct.entry, ct.name, ct.subname, ct.Rank, ct.faction_A, lc.name_loc?d, lc.subname_loc?d, ct.npcflag, position_x, position_y
+		SELECT ct.entry, ct.name, ct.subname, ct.Rank, ct.faction, lc.name_loc?d, lc.subname_loc?d, ct.npc_flags, position_x, position_y
 		FROM creature c, creature_template ct
 		LEFT JOIN locales_creature lc ON ct.entry = lc.entry
 		WHERE c.id = ct.entry
-		  AND (ct.npcflag = 11 OR ct.npcflag = 16388 OR ct.npcflag = 33 OR ct.npcflag= 135 OR ct.Rank>0)
+		  AND (ct.npc_flags = 11 OR ct.npc_flags = 16388 OR ct.npc_flags = 33 OR ct.npc_flags= 135 OR ct.Rank>0)
 		  AND c.map = ?d
 		  AND c.position_x > ?f
 		  AND c.position_x < ?f
@@ -65,11 +65,11 @@ if(!$zone = load_cache(16, $id))
 		';
 		if($id==209||$id==1581||$id==491||$id==1176||$id==1584||$id==3429||$id==2677) {//影牙城堡等
 			$sql='
-			SELECT ct.entry, ct.name, ct.subname, ct.Rank, ct.faction_A, lc.name_loc?d, lc.subname_loc?d, ct.npcflag, position_x, position_y
+			SELECT ct.entry, ct.name, ct.subname, ct.Rank, ct.faction, lc.name_loc?d, lc.subname_loc?d, ct.npc_flags, position_x, position_y
 			FROM creature c, creature_template ct
 			LEFT JOIN locales_creature lc ON ct.entry = lc.entry
 			WHERE c.id = ct.entry
-			  AND (ct.npcflag = 11 OR ct.npcflag = 16388 OR ct.npcflag = 33 OR ct.npcflag= 135 OR ct.Rank>0)
+			  AND (ct.npc_flags = 11 OR ct.npc_flags = 16388 OR ct.npc_flags = 33 OR ct.npc_flags= 135 OR ct.Rank>0)
 			  AND c.map = ?d
 			  AND c.position_x > ?f
 			  AND c.position_x < ?f
@@ -80,11 +80,11 @@ if(!$zone = load_cache(16, $id))
 		}
 		if($id==1583) {//黑石塔下
 			$sql='
-			SELECT ct.entry, ct.name, ct.subname, ct.Rank, ct.faction_A, lc.name_loc?d, lc.subname_loc?d, ct.npcflag, position_x, position_y
+			SELECT ct.entry, ct.name, ct.subname, ct.Rank, ct.faction, lc.name_loc?d, lc.subname_loc?d, ct.npc_flags, position_x, position_y
 			FROM creature c, creature_template ct
 			LEFT JOIN locales_creature lc ON ct.entry = lc.entry
 			WHERE c.id = ct.entry
-			  AND (ct.npcflag = 11 OR ct.npcflag = 16388 OR ct.npcflag = 33 OR ct.npcflag= 135 OR ct.Rank>0)
+			  AND (ct.npc_flags = 11 OR ct.npc_flags = 16388 OR ct.npc_flags = 33 OR ct.npc_flags= 135 OR ct.Rank>0)
 			  AND c.map = ?d
 			  AND c.position_x > ?f
 			  AND c.position_x < ?f
@@ -96,11 +96,11 @@ if(!$zone = load_cache(16, $id))
 		}
 		if($id==15830) {//黑石塔上
 			$sql='
-			SELECT ct.entry, ct.name, ct.subname, ct.Rank, ct.faction_A, lc.name_loc?d, lc.subname_loc?d, ct.npcflag, position_x, position_y
+			SELECT ct.entry, ct.name, ct.subname, ct.Rank, ct.faction, lc.name_loc?d, lc.subname_loc?d, ct.npc_flags, position_x, position_y
 			FROM creature c, creature_template ct
 			LEFT JOIN locales_creature lc ON ct.entry = lc.entry
 			WHERE c.id = ct.entry
-			  AND (ct.npcflag = 11 OR ct.npcflag = 16388 OR ct.npcflag = 33 OR ct.npcflag= 135 OR ct.Rank>0)
+			  AND (ct.npc_flags = 11 OR ct.npc_flags = 16388 OR ct.npc_flags = 33 OR ct.npc_flags= 135 OR ct.Rank>0)
 			  AND c.map = ?d
 			  AND c.position_x > ?f
 			  AND c.position_x < ?f
@@ -192,12 +192,12 @@ if(!$zone = load_cache(16, $id))
 					}
 					WHERE
 						c.entry=?d
-						AND factiontemplateID=faction_A
+						AND factiontemplateID=faction
 					LIMIT 1 
 				', $row['entry']
 				);
 
-				//echo $row['faction_A'];
+				//echo $row['faction'];
 				
 				if ($faction['A'] == 1 && $faction['H'] == -1) {
 					$type = 3; // 3 is blue
@@ -245,25 +245,25 @@ if(!$zone = load_cache(16, $id))
 				}
 				
 				$isNPC=FALSE;
-				if ($row['npcflag']==11)
+				if ($row['npc_flags']==11)
 				{	
 					$taxies['population']++;
 					$taxies['points'][] = $point;
 					$isNPC=TRUE;
 				}
-				if ($row['npcflag']==135)
+				if ($row['npc_flags']==135)
 				{
 					$inns['population']++;
 					$inns['points'][] = $point;
 					$isNPC=TRUE;
 				}
-				if ($row['npcflag']==16388)
+				if ($row['npc_flags']==16388)
 				{
 					$repairers['population']++;
 					$repairers['points'][] = $point;
 					$isNPC=TRUE;
 				}
-				if ($row['npcflag']==33) //&16384 || $row['npcflag']&32768)
+				if ($row['npc_flags']==33) //&16384 || $row['npc_flags']&32768)
 				{
 					$spirithealers['population']++;
 					$spirithealers['points'][] = $point;

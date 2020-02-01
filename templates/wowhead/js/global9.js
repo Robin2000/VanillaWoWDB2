@@ -5928,17 +5928,17 @@ Listview.templates = {
 			name: LANG.level,
 			type: "range",
 			getMinValue: function (a) {
-				return a.minlevel
+				return a.level_min
 			},
 			getMaxValue: function (a) {
-				return a.maxlevel
+				return a.level_max
 			},
 			compute: function (a, b) {
-				if (a.minlevel > 0 && a.maxlevel > 0) {
-					if (a.minlevel != a.maxlevel) {
-						return a.minlevel + LANG.hyphen + a.maxlevel
+				if (a.level_min > 0 && a.level_max > 0) {
+					if (a.level_min != a.level_max) {
+						return a.level_min + LANG.hyphen + a.level_max
 					} else {
-						return a.minlevel
+						return a.level_min
 					}
 				} else {
 					return - 1
@@ -5946,9 +5946,9 @@ Listview.templates = {
 			},
 			sortFunc: function (d, c, e) {
 				if (e > 0) {
-					return strcmp(d.minlevel, c.minlevel) || strcmp(d.maxlevel, c.maxlevel)
+					return strcmp(d.level_min, c.level_min) || strcmp(d.level_max, c.level_max)
 				} else {
-					return strcmp(d.maxlevel, c.maxlevel) || strcmp(d.minlevel, c.minlevel)
+					return strcmp(d.level_max, c.level_max) || strcmp(d.level_min, c.level_min)
 				}
 			}
 		},
@@ -6041,10 +6041,10 @@ Listview.templates = {
 			type: "range",
 			width: "10%",
 			getMinValue: function (a) {
-				return a.minlevel
+				return a.level_min
 			},
 			getMaxValue: function (a) {
-				return a.maxlevel
+				return a.level_max
 			},
 			compute: function (a, c) {
 				if (a.classification) {
@@ -6056,11 +6056,11 @@ Listview.templates = {
 				if (a.classification == 3) {
 					return "??"
 				}
-				if (a.minlevel > 0 && a.maxlevel > 0) {
-					if (a.minlevel != a.maxlevel) {
-						return a.minlevel + LANG.hyphen + a.maxlevel
+				if (a.level_min > 0 && a.level_max > 0) {
+					if (a.level_min != a.level_max) {
+						return a.level_min + LANG.hyphen + a.level_max
 					} else {
-						return a.minlevel
+						return a.level_min
 					}
 				}
 				return - 1
@@ -6070,21 +6070,21 @@ Listview.templates = {
 				if (a.classification) {
 					b += " " + g_npc_classifications[a.classification]
 				}
-				if (a.minlevel > 0 && a.maxlevel > 0) {
+				if (a.level_min > 0 && a.level_max > 0) {
 					b += " ";
-					if (a.minlevel != a.maxlevel) {
-						b += a.minlevel + LANG.hyphen + a.maxlevel
+					if (a.level_min != a.level_max) {
+						b += a.level_min + LANG.hyphen + a.level_max
 					} else {
-						b += a.minlevel
+						b += a.level_min
 					}
 				}
 				return b
 			},
 			sortFunc: function (d, c, e) {
 				if (e > 0) {
-					return strcmp(d.minlevel, c.minlevel) || strcmp(d.maxlevel, c.maxlevel) || strcmp(d.classification, c.classification)
+					return strcmp(d.level_min, c.level_min) || strcmp(d.level_max, c.level_max) || strcmp(d.classification, c.classification)
 				} else {
-					return strcmp(d.maxlevel, c.maxlevel) || strcmp(d.minlevel, c.minlevel) || strcmp(d.classification, c.classification)
+					return strcmp(d.level_max, c.level_max) || strcmp(d.level_min, c.level_min) || strcmp(d.classification, c.classification)
 				}
 			}
 		},
@@ -7307,17 +7307,17 @@ Listview.templates = {
 			name: LANG.level,
 			type: "range",
 			getMinValue: function (a) {
-				return a.minlevel
+				return a.level_min
 			},
 			getMaxValue: function (a) {
-				return a.maxlevel
+				return a.level_max
 			},
 			compute: function (a, b) {
-				if (a.minlevel > 0 && a.maxlevel > 0) {
-					if (a.minlevel != a.maxlevel) {
-						return a.minlevel + LANG.hyphen + a.maxlevel
+				if (a.level_min > 0 && a.level_max > 0) {
+					if (a.level_min != a.level_max) {
+						return a.level_min + LANG.hyphen + a.level_max
 					} else {
-						return a.minlevel
+						return a.level_min
 					}
 				} else {
 					return - 1
@@ -7325,9 +7325,9 @@ Listview.templates = {
 			},
 			sortFunc: function (d, c, e) {
 				if (e > 0) {
-					return strcmp(d.minlevel, c.minlevel) || strcmp(d.maxlevel, c.maxlevel)
+					return strcmp(d.level_min, c.level_min) || strcmp(d.level_max, c.level_max)
 				} else {
-					return strcmp(d.maxlevel, c.maxlevel) || strcmp(d.minlevel, c.minlevel)
+					return strcmp(d.level_max, c.level_max) || strcmp(d.level_min, c.level_min)
 				}
 			}
 		},
@@ -8040,7 +8040,7 @@ Listview.templates = {
 			h.className = "screenshot-caption";
 			var f = ce("small");
 			ae(f, ct(LANG.level + ": "));
-			ae(f, ct(c.minLevel + (c.minLevel == c.maxLevel ? "": LANG.hyphen + (c.maxLevel == 9999 ? "??": c.maxLevel))));
+			ae(f, ct(c.level_min + (c.level_min == c.level_max ? "": LANG.hyphen + (c.level_max == 9999 ? "??": c.level_max))));
 			ae(f, ce("br"));
 			ae(h, f);
 			ae(j, h);
@@ -9984,7 +9984,7 @@ function filterNpcs(type,val) {
 		case 'trainerClass':return filterQuery(4,type,val);
 		case 'trainerRace':return filterQuery(5,type,val);
 		case 'trainerSpell':return filterQuery(6,type,val);
-		case 'npcFlag':return filterQuery(7,type,val);
+		case 'npc_flags':return filterQuery(7,type,val);
 		case 'minLvl':return filterQuery(8,type,val);
 	}
 }

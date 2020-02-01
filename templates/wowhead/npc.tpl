@@ -17,13 +17,13 @@
 				<div class="infobox-spacer"></div>
 				<div>
 					<ul>
-						<li><div>{#Level#}: {if $npc.minlevel<>$npc.maxlevel}{$npc.minlevel} - {/if}{$npc.maxlevel}</div></li>
+						<li><div>{#Level#}: {if $npc.level_min<>$npc.level_max}{$npc.level_min} - {/if}{$npc.level_max}</div></li>
 						<li><div>{#Classification#}: {$npc.rank}</div></li>
 						<li><div>{#React#}: <span class="q{if $npc.A==-1}10{elseif $npc.A==1}2{else}{/if}">A</span> <span class="q{if $npc.H==-1}10{elseif $npc.H==1}2{else}{/if}">H</span></div></li>
 						<li><div>{#Faction#}: <a href="http://www.topwow.top/faction-{$npc.faction_num}.html">{$npc.faction}</a></div></li>
-						<li><div>{#Health#}: {if $npc.minhealth<>$npc.maxhealth}{$npc.minhealth} - {/if}{$npc.maxhealth}</div></li>
-						{if ($npc.minmana or $npc.maxmana)}
-						<li><div>{#Mana#}: {if $npc.minmana<>$npc.maxmana}{$npc.minmana} - {/if}{$npc.maxmana}</div></li>
+						<li><div>{#Health#}: {if $npc.health_min<>$npc.health_max}{$npc.health_min} - {/if}{$npc.health_max}</div></li>
+						{if ($npc.mana_min or $npc.mana_max)}
+						<li><div>{#Mana#}: {if $npc.mana_min<>$npc.mana_max}{$npc.mana_min} - {/if}{$npc.mana_max}</div></li>
 						{/if}
 						{if ($npc.moneysilver>0) or ($npc.moneygold>0) or ($npc.moneycopper>0)}
 												<li><div>{#Wealth#}:{if ($npc.moneygold>0)}
@@ -34,10 +34,10 @@
 						 <span class="moneycopper">{$npc.moneycopper}</span>{/if}
 						</div></li>
 						{/if}
-						{if $npc.mindmg > 0 and $npc.maxdmg > 0 and $npc.dps > 0}
-												<li><div>{#Damage#}: {$npc.mindmg} - {$npc.maxdmg} <br> ({$npc.dps} dps)</div></li>
-						{elseif $npc.mindmg > 0 and $npc.maxdmg > 0}
-												<li><div>{#Damage#}: {$npc.mindmg} - {$npc.maxdmg}</div></li>
+						{if $npc.dmg_min > 0 and $npc.dmg_max > 0 and $npc.dps > 0}
+												<li><div>{#Damage#}: {$npc.dmg_min} - {$npc.dmg_max} <br> ({$npc.dps} dps)</div></li>
+						{elseif $npc.dmg_min > 0 and $npc.dmg_max > 0}
+												<li><div>{#Damage#}: {$npc.dmg_min} - {$npc.dmg_max}</div></li>
 						{/if} 
 						{if $npc.attackspeed > 0}
 												<li><div>{#AttackSpeed#}: {$npc.attackspeed} {#sec#}</div></li>
@@ -52,39 +52,39 @@
 					<div class="infobox-spacer"></div>
 					
 					<div>
-						{if $npc.resistance1 eq 0 and $npc.resistance2 eq 0 and $npc.resistance3 eq 0 and $npc.resistance4 eq 0 and $npc.resistance5 eq 0 and $npc.resistance6 eq 0}
+						{if $npc.holy_res eq 0 and $npc.fire_res eq 0 and $npc.nature_res eq 0 and $npc.frost_res eq 0 and $npc.shadow_res eq 0 and $npc.arcane_res eq 0}
 							<div><center>{#None#}</center></div>
 						{else}
 						<ul>
-							{if $npc.resistance1 > 0}
-								<li><div>{#Resistance1#}: {$npc.resistance1}</div></li>
-							{elseif $npc.resistance1 < 0}
-								<li><div>{#Resistance1#}: {#Immune#}</div></li>
+							{if $npc.holy_res > 0}
+								<li><div>{#holy_res#}: {$npc.holy_res}</div></li>
+							{elseif $npc.holy_res < 0}
+								<li><div>{#holy_res#}: {#Immune#}</div></li>
 							{/if}
-							{if $npc.resistance2 > 0}
-								<li><div>{#Resistance2#}: {$npc.resistance2}</div></li>
-							{elseif $npc.resistance2 < 0}
-								<li><div>{#Resistance2#}: {#Immune#}</div></li>
+							{if $npc.fire_res > 0}
+								<li><div>{#fire_res#}: {$npc.fire_res}</div></li>
+							{elseif $npc.fire_res < 0}
+								<li><div>{#fire_res#}: {#Immune#}</div></li>
 							{/if}
-							{if $npc.resistance3 > 0}
-								<li><div>{#Resistance3#}: {$npc.resistance3}</div></li>
-							{elseif $npc.resistance3 < 0}
-								<li><div>{#Resistance3#}: {#Immune#}</div></li>
+							{if $npc.nature_res > 0}
+								<li><div>{#nature_res#}: {$npc.nature_res}</div></li>
+							{elseif $npc.nature_res < 0}
+								<li><div>{#nature_res#}: {#Immune#}</div></li>
 							{/if}
-							{if $npc.resistance4 > 0}
-								<li><div>{#Resistance4#}: {$npc.resistance4}</div></li>
-							{elseif $npc.resistance4 < 0}
-								<li><div>{#Resistance4#}: {#Immune#}</div></li>
+							{if $npc.frost_res > 0}
+								<li><div>{#frost_res#}: {$npc.frost_res}</div></li>
+							{elseif $npc.frost_res < 0}
+								<li><div>{#frost_res#}: {#Immune#}</div></li>
 							{/if}
-							{if $npc.resistance5 > 0}
-								<li><div>{#Resistance5#}: {$npc.resistance5}</div></li>
-							{elseif $npc.resistance5 < 0}
-								<li><div>{#Resistance5#}: {#Immune#}</div></li>
+							{if $npc.shadow_res > 0}
+								<li><div>{#shadow_res#}: {$npc.shadow_res}</div></li>
+							{elseif $npc.shadow_res < 0}
+								<li><div>{#shadow_res#}: {#Immune#}</div></li>
 							{/if}
-							{if $npc.resistance6 > 0}
-								<li><div>{#Resistance6#}: {$npc.resistance6}</div></li>
-							{elseif $npc.resistance6 < 0}
-								<li><div>{#Resistance6#}: {#Immune#}</div></li>
+							{if $npc.arcane_res > 0}
+								<li><div>{#arcane_res#}: {$npc.arcane_res}</div></li>
+							{elseif $npc.arcane_res < 0}
+								<li><div>{#arcane_res#}: {#Immune#}</div></li>
 							{/if}
 						</ul>
 						{/if}

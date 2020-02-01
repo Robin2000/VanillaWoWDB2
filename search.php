@@ -62,10 +62,10 @@ foreach($rows as $row)
 if($_SESSION['locale']>0)
 {
 	$rows = $DB->select('
-			SELECT ?#, A.entry,A.name_loc4,A.subname_loc4
+			SELECT ?#, A.entry,A.name_loc4,A.subname_loc4, A as faction_A,H as faction_H
 			FROM locales_creature A
 			LEFT JOIN creature_template B ON A.entry=B.entry
-			LEFT JOIN aowow_factiontemplate C ON C.factiontemplateID=B.faction_A
+			LEFT JOIN aowow_factiontemplate C ON C.factiontemplateID=B.faction
 			WHERE
 				MATCH(name_loc4) AGAINST (+?) AND name_loc4 like ?
 		',
@@ -74,9 +74,9 @@ if($_SESSION['locale']>0)
 	);
 }else{
 	$rows = $DB->select('
-			SELECT ?#, B.entry
+			SELECT ?#, B.entry, A as faction_A,H as faction_H
 			FROM  creature_template B
-			LEFT JOIN aowow_factiontemplate C ON C.factiontemplateID=B.faction_A
+			LEFT JOIN aowow_factiontemplate C ON C.factiontemplateID=B.faction
 			WHERE
 				MATCH(name) AGAINST (+?) AND name like ?
 		',

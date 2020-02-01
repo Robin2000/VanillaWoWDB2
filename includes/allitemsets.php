@@ -3,15 +3,15 @@
 require_once('includes/allitems.php');
 
 $itemset_col[0] = array('itemsetID', 'name_loc'.$_SESSION['locale'], 'item1', 'item2', 'item3', 'item4', 'item5', 'item6', 'item7', 'item8', 'item9', 'item10','allowClass');
-$itemset_col[1] = array('itemsetID', 'name_loc'.$_SESSION['locale'], 'item1', 'item2', 'item3', 'item4', 'item5', 'item6', 'item7', 'item8', 'item9', 'item10', 'allowClass', 'spell1', 'spell2', 'spell3', 'spell4', 'spell5', 'spell6', 'spell7', 'spell8', 'skillID', 'bonus1', 'bonus2', 'bonus3', 'bonus4', 'bonus5', 'bonus6', 'bonus7', 'bonus8', 'skilllevel');
+$itemset_col[1] = array('itemsetID', 'name_loc'.$_SESSION['locale'], 'item1', 'item2', 'item3', 'item4', 'item5', 'item6', 'item7', 'item8', 'item9', 'item10', 'allowClass', 'spell_id1', 'spell_id2', 'spell_id3', 'spell_id4', 'spell_id5', 'spell_id6', 'spell_id7', 'spell_id8', 'skillID', 'bonus1', 'bonus2', 'bonus3', 'bonus4', 'bonus5', 'bonus6', 'bonus7', 'bonus8', 'skilllevel');
 
 function itemsetinfo2(&$row)
 {
 	$itemset = array();
 	$itemset['entry'] = $row['itemsetID'];
 	$itemset['name'] = $row['name_loc'.$_SESSION['locale']];
-	$itemset['minlevel'] = 255;
-	$itemset['maxlevel'] = 0;
+	$itemset['level_min'] = 255;
+	$itemset['level_max'] = 0;
 	$itemset['pieces'] = array();
 	for($j=1;$j<=10;$j++)
 		if ($row['item'.$j])
@@ -19,8 +19,8 @@ function itemsetinfo2(&$row)
 			$itemset['pieces'][] = $row['item'.$j];
 			$item = array();
 			$item = iteminfo($row['item'.$j], 0);
-			if ($item['level'] < $itemset['minlevel']) $itemset['minlevel'] = $item['level'];
-			if ($item['level'] > $itemset['maxlevel']) $itemset['maxlevel'] = $item['level'];
+			if ($item['level'] < $itemset['level_min']) $itemset['level_min'] = $item['level'];
+			if ($item['level'] > $itemset['level_max']) $itemset['level_max'] = $item['level'];
 		}
 	if(isset($item))
 	{

@@ -12,7 +12,7 @@ function loadRelation($DB, $type , $ids){
 		case 'items':
 			$sql = "SELECT distinct A.entry AS id,name_loc4 AS name,A.patch,A.quality,C.iconname FROM item_template A,locales_item B,aowow_icons C WHERE A.entry=B.entry AND A.display_id=C.id AND A.entry in(".$ids.")";break;
 		case 'npcs':
-			$sql = "SELECT distinct A.entry AS id,B.name_loc4 AS name,A.patch,A,H FROM creature_template A,locales_creature B,aowow_factiontemplate C WHERE A.entry=B.entry AND A.faction_A=C.factiontemplateID AND A.entry in(".$ids.")";break;
+			$sql = "SELECT distinct A.entry AS id,B.name_loc4 AS name,A.patch,A,H FROM creature_template A,locales_creature B,aowow_factiontemplate C WHERE A.entry=B.entry AND A.faction=C.factiontemplateID AND A.entry in(".$ids.")";break;
 		case 'quests':
 			$sql = "SELECT distinct A.entry AS id,title_loc4 AS name,A.patch,A.RequiredRaces FROM quest_template A,locales_quest B WHERE A.entry=B.entry AND A.entry in(".$ids.")";break;
 	}

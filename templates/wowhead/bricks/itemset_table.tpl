@@ -8,8 +8,8 @@
 			{section name=i loop=$data}
 				{ldelim}
 					name:'{$data[i].quality2}{$data[i].name|escape:"quotes"}',
-					{if $data[i].minlevel}minlevel:{$data[i].minlevel},{/if}
-					{if $data[i].maxlevel}maxlevel:{$data[i].maxlevel},{/if}
+					{if $data[i].level_min}level_min:{$data[i].level_min},{/if}
+					{if $data[i].level_max}level_max:{$data[i].level_max},{/if}
 					{if $data[i].pieces}pieces:[{section name=j loop=$data[i].pieces}{$data[i].pieces[j]}{if $smarty.section.j.last}{else},{/if}{/section}],{/if}
 					{if isset($data[i].type)}type:{$data[i].type},{/if}
 					{if isset($data[i].classes)}classes:[{section name=j loop=$data[i].classes}{$data[i].classes[j]}{if $smarty.section.j.last}{else},{/if}{/section}],{/if}

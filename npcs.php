@@ -5,17 +5,17 @@ require_once('includes/allnpcs.php');
 
 $smarty->config_load($conf_file, 'npc');
 
-@list($type, $side, $weaponType, $trainerType, $trainerClass, $trainerRace, $trainerSpell, $npcFlag, $minLvl) = extract_values($podrazdel);
+@list($type, $side, $weaponType, $trainerType, $trainerClass, $trainerRace, $trainerSpell, $npc_flags, $minLvl) = extract_values($podrazdel);
 
-$cache_key = cache_key($type, $side, $weaponType, $trainerType, $trainerClass, $trainerRace, $trainerSpell, $npcFlag, $minLvl);
+$cache_key = cache_key($type, $side, $weaponType, $trainerType, $trainerClass, $trainerRace, $trainerSpell, $npc_flags, $minLvl);
 
 if(!$npcs = load_cache(2, $cache_key))
 {
 	unset($npcs);
 
 	$testNpcFlag="";
-	if(isset($npcFlag)){
-		$testNpcFlag = " AND npcflag&".$npcFlag."=".$npcFlag;
+	if(isset($npc_flags)){
+		$testNpcFlag = " AND npc_flags&".$npc_flags."=".$npc_flags;
 	} 
 	$testSide="";
 	if(isset($side)) {
@@ -45,7 +45,7 @@ if(!$npcs = load_cache(2, $cache_key))
 	}
 
 	$rows = $DB->select('
-		SELECT name, patch,subname, minlevel, maxlevel, type, rank, A as faction_A, H as faction_H, c.entry
+		SELECT name, patch,subname, level_min, level_max, type, rank, A as faction_A, H as faction_H, c.entry
 		{
 			, l.name_loc?d AS name_loc
 			, l.subname_loc?d AS subname_loc
@@ -53,17 +53,17 @@ if(!$npcs = load_cache(2, $cache_key))
 		FROM ?_factiontemplate, creature_template c
 		{ LEFT JOIN (locales_creature l) ON l.entry=c.entry AND ? }
 		WHERE
-			factiontemplateID=faction_A
+			factiontemplateID=faction
 			{ AND type=? }
-			{ AND trainer_type = ? AND npcflag&16=16}
+			{ AND trainer_type = ? AND npc_flags&16=16}
 			{ AND trainer_class = ? }
 			{ AND trainer_race = ? }
 			{ AND trainer_spell = ? }
 			'.$testNpcFlag.'
 			'.$testSide.'
 			'.$testWeaponType.'
-			{ AND minlevel = ? }
-		ORDER BY minlevel DESC, name
+			{ AND level_min = ? }
+		ORDER BY level_min DESC, name
 		{LIMIT ?d}
 		',
 		($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
@@ -99,7 +99,7 @@ $smarty->assign('trainerType',isset($trainerType)?$trainerType:'n');
 $smarty->assign('trainerClass',isset($trainerClass)?$trainerClass:'n');
 $smarty->assign('trainerRace',isset($trainerRace)?$trainerRace:'n');
 $smarty->assign('trainerSpell',isset($trainerSpell)?$trainerSpell:'n');
-$smarty->assign('npcFlag',isset($npcFlag)?$npcFlag:'n');
+$smarty->assign('npc_flags',isset($npc_flags)?$npc_flags:'n');
 
 global $page;
 $page = array(

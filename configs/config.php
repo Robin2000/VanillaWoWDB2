@@ -5,7 +5,7 @@ global $AoWoWconf;
 $AoWoWconf['mangos']['host']	= '127.0.0.1:3307';
 $AoWoWconf['mangos']['user']	= 'root';
 $AoWoWconf['mangos']['pass']	= 'java112233';
-$AoWoWconf['mangos']['db']		= 'world_lighthope';
+$AoWoWconf['mangos']['db']		= 'v_world20191005';
 $AoWoWconf['mangos']['aowow']	= 'aowow_'; // AoWoW table prefix
 // -- Realmd Database --
 // $AoWoWconf['realmd']['host']	= '127.0.0.1:3307';

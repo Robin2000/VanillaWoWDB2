@@ -34,7 +34,7 @@ if(!$npc = load_cache(1, $cache_key))
 		LEFT JOIN aowow_thumb_npc t ON c.entry=t.entry
 		WHERE
 			c.entry = ?
-			AND ft.factiontemplateID = c.faction_A
+			AND ft.factiontemplateID = c.faction
 			AND f.factionID = ft.factionID
 		LIMIT 1
 			',
@@ -51,45 +51,45 @@ if(!$npc = load_cache(1, $cache_key))
 		$npc['subname'] = localizedName($row, 'subname');
 		if($npc['rank'] == 3)
 		{
-			$npc['minlevel'] = '??';
-			$npc['maxlevel'] = '??';
+			$npc['level_min'] = '??';
+			$npc['level_max'] = '??';
 		}
-        $npc['mindmg'] = ($row['mindmg'] /* + $row['attackpower'] */) * $row['dmg_multiplier'];
-        $npc['maxdmg'] = ($row['maxdmg'] /* + $row['attackpower'] */) * $row['dmg_multiplier'];
+        $npc['dmg_min'] = ($row['dmg_min'] /* + $row['attack_power'] */) * $row['dmg_multiplier'];
+        $npc['dmg_max'] = ($row['dmg_max'] /* + $row['attack_power'] */) * $row['dmg_multiplier'];
 		
 		# Get NPC Attack speed
-		$npc['attackspeed'] = number_format(($row['baseattacktime']/1000),2);
-		$npc['dps'] = $npc['attackspeed']==0 ? 0 : number_format((($npc['mindmg']+$npc['maxdmg'])/2)/$npc['attackspeed'],2);
+		$npc['attackspeed'] = number_format(($row['base_attack_time']/1000),2);
+		$npc['dps'] = $npc['attackspeed']==0 ? 0 : number_format((($npc['dmg_min']+$npc['dmg_max'])/2)/$npc['attackspeed'],2);
 		
 		# NPC Resistances		
-		$npc['resistance1'] = $row['resistance1'];
-		$npc['resistance2'] = $row['resistance2'];
-		$npc['resistance3'] = $row['resistance3'];
-		$npc['resistance4'] = $row['resistance4'];
-		$npc['resistance5'] = $row['resistance5'];
-		$npc['resistance6'] = $row['resistance6'];
+		$npc['holy_res'] = $row['holy_res'];
+		$npc['fire_res'] = $row['fire_res'];
+		$npc['nature_res'] = $row['nature_res'];
+		$npc['frost_res'] = $row['frost_res'];
+		$npc['shadow_res'] = $row['shadow_res'];
+		$npc['arcane_res'] = $row['arcane_res'];
 		
-		$toDiv = array('minhealth', 'maxmana', 'minmana', 'maxhealth', 'armor', 'mindmg', 'maxdmg');
+		$toDiv = array('health_min', 'mana_max', 'mana_min', 'health_max', 'armor', 'dmg_min', 'dmg_max');
 		// 把它分成一千份(ххххххххх => ххх,ххх,ххх)
 		foreach($toDiv as $e)
 			$npc[$e] = number_format($npc[$e]);
 
 		$npc['rank'] = $smarty->get_config_vars('rank'.$npc['rank']);
-		// faction_A = faction_H
+		// faction = faction_H
 		$npc['faction_num'] = $row['factionID'];
 		$npc['faction'] = $row['faction-name'];
 		// 钱
-		$money = ($row['mingold']+$row['maxgold']) / 2;
+		$money = ($row['gold_min']+$row['gold_max']) / 2;
 		$npc = array_merge($npc, money2coins($money));
 
-		//AIName
+		//ai_name
 		/*
-		if($npc['AIName']=='EventAI') {
+		if($npc['ai_name']=='EventAI') {
 			$npc['event_ai']=loadCreatureAiEvent($npc['entry']);
 		}*/
 
 		// 放下
-		$lootid=$row['lootid'];
+		$loot_id=$row['loot_id'];
 		// 常用的拼字
 		$npc['ablities'] = array();
 		$tmp = array();
@@ -137,7 +137,7 @@ if(!$npc = load_cache(1, $cache_key))
 		// 如果是有能力的宠物:
 		/* // Временно закомментировано
 		$row = $DB->selectRow('
-			SELECT Spell1, Spell2, Spell3, Spell4
+			SELECT spell_id1, spell_id2, spell_id3, spell_id4
 			FROM petcreateinfo_spell
 			WHERE
 				entry=?d
@@ -233,15 +233,15 @@ if(!$npc = load_cache(1, $cache_key))
 		unset ($rows_s);
 
 		// 爆落
-		if(!($npc['drop'] = loot('creature_loot_template', $lootid)))
+		if(!($npc['drop'] = loot('creature_loot_template', $loot_id)))
 			unset ($npc['drop']);
 
 		// 剥皮
-		if(!($npc['skinning'] = loot('skinning_loot_template', $lootid)))
+		if(!($npc['skinning'] = loot('skinning_loot_template', $loot_id)))
 			unset ($npc['skinning']);
 
 		// 扒窃
-		if(!($npc['pickpocketing'] = loot('pickpocketing_loot_template', $lootid)))
+		if(!($npc['pickpocketing'] = loot('pickpocketing_loot_template', $loot_id)))
 			unset ($npc['pickpocketing']);
 
 		// 取的任务...

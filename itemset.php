@@ -19,8 +19,8 @@ if(!$itemset = load_cache(8, $cache_key))
 		$itemset = array();
 		$itemset['entry'] = $row['itemsetID'];
 		$itemset['name'] = $row['name_loc'.$_SESSION['locale']];
-		$itemset['minlevel'] = 255;
-		$itemset['maxlevel'] = 0;
+		$itemset['level_min'] = 255;
+		$itemset['level_max'] = 0;
 		$itemset['count'] = 0;
 		$x = 0;
 		$itemset['pieces'] = array();
@@ -31,11 +31,11 @@ if(!$itemset = load_cache(8, $cache_key))
 				$itemset['pieces'][$itemset['count']] = array();
 				$itemset['pieces'][$itemset['count']] = iteminfo($row['item'.$j]);
 
-				if($itemset['pieces'][$itemset['count']]['level'] < $itemset['minlevel'])
-					$itemset['minlevel'] = $itemset['pieces'][$itemset['count']]['level'];
+				if($itemset['pieces'][$itemset['count']]['level'] < $itemset['level_min'])
+					$itemset['level_min'] = $itemset['pieces'][$itemset['count']]['level'];
 
-				if($itemset['pieces'][$itemset['count']]['level'] > $itemset['maxlevel'])
-					$itemset['maxlevel'] = $itemset['pieces'][$itemset['count']]['level'];
+				if($itemset['pieces'][$itemset['count']]['level'] > $itemset['level_max'])
+					$itemset['level_max'] = $itemset['pieces'][$itemset['count']]['level'];
 
 				$itemset['count']++;
 			}

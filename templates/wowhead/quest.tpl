@@ -22,7 +22,7 @@
 						<div class="infobox-spacer"></div>
 						<ul>
 							{if $quest.QuestLevel>0}<li><div>{#Level#}: {$quest.QuestLevel}</div></li>{/if}
-							{if $quest.MinLevel>0}<li><div>{#Requires_level#}: {$quest.MinLevel}</div></li>{/if}
+							{if $quest.level_min>0}<li><div>{#Requires_level#}: {$quest.level_min}</div></li>{/if}
 							{if $quest.typename}<li><div>{#Type#}: {$quest.typename}</div></li>{/if}
 							{if isset($quest.side)}<li><div>{#Side#}: <span class="{if ($quest.side.side==1)}alliance{elseif ($quest.side.side==2)}horde{else}both{/if}-icon">{$quest.side.name}</span></div></li>{/if}
 							{strip}{if isset($quest.LimitTime)}

@@ -124,7 +124,7 @@ if(!$items = load_cache(7, $cache_key))
 		FROM ?_icons, item_template i
 			{LEFT JOIN (locales_item l) ON l.entry=i.entry AND ?d}
 		WHERE
-			fortest=0 AND id=display_id
+			id=display_id
 			{ AND class = ? }
 			{ AND subclass = ? }
 			{ AND inventory_type = ? }
