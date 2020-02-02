@@ -203,7 +203,7 @@ function retriveImg() {
                 cnt = cnt.split(url).join(e.data.url);
                 editor.html(cnt);
                 $("#thumblist").append("<div style='float:left'><input name='thumb' type='checkbox' value='"+e.data.thumb+"' onclick='applyThumb()'><img src='"+e.data.thumb+"' class='thumbnail'><div>");
-                setTimeout(() => {
+                setTimeout(function(){
                     retriveImg();
                 }, 100);
                 
