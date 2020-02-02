@@ -107,8 +107,8 @@ function applyPage() {
     KindEditor.ready(function(K) {
         editor = K.create('#body', {
             allowFileManager : true,
-            fileManagerJson : 'http://www.topwow.top/rest/api2/editor/filemanager',
-            uploadJson : 'http://www.topwow.top/rest/api2/editor/upload',
+            fileManagerJson : 'http://www.topwow.top/rest/api3/editor/filemanager',
+            uploadJson : 'http://www.topwow.top/rest/api3/editor/upload',
             afterUpload : function(url,e){
                 if(e.error==0) {
                     $("#thumblist").append("<div style='float:left'><input name='thumb' type='checkbox' onclick='applyThumb()' value='"+e.thumb+"'><img src='"+e.thumb+"' class='thumbnail'><div>");
@@ -134,7 +134,7 @@ function applyPage() {
         if(id==false) {
             return;
         }
-        get("http://www.topwow.top/rest/api2/news/info/"+id,function(e){
+        get("http://www.topwow.top/rest/api3/news/info/"+id,function(e){
             initData(e.data);
         },function(){
             alert("加载失败");
@@ -146,7 +146,7 @@ function autoFeed() {
     var param = {
         refer: requestUrl
     };
-    post("http://www.topwow.top/rest/api2/editor/refer",param,function(e) {
+    post("http://www.topwow.top/rest/api3/editor/refer",param,function(e) {
         if(e.code==0) {
             /*todo:解析到页面*/
             $('#templateType').val(e.data.mediaType);
@@ -197,7 +197,7 @@ function retriveImg() {
         };
 
         
-        post("http://www.topwow.top/rest/api2/editor/grap",param,function(e) {
+        post("http://www.topwow.top/rest/api3/editor/grap",param,function(e) {
             if(e.code==0) {
                 var cnt = editor.html();
                 cnt = cnt.split(url).join(e.data.url);
@@ -253,11 +253,11 @@ function saveForm() {
         thumb: thumbStr
     };
 
-    var postUrl="http://www.topwow.top/rest/api2/news/add";
+    var postUrl="http://www.topwow.top/rest/api3/news/add";
     var nid = $("#nid").val();
     if(nid!="") {
         param['nid']=nid;
-        postUrl="http://www.topwow.top/rest/api2/news/update";
+        postUrl="http://www.topwow.top/rest/api3/news/update";
     }
     post(postUrl,param,function(e){
         if(e.code==0) {
@@ -278,7 +278,7 @@ function loginNow(){
     var param = {
         u: $('#uid').val(),
     };
-    post("http://www.topwow.top/rest/api2/login/key",param,function(e){
+    post("http://www.topwow.top/rest/api3/login/key",param,function(e){
             if(e.code==0) {
                 loginNow2(e.data);
             } else {
@@ -296,7 +296,7 @@ function loginNow2(pubkey) {
         u: $('#uid').val(),
         p: mi
     };
-    post("http://www.topwow.top/rest/api2/login/check",param,function(e){
+    post("http://www.topwow.top/rest/api3/login/check",param,function(e){
         if(e.code==0) {
             setCookie("token",e.data);
             setCookie("uid",$('#uid').val());

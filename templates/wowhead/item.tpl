@@ -40,13 +40,13 @@
 					<h1>{$item.name}</h1>
 
 					<div id="icon{$item.entry}-generic" style="float:left"></div>
-					<!--div id="tooltip{$item.entry}-generic" class="tooltip" style="padding-top: 1px;visible:1">
+					<div id="tooltip{$item.entry}-generic" class="tooltip" style="padding-top: 1px;visible:1">
 					<table >
 					<tr><td>{$item.info}</td><th style="background-position: top right"></th></tr>
 					<tr><th style="background-position: bottom left"></th><th style="background-position: bottom right"></th></tr>
 					</table>
 
-					</div-->
+					</div>
 
 
 
