@@ -247,7 +247,7 @@ if(!$item = load_cache(5, $cache_key))
 					FROM ?_factiontemplate, creature_template c
 					{ LEFT JOIN (locales_creature l) ON l.entry=c.entry AND ? }
 					WHERE
-						pickpocketloot=?d
+						pickpocket_loot_id=?d
 						AND factiontemplateID=faction
 				',
 				$npc_cols[0],
@@ -281,7 +281,7 @@ if(!$item = load_cache(5, $cache_key))
 					FROM ?_factiontemplate, creature_template c
 					{ LEFT JOIN (locales_creature l) ON l.entry=c.entry AND ? }
 					WHERE
-						skinloot=?d
+					skinning_loot_id=?d
 						AND factiontemplateID=faction
 				',
 				$npc_cols[0],
