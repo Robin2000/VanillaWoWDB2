@@ -114,7 +114,7 @@ function loadNextData() {
     }
 
     lastLoadEvent = Date.parse(new Date());
-    get("http://www.topwow.top/rest/api3/news/next/"+minID,function(e){
+    get("http://www.topwow.top/rest/api4/news/next/"+minID,function(e){
         $('#minID').text(e.minID);
 
         for(var i=0;i<e.news.length;i++) {
