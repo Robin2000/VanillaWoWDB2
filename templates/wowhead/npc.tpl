@@ -170,6 +170,16 @@
 					var myMapper = new Mapper({ldelim}parent: 'mapper-generic', zone: '{$npc.position[0].atid}'{rdelim});
 					gE(ge('locations'), 'a')[0].onclick();
 				</script>
+
+{elseif isset($npc.refzone)}
+<div id="mapper-generic">
+<div class="text">
+<h1>出现在<a href="http://www.topwow.top/zone-{$npc.refzone.areaID}.html">{$npc.refzone.name}</a></h1>
+	<div style="padding:5px;width:772px;height:515px;background:url(/images/maps/area/{$npc.refzone.file}.jpg) no-repeat">
+	</div>
+</div>
+</div>
+<div class="clear"></div>
 {else}
 				{#This_NPC_cant_be_found#}
 {/if}

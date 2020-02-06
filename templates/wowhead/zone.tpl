@@ -10,11 +10,12 @@
 				g_initPath({$page.path});
 			</script>
 
+
 			<div class="text">
 
 				<h1>{$zone.name}</h1>
 
-{if $zone.position}
+{if $zone.position and isset($zone.showMap)}
 				<div>
 {strip}
 				<span id="locations">
@@ -73,9 +74,35 @@
 {/if}
 
 
+{if isset($zone.pois)}
+<div class="text">
+<h1>概要图</h1>
+	<div style="padding:5px;width:772px;min-height:515px;background:url(/images/maps/area/{$zone.name_loc0}.jpg) no-repeat">
+		{foreach from=$zone.pois item=p name=p}
+			<div class="{$p.color}" style="font-size:16px;line-height:20px;heght:20px;">
+			<span style="padding-left:{$p.indentCount}0px"> {if $p.pos != 'TOP' and $p.pos != 'INDENT'}{$p.pos}){/if} </span>
+			{if $p.entryType == 'NPC'}
+				<a target="_blank" href="http://www.topwow.top/npc-{$p.entry}.html" class="{$p.color}">{$p.label}</a>
+			{elseif $p.entryType == 'QUEST'}
+				<a target="_blank" href="http://www.topwow.top/quest-{$p.entry}.html" class="{$p.color}" style="padding-left:18px;background:url(/images/icons/small/quest_start.gif) no-repeat left center">{$p.label}</a>
+			{elseif $p.entryType == 'ITEM'}
+				<a target="_blank" href="http://www.topwow.top/item-{$p.entry}.html" class="{$p.color}">{$p.label}</a>
+			{elseif $p.entryType == 'OBJ'}
+				<a target="_blank" href="http://www.topwow.top/object-{$p.entry}.html" class="{$p.color}">{$p.label}</a>				
+			{else}
+				{$p.label}
+			{/if}
+			</div>
+		{/foreach}
+	</div>
+</div>
+{/if}
 
 				<h2>{#Related#}</h2>
-			</div>
+			</div> <!--text-->
+
+
+
 
 			<div id="tabs-generic"></div>
 			<div id="listview-generic" class="listview"></div>

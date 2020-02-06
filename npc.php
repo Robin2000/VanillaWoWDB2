@@ -313,6 +313,25 @@ if(!$npc = load_cache(1, $cache_key))
 			// 我们是正常的ntc或ntc，没有问题。
 			$npc['position'] = position($npc['entry'], 'creature', 1);
 
+		/*查询出相关地图信息*/
+		$row = $DB->selectRow("
+		SELECT areaID,name_loc0 as file,name_loc4 as name
+		FROM aowow_zones_npc A,aowow_zones B
+		WHERE A.entry = ? AND A.entryType='NPC' AND A.areaID = B.areatableID
+		LIMIT 1
+		",
+		$id
+		);
+		if($row) {
+			$npc['refzone'] = array(
+				"areaID" =>  $row['areaID'],
+				"file" =>  $row['file'],
+				"name" =>  $row['name'],
+			);
+			unset ($row);
+		}
+
+		/* */
 
 		/*查询出相关文章并附加到npc上面*/
 		$rows = $DB->select("

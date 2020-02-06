@@ -385,6 +385,41 @@ if(!$zone = load_cache(16, $id))
 	$zone['refnews'] = $refnews;
 	/*查询出相关文章并附加到zone上面 结束*/
 
+	/*副本相关npc查询 */
+	$rows = $DB->select("
+	SELECT entry,entryType,indentCount,pos,color,label
+	FROM aowow_zones_npc A
+	WHERE A.areaID = ?d
+	",
+	$id
+	);
+
+	if(count($rows)>0) {
+		$pois=array();
+		foreach($rows as $row) {
+			$pois[] = array(
+				"entry" => $row['entry'], 
+				"entryType" => $row['entryType'], 
+				"indentCount" => $row['indentCount'], 
+				"pos" => $row['pos'], 
+				"color" => $row['color'], 
+				"label" => $row['label'], 
+			);
+		}
+
+		$zone['pois'] = $pois;
+		unset($rows);
+	}
+
+	$zone['showMap']='1';
+	$hideZone = array(25570,25571,25572);
+	foreach($hideZone as $value){
+		if($value == ((int)$id)) {
+			$zone['showMap']=null;
+		}
+	}
+
+	/*副本相关npc查询 结束*/
 	save_cache(16, $zone['areatableID'], $zone);
 } else {
 
