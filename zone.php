@@ -387,7 +387,7 @@ if(!$zone = load_cache(16, $id))
 
 	/*副本相关npc查询 */
 	$rows = $DB->select("
-	SELECT entry,entryType,indentCount,pos,color,label
+	SELECT areaid as area,posid,entry,entryType,indentCount,pos,color,label,loot_count
 	FROM aowow_zones_npc A
 	WHERE A.areaID = ?d
 	",
@@ -398,12 +398,15 @@ if(!$zone = load_cache(16, $id))
 		$pois=array();
 		foreach($rows as $row) {
 			$pois[] = array(
+				"area" => $row['area'], 
+				"posid" => $row['posid'], 
 				"entry" => $row['entry'], 
 				"entryType" => $row['entryType'], 
 				"indentCount" => $row['indentCount'], 
 				"pos" => $row['pos'], 
 				"color" => $row['color'], 
 				"label" => $row['label'], 
+				"loot_count"=> $row['loot_count'], 
 			);
 		}
 
@@ -412,7 +415,7 @@ if(!$zone = load_cache(16, $id))
 	}
 
 	$zone['showMap']='1';
-	$hideZone = array(25570,25571,25572);
+	$hideZone = array(25570,25571,25572,25970,25971,30000,30001,30002,30003,30004,30005,30006,30007,30008,30009);
 	foreach($hideZone as $value){
 		if($value == ((int)$id)) {
 			$zone['showMap']=null;
@@ -420,6 +423,7 @@ if(!$zone = load_cache(16, $id))
 	}
 
 	/*副本相关npc查询 结束*/
+
 	save_cache(16, $zone['areatableID'], $zone);
 } else {
 
@@ -449,6 +453,7 @@ $zoneRelation = "zoneRelation/".$zone['areatableID'].".tpl";
 if(file_exists(__DIR__."/templates/wowhead/zoneRelation/".$id.".tpl")) {
 	$smarty->assign('zoneRelation', $zoneRelation);
 } 
+
 // Количество MySQL запросов
 $smarty->assign('mysql', $DB->getStatistics());
 $smarty->assign('allitems', $allitems);

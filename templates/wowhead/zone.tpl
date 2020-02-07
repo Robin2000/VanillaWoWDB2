@@ -13,7 +13,11 @@
 
 			<div class="text">
 
-				<h1>{$zone.name}</h1>
+				<h1>{$zone.name} <span class="red">{$zone.sname}</span>
+				{if isset($zone.playerlimit)}<span style="font-size:1rem;float:right;">人数限制:<span class="orange">{$zone.playerlimit}</span></span>{/if}
+				{if isset($zone.levelrange)}<span style="font-size:1rem;float:right;padding-right:5px">等级范围:<span class="orange">{$zone.levelrange}</span></span>{/if}
+				{if isset($zone.pname)}<span style="font-size:1rem;float:right;padding-right:5px">副本位置:<a href="http://www.topwow.top/zone-{$zone.pzone}"><span class="orange">{$zone.pname}</a></span></span>{/if}
+				</h1>
 
 {if $zone.position and isset($zone.showMap)}
 				<div>
@@ -77,25 +81,70 @@
 {if isset($zone.pois)}
 <div class="text">
 <h1>概要图</h1>
-	<div style="padding:5px;width:772px;min-height:515px;background:url(/images/maps/area/{$zone.name_loc0}.jpg) no-repeat">
+	<div style="padding:5px;width:772px;min-height:515px;background:url(/images/maps/area/{$zone.name_loc0}.jpg) no-repeat 128px 0;">
+		<div id="page1">
 		{foreach from=$zone.pois item=p name=p}
-			<div class="{$p.color}" style="font-size:16px;line-height:20px;heght:20px;">
+			<div class="{$p.color}" style="font-size:16px;line-height:20px;height:20px;">
 			<span style="padding-left:{$p.indentCount}0px"> {if $p.pos != 'TOP' and $p.pos != 'INDENT'}{$p.pos}){/if} </span>
 			{if $p.entryType == 'NPC'}
-				<a target="_blank" href="http://www.topwow.top/npc-{$p.entry}.html" class="{$p.color}">{$p.label}</a>
+				<a target="_blank" href="http://www.topwow.top/npc-{$p.entry}.html" class="{$p.color}">{$p.label}</a> {if $p.loot_count>0}<span onclick="showLoot('{$p.label}',{$p.area},{$p.posid})" class="lootIcon">&nbsp;</span>{/if}
 			{elseif $p.entryType == 'QUEST'}
 				<a target="_blank" href="http://www.topwow.top/quest-{$p.entry}.html" class="{$p.color}" style="padding-left:18px;background:url(/images/icons/small/quest_start.gif) no-repeat left center">{$p.label}</a>
 			{elseif $p.entryType == 'ITEM'}
-				<a target="_blank" href="http://www.topwow.top/item-{$p.entry}.html" class="{$p.color}">{$p.label}</a>
+				<a target="_blank" href="http://www.topwow.top/item-{$p.entry}.html" class="{$p.color}">{$p.label}</a> {if $p.loot_count>0}<span onclick="showLoot('{$p.label}',{$p.area},{$p.posid})" class="lootIcon">&nbsp;</span>{/if}
 			{elseif $p.entryType == 'OBJ'}
-				<a target="_blank" href="http://www.topwow.top/object-{$p.entry}.html" class="{$p.color}">{$p.label}</a>				
+				<a target="_blank" href="http://www.topwow.top/object-{$p.entry}.html" class="{$p.color}">{$p.label}</a> {if $p.loot_count>0}<span onclick="showLoot('{$p.label}',{$p.area},{$p.posid})" class="lootIcon">&nbsp;</span>{/if}
+			{elseif $p.entryType == 'BTN'}
+				<!--a target="_blank" href="javascript:showSet('{$p.label}')" class="{$p.color}">{$p.label}</a-->
 			{else}
 				{$p.label}
 			{/if}
 			</div>
 		{/foreach}
+		</div>
+		<div id="page2" style="display:none">
+			<div id="lootTitle"></div>
+			<div id="data" style="min-height:200px">
+			</div>
+		</div>
 	</div>
 </div>
+{literal}
+<script>
+function hideLoot(){
+	document.getElementById("page1").style.display='block';
+	document.getElementById("page2").style.display='none';
+}
+function receiveLoot(xhr, opt) {
+	document.getElementById("page1").style.display='none';
+	document.getElementById("page2").style.display='block';
+	var text = xhr.responseText;
+	var model = JSON.parse(text);
+	var html="";
+	var curQuality=null;
+	for(var i=0;i<model.length;i++) {
+		var r = model[i];
+		var percent = "";
+		if(r[5]!=null) {
+			percent="<span style='float-right'>"+r[5]+"</span>";
+		}
+		var quality=r[1];
+		if(quality!=curQuality && curQuality!=null) {
+			html += "<div class='lootItem'>&nbsp;</div>";
+		}
+		curQuality = quality;
+		html += "<div class='lootItem "+quality+"'><img src='/images/icons/small/" + r[3] + ".png'><a target='_blank' href='http://www.topwow.top/item-"+r[0]+".html'>" + r[2] +"</a>"+ r[4]+"<span>"+percent+"</span></div>";
+	}
+	document.getElementById("data").innerHTML=html;
+}
+
+function showLoot(titleSet, area,pos){
+	document.getElementById("lootTitle").innerHTML="<h1>"+titleSet+"<a href='javascript:hideLoot()'><<返回</a></h1>";
+	document.getElementById("data").innerHTML="";
+	new Ajax("http://www.topwow.top/rest/api4/loot/"+area+"/"+pos, {onSuccess: receiveLoot})
+}
+</script>
+{/literal}
 {/if}
 
 				<h2>{#Related#}</h2>

@@ -2899,3 +2899,7 @@ padding:10px 0 10px 10px;
 .green{color:#60C42E}
 .orange{color:#C9AC2C}
 
+.lootIcon{cursor:pointer;background:url("/images/icons/small/inv_misc_gem_goldendraenite_01.png") no-repeat left center;padding-left:18px}
+.lootItem{cursor:pointer;line-height:18px;height:18px;font-size:14px}
+.lootItem img,a{margin-right:10px}
+.lootItem span{margin-right:5px}
