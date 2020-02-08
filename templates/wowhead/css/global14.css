@@ -2898,8 +2898,10 @@ padding:10px 0 10px 10px;
 .gray{color:#C9C9C9}
 .green{color:#60C42E}
 .orange{color:#C9AC2C}
+.ds,.ds a{color:#FFd200}
 
 .lootIcon{cursor:pointer;background:url("/images/icons/small/inv_misc_gem_goldendraenite_01.png") no-repeat left center;padding-left:18px}
-.lootItem{cursor:pointer;line-height:18px;height:18px;font-size:14px}
-.lootItem img,a{margin-right:10px}
-.lootItem span{margin-right:5px}
+.lootItem {cursor:pointer;line-height:20px;height:20px;font-size:16px}
+.lootItem a{margin-right:10px;-webkit-font-smoothing:subpixel-antialiased}
+.lootItem img {margin-right:10px;}
+.lootItem span{margin-right:5px;font-size:1rem}

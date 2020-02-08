@@ -14,9 +14,11 @@
 			<div class="text">
 
 				<h1>{$zone.name} <span class="red">{$zone.sname}</span>
+				<p align="right">
 				{if isset($zone.playerlimit)}<span style="font-size:1rem;float:right;">人数限制:<span class="orange">{$zone.playerlimit}</span></span>{/if}
 				{if isset($zone.levelrange)}<span style="font-size:1rem;float:right;padding-right:5px">等级范围:<span class="orange">{$zone.levelrange}</span></span>{/if}
 				{if isset($zone.pname)}<span style="font-size:1rem;float:right;padding-right:5px">副本位置:<a href="http://www.topwow.top/zone-{$zone.pzone}"><span class="orange">{$zone.pname}</a></span></span>{/if}
+				</p>
 				</h1>
 
 {if $zone.position and isset($zone.showMap)}
