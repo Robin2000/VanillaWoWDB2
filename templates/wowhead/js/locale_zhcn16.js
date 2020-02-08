@@ -1570,6 +1570,7 @@ var LANG = {
 	lvitem_heroic: " (H)",
 	lvitem_vendorin: "供应商 ",
 	lvitem_reqlevel: "需要等级",
+	lvitem_level: "装备品级",
 	lvnpc_alliance: "A",
 	lvnpc_horde: "H",
 	lvquest_daily: "每日 $1",

@@ -1268,6 +1268,7 @@ var LANG = {
 	lvitem_heroic: " (H)",
 	lvitem_vendorin: "Vendor in ",
 	lvitem_reqlevel: "Req. ",
+	lvitem_level:"ItemLvl",
 	lvnpc_alliance: "A",
 	lvnpc_horde: "H",
 	lvquest_daily: "Daily $1",

@@ -4,10 +4,27 @@ require_once('includes/allitemsets.php');
 
 $smarty->config_load($conf_file, 'itemset');
 
-@list($class) = extract_values($podrazdel);
+@list($class,$tname,$tclass) = extract_values($podrazdel);
 
-$cache_key = cache_key($class);
+$cache_key = cache_key($class,$tname,$tclass);
 
+$tnameStr=null;
+if(isset($tname)) {
+	switch($tname){
+		case 0: $tnameStr = "";break;
+		case 1: $tnameStr = "T0";break;
+		case 2: $tnameStr = "T1";break;
+		case 3: $tnameStr = "T2";break;
+		case 4: $tnameStr = "T3";break;
+		case 5: $tnameStr = "PVP";break;
+		case 6: $tnameStr = "SM";break;
+		case 7: $tnameStr = "ZG";break;
+		case 8: $tnameStr = "VC";break;
+		case 9: $tnameStr = "WC";break;
+		case 10: $tnameStr = "AQ20";break;
+		case 11: $tnameStr = "AQ40";break;
+	}
+}
 if(!$itemsets = load_cache(9, $cache_key))
 {
 	unset($itemsets);
@@ -46,11 +63,15 @@ if(!$itemsets = load_cache(9, $cache_key))
 		SELECT ?#
 		FROM ?_itemset s
 		WHERE 1=1 
+		{ AND tname=? }
+		{ AND tclass=? }
 		'.$armorClass.'
 		'.$allowClass.'
 		ORDER by name_loc'.$_SESSION['locale'].'
 		{LIMIT ?d}',
 		$itemset_col[0],
+		isset($tnameStr) ? $tnameStr : DBSIMPLE_SKIP,
+		isset($tclass) ? $tclass : DBSIMPLE_SKIP,
 		($AoWoWconf['limit']!=0)? $AoWoWconf['limit']: DBSIMPLE_SKIP
 	);
 
@@ -73,6 +94,11 @@ $page = array(
 	'path' => '[0, 2]'
 );
 $smarty->assign('page', $page);
+
+
+$smarty->assign('tname',isset($tname)?$tname:'n');
+$smarty->assign('tclass',isset($tclass)?$tclass:'n');
+$smarty->assign('allowClass',isset($class)?$class:'n');
 
 // --Передаем данные шаблонизатору--
 // Количество MySQL запросов

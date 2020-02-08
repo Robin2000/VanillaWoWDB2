@@ -7,31 +7,28 @@
 					g_initPath({$page.path});
 				</script>
 <div class="shxlistbox">
-        <div class="shxlisttit">
-            条件筛选
-        </div>
+        <h3>条件筛选:</h3>
+		<div id="curSel"></div>
 
 			<div class="filter-condition">
 				<div class="bdfs">阵营限制：</div>
 				<div class="item-screen">
-						<span style="list-style: none;float: left;padding-right: 10px;">
-							<a href="javascript:filterNpcs('side','n')" class="filter-a {if $side eq 'n'}current{/if}" title="全部">
-																								全部
-							</a>
+						<span style="list-style: none;padding-right: 10px;">
+							<a href="javascript:filterNpcs('side','n')" class="filter-a {if $side eq 'n'}current{/if}" title="全部">全部</a>
 						</span>
-						<span style="list-style: none;float: left;padding-right: 10px;">
+						<span style="list-style: none;padding-right: 10px;">
 							<a href="javascript:filterNpcs('side',1)" class="filter-a {if $side eq '1'}current{/if}" title="联盟">
 																	<img src="templates/wowhead/images/alliance-icon.gif" title="联盟" alt="联盟">
 																								联盟
 							</a>
 						</span>
-						<span style="list-style: none;float: left;padding-right: 10px;">
+						<span style="list-style: none;padding-right: 10px;">
 							<a href="javascript:filterNpcs('side',2)" class="filter-a {if $side eq '2'}current{/if}" title="部落">
 																								<img src="templates/wowhead/images/horde-icon.gif" title="部落" alt="部落">
 																部落
 							</a>
 						</span>
-						<!--span style="list-style: none;float: left;padding-right: 10px;">
+						<!--span style="list-style: none;padding-right: 10px;">
 							<a href="javascript:filterNpcs('side',3)" class="filter-a" title="两者">
 																	<img src="templates/wowhead/images/alliance-icon.gif" title="联盟" alt="联盟">
 																								<img src="templates/wowhead/images/horde-icon.gif" title="部落" alt="部落">
@@ -40,7 +37,7 @@
 						</span-->
 				</div>
 			</div>   
-        <p style="line-height:5px"/>	   
+        	   
 		<div class="filter-condition">
             <div class="bdfs">武器训练：<br></div>
             <div class="item-screen">
@@ -91,7 +88,7 @@
                     </span>                                    																	
             </div>
         </div>                 
-        <p style="line-height:5px"/>	   
+        	   
 		<div class="filter-condition">
             <div class="bdfs">训练类别：<br></div>
             <div class="item-screen">
@@ -113,7 +110,7 @@
 																	
             </div>
         </div>
-		<p style="line-height:5px"/>			
+					
         <div class="filter-condition">
             <div class="bdfs">职业训练：</div>
             <div class="item-screen">
@@ -149,7 +146,7 @@
                     </span>
                </div>
         </div>
-		<p style="line-height:5px"/>	
+			
         <div class="filter-condition">
             <div class="bdfs">种族骑术训练：<br></div>
             <div class="item-screen">
@@ -193,7 +190,7 @@
 					-->																			
             </div>
         </div>
-		<p style="line-height:5px"/>	
+			
         <div class="filter-condition">
             <div class="bdfs">前置专业训练：</div>
             <div class="item-screen">
@@ -226,7 +223,7 @@
                     </span>					
             </div>
 		</div>
-			<p style="line-height:5px"/>	
+				
 			<div class="filter-condition">
             <div class="bdfs">其它类别：<br></div>
             <div class="item-screen">
@@ -256,7 +253,7 @@
                     </span>																																
             </div>
         </div>
-		<p style="line-height:5px"/>	
+			
 			<div class="filter-condition">
 				<div class="bdfs">等级：</div>
 				<div class="item-screen">
@@ -268,6 +265,16 @@
 				</div>	
 			</div>
     </div>
+{literal}
+<script>
+var curArr = document.querySelectorAll(".current");
+for(var i=0;i<curArr.length;i++) {
+	if(curArr[i].innerText!='全部') {
+		document.getElementById("curSel").innerHTML += "<span class='sellabel'>"+curArr[i].innerText+"</span>";
+	}
+}
+</script>
+{/literal}    
 				<div id="lv-npcs" class="listview"></div>
 
 				<script type="text/javascript">

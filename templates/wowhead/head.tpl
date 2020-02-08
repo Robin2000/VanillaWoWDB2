@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="/templates/topwow/css/home13.css">
 	{/if}
 
-	<link rel="stylesheet" type="text/css" href="templates/wowhead/css/global14.css" />
+	<link rel="stylesheet" type="text/css" href="templates/wowhead/css/global15.css" />
 	<link rel="stylesheet" type="text/css" href="templates/wowhead/css/locale_{$language}.css" />
 	<!--[if IE]><link rel="stylesheet" type="text/css" href="templates/wowhead/css/global_ie.css?{$AOWOW_REVISION}" /><![endif]-->
 	<!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="templates/wowhead/css/global_ie6.css?{$AOWOW_REVISION}" /><![endif]-->
@@ -34,9 +34,9 @@
       	{/if}
 {/if}
 
-	<script src="templates/wowhead/js/locale_{$language}15.js" type="text/javascript"></script>
+	<script src="templates/wowhead/js/locale_{$language}16.js" type="text/javascript"></script>
 
-	<script src="templates/wowhead/js/global13.js" type="text/javascript"></script>
+	<script src="templates/wowhead/js/global14.js" type="text/javascript"></script>
 	<script src="templates/wowhead/js/Markup.js" type="text/javascript"></script>
 	
 {if $page.Mapper}

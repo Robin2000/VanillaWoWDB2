@@ -5600,7 +5600,7 @@ Listview.templates = {
 		},
 		{
 			id: "level",
-			name: LANG.level,
+			name: LANG.lvitem_level,
 			value: "level"
 		},
 		{
@@ -5925,7 +5925,7 @@ Listview.templates = {
 		},
 		{
 			id: "level",
-			name: LANG.level,
+			name: LANG.lvitem_level,
 			type: "range",
 			getMinValue: function (a) {
 				return a.level_min
@@ -10010,5 +10010,13 @@ function filterNpcs(type,val) {
 		case 'trainerSpell':return filterQuery(6,type,val);
 		case 'npc_flags':return filterQuery(7,type,val);
 		case 'minLvl':return filterQuery(8,type,val);
+	}
+}
+/*Type, trainerType, trainerClass, trainerRace, trainerSpell, minLvl*/
+function filterItemset(type,val) {
+	switch(type){
+		case 'allowClass':return filterQuery(0,type,val);
+		case 'tname':return filterQuery(1,type,val);
+		case 'tclass':return filterQuery(2,type,val);
 	}
 }

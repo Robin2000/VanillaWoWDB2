@@ -2859,6 +2859,10 @@ padding:10px 0 10px 10px;
     margin-left: 10px;
     color: #999;
 }
+.filter-condition a {
+    line-height: 30px;
+    height: 30px;
+}
 
 .current{
     border-radius:5px;
