@@ -18,15 +18,11 @@
 						</span>
 						<span style="list-style: none;padding-right: 10px;">
 							<a href="javascript:filterNpcs('side',1)" class="filter-a {if $side eq '1'}current{/if}" title="联盟">
-																	<img src="templates/wowhead/images/alliance-icon.gif" title="联盟" alt="联盟">
-																								联盟
-							</a>
+																	<img src="templates/wowhead/images/alliance-icon.gif" title="联盟" alt="联盟">联盟</a>
 						</span>
 						<span style="list-style: none;padding-right: 10px;">
 							<a href="javascript:filterNpcs('side',2)" class="filter-a {if $side eq '2'}current{/if}" title="部落">
-																								<img src="templates/wowhead/images/horde-icon.gif" title="部落" alt="部落">
-																部落
-							</a>
+							<img src="templates/wowhead/images/horde-icon.gif" title="部落" alt="部落">部落</a>
 						</span>
 						<!--span style="list-style: none;padding-right: 10px;">
 							<a href="javascript:filterNpcs('side',3)" class="filter-a" title="两者">
@@ -45,46 +41,46 @@
                         <a href="javascript:filterNpcs('weaponType','n')" class="filter-a {if $weaponType eq 'n'}current{/if}" title="全部">全部</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('weaponType',1)" class="filter-a {if $weaponType eq '1'}current{/if}" title="匕首">匕首</a>
+                        <a href="javascript:filterNpcs('weaponType',1)" class="filter-a {if $weaponType eq '1'}current{/if}" title="匕首">匕首训练</a>
                     </span>                    
                     <span >
-                        <a href="javascript:filterNpcs('weaponType',2)" class="filter-a {if $weaponType eq '2'}current{/if}" title="单手剑">单手剑</a>
+                        <a href="javascript:filterNpcs('weaponType',2)" class="filter-a {if $weaponType eq '2'}current{/if}" title="单手剑">单手剑训练</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('weaponType',3)" class="filter-a {if $weaponType eq '3'}current{/if}" title="双手剑">双手剑</a>
+                        <a href="javascript:filterNpcs('weaponType',3)" class="filter-a {if $weaponType eq '3'}current{/if}" title="双手剑">双手剑训练</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('weaponType',4)" class="filter-a {if $weaponType eq '4'}current{/if}" title="单手斧">单手斧</a>
+                        <a href="javascript:filterNpcs('weaponType',4)" class="filter-a {if $weaponType eq '4'}current{/if}" title="单手斧">单手斧训练</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('weaponType',5)" class="filter-a {if $weaponType eq '5'}current{/if}" title="双手斧">双手斧</a>
+                        <a href="javascript:filterNpcs('weaponType',5)" class="filter-a {if $weaponType eq '5'}current{/if}" title="双手斧">双手斧训练</a>
                     </span>                    
                     <span >
-                        <a href="javascript:filterNpcs('weaponType',6)" class="filter-a {if $weaponType eq '6'}current{/if}" title="单手锤">单手锤</a>
+                        <a href="javascript:filterNpcs('weaponType',6)" class="filter-a {if $weaponType eq '6'}current{/if}" title="单手锤">单手锤训练</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('weaponType',7)" class="filter-a {if $weaponType eq '7'}current{/if}" title="双手锤">双手锤</a>
+                        <a href="javascript:filterNpcs('weaponType',7)" class="filter-a {if $weaponType eq '7'}current{/if}" title="双手锤">双手锤训练</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('weaponType',8)" class="filter-a {if $weaponType eq '8'}current{/if}" title="拳套">拳套</a>
+                        <a href="javascript:filterNpcs('weaponType',8)" class="filter-a {if $weaponType eq '8'}current{/if}" title="拳套">拳套训练</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('weaponType',9)" class="filter-a {if $weaponType eq '9'}current{/if}" title="法杖">法杖</a>
+                        <a href="javascript:filterNpcs('weaponType',9)" class="filter-a {if $weaponType eq '9'}current{/if}" title="法杖">法杖训练</a>
                     </span>                    
                     <span >
-                        <a href="javascript:filterNpcs('weaponType',10)" class="filter-a {if $weaponType eq '10'}current{/if}" title="枪">枪</a>
+                        <a href="javascript:filterNpcs('weaponType',10)" class="filter-a {if $weaponType eq '10'}current{/if}" title="枪">枪训练</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('weaponType',11)" class="filter-a {if $weaponType eq '11'}current{/if}" title="弓箭">弓箭</a>
+                        <a href="javascript:filterNpcs('weaponType',11)" class="filter-a {if $weaponType eq '11'}current{/if}" title="弓箭">弓箭训练</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('weaponType',12)" class="filter-a {if $weaponType eq '12'}current{/if}" title="弩">弩</a>
+                        <a href="javascript:filterNpcs('weaponType',12)" class="filter-a {if $weaponType eq '12'}current{/if}" title="弩">弩训练</a>
                     </span> 
                  <span >
-                        <a href="javascript:filterNpcs('weaponType',13)" class="filter-a {if $weaponType eq '13'}current{/if}" title="长柄武器">长柄武器</a>
+                        <a href="javascript:filterNpcs('weaponType',13)" class="filter-a {if $weaponType eq '13'}current{/if}" title="长柄武器">长柄武器训练</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('weaponType',14)" class="filter-a {if $weaponType eq '14'}current{/if}" title="投掷武器">投掷武器</a>
+                        <a href="javascript:filterNpcs('weaponType',14)" class="filter-a {if $weaponType eq '14'}current{/if}" title="投掷武器">投掷武器训练</a>
                     </span>                                    																	
             </div>
         </div>                 
@@ -118,31 +114,31 @@
                         <a href="javascript:filterNpcs('trainerClass','n')" class="filter-a {if $trainerClass eq 'n'}current{/if}" title="全部">全部</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('trainerClass',1)" class="filter-a {if $trainerClass eq '1'}current{/if}" title="战士" style="color:#CF9766">战士</a>
+                        <a href="javascript:filterNpcs('trainerClass',1)" class="filter-a {if $trainerClass eq '1'}current{/if}" title="战士" style="color:#CF9766">战士训练</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('trainerClass',2)" class="filter-a {if $trainerClass eq '2'}current{/if}" title="圣骑士" style="color:#F14C74">圣骑士</a>
+                        <a href="javascript:filterNpcs('trainerClass',2)" class="filter-a {if $trainerClass eq '2'}current{/if}" title="圣骑士" style="color:#F14C74">圣骑士训练</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('trainerClass',3)" class="filter-a {if $trainerClass eq '3'}current{/if}" title="猎人" style="color:#AAD372">猎人</a>
+                        <a href="javascript:filterNpcs('trainerClass',3)" class="filter-a {if $trainerClass eq '3'}current{/if}" title="猎人" style="color:#AAD372">猎人训练</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('trainerClass',4)" class="filter-a {if $trainerClass eq '4'}current{/if}" title="盗贼" style="color:#FFF468">盗贼</a>
+                        <a href="javascript:filterNpcs('trainerClass',4)" class="filter-a {if $trainerClass eq '4'}current{/if}" title="盗贼" style="color:#FFF468">盗贼训练</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('trainerClass',5)" class="filter-a {if $trainerClass eq '5'}current{/if}" title="牧师" style="color:#FDFCF8">牧师</a>
+                        <a href="javascript:filterNpcs('trainerClass',5)" class="filter-a {if $trainerClass eq '5'}current{/if}" title="牧师" style="color:#FDFCF8">牧师训练</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('trainerClass',7)" class="filter-a {if $trainerClass eq '7'}current{/if}" title="萨满" style="color:#2359FF">萨满</a>
+                        <a href="javascript:filterNpcs('trainerClass',7)" class="filter-a {if $trainerClass eq '7'}current{/if}" title="萨满" style="color:#2359FF">萨满训练</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('trainerClass',8)" class="filter-a {if $trainerClass eq '8'}current{/if}" title="法师" style="color:#68CCEF">法师</a>
+                        <a href="javascript:filterNpcs('trainerClass',8)" class="filter-a {if $trainerClass eq '8'}current{/if}" title="法师" style="color:#68CCEF">法师训练</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('trainerClass',9)" class="filter-a {if $trainerClass eq '9'}current{/if}" title="术士" style="color:#977DC7">术士</a>
+                        <a href="javascript:filterNpcs('trainerClass',9)" class="filter-a {if $trainerClass eq '9'}current{/if}" title="术士" style="color:#977DC7">术士训练</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('trainerClass',11)" class="filter-a {if $trainerClass eq '11'}current{/if}" title="德鲁伊" style="color:#FE7900">德鲁伊</a>
+                        <a href="javascript:filterNpcs('trainerClass',11)" class="filter-a {if $trainerClass eq '11'}current{/if}" title="德鲁伊" style="color:#FE7900">德鲁伊训练</a>
                     </span>
                </div>
         </div>
@@ -154,28 +150,28 @@
                         <a href="javascript:filterNpcs('trainerRace','n')" class="filter-a {if $trainerRace eq 'n'}current{/if}" title="全部">全部</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('trainerRace',1)" class="filter-a {if $trainerRace eq '1'}current{/if}" title="人类" style="color:#7B989E">人类</a>
+                        <a href="javascript:filterNpcs('trainerRace',1)" class="filter-a {if $trainerRace eq '1'}current{/if}" title="人类" style="color:#7B989E">人类骑术训练</a>
                     </span>                    
                     <span >
-                        <a href="javascript:filterNpcs('trainerRace',2)" class="filter-a {if $trainerRace eq '2'}current{/if}" title="兽人" style="color:#6C9839">兽人</a>
+                        <a href="javascript:filterNpcs('trainerRace',2)" class="filter-a {if $trainerRace eq '2'}current{/if}" title="兽人" style="color:#6C9839">兽人骑术训练</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('trainerRace',3)" class="filter-a {if $trainerRace eq '3'}current{/if}" title="矮人" style="color:#FB8C5E">矮人</a>
+                        <a href="javascript:filterNpcs('trainerRace',3)" class="filter-a {if $trainerRace eq '3'}current{/if}" title="矮人" style="color:#FB8C5E">矮人骑术训练</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('trainerRace',4)" class="filter-a {if $trainerRace eq '4'}current{/if}" title="暗夜精灵" style="color:#4847A4">暗夜精灵</a>
+                        <a href="javascript:filterNpcs('trainerRace',4)" class="filter-a {if $trainerRace eq '4'}current{/if}" title="暗夜精灵" style="color:#4847A4">暗夜精灵骑术训练</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('trainerRace',5)" class="filter-a {if $trainerRace eq '5'}current{/if}" title="亡灵" style="color:#2B3A28">亡灵</a>
+                        <a href="javascript:filterNpcs('trainerRace',5)" class="filter-a {if $trainerRace eq '5'}current{/if}" title="亡灵" style="color:#2B3A28">亡灵骑术训练</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('trainerRace',6)" class="filter-a {if $trainerRace eq '6'}current{/if}" title="牛头人" style="color:#E47C47">牛头人</a>
+                        <a href="javascript:filterNpcs('trainerRace',6)" class="filter-a {if $trainerRace eq '6'}current{/if}" title="牛头人" style="color:#E47C47">牛头人骑术训练</a>
                     </span>
                    <span >
-                        <a href="javascript:filterNpcs('trainerRace',7)" class="filter-a {if $trainerRace eq '7'}current{/if}" title="侏儒" style="color:#D24500">侏儒</a>
+                        <a href="javascript:filterNpcs('trainerRace',7)" class="filter-a {if $trainerRace eq '7'}current{/if}" title="侏儒" style="color:#D24500">侏儒骑术训练</a>
                     </span>
                    <span >
-                        <a href="javascript:filterNpcs('trainerRace',8)" class="filter-a {if $trainerRace eq '8'}current{/if}" title="巨魔" style="color:#6093A9">巨魔</a>
+                        <a href="javascript:filterNpcs('trainerRace',8)" class="filter-a {if $trainerRace eq '8'}current{/if}" title="巨魔" style="color:#6093A9">巨魔骑术训练</a>
                     </span>
 					<!--	
                    <span>
@@ -198,28 +194,28 @@
                         <a href="javascript:filterNpcs('trainerSpell','n')" class="filter-a {if $trainerSpell eq 'n'}current{/if}" title="全部">全部</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('trainerSpell',2575)" class="filter-a {if $trainerSpell eq '2575'}current{/if}" title="采矿">采矿</a>
+                        <a href="javascript:filterNpcs('trainerSpell',2575)" class="filter-a {if $trainerSpell eq '2575'}current{/if}" title="采矿">需掌握采矿</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('trainerSpell',9787)" class="filter-a {if $trainerSpell eq '9787'}current{/if}" title="武器锻造">武器锻造</a>
+                        <a href="javascript:filterNpcs('trainerSpell',9787)" class="filter-a {if $trainerSpell eq '9787'}current{/if}" title="武器锻造">需掌握武器锻造</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('trainerSpell',9788)" class="filter-a {if $trainerSpell eq '9788'}current{/if}" title="防具锻造">防具锻造</a>
+                        <a href="javascript:filterNpcs('trainerSpell',9788)" class="filter-a {if $trainerSpell eq '9788'}current{/if}" title="防具锻造">需掌握防具锻造</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('trainerSpell',10656)" class="filter-a {if $trainerSpell eq '10656'}current{/if}" title="龙鳞制皮">龙鳞制皮</a>
+                        <a href="javascript:filterNpcs('trainerSpell',10656)" class="filter-a {if $trainerSpell eq '10656'}current{/if}" title="龙鳞制皮">需掌握龙鳞制皮</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('trainerSpell',10658)" class="filter-a {if $trainerSpell eq '10658'}current{/if}" title="元素制皮">元素制皮</a>
+                        <a href="javascript:filterNpcs('trainerSpell',10658)" class="filter-a {if $trainerSpell eq '10658'}current{/if}" title="元素制皮">需掌握元素制皮</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('trainerSpell',10660)" class="filter-a {if $trainerSpell eq '10660'}current{/if}" title="部族制皮">部族制皮</a>
+                        <a href="javascript:filterNpcs('trainerSpell',10660)" class="filter-a {if $trainerSpell eq '10660'}current{/if}" title="部族制皮">需掌握部族制皮</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('trainerSpell',20219)" class="filter-a {if $trainerSpell eq '20219'}current{/if}" title="侏儒工程学">侏儒工程学</a>
+                        <a href="javascript:filterNpcs('trainerSpell',20219)" class="filter-a {if $trainerSpell eq '20219'}current{/if}" title="侏儒工程学">需成为侏儒工程学</a>
                     </span>
                     <span >
-                        <a href="javascript:filterNpcs('trainerSpell',20222)" class="filter-a {if $trainerSpell eq '20222'}current{/if}" title="地精工程师">地精工程师</a>
+                        <a href="javascript:filterNpcs('trainerSpell',20222)" class="filter-a {if $trainerSpell eq '20222'}current{/if}" title="地精工程师">需成为地精工程师</a>
                     </span>					
             </div>
 		</div>
