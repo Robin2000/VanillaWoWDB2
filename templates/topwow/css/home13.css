@@ -113,15 +113,20 @@
     word-break: break-all;
 }
 .war{
-    padding-left:16px;background:url(/templates/wowhead/images/money_ffa.gif) no-repeat left top;
+    padding-left:16px;margin-left:5px;background:url(/templates/wowhead/images/money_ffa.gif) no-repeat left center;
 }
 .horde{
-    padding-left:16px;background:url(/templates/wowhead/images/money_horde.gif) no-repeat left top;
+    padding-left:16px;margin-left:5px;background:url(/images/horde1.png) no-repeat left center;
 }
 .alliance{
-    padding-left:16px;background:url(/templates/wowhead/images/money_alliance.gif) no-repeat left top;
+    padding-left:16px;margin-left:5px;background:url(/images/alliance1.png) no-repeat left center;
 }
-
+.east{
+    padding-left:16px;margin-left:5px;background:url(/images/map0.png) no-repeat left center;
+}
+.west{
+    padding-left:16px;margin-left:5px;background:url(/images/map1.png) no-repeat left center;
+}
 /*news*/
 .n-wrapper {
     min-height:768px; width:100%; text-align: center; position: relative; margin-top:120px;padding-top:80px;

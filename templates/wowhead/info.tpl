@@ -14,7 +14,7 @@
   <link rel="apple-touch-icon" href="icon.png">
   <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="/templates/topwow/css/home12.css">
+  <link rel="stylesheet" href="/templates/topwow/css/home13.css">
 
   <link rel="search" type="application/opensearchdescription+xml" title="VanillaWoWDB" href="http://www.topwow.top/opensearch.xml" />
   <link rel="SHORTCUT ICON" href="http://www.topwow.top/favicon.ico">
@@ -44,12 +44,32 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="http://www.topwow.top/"><img src="/templates/wowhead/images/logo.png"></a>
+            <a class="navbar-brand" href="#"><img src="/templates/wowhead/images/logo.png"></a>
         </div>
+   
         <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-            <li><a target="_blank" href="http://www.topwow.top/wowgis/map-0.html">东部王国</a></li>
-            <li><a target="_blank" href="http://www.topwow.top/wowgis/map-1.html">卡利姆多</a></li>
+
+            <li class="dropdown">
+            <a href="http://www.topwow.top/itemsets.html" class="dropdown-toggle" data-toggle="dropdown">地图 <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                <li><h3>世界地图</h3></li>   
+                <li><a target="_blank" href="http://www.topwow.top/wowgis/map-0.html" class="east">东部王国</a></li>
+                <li><a target="_blank" href="http://www.topwow.top/wowgis/map-1.html" class="west">卡利姆多</a></li>
+                <li><h3>飞行线路</h3></li>                
+                <li><a target="_blank" href="http://www.topwow.top/zone-30000.html" class="alliance">联盟-东部</a></li>
+                <li><a target="_blank" href="http://www.topwow.top/zone-30002.html" class="alliance">联盟-西部</a></li>
+                <li><a target="_blank" href="http://www.topwow.top/zone-30001.html" class="horde">部落-东部</a></li>
+                <li><a target="_blank" href="http://www.topwow.top/zone-30003.html" class="horde">部落-西部</a></li>
+                <li><h3>野外BOSS</h3></li>
+                <!-- Default -->
+                <li><a href="http://www.topwow.top/zone-30007.html" class="alliance">梦魇巨龙东部</a></li>
+                <li><a href="http://www.topwow.top/zone-30009.html" class="alliance">梦魇巨龙西部</a></li>
+                <!-- End Default -->
+                </ul>
+            </li>
+
+
             
             <!--装备道具-->
             <li class="dropdown mega-menu-fullwidth">
@@ -772,26 +792,216 @@
                 </ul>
             </li><!--任务-->
 
-            <li class="dropdown">
-            <a href="http://www.topwow.top/zones.html" class="dropdown-toggle" data-toggle="dropdown">地区阵营 <span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                    <li class="sub-header">&nbsp;地区</li>
-                    <li><a href="http://www.topwow.top/zones-0.html">东部王国</a></li>
-                    <li><a href="http://www.topwow.top/zones-1.html">卡利姆多</a></li>
-                    <li><a href="http://www.topwow.top/zones-2.html">地下城</a></li>
-                    <li><a href="http://www.topwow.top/zones-3.html">团队副本</a></li>
-                    <li><a href="http://www.topwow.top/zones-4.html">战场</a></li>
-                    <li class="divider"></li>
-                    <li class="sub-header">&nbsp;阵营</li>
-                    <li><a href="http://www.topwow.top/factions-469.html">联盟</a></li>
-                    <li><a href="http://www.topwow.top/factions-891.html">联盟军队</a></li>
-                    <li><a href="http://www.topwow.top/factions-67.html">部落</a></li>
-                    <li><a href="http://www.topwow.top/factions-892.html">部落军队</a></li>
-                    <li><a href="http://www.topwow.top/factions-169.html">商贸集团</a></li>
-                    <li><a href="http://www.topwow.top/factions-0.html">其他阵营</a></li>
-                </ul>
-            </li>
+            <!--地区阵营-->
+            <li class="dropdown mega-menu-fullwidth">
+                <a href="http://www.topwow.top/spells.html" class="dropdown-toggle" data-toggle="dropdown">
+                    地区阵营 <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <div class="mega-menu-content">
+                            <div class="container">
+                                <div class="row equal-height">
 
+                                      <!--职业技能-->
+                                    <div class="col-md-3 equal-height-in">
+                                        <ul class="list-unstyled equal-height-list">
+                                            <li><h3><a href="http://www.topwow.top/zones-0.html">东部王国</a></h3></li>
+
+                                            <!-- Default -->
+                                            <li><a href="http://www.topwow.top/zone-12.html" class="alliance">艾尔文森林(1-10)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-38.html" class="alliance">洛克莫丹(10-20)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-1.html" class="alliance">丹莫罗(1-10)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-40.html" class="alliance">西部荒野(10-20)</a></li>
+                                            
+                                            <li><a href="http://www.topwow.top/zone-44.html" class="war">赤脊山(15-25)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-10.html" class="war">暮色森林(20-30)</a></li>
+
+                                            <li><a href="http://www.topwow.top/zone-45.html" class="war">阿拉希高地(30-40)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-3.html" class="war">荒芜之地(35-45)</a></li>
+                                            <!--li><a href="http://www.topwow.top/zone-25.html" class="war">黑石山(55-60)</a></li-->
+                                            <li><a href="http://www.topwow.top/zone-4.html" class="war">诅咒之地(47-55)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-46.html" class="war">燃烧平原(50-60)</a></li>
+                                            
+                                            <li><div>
+                                                <a href="http://www.topwow.top/zone-1519.html" class="alliance">暴风城</a>
+                                                <a href="http://www.topwow.top/zone-1537.html" class="alliance">铁炉堡</a>
+                                                </div>
+                                            </li>                                            
+                                            <li><div>
+                                                <!--a href="http://www.topwow.top/zone-2257.html" class="war">矿道地铁</a-->
+                                                <a href="http://www.topwow.top/zone-1497.html" class="horde">幽暗城</a>
+                                                <a href="http://www.topwow.top/zone-41.html" class="war">逆风小径</a> 
+                                                </div>
+                                            </li>                                            
+                                            
+                                            <li><a href="http://www.topwow.top/zone-267.html" class="war">希尔斯布莱德丘陵(20-30)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-36.html" class="war">奥特兰克山脉(30-40)</a></li>
+                                            
+                                            
+                                            <li><a href="http://www.topwow.top/zone-51.html" class="war">灼热峡谷(43-50)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-130.html" class="horde">银松森林(10-20)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-33.html" class="war">荆棘谷(30-45)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-8.html" class="war">悲伤沼泽(35-45)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-47.html" class="war">辛特兰(40-50)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-85.html" class="horde">提瑞斯法林地(1-10)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-28.html" class="war">西瘟疫之地(50-60)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-139.html" class="war">东瘟疫之地(55-60)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-11.html" class="war">湿地(20-30)</a> </li>
+
+                                            
+                                                                                                                                                                                                                                                                                                        
+                                            <!-- End Default -->
+                                        </ul>
+                                    </div><!--职业技能-->
+
+                                      <!--专业技能-->
+                                    <div class="col-md-3 equal-height-in">
+                                        <ul class="list-unstyled equal-height-list">
+                                            <li><h3><a href="http://www.topwow.top/zones-1.html">卡利姆多</a></h3></li>
+                                            <!-- Default -->
+                                            <li><a href="http://www.topwow.top/zone-331.html" class="war">灰谷(15-30)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-16.html" class="war">艾萨拉(48-55)</a></li>
+                                             <li><a href="http://www.topwow.top/zone-148.html" class="alliance">黑海岸(10-20)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-405.html" class="war">凄凉之地(30-40)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-141.html" class="alliance">泰达希尔(1-10)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-15.html" class="war">尘泥沼泽(35-45)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-361.html" class="war">费伍德森林(48-55)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-357.html" class="war">菲拉斯(40-50)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-215.html" class="horde">莫高雷(1-10)</a></li>
+                                            <li><div>
+                                                <a href="http://www.topwow.top/zone-1657.html" class="alliance">达纳苏斯</a>
+                                                <a href="http://www.topwow.top/zone-493.html" class="war">月光林地</a>
+                                                </div>
+                                            </li>                                            
+                                            <li><div>
+                                                <a href="http://www.topwow.top/zone-1637.html" class="horde">奥格瑞玛</a>
+                                                <a href="http://www.topwow.top/zone-1638.html" class="horde">雷霆崖</a>
+                                                </div>
+                                            </li>
+                                            <li><a href="http://www.topwow.top/zone-1377.html" class="war">希利苏斯(55-60)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-406.html" class="war">石爪山脉(15-27)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-440.html" class="war">塔纳利斯(40-50)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-14.html" class="horde">杜隆塔尔(1-10)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-17.html" class="horde">贫瘠之地(10-25)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-400.html" class="war">千针石林(25-35)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-490.html" class="war">安戈洛环形山(48-55)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-618.html" class="war">冬泉谷(55-60)</a></li>
+                                            <!-- End Default -->
+                                        </ul>
+                                    </div><!--专业技能-->     
+
+                                    
+                                      <!--宠物技能-->
+                                    <div class="col-md-3 equal-height-in">
+                                        <ul class="list-unstyled equal-height-list">
+                                            <li><h3><a href="http://www.topwow.top/zones-2.html">副本</a></h3></li>
+                                            <!-- Default -->
+                                            <li><span class="sub-header">位于东部王国</span></li>
+                                            
+                                            <li><a href="http://www.topwow.top/zone-1584.html" class="war">黑石深渊(48-56)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-1583.html" class="war">黑石塔(57-60)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-133.html" class="alliance">诺莫瑞根(29-38)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-796.html" class="horde">血色修道院(33-44)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-2017.html" class="war">斯坦索姆(56-60)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-2057.html" class="war">通灵学院(58-60)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-209.html" class="war">影牙城堡(20-28)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-1337.html" class="war">奥达曼(38-46)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-1417.html" class="war">沉没的神庙(44-52)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-717.html" class="alliance">暴风城监狱(24-32)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-1581.html" class="alliance">死亡矿井(17-26)</a></li>
+
+
+                                            <li><span class="sub-header">位于卡利姆多</span></li>
+                                            <li><a href="http://www.topwow.top/zone-719.html" class="war">黑暗深渊(23-30)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-2437.html" class="horde">怒焰裂谷(13-20)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-718.html" class="horde">哀嚎洞穴(17-24)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-2557.html" class="war">厄运之槌(56-60)</a>
+                                            <li><a href="http://www.topwow.top/zone-2100.html" class="war">玛拉顿(40-50)</a></li>
+                                            <div class="dropdown-header">
+                                            <a href="http://www.topwow.top/zone-25570.html">东部</a>
+                                            <a href="http://www.topwow.top/zone-25571.html">北部</a>
+                                            <a href="http://www.topwow.top/zone-25572.html">西部</a>
+                                            </div>
+                                            </li>
+                                            <li><a href="http://www.topwow.top/zone-722.html" class="war">剃刀高地(37-46)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-491.html" class="war">剃刀沼泽(29-38)</a></li>
+                                            <li><a href="http://www.topwow.top/zone-978.html" class="war">祖尔法拉克(43-50)</a></li> 
+                                            <!-- End Default -->
+                                        </ul>
+                                    </div><!--宠物技能--> 
+
+                                    <!--大型副本和阵营-->
+                                    <div class="col-md-3 equal-height-in">
+                                        <ul class="list-unstyled equal-height-list">
+                                            <li><h3>大型副本</h3></li>
+
+                                            <!-- Default -->
+                                            <li><a href="http://www.topwow.top/zones-3.html">团队副本（东部王国）</a>
+                                                <div class="dropdown-header">
+                                                <a href="http://www.topwow.top/zone-19.html">祖尔格拉布</a>
+                                                </div>
+                                                <div class="dropdown-header">
+                                                    <a href="http://www.topwow.top/zone-2717.html">熔火之心</a>
+                                                    <a href="http://www.topwow.top/zone-15830.html">黑石塔上</a>
+                                                </div>
+                                                <div class="dropdown-header">
+                                                    <a href="http://www.topwow.top/zone-2677.html">黑翼之巢</a>
+                                                    <a href="http://www.topwow.top/zone-3456.html">纳克萨玛斯</a>
+                                                </div>                                                
+                                            </li>
+                                            <li><a href="http://www.topwow.top/zones-3.html">团队副本（卡利姆多）</a>
+                                                <div class="dropdown-header">
+                                                    <a href="http://www.topwow.top/zone-3429.html">安其拉废墟</a>
+                                                    <a href="http://www.topwow.top/zone-3428.html">安其拉神殿</a>
+                                                </div>                                            
+                                                <div class="dropdown-header">
+                                                    <a href="http://www.topwow.top/zone-2159.html">奥妮克希亚巢穴</a>
+                                                </div>
+                                            </li>                                            
+                                            <li><a href="http://www.topwow.top/zones-4.html" class="war">战场（东部王国）</a>
+                                                <div class="dropdown-header">
+                                                    <a href="http://www.topwow.top/zone-2597.html">奥特兰克山谷</a>
+                                                    <a href="http://www.topwow.top/zone-25971.html">北部</a>
+                                                    <a href="http://www.topwow.top/zone-25970.html">南部</a>
+                                                </div>
+                                                <div class="dropdown-header">
+                                                    <a href="http://www.topwow.top/zone-3358.html">阿拉希盆地</a>
+                                                </div>
+                                            </li>
+                                            <li><a href="http://www.topwow.top/zones-4.html" class="war">战场（卡利姆多）</a>
+                                                <div class="dropdown-header">
+                                                    <a href="http://www.topwow.top/zone-3277.html">战歌峡谷</a>
+                                                </div>
+                                            </li>
+                                            <!-- End Default -->
+                                            <li class="big-screen-space"></li>
+                                            <li><h3>阵营</h3></li>
+                                            <!-- Default -->
+                                            <li><a href="http://www.topwow.top/factions-469.html" class="alliance">联盟</a></li>
+                                            <li><a href="http://www.topwow.top/factions-891.html" class="alliance">联盟军队</a></li>
+                                            <li><a href="http://www.topwow.top/factions-67.html" class="horde">部落</a></li>
+                                            <li><a href="http://www.topwow.top/factions-892.html" class="horde">部落军队</a></li>
+                                            <li><a href="http://www.topwow.top/factions-169.html">商贸集团</a>
+                                                <div class="dropdown-header">
+                                                    <a href="http://www.topwow.top/faction-369.html">加基森</a>
+                                                    <a href="http://www.topwow.top/faction-470.html">棘齿城</a>
+                                                    <a href="http://www.topwow.top/faction-577.html">永望镇</a>
+                                                    <a href="http://www.topwow.top/faction-21.html">藏宝海湾</a>
+                                                </div>
+                                            </li>
+                                            <li><a href="http://www.topwow.top/factions-0.html">其他阵营</a></li>
+                                            <!-- End Default -->
+
+                                        </ul>
+                                    </div><!--大型副本和阵营-->                                 
+
+                                </div>
+                            </div>    
+                        </div>    
+                    </li>
+                </ul>
+            </li><!--地区阵营-->
             <!--技能-->
             <li class="dropdown mega-menu-fullwidth">
                 <a href="http://www.topwow.top/spells.html" class="dropdown-toggle" data-toggle="dropdown">
@@ -998,7 +1208,20 @@
             </li><!--技能-->
 
 
-            <li><a href="http://www.topwow.top/talent.html">天赋</a></li>
+            <li class="dropdown">
+            <a href="http://www.topwow.top/itemsets.html" class="dropdown-toggle" data-toggle="dropdown">天赋 <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="http://www.topwow.top/talent-1.html" style="color:#CF9766">战士</a></li>
+                    <li><a href="http://www.topwow.top/talent-2.html" style="color:#F14C74">圣骑士</a></li>
+                    <li><a href="http://www.topwow.top/talent-3.html" style="color:#AAD372">猎人</a></li>
+                    <li><a href="http://www.topwow.top/talent-7.html" style="color:#2359FF">萨满</a></li>
+                    <li><a href="http://www.topwow.top/talent-4.html" style="color:#FFF468">盗贼</a></li>
+                    <li><a href="http://www.topwow.top/talent-11.html" style="color:#FE7900">德鲁伊</a></li>
+                    <li><a href="http://www.topwow.top/talent-8.html" style="color:#68CCEF">法师</a></li>
+                    <li><a href="http://www.topwow.top/talent-9.html" style="color:#977DC7">术士</a></li>
+                    <li><a href="http://www.topwow.top/talent-5.html" style="color:#977DC7">牧师</a></li>
+                </ul>
+            </li>
     
         </ul>
         </div><!--/.nav-collapse -->

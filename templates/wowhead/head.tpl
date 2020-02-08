@@ -8,7 +8,7 @@
 	<link rel="SHORTCUT ICON" href="http://www.topwow.top/favicon.ico">
 	{if (isset($npc) || isset($item) || isset($zone) || isset($quest))}
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link rel="stylesheet" href="/templates/topwow/css/home12.css">
+	<link rel="stylesheet" href="/templates/topwow/css/home13.css">
 	{/if}
 
 	<link rel="stylesheet" type="text/css" href="templates/wowhead/css/global14.css" />
@@ -34,9 +34,9 @@
       	{/if}
 {/if}
 
-	<script src="templates/wowhead/js/locale_{$language}14.js" type="text/javascript"></script>
+	<script src="templates/wowhead/js/locale_{$language}15.js" type="text/javascript"></script>
 
-	<script src="templates/wowhead/js/global12.js" type="text/javascript"></script>
+	<script src="templates/wowhead/js/global13.js" type="text/javascript"></script>
 	<script src="templates/wowhead/js/Markup.js" type="text/javascript"></script>
 	
 {if $page.Mapper}

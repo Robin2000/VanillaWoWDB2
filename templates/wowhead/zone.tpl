@@ -83,7 +83,7 @@
 {if isset($zone.pois)}
 <div class="text">
 <h1>概要图</h1>
-	<div style="padding:5px;width:772px;min-height:515px;background:url(/images/maps/area/{$zone.name_loc0}.jpg) no-repeat 128px 0;">
+	<div style="padding:5px;width:100%;height:auto;min-width:772px;min-height:515px;background:url(/images/maps/area/{$zone.name_loc0}.jpg) no-repeat 10% 0;">
 		<div id="page1">
 		{foreach from=$zone.pois item=p name=p}
 			<div class="{$p.color}" style="font-size:16px;line-height:20px;height:20px;">

@@ -33,7 +33,7 @@ $AoWoWconf['expansion'] = 0;
 // Limit of some SQL queries
 $AoWoWconf['limit'] = 300;
 // Disable cache, show smarty console panel
-$AoWoWconf['debug'] = false;
+$AoWoWconf['debug'] = true;
 // Map object grouping factor. Meters = 10^param.
 // 0 to disable.
 // 1 is default and highly recommended.

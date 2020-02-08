@@ -2,8 +2,8 @@
 
 require_once('includes/allitems.php');
 
-$itemset_col[0] = array('itemsetID', 'name_loc'.$_SESSION['locale'], 'item1', 'item2', 'item3', 'item4', 'item5', 'item6', 'item7', 'item8', 'item9', 'item10','allowClass');
-$itemset_col[1] = array('itemsetID', 'name_loc'.$_SESSION['locale'], 'item1', 'item2', 'item3', 'item4', 'item5', 'item6', 'item7', 'item8', 'item9', 'item10', 'allowClass', 'spell_id1', 'spell_id2', 'spell_id3', 'spell_id4', 'spell_id5', 'spell_id6', 'spell_id7', 'spell_id8', 'skillID', 'bonus1', 'bonus2', 'bonus3', 'bonus4', 'bonus5', 'bonus6', 'bonus7', 'bonus8', 'skilllevel');
+$itemset_col[0] = array('itemsetID', 'name_loc'.$_SESSION['locale'], 'item1', 'item2', 'item3', 'item4', 'item5', 'item6', 'item7', 'item8', 'item9', 'item10','allowClass','tname','tclass');
+$itemset_col[1] = array('itemsetID', 'name_loc'.$_SESSION['locale'], 'item1', 'item2', 'item3', 'item4', 'item5', 'item6', 'item7', 'item8', 'item9', 'item10', 'allowClass', 'spell_id1', 'spell_id2', 'spell_id3', 'spell_id4', 'spell_id5', 'spell_id6', 'spell_id7', 'spell_id8', 'skillID', 'bonus1', 'bonus2', 'bonus3', 'bonus4', 'bonus5', 'bonus6', 'bonus7', 'bonus8', 'skilllevel','tname','tclass');
 
 function itemsetinfo2(&$row)
 {
@@ -48,6 +48,8 @@ function itemsetinfo2(&$row)
 	}
 	
 	$itemset['classes'] = $itemsetClasses;
+	$itemset['tname'] = $row['tname'];
+	$itemset['tclass'] = $row['tclass'];
 	return $itemset;
 }
 

@@ -1166,6 +1166,8 @@ var LANG = {
 	category: "Category",
 	classes: "Classes",
 	classs: "Class",
+	tclass: "Recommend",
+	tname: "Series",	
 	cost: "Cost",
 	count: "Count",
 	daily: "Daily",

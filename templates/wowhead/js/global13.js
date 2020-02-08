@@ -5980,6 +5980,28 @@ Listview.templates = {
 			}
 		},
 		{
+			id: "tname",
+			name: LANG.tname,
+			type: "text",
+			compute: function (a, b) {
+				return a.tname;
+			},
+			sortFunc: function (d, c, e) {
+				return strcmp(d.tname, c.tname)
+			}
+		},
+		{
+			id: "tclass",
+			name: LANG.tclass,
+			type: "text",
+			compute: function (a, b) {
+				return g_chr_classes[a.tclass];
+			},
+			sortFunc: function (d, c, e) {
+				return strcmp(d.tclass, c.tclass)
+			}
+		},
+		{
 			id: "classes",
 			name: LANG.classes,
 			type: "text",

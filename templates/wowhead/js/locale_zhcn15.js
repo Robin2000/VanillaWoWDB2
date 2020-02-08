@@ -1468,6 +1468,8 @@ var LANG = {
 	category: "分类",
 	classes: "职业",
 	classs: "职业",
+	tclass: "推荐职业",
+	tname: "套装系列",
 	cost: "花费",
 	count: "计数",
 	daily: "每日",
