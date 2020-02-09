@@ -174,10 +174,10 @@ if(!$npc = load_cache(1, $cache_key))
 
 		for($j=0;$j<=4;++$j)
 		{
-			if($row['spell'.$j] && !in_array($row['spell'.$j], $tmp))
+			if($row['spell_id'.$j] && !in_array($row['spell_id'.$j], $tmp))
 			{
-				$tmp[] = $row['spell'.$j];
-				if($data = spellinfo($row['spell'.$j], 0))
+				$tmp[] = $row['spell_id'.$j];
+				if($data = spellinfo($row['spell_id'.$j], 0))
 				{
 					if($data['name'])
 						$npc['abilities'][] = $data;
@@ -380,7 +380,7 @@ if(!$npc = load_cache(1, $cache_key))
 			$npc['position'] = position($npc['entry'], 'creature', 1);
 
 		/*查询出相关地图信息*/
-		$row = $DB->selectRow("
+		$row_zone = $DB->selectRow("
 		SELECT areaID,name_loc0 as file,name_loc4 as name
 		FROM aowow_zones_npc A,aowow_zones B
 		WHERE A.entry = ? AND A.entryType='NPC' AND A.areaID = B.areatableID
@@ -388,13 +388,13 @@ if(!$npc = load_cache(1, $cache_key))
 		",
 		$id
 		);
-		if($row) {
+		if($row_zone) {
 			$npc['refzone'] = array(
-				"areaID" =>  $row['areaID'],
-				"file" =>  $row['file'],
-				"name" =>  $row['name'],
+				"areaID" =>  $row_zone['areaID'],
+				"file" =>  $row_zone['file'],
+				"name" =>  $row_zone['name'],
 			);
-			unset ($row);
+			unset ($row_zone);
 		}
 
 		/* */
