@@ -44,7 +44,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><img src="/templates/wowhead/images/logo.png"></a>
+            <a class="navbar-brand" href="http://www.topwow.top/"><img src="/templates/wowhead/images/logo.png"></a>
         </div>
    
         <div id="navbar" class="navbar-collapse collapse">
@@ -368,7 +368,7 @@
             <li class="dropdown">
             <a href="http://www.topwow.top/itemsets.html" class="dropdown-toggle" data-toggle="dropdown">套装 <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="http://www.topwow.top/itemsets-0.html">不限职业</a></li>
+                    <li><a href="http://www.topwow.top/itemsets.html">全部</a></li>
                     <li><a href="http://www.topwow.top/itemsets-1.html" style="color:#CF9766">战士（板甲）</a></li>
                     <li><a href="http://www.topwow.top/itemsets-2.html" style="color:#F14C74">圣骑士（板甲）</a></li>
                     <li><a href="http://www.topwow.top/itemsets-3.html" style="color:#AAD372">猎人（锁甲）</a></li>
