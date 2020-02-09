@@ -4,7 +4,7 @@ require_once('includes/game.php');
 
 // Для списка creatureinfo()
 $npc_cols[0] = array('name', 'patch','subname', 'level_min', 'level_max', 'type', 'rank', 'faction');
-$npc_cols[1] = array('subname', 'level_min', 'level_max', 'type', 'rank', 'health_min', 'health_max', 'mana_min', 'mana_max', 'gold_min', 'gold_max', 'ai_name','loot_id', 'spell_id1', 'spell_id2', 'spell_id3', 'spell_id4', 'A', 'H', 'dmg_min', 'dmg_max', 'attack_power', 'dmg_multiplier', 'armor', 'base_attack_time', 'holy_res','fire_res','nature_res','frost_res','shadow_res','arcane_res');
+$npc_cols[1] = array('subname', 'level_min', 'level_max', 'type', 'rank', 'health_min', 'health_max', 'mana_min', 'mana_max', 'gold_min', 'gold_max', 'ai_name','loot_id', 'spell_id1', 'spell_id2', 'spell_id3', 'spell_id4', 'A', 'H', 'dmg_min', 'dmg_max', 'attack_power', 'dmg_multiplier', 'armor', 'base_attack_time', 'holy_res','fire_res','nature_res','frost_res','shadow_res','arcane_res','spell_list_id','pet_spell_list_id');
 $npc_type = array(LOCALE_TYPENPC_UNDEFINED,LOCALE_TYPENPC_BEAST,LOCALE_TYPENPC_DRAGON,LOCALE_TYPENPC_DEMON,LOCALE_TYPENPC_ELEM,LOCALE_TYPENPC_GIANT,LOCALE_TYPENPC_UNDEAD,LOCALE_TYPENPC_HUMAN,LOCALE_TYPENPC_CRITTER,LOCALE_TYPENPC_MECHANIC,LOCALE_TYPENPC_UNCATEGORY,LOCALE_TYPENPC_TOTEM,LOCALE_TYPENPC_COMPANION,LOCALE_TYPENPC_GAS_CLOUD);
 $npc_rank = array(LOCALE_NORMAL,LOCALE_ELITE,LOCALE_RARE_ELITE,LOCALE_BOSS,LOCALE_RARE,LOCALE_UNKNOWN);
 

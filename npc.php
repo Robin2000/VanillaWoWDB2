@@ -90,9 +90,88 @@ if(!$npc = load_cache(1, $cache_key))
 
 		// 放下
 		$loot_id=$row['loot_id'];
+
+
+		
+		//宠物
+		$npc['petspells'] =array();
+		if($row['pet_spell_list_id']>0) {
+			$spellList = $DB->selectRow('
+				SELECT spell_id1,spell_id2,spell_id3,spell_id4 
+				FROM pet_spell_data
+				WHERE
+					entry=?d
+				',
+				$row['pet_spell_list_id']
+			);
+
+			if($spellList) {
+				for($i=1;$i<=4;$i++) {
+					if($spellList['spell_id'.$i] > 0) {
+						if($data = spellinfo($spellList['spell_id'.$i], 0)) {
+							if($data['name'])
+								$npc['petspells'][] = $data;
+						}
+					}
+				}
+			}
+			unset ($spellList);
+		}
+
+		//如果从creature_template.pet_spell_list_id对应的pet_spell_data中没有数据，则从petcreateinfo_spell中寻找对应
+		// 如果是有能力的宠物:
+		if(!$npc['petspells']) {
+				$petcreateinfo = $DB->selectRow('
+					SELECT spell1, spell2, spell3, spell4
+					FROM petcreateinfo_spell
+					WHERE
+						entry=?d
+					',
+					$npc['entry']
+				);
+				if($petcreateinfo)
+				{
+					for($j=1;$j<=4;$j++) {
+						if($petcreateinfo['spell'.$j]>0) {
+							if($data = spellinfo($petcreateinfo['spell'.$j], 0)) {
+								if($data['name'])
+									$npc['petspells'][] = $data;
+							}
+						}
+					}
+				}
+				unset ($petcreateinfo);
+		}
+
 		// 常用的拼字
-		$npc['ablities'] = array();
+		$npc['abilities'] = array();
 		$tmp = array();
+
+		//取得能力列表 spell_list_id
+		if($row['spell_list_id']>0) {
+			$spellList = $DB->selectRow('
+				SELECT spellid_1,spellid_2,spellid_3,spellid_4,spellid_5,spellid_6,spellid_7,spellid_8 
+				FROM creature_spells
+				WHERE
+					entry=?d
+				',
+				$row['spell_list_id']
+			);
+
+			if($spellList) {
+				for($i=1;$i<=8;$i++) {
+					if($spellList['spellid_'.$i]>0 && !in_array($spellList['spellid_'.$i], $tmp) ) {
+						$tmp[] = $spellList['spellid_'.$i];
+						if($data = spellinfo($spellList['spellid_'.$i], 0)) {
+							if($data['name'])
+								$npc['abilities'][] = $data;
+						}
+					}
+				}
+			}
+		}
+
+
 		for($j=0;$j<=4;++$j)
 		{
 			if($row['spell'.$j] && !in_array($row['spell'.$j], $tmp))
@@ -130,48 +209,9 @@ if(!$npc = load_cache(1, $cache_key))
 						}
 					}
 		}
-		if(!$npc['ablities'])
-			unset($npc['ablities']);
+
 
 		// 训练:
-		// 如果是有能力的宠物:
-		/* // Временно закомментировано
-		$row = $DB->selectRow('
-			SELECT spell_id1, spell_id2, spell_id3, spell_id4
-			FROM petcreateinfo_spell
-			WHERE
-				entry=?d
-			',
-			$npc['entry']
-		);
-		if($row)
-		{
-			$npc['teaches'] = array();
-			for($j=1;$j<=4;$j++)
-				if($row['Spell'.$j])
-					for($k=1;$k<=3;$k++)
-					{
-						$spellrow = $DB->selectRow('
-							SELECT ?#, spellID
-							FROM ?_spell, ?_spellicons
-							WHERE
-								spellID=(SELECT effect'.$k.'triggerspell FROM ?_spell WHERE spellID=?d AND (effect'.$k.'id IN (36,57)))
-								AND id=spellicon
-							LIMIT 1
-							',
-							$spell_cols[2],
-							$row['Spell'.$j]
-						);
-						if($spellrow)
-						{
-							$num = count($npc['teaches']);
-							$npc['teaches'][$num] = array();
-							$npc['teaches'][$num] = spellinfo2($spellrow);
-						}
-					}
-		}
-		unset ($row);*/
-
 		// 如果只是教练的话
 		$teachspells = $DB->select('
 			SELECT ?#, spellID
@@ -183,6 +223,32 @@ if(!$npc = load_cache(1, $cache_key))
 			',
 			$spell_cols[2],
 			$npc['entry']
+		);
+		if($teachspells)
+		{
+			if(!(IsSet($npc['teaches'])))
+				$npc['teaches'] = array();
+			foreach($teachspells as $teachspell)
+			{
+				$num = count($npc['teaches']);
+				$npc['teaches'][$num] = array();
+				$npc['teaches'][$num] = spellinfo2($teachspell);
+			}
+		}
+		unset ($teachspells);
+
+		//训练模板
+		$teachspells = $DB->select('
+		SELECT ?#, spellID
+		FROM creature_template A,npc_trainer_template B, aowow_spell C, aowow_spellicons D
+		WHERE
+		A.entry=?d
+		AND A.trainer_id=B.entry
+		AND C.spellID=B.spell
+		AND D.id=C.spellicon
+		',
+		$spell_cols[2],
+		$npc['entry']
 		);
 		if($teachspells)
 		{
@@ -386,6 +452,14 @@ if(!$npc = load_cache(1, $cache_key))
 		$smarty->assign('map1Poi', $map1Poi);
 	}
 }
+
+
+if(!$npc['abilities'])
+unset($npc['abilities']);
+
+if(!$npc['petspells'])
+unset($npc['petspells']);
+
 
 global $page;
 $page = array(

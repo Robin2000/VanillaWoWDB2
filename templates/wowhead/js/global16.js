@@ -7413,6 +7413,41 @@ Listview.templates = {
 			hidden: true
 		},
 		{
+			id: "petspells",
+			name: LANG.petspells,
+			type: "text",
+			getValue: function (b) {
+				if (!b.spells) {
+					return ""
+				}
+				if (b.spells.length > 0) {
+					var d = "";
+					for (var c = 0, a = b.spells.length; c < a; ++c) {
+						if (b.spells[c]) {
+							d += g_spells[b.spells[c]]["name_" + g_locale.name]
+						}
+					}
+					return d
+				}
+			},
+			compute: function (a, b) {
+				if (!a.spells) {
+					return ""
+				}
+				if (a.spells.length > 0) {
+					b.style.padding = "0";
+					Listview.funcBox.createCenteredIcons(a.spells, b, "", 1)
+				}
+			},
+			sortFunc: function (d, c) {
+				if (!d.spells || !c.spells) {
+					return 0
+				}
+				return strcmp(d.spellCount, c.spellCount) || strcmp(d.spells, c.spells)
+			},
+			hidden: true
+		},		
+		{
 			id: "diet",
 			name: LANG.diet,
 			type: "text",
