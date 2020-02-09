@@ -10010,6 +10010,7 @@ function filterNpcs(type,val) {
 		case 'trainerSpell':return filterQuery(6,type,val);
 		case 'npc_flags':return filterQuery(7,type,val);
 		case 'minLvl':return filterQuery(8,type,val);
+		case 'reqskill':return filterQuery(9,type,val);
 	}
 }
 /*Type, trainerType, trainerClass, trainerRace, trainerSpell, minLvl*/

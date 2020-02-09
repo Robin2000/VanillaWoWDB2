@@ -33,7 +33,27 @@
 						</span-->
 				</div>
 			</div>   
-        	   
+		<div class="filter-condition">
+            <div class="bdfs">训练大类：<br></div>
+            <div class="item-screen">
+                   <span >
+                        <a href="javascript:filterNpcs('trainerType','n')" class="filter-a {if $trainerType eq 'n'}current{/if}" title="全部">全部</a>
+                    </span>
+                    <span >
+                        <a href="javascript:filterNpcs('trainerType',0)" class="filter-a {if $trainerType eq '0'}current{/if}" title="职业训练">职业训练</a>
+                    </span>                    
+                    <span >
+                        <a href="javascript:filterNpcs('trainerType',1)" class="filter-a {if $trainerType eq '1'}current{/if}" title="骑术训练">骑术训练</a>
+                    </span>
+                    <span >
+                        <a href="javascript:filterNpcs('trainerType',2)" class="filter-a {if $trainerType eq '2'}current{/if}" title="生活技能">生活技能</a>
+                    </span>
+                    <span >
+                        <a href="javascript:filterNpcs('trainerType',3)" class="filter-a {if $trainerType eq '3'}current{/if}" title="宠物训练">宠物训练</a>
+                    </span>
+																	
+            </div>
+        </div>        	   
 		<div class="filter-condition">
             <div class="bdfs">武器训练：<br></div>
             <div class="item-screen">
@@ -85,28 +105,6 @@
             </div>
         </div>                 
         	   
-		<div class="filter-condition">
-            <div class="bdfs">训练类别：<br></div>
-            <div class="item-screen">
-                   <span >
-                        <a href="javascript:filterNpcs('trainerType','n')" class="filter-a {if $trainerType eq 'n'}current{/if}" title="全部">全部</a>
-                    </span>
-                    <span >
-                        <a href="javascript:filterNpcs('trainerType',0)" class="filter-a {if $trainerType eq '0'}current{/if}" title="职业训练">职业训练</a>
-                    </span>                    
-                    <span >
-                        <a href="javascript:filterNpcs('trainerType',1)" class="filter-a {if $trainerType eq '1'}current{/if}" title="骑术训练">骑术训练</a>
-                    </span>
-                    <span >
-                        <a href="javascript:filterNpcs('trainerType',2)" class="filter-a {if $trainerType eq '2'}current{/if}" title="生活技能">生活技能</a>
-                    </span>
-                    <span >
-                        <a href="javascript:filterNpcs('trainerType',3)" class="filter-a {if $trainerType eq '3'}current{/if}" title="宠物训练">宠物训练</a>
-                    </span>
-																	
-            </div>
-        </div>
-					
         <div class="filter-condition">
             <div class="bdfs">职业训练：</div>
             <div class="item-screen">
@@ -186,9 +184,52 @@
 					-->																			
             </div>
         </div>
-			
         <div class="filter-condition">
-            <div class="bdfs">前置专业训练：</div>
+            <div class="bdfs">生活技能训练：</div>
+            <div class="item-screen">
+                    <span >
+                        <a href="javascript:filterNpcs('reqskill','n')" class="filter-a {if $reqskill eq 'n'}current{/if}" title="全部">全部</a>
+                    </span>
+                    <span >
+                        <a href="javascript:filterNpcs('reqskill',164)" class="filter-a {if $reqskill eq '164'}current{/if}" title="锻造">锻造训练</a>
+                    </span>
+                    <span >
+                        <a href="javascript:filterNpcs('reqskill',165)" class="filter-a {if $reqskill eq '165'}current{/if}" title="制皮">制皮训练</a>
+                    </span>
+                    <span >
+                        <a href="javascript:filterNpcs('reqskill',171)" class="filter-a {if $reqskill eq '171'}current{/if}" title="炼金术">炼金术训练</a>
+                    </span>
+                    <span >
+                        <a href="javascript:filterNpcs('reqskill',182)" class="filter-a {if $reqskill eq '182'}current{/if}" title="草药学">草药学训练</a>
+                    </span>
+                    <span >
+                        <a href="javascript:filterNpcs('reqskill',186)" class="filter-a {if $reqskill eq '186'}current{/if}" title="采矿">采矿训练</a>
+                    </span>
+                    <span >
+                        <a href="javascript:filterNpcs('reqskill',197)" class="filter-a {if $reqskill eq '197'}current{/if}" title="裁缝">裁缝训练</a>
+                    </span>
+                    <span >
+                        <a href="javascript:filterNpcs('reqskill',202)" class="filter-a {if $reqskill eq '202'}current{/if}" title="工程">工程训练</a>
+                    </span>
+                    <span >
+                        <a href="javascript:filterNpcs('reqskill',333)" class="filter-a {if $reqskill eq '333'}current{/if}" title="附魔">附魔训练</a>
+                    </span>	
+                    <span >
+                        <a href="javascript:filterNpcs('reqskill',393)" class="filter-a {if $reqskill eq '393'}current{/if}" title="剥皮">剥皮训练</a>
+                    </span>	  
+                    <span >
+                        <a href="javascript:filterNpcs('reqskill',185)" class="filter-a {if $reqskill eq '185'}current{/if}" title="烹饪">烹饪训练</a>
+                    </span>	  
+                    <span >
+                        <a href="javascript:filterNpcs('reqskill',356)" class="filter-a {if $reqskill eq '356'}current{/if}" title="钓鱼">钓鱼训练</a>
+                    </span>	 
+                    <span >
+                        <a href="javascript:filterNpcs('reqskill',129)" class="filter-a {if $reqskill eq '129'}current{/if}" title="急救">急救训练</a>
+                    </span>                                                                            				
+            </div>
+		</div>			
+        <div class="filter-condition">
+            <div class="bdfs">前置生活技能：</div>
             <div class="item-screen">
                     <span >
                         <a href="javascript:filterNpcs('trainerSpell','n')" class="filter-a {if $trainerSpell eq 'n'}current{/if}" title="全部">全部</a>

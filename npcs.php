@@ -5,9 +5,9 @@ require_once('includes/allnpcs.php');
 
 $smarty->config_load($conf_file, 'npc');
 
-@list($type, $side, $weaponType, $trainerType, $trainerClass, $trainerRace, $trainerSpell, $npc_flags, $minLvl) = extract_values($podrazdel);
+@list($type, $side, $weaponType, $trainerType, $trainerClass, $trainerRace, $trainerSpell, $npc_flags, $minLvl,$reqskill) = extract_values($podrazdel);
 
-$cache_key = cache_key($type, $side, $weaponType, $trainerType, $trainerClass, $trainerRace, $trainerSpell, $npc_flags, $minLvl);
+$cache_key = cache_key($type, $side, $weaponType, $trainerType, $trainerClass, $trainerRace, $trainerSpell, $npc_flags, $minLvl,$reqskill);
 
 if(!$npcs = load_cache(2, $cache_key))
 {
@@ -52,6 +52,7 @@ if(!$npcs = load_cache(2, $cache_key))
 		}
 		FROM ?_factiontemplate, creature_template c
 		{ LEFT JOIN (locales_creature l) ON l.entry=c.entry AND ? }
+		{ LEFT JOIN npc_trainer n ON n.entry=c.entry AND ? }
 		WHERE
 			factiontemplateID=faction
 			{ AND type=? }
@@ -63,18 +64,21 @@ if(!$npcs = load_cache(2, $cache_key))
 			'.$testSide.'
 			'.$testWeaponType.'
 			{ AND level_min = ? }
+			{ AND reqskill = ? }
 		ORDER BY level_min DESC, name
 		{LIMIT ?d}
 		',
 		($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
 		($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
 		($_SESSION['locale']>0)? 1: DBSIMPLE_SKIP,
+		isset($reqskill) ? $reqskill : DBSIMPLE_SKIP,	
 		isset($type) ? $type : DBSIMPLE_SKIP,	
 		isset($trainerType) ? $trainerType : DBSIMPLE_SKIP,
 		isset($trainerClass) ? $trainerClass : DBSIMPLE_SKIP,
 		isset($trainerRace) ? $trainerRace : DBSIMPLE_SKIP,
 		isset($trainerSpell) ? $trainerSpell : DBSIMPLE_SKIP,
 		isset($minLvl) ? $minLvl : DBSIMPLE_SKIP,
+		isset($reqskill) ? $reqskill : DBSIMPLE_SKIP,
 		($AoWoWconf['limit']!=0)? $AoWoWconf['limit']: DBSIMPLE_SKIP
 	);
 
@@ -100,6 +104,7 @@ $smarty->assign('trainerClass',isset($trainerClass)?$trainerClass:'n');
 $smarty->assign('trainerRace',isset($trainerRace)?$trainerRace:'n');
 $smarty->assign('trainerSpell',isset($trainerSpell)?$trainerSpell:'n');
 $smarty->assign('npc_flags',isset($npc_flags)?$npc_flags:'n');
+$smarty->assign('reqskill',isset($reqskill)?$reqskill:'n');
 
 global $page;
 $page = array(
