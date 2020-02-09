@@ -468,9 +468,8 @@ function render_item_tooltip(&$Row)
 		$x .= '<br /><span class="q2">&lt;Right Click To Read&gt;</span>'; // TODO: locale
 
 	// Item Set
-	// Временное хранилище всех вещей;
 	$x_tmp = '';
-	$row = $DB->selectRow('SELECT ?# FROM ?_itemset WHERE (item1=?d or item2=?d or item3=?d or item4=?d or item5=?d or item6=?d or item7=?d or item8=?d or item9=?d or item10=?d) LIMIT 1', $itemset_col[1], $Row['entry'], $Row['entry'], $Row['entry'], $Row['entry'], $Row['entry'], $Row['entry'], $Row['entry'], $Row['entry'], $Row['entry'], $Row['entry']);
+	$row = $DB->selectRow("SELECT ?# FROM ?_itemset WHERE (item1=?d or item2=?d or item3=?d or item4=?d or item5=?d or item6=?d or item7=?d or item8=?d or item9=?d or item10=?d) LIMIT 1", $itemset_col[1], $Row['entry'], $Row['entry'], $Row['entry'], $Row['entry'], $Row['entry'], $Row['entry'], $Row['entry'], $Row['entry'], $Row['entry'], $Row['entry']);
 	if($row)
 	{
 		//$x .= '<br />';
@@ -500,10 +499,10 @@ function render_item_tooltip(&$Row)
 		$x .= '<span class="q0">';
 		$num = 0;
 		for($j=1;$j<=8;$j++)
-			if($row['spell'.$j])
+			if($row['spell_id'.$j])
 			{
-				$itemset['spells'][$num]['entry'] = $row['spell'.$j];
-				$itemset['spells'][$num]['tooltip'] = spell_desc($row['spell'.$j]);
+				$itemset['spells'][$num]['entry'] = $row['spell_id'.$j];
+				$itemset['spells'][$num]['tooltip'] = spell_desc($row['spell_id'.$j]);
 				$itemset['spells'][$num]['bonus'] = $row['bonus'.$j];
 				$num++;
 			}

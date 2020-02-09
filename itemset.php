@@ -42,11 +42,11 @@ if(!$itemset = load_cache(8, $cache_key))
 		}
 		$itemset['spells'] = array();
 		for($j=1;$j<=8;$j++)
-			if($row['spell'.$j])
+			if($row['spell_id'.$j])
 			{
 				$itemset['spells'][$x] = array();
-				$itemset['spells'][$x]['entry'] = $row['spell'.$j];
-				$itemset['spells'][$x]['tooltip'] = spell_desc($row['spell'.$j]);
+				$itemset['spells'][$x]['entry'] = $row['spell_id'.$j];
+				$itemset['spells'][$x]['tooltip'] = spell_desc($row['spell_id'.$j]);
 				$itemset['spells'][$x]['bonus'] = $row['bonus'.$j];
 				$x++;
 			}
