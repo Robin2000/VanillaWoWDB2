@@ -314,9 +314,9 @@ function render_item_tooltip(&$Row)
 
 	$x = '';
 	// Начальный тег таблицы
-	$x .= '<ul><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>';
+	$x .= '<ul><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>'.$Row['name'].'</td></tr><tr><td>';
 	// Название и цвет названия
-	$x .= '<h5 class="q'.$Row['quality'].'">'.localizedName($Row).'<p>'.$Row['name'].'</p></h5>';
+	$x .= '<h5 class="q'.$Row['quality'].'">'.localizedName($Row).'</p></h5>';
 
 	// Требуемый уровень
 	if($Row['required_level']>0)

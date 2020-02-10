@@ -477,13 +477,14 @@ function GetNPCTooltip($row)
         'name'           => localizedName($row),
         'subname'        => localizedName($row, 'subname'),
         'level_min'       => $row['level_min'],
-        'level_max'       => $row['level_max'],
+		'level_max'       => $row['level_max'],
         'react'          => $row['A'].','.$row['H'],
         'type'           => $row['type'],
         'classification' => $row['classification'],
         'expansion'      => '1.12.1'
     );
-    $x = '';
+	$x = '';
+	$x .= "<img οnlοad='if(this.height>160) this.height=160' onerror='this.style.display=\"none\"' src='/screenshots/thumb/".$creature['entry'].".jpg'/>";
     $x .= '<table><tr><td>'.'<b class="q">';
     $x .= htmlspecialchars($creature['name']);
     $x .= '</b></td></tr><tr><td>';
@@ -502,7 +503,7 @@ function GetNPCTooltip($row)
     if($creature['type'] && $creature['type'] != 10)
         $x .= $npc_type[$creature['type']].' ';
     if(isset($creature['classification']))
-        $x .= '('.$npc_rank[$creature['classification']].')';
+		$x .= '('.$npc_rank[$creature['classification']].')';
     $x .= '</tr></td></tr></table>';
     $creature['tooltip'] = $x;
     

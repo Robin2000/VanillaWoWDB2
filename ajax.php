@@ -94,9 +94,6 @@ switch($what)
         $x .= '});';
         break;
 	case 'object':
-		if(1==1){
-			break;/*disable*/
-		}
         if(!$object = load_cache(1001, $id))
         {
             require_once('includes/allobjects.php');

@@ -2830,6 +2830,7 @@ var Tooltip = {
 		Tooltip.move(c.x, c.y, 0, 0, a, d)
 	},
 	hide: function () {
+		try{hideMyTooltip();}catch(e){}
 		if (Tooltip.tooltip) {
 			Tooltip.tooltip.style.display = "none";
 			Tooltip.tooltip.visibility = "hidden";
@@ -5600,12 +5601,12 @@ Listview.templates = {
 		},
 		{
 			id: "level",
-			name: LANG.level,
+			name: LANG.lvitem_level,
 			value: "level"
 		},
 		{
 			id: "reqlevel",
-			name: LANG.req,
+			name: LANG.lvitem_reqlevel,
 			tooltip: LANG.tooltip_reqlevel,
 			value: "reqlevel",
 			compute: function (a, b) {
@@ -5925,7 +5926,7 @@ Listview.templates = {
 		},
 		{
 			id: "level",
-			name: LANG.level,
+			name: LANG.lvitem_level,
 			type: "range",
 			getMinValue: function (a) {
 				return a.level_min
@@ -5977,6 +5978,28 @@ Listview.templates = {
 			},
 			sortFunc: function (d, c, e) {
 				return strcmp(g_itemset_types[d.type], g_itemset_types[c.type])
+			}
+		},
+		{
+			id: "tname",
+			name: LANG.tname,
+			type: "text",
+			compute: function (a, b) {
+				return a.tname;
+			},
+			sortFunc: function (d, c, e) {
+				return strcmp(d.tname, c.tname)
+			}
+		},
+		{
+			id: "tclass",
+			name: LANG.tclass,
+			type: "text",
+			compute: function (a, b) {
+				return g_chr_classes[a.tclass];
+			},
+			sortFunc: function (d, c, e) {
+				return strcmp(d.tclass, c.tclass)
 			}
 		},
 		{
@@ -6313,7 +6336,7 @@ Listview.templates = {
 		},
 		{
 			id: "reqlevel",
-			name: LANG.req,
+			name: LANG.lvitem_reqlevel,
 			tooltip: LANG.tooltip_reqlevel,
 			width: "7%",
 			value: "reqlevel"
@@ -7391,6 +7414,41 @@ Listview.templates = {
 			hidden: true
 		},
 		{
+			id: "petspells",
+			name: LANG.petspells,
+			type: "text",
+			getValue: function (b) {
+				if (!b.spells) {
+					return ""
+				}
+				if (b.spells.length > 0) {
+					var d = "";
+					for (var c = 0, a = b.spells.length; c < a; ++c) {
+						if (b.spells[c]) {
+							d += g_spells[b.spells[c]]["name_" + g_locale.name]
+						}
+					}
+					return d
+				}
+			},
+			compute: function (a, b) {
+				if (!a.spells) {
+					return ""
+				}
+				if (a.spells.length > 0) {
+					b.style.padding = "0";
+					Listview.funcBox.createCenteredIcons(a.spells, b, "", 1)
+				}
+			},
+			sortFunc: function (d, c) {
+				if (!d.spells || !c.spells) {
+					return 0
+				}
+				return strcmp(d.spellCount, c.spellCount) || strcmp(d.spells, c.spells)
+			},
+			hidden: true
+		},		
+		{
 			id: "diet",
 			name: LANG.diet,
 			type: "text",
@@ -8241,6 +8299,24 @@ function () {
 		B = P.x;
 		z = P.y
 	}
+	function changeToOld(url) {
+		try{
+			if(url.indexOf("/item-")>0){
+				return "?item="+url.split('-')[1].split('.')[0];
+			} else 	if(url.indexOf("/object-")>0){
+				return "?object="+url.split('-')[1].split('.')[0];
+			} else 	if(url.indexOf("/spell-")>0){
+				return "?spell="+url.split('-')[1].split('.')[0];
+			} else 	if(url.indexOf("/npc-")>0){
+				return "?npc="+url.split('-')[1].split('.')[0];
+			} else 	if(url.indexOf("/quest-")>0){
+				return "?quest="+url.split('-')[1].split('.')[0];
+			}
+			return url;
+		}catch(e){
+			return url;
+		}
+	}
 	function M(aa, W) {
 		if (aa.nodeName != "A" && aa.nodeName != "AREA") {
 			return - 2323
@@ -8251,6 +8327,9 @@ function () {
 		if (aa.rel!=null && aa.rel!=undefined && aa.rel.indexOf("np") != -1) {
 			return
 		}
+
+		var myhref = changeToOld(aa.href);
+
 		var T, S, Q, P, U = {};
 		q = U;
 		var O = function (ab, af, ad) {
@@ -8277,14 +8356,14 @@ function () {
 		S = 2;
 		Q = 3;
 /*
-		if (aa.href.indexOf("http://") == 0) {
+		if (myhref.indexOf("http://") == 0) {
 			T = 1;
-			P = aa.href.match(/http:\/\/(.+?)?\.?wowhead\.com\/\?(item|quest|spell|achievement|npc|object|profile)=([^&#]+)/)
+			P = myhref.match(/http:\/\/(.+?)?\.?wowhead\.com\/\?(item|quest|spell|achievement|npc|object|profile)=([^&#]+)/)
 		} else {
-			P = aa.href.match(/()\?(item|quest|spell|achievement|npc|object|profile)=([^&#]+)/)
+			P = myhref.match(/()\?(item|quest|spell|achievement|npc|object|profile)=([^&#]+)/)
 		}
 */
-		P = aa.href.match(/()\?(item|quest|spell|achievement|npc|object|profile)=([^&#]+)/)
+		P = myhref.match(/()\?(item|quest|spell|achievement|npc|object|profile)=([^&#]+)/)
 		if (P == null && aa.rel) {
 			T = 0;
 			S = 1;
@@ -8320,7 +8399,7 @@ function () {
 				}
 			}
 			Z = g_locale.id;//g_getLocaleFromDomain(R);
-			if (aa.href.indexOf("#") != -1 && document.location.href.indexOf(P[S] + "=" + P[Q]) != -1) {
+			if (myhref.indexOf("#") != -1 && document.location.href.indexOf(P[S] + "=" + P[Q]) != -1) {
 				return
 			}
 			g = (aa.parentNode.className.indexOf("icon") == 0 ? 1 : 0);
@@ -8339,13 +8418,15 @@ function () {
 			w(Y, X, Z, U)
 		}
 	}
-	function u(Q) {
-		Q = $E(Q);
-		var P = Q._target;
+	function u(event) {
+		event = $E(event);
+		var td = event._target;
 		var O = 0;
-		while (P != null && O < 3 && M(P, Q) == -2323) {
-			P = P.parentNode; ++O
+
+		while (td != null && O < 3 && M(td, event) == -2323) {
+			td = td.parentNode; ++O
 		}
+		
 	}
 	function a(O) {
 		O = $E(O);
@@ -8383,7 +8464,7 @@ function () {
 		q = S;
 		k(P, Q, R);
 		var O = p[P][0];
-		if (O[Q].status[R] == F ) {
+		if (O[Q].status[R] == F || O[Q].status[R] == r) {
 			N(O[Q][I(R)], O[Q].icon)
 		} else {
 			if (O[Q].status[R] == E) {
@@ -8530,8 +8611,8 @@ function () {
 	this.registerObject = function (Q, P, O) {
 		this.register(j, Q, P, O)
 	};
-	this.registerItem = function (Q, P, O) {
-		this.register(v, Q, P, O)
+	this.registerItem = function (entry, locale, obj) {
+		this.register(v, entry, locale, obj)
 	};
 	this.registerQuest = function (Q, P, O) {
 		this.register(y, Q, P, O)
@@ -9920,26 +10001,11 @@ var Ads = {
 };
 DomContentLoaded.addEvent(Ads.install);
 
-/*class, subclass, type, bond, quality, nature, resistance*/
-function getItemQueryPos(type) {
-	switch(type){
-		case 'bond':return 3;
-		case 'quality':return 4;
-		case 'nature':return 5;
-		case 'resistance':return 6;
-	}
-	return 0;
-}
-function filterItem(type,val) {
+function filterQuery(paraCount,type,val) {
 	var url = window.location.href;
 	var test = url.lastIndexOf('.html');
 	if(test!=-1) {
 		url = url.substring(0,test);	
-	} else {
-		var test = url.lastIndexOf('#');
-		if(test!=-1) {
-			url = url.substring(0,test);
-		}
 	}
 
 	var paramPos = url.lastIndexOf('-');
@@ -9954,10 +10020,10 @@ function filterItem(type,val) {
 
 
 	var arr = file.split('.');
-	var pos = getItemQueryPos(type);
-	var offset = pos - arr.length + 1;
+
+	var offset = paraCount - arr.length + 1;
 	if(offset<0) {
-		arr[pos] = val;
+		arr[paraCount] = val;
 	} else {
 		for(var i=0;i<offset;i++){
 			arr.push('n');
@@ -9969,3 +10035,49 @@ function filterItem(type,val) {
 
 	location.href=uri+arr.join('.');
 }
+/*class, subclass, type, allowClass, allowRace, bond, quality, nature, resistance, minLvl*/
+function filterItem(type,val) {	
+	switch(type){
+		case 'allowClass':return filterQuery(3,type,val);
+		case 'allowRace':return filterQuery(4,type,val);		
+		case 'bond':return filterQuery(5,type,val);
+		case 'quality':return filterQuery(6,type,val);
+		case 'nature':return filterQuery(7,type,val);
+		case 'resistance':return filterQuery(8,type,val);
+		case 'minLvl':return filterQuery(9,type,val);
+	}
+}
+/*Type, ZoneOrSort, difficulty, side, reward, job, minLvl, maxLvl*/
+function filterQuest(type,val) {	
+	switch(type){
+		case 'difficulty':return filterQuery(2,type,val);
+		case 'side':return filterQuery(3,type,val);
+		case 'reward':return filterQuery(4,type,val);
+		case 'job':return filterQuery(5,type,val);
+		case 'minLvl':return filterQuery(6,type,val);
+		case 'maxLvl':return filterQuery(7,type,val);
+	}
+}
+/*Type, trainerType, trainerClass, trainerRace, trainerSpell, minLvl*/
+function filterNpcs(type,val) {	
+	switch(type){
+		case 'side':return filterQuery(1,type,val);
+		case 'weaponType':return filterQuery(2,type,val);
+		case 'trainerType':return filterQuery(3,type,val);
+		case 'trainerClass':return filterQuery(4,type,val);
+		case 'trainerRace':return filterQuery(5,type,val);
+		case 'trainerSpell':return filterQuery(6,type,val);
+		case 'npc_flags':return filterQuery(7,type,val);
+		case 'minLvl':return filterQuery(8,type,val);
+		case 'reqskill':return filterQuery(9,type,val);
+	}
+}
+/*Type, trainerType, trainerClass, trainerRace, trainerSpell, minLvl*/
+function filterItemset(type,val) {
+	switch(type){
+		case 'allowClass':return filterQuery(0,type,val);
+		case 'tname':return filterQuery(1,type,val);
+		case 'tclass':return filterQuery(2,type,val);
+	}
+}
+

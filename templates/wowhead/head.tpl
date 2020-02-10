@@ -36,11 +36,11 @@
 
 	<script src="templates/wowhead/js/locale_{$language}17.js" type="text/javascript"></script>
 
-	<script src="templates/wowhead/js/global16.js" type="text/javascript"></script>
+	<script src="templates/wowhead/js/global17.js" type="text/javascript"></script>
 	<script src="templates/wowhead/js/Markup.js" type="text/javascript"></script>
 	
 {if $page.Mapper}
-	<script src="templates/wowhead/js/Mapper6.js" type="text/javascript"></script>
+	<script src="templates/wowhead/js/Mapper7.js" type="text/javascript"></script>
 	<style type="text/css">{literal}.zone-picker { margin-left: 4px }{/literal}</style>
 {/if}
 {if $page.Book}

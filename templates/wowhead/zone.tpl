@@ -1,5 +1,5 @@
 {include file='header.tpl'}
-
+	<div id="mytooltip" style="padding:5px;background-color:#CE3827;color:white;display:none;position:absolute;display:block;left:-30px;top:-100px;z-index:999"></div>
 	<div id="main">
 
 		<div id="main-precontents"></div>
@@ -72,7 +72,18 @@
 				<script type="text/javascript">
 					var myMapper = new Mapper({ldelim}parent: 'mapper-generic', zone: '{$zone.position[0].atid}'{rdelim});
 					gE(ge('locations'), 'a')[0].onclick();
+					{literal}
+					function showMyTooltip(e,txt,w,h){
+						document.getElementById("mytooltip").innerHTML=txt;
+						document.getElementById("mytooltip").style.left=event.x+"px";
+						document.getElementById("mytooltip").style.top=(event.y-40)+"px";
+						document.getElementById("mytooltip").style.display='';
+					}
+					function hideMyTooltip(){
+						document.getElementById("mytooltip").style.display='none';
+					}
 				</script>
+				{/literal}
 {/if}
 {if isset($zone.parentname) and isset($zone.parent)}
 				<div class="pad"></div>
@@ -143,7 +154,7 @@ function receiveLoot(xhr, opt) {
 function showLoot(titleSet, area,pos){
 	document.getElementById("lootTitle").innerHTML="<h1>"+titleSet+"<a href='javascript:hideLoot()'><<返回</a></h1>";
 	document.getElementById("data").innerHTML="";
-	new Ajax("http://www.topwow.top/rest/api4/loot/"+area+"/"+pos, {onSuccess: receiveLoot})
+	new Ajax("http://www.topwow.top/rest/api4/loot/"+area+"/"+pos, {onSuccess: receiveLoot});
 }
 </script>
 {/literal}

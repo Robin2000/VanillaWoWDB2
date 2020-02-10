@@ -265,20 +265,23 @@ Mapper.prototype = {
 			if (this.zone == 4395 && d == 1) {
 				d = 0
 			}
-			if (this.zone == 209) {
-				d=1;
+			if (this.zone==209||this.zone==1581||this.zone==2159||this.zone==1583||this.zone==15830||this.zone==3429||this.zone==2677) {
+				d=1;/*防图片缓存*/
 			}
-
-			this.span.style.background = "url(images/maps/"+((g_locale.id==4)?'zhcn/':'enus/') + Mapper.sizes[this.zoom][2] + "/" + this.zone + (d ? "-" + d: "") + ".jpg)"
-			this.span.style.backgroundRepeat = "no-repeat"
-			this.span.style.backgroundSize = "contain"
+			var ext = ".jpg)";
+			if(this.zone == 2057) {
+				ext = ".gif)";
+			}
+			this.span.style.background = "url(images/maps/zhcn/" + Mapper.sizes[this.zoom][2] + "/" + this.zone + (d ? "-" + d: "") + ext;
+			this.span.style.backgroundRepeat = "no-repeat";
+			this.span.style.backgroundSize = "contain";
 		}
 		if (this.zoneLink) {
 			var b = parseInt(this.zone);
 			var a = g_zones[b] != null;
 			if (a) {
 				g_setTextNodes(this.sZoneLink, g_zones[b]);
-				this.sZoneLink.childNodes[4].firstChild.href = "http://www.topwow.top/zone-" + b + "html"
+				this.sZoneLink.childNodes[4].firstChild.href = "http://www.topwow.top/zone-" + b + ".html"
 			}
 			this.sZoneLink.style.display = a ? "": "none"
 		}
@@ -345,7 +348,7 @@ Mapper.prototype = {
 		return
 	},
 	pinOver: function () {
-		Tooltip.show(this, this.tt, 4, 0)
+		try{showMyTooltip(this, this.tt, 4, 0);}catch(e){}
 	},
 	getMousePos: function (b) {
 		b = $E(b);
