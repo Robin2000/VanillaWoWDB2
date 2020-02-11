@@ -170,8 +170,8 @@ function getElement(a) {
 function getElemTag(a, b) {
 	return a.getElementsByTagName(b)
 }
-function createElem(c, b) {
-	var a = document.createElement(c);
+function createElem(tag, b) {
+	var a = document.createElement(tag);
 	if (b) {
 		cOr(a, b)
 	}
