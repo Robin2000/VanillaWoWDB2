@@ -204,8 +204,8 @@ function ce(c, b) {
 function de(a) {
 	a.parentNode.removeChild(a)
 }
-function ae(a, b) {
-	return a.appendChild(b)
+function append(parent, child) {
+	return parent.appendChild(child)
 }
 function aef(a, b) {
 	return a.insertBefore(b, a.firstChild)
@@ -721,15 +721,15 @@ function g_initHeader(c) {
 		if (j) {
 			q.className = "selected"
 		}
-		ae(h, ct(mn_path[k][1].charAt(0)));
-		ae(n, h);
-		ae(n, ct(mn_path[k][1].substr(1)));
-		ae(q, n);
-		ae(q, f);
-		ae(g, q);
-		ae(l, g)
+		append(h, ct(mn_path[k][1].charAt(0)));
+		append(n, h);
+		append(n, ct(mn_path[k][1].substr(1)));
+		append(q, n);
+		append(q, f);
+		append(g, q);
+		append(l, g)
 	}
-	ae(ge("ptewhjkst46"), l);
+	append(ge("ptewhjkst46"), l);
 	var b = ge("kbl34h6b43");
 	if (c != null && c >= 0 && c < mn_path.length) {
 		switch (c) {
@@ -750,7 +750,7 @@ function g_initHeader(c) {
 			break
 		}
 	} else {
-		ae(b, ct(String.fromCharCode(160)))
+		append(b, ct(String.fromCharCode(160)))
 	}
 	var r = ge("oh2345v5ks");
 	var s = r.previousSibling;
@@ -881,13 +881,13 @@ function g_initPath(p, f) {
 		q.onclick = fi_toggle;
 		if (f) {
 			q.className = "disclosure-on";
-			ae(q, ct(LANG.fihide))
+			append(q, ct(LANG.fihide))
 		} else {
 			q.className = "disclosure-off";
-			ae(q, ct(LANG.fishow))
+			append(q, ct(LANG.fishow))
 		}
-		ae(m, q);
-		ae(l, m)
+		append(m, q);
+		append(l, m)
 	}
 	for (var g = 0; g < p.length; ++g) {
 		var q, b, r = 0;
@@ -917,7 +917,7 @@ function g_initPath(p, f) {
 		if (g < p.length - 1 && h[3]) {
 			b.className = "menuarrow"
 		}
-		ae(q, ct(h[4] == null ? h[1] : h[4]));
+		append(q, ct(h[4] == null ? h[1] : h[4]));
 		if (g == 0) {
 			q.menu = mn_path
 		} else {
@@ -925,8 +925,8 @@ function g_initPath(p, f) {
 		}
 		q.onmouseover = Menu.show;
 		q.onmouseout = Menu.hide;
-		ae(b, q);
-		ae(n, b);
+		append(b, q);
+		append(n, b);
 		k = b;
 		c = h;
 		h = h[3];
@@ -948,18 +948,18 @@ function g_initPath(p, f) {
 			q.style.paddingRight = "16px";
 			q.style.color = "white";
 			q.style.cursor = "default";
-			ae(q, ct("..."));
+			append(q, ct("..."));
 			q.menu = c[3];
 			q.onmouseover = Menu.show;
 			q.onmouseout = Menu.hide;
-			ae(b, q);
-			ae(n, b)
+			append(b, q);
+			append(n, b)
 		}
 	}
 	var m = ce("div");
 	m.className = "clear";
-	ae(n, m);
-	ae(l, n);
+	append(n, m);
+	append(l, n);
 	g_initPath.lastIt = c
 }
 function g_formatTimeElapsed(e) {
@@ -1036,16 +1036,16 @@ function g_createGlow(a, h) {
 				g.style.color = "black";
 				g.style.zIndex = 2
 			}
-			ae(g, ct(a));
-			ae(e, g)
+			append(g, ct(a));
+			append(e, g)
 		}
 	}
 	e.style.position = "relative";
 	e.className = "glow" + (h != null ? " " + h: "");
 	var f = ce("span");
 	f.style.visibility = "hidden";
-	ae(f, ct(a));
-	ae(e, f);
+	append(f, ct(a));
+	append(e, f);
 	return e
 }
 function g_createProgressBar(c) {
@@ -1074,21 +1074,21 @@ function g_createProgressBar(c) {
 		e.className = "progressbar-text";
 		if (c.text) {
 			var a = ce("del");
-			ae(a, ct(c.text));
-			ae(e, a)
+			append(a, ct(c.text));
+			append(e, a)
 		}
 		if (c.hoverText) {
 			var b = ce("ins");
-			ae(b, ct(c.hoverText));
-			ae(e, b)
+			append(b, ct(c.hoverText));
+			append(e, b)
 		}
-		ae(d, e)
+		append(d, e)
 	}
 	e = ce("div");
 	e.className = "progressbar-" + c.color;
 	e.style.width = c.width + "%";
-	ae(e, ct(String.fromCharCode(160)));
-	ae(d, e);
+	append(e, ct(String.fromCharCode(160)));
+	append(d, e);
 	return d
 }
 function g_createReputationBar(g) {
@@ -1147,12 +1147,12 @@ function g_createCaptcha(c) {
 	if (Browser.ie6) {
 		var d = ce("img");
 		d.src = "?captcha&foo=" + Math.random();
-		ae(b, d);
+		append(b, d);
 		b.onclick = function () {
 			de(this.firstChild);
 			var a = ce("img");
 			a.src = "?captcha&foo=" + Math.random();
-			ae(b, a);
+			append(b, a);
 			this.blur()
 		}
 	} else {
@@ -1168,7 +1168,7 @@ function g_revealCaptcha(a) {
 		var c = ge("klrbetkjerbt46");
 		if (!c.firstChild) {
 			var b = g_createCaptcha(a);
-			ae(c, b);
+			append(c, b);
 			c.parentNode.style.display = ""
 		}
 	}
@@ -1459,7 +1459,7 @@ function g_addPages(l, b) {
 			i = ce("a");
 			i.href = (q > 1 ? b.url + b.sep + q + b.pound: b.url + b.pound)
 		}
-		ae(i, ct(d != null ? d: q));
+		append(i, ct(d != null ? d: q));
 		return i
 	}
 	if (!b.pound) {
@@ -1491,7 +1491,7 @@ function g_addPages(l, b) {
 		m.push(o(b.nPages));
 		if (h < b.nPages - 1) {
 			var a = ce("span");
-			ae(a, ct("..."));
+			append(a, ct("..."));
 			m.push(a)
 		}
 		for (var g = h; g >= n; --g) {
@@ -1499,7 +1499,7 @@ function g_addPages(l, b) {
 		}
 		if (n > 2) {
 			var a = ce("span");
-			ae(a, ct("..."));
+			append(a, ct("..."));
 			m.push(a)
 		}
 		m.push(o(1));
@@ -1510,23 +1510,23 @@ function g_addPages(l, b) {
 			m.reverse()
 		}
 		for (var g = 0, j = m.length; g < j; ++g) {
-			ae(k, m[g])
+			append(k, m[g])
 		}
 		k.firstChild.style.marginRight = "0";
 		k.lastChild.style.marginLeft = "0"
 	}
 	var p = ce("var");
-	ae(p, ct(sprintf(LANG[b.wording[b.nItems == 1 ? 0 : 1]], b.nItems)));
+	append(p, ct(sprintf(LANG[b.wording[b.nItems == 1 ? 0 : 1]], b.nItems)));
 	if (b.nPages > 1) {
 		var a = ce("span");
-		ae(a, ct(String.fromCharCode(8211)));
-		ae(p, a);
+		append(a, ct(String.fromCharCode(8211)));
+		append(p, a);
 		var f = ce("a");
 		f.className = "gotopage";
 		f.href = "javascript:;";
 		ns(f);
 		if (Browser.ie) {
-			ae(f, ct(" "))
+			append(f, ct(" "))
 		}
 		f.onclick = function () {
 			var d = prompt(sprintf(LANG.prompt_gotopage, 1, b.nPages), b.page);
@@ -1542,20 +1542,20 @@ function g_addPages(l, b) {
 		};
 		f.onmousemove = Tooltip.cursorUpdate;
 		f.onmouseout = Tooltip.hide;
-		ae(p, f)
+		append(p, f)
 	}
 	if (c) {
-		ae(e, p);
+		append(e, p);
 		if (k) {
-			ae(e, k)
+			append(e, k)
 		}
 	} else {
 		if (k) {
-			ae(e, k)
+			append(e, k)
 		}
-		ae(e, p)
+		append(e, p)
 	}
-	ae(l, e)
+	append(l, e)
 }
 function g_disclose(a, b) {
 	b.className = "disclosure-" + (g_toggleDisplay(a) ? "on": "off");
@@ -1618,8 +1618,8 @@ try{
 		e = Math.min(150 / c.width, 150 / c.height);
 		f.src = "http://www.topwow.top/screenshots/thumb/" + c.id + ".webp";
 		f.className = "border";
-		ae(l, f);
-		ae(m, l);
+		append(l, f);
+		append(m, l);
 		var g = ce("div");
 		var n = ce("small");
 		l = ce("a");
@@ -1629,23 +1629,23 @@ try{
 		} else {
 			l.href = "?account=signin"
 		}
-		ae(l, ct(LANG.infobox_submitone));
-		ae(n, l);
-		ae(n, ct(" " + String.fromCharCode(160)));
+		append(l, ct(LANG.infobox_submitone));
+		append(n, l);
+		append(n, ct(" " + String.fromCharCode(160)));
 		var j = ce("b");
-		ae(j, ct("|"));
-		ae(n, j);
-		ae(n, ct(String.fromCharCode(160) + " "));
+		append(j, ct("|"));
+		append(n, j);
+		append(n, ct(String.fromCharCode(160) + " "));
 		l = ce("a");
 		l.href = "javascript:;";
 		l.onclick = function () {
 			tabsRelated.focus( - 1);
 			return false
 		};
-		ae(l, ct(sprintf(LANG.infobox_showall, lv_screenshots.length)));
-		ae(n, l);
-		ae(g, n);
-		ae(m, g)
+		append(l, ct(sprintf(LANG.infobox_showall, lv_screenshots.length)));
+		append(n, l);
+		append(g, n);
+		append(m, g)
 	} else {
 		var l;
 		if (g_user.id > 0) {
@@ -1728,7 +1728,7 @@ function g_ajaxIshRequest(b) {
 	if (a.refresh != null) {
 		b += "&refresh"
 	}
-	ae(c, ce("script", {
+	append(c, ce("script", {
 		type: "text/javascript",
 		src: b
 	}))
@@ -1843,7 +1843,7 @@ var Menu = {
 			b = ce("iframe");
 			b.src = "javascript:0;";
 			b.frameBorder = 0;
-			ae(ge("layers"), b);
+			append(ge("layers"), b);
 			Menu.iframes[a] = b
 		} else {
 			b = Menu.iframes[a]
@@ -1855,7 +1855,7 @@ var Menu = {
 		if (Menu.divs[a] == null) {
 			c = ce("div");
 			c.className = "menu";
-			ae(ge("layers"), c);
+			append(ge("layers"), c);
 			Menu.divs[a] = c
 		} else {
 			c = Menu.divs[a]
@@ -1901,10 +1901,10 @@ var Menu = {
 				var q = ce("span");
 				q.className = "separator";
 				ns(q);
-				ae(q, ct(Q[1]));
+				append(q, ct(Q[1]));
 				q.d = T;
 				q.onmouseover = Menu.sepOver;
-				ae(J, q)
+				append(J, q)
 			} else {
 				var U = ce("a");
 				U.d = T;
@@ -1957,26 +1957,26 @@ var Menu = {
 						}
 					}
 				}
-				ae(S, ct(Q[1]));
-				ae(G, S);
-				ae(U, G);
-				ae(J, U)
+				append(S, ct(Q[1]));
+				append(G, S);
+				append(U, G);
+				append(J, U)
 			}
 			if (r++==I) {
 				P.onmouseover = Menu.divOver;
 				P.onmouseout = Menu.divOut;
-				ae(P, J);
+				append(P, J);
 				if (!Browser.ie6) {
 					var H = ce("p");
-					ae(H, ce("em"));
-					ae(H, ce("var"));
-					ae(H, ce("strong"));
-					ae(H, P);
-					ae(e, H)
+					append(H, ce("em"));
+					append(H, ce("var"));
+					append(H, ce("strong"));
+					append(H, P);
+					append(e, H)
 				} else {
-					ae(e, P)
+					append(e, P)
 				}
-				ae(R, e);
+				append(R, e);
 				e = ce("td");
 				H = ce("p");
 				P = ce("div");
@@ -1986,28 +1986,28 @@ var Menu = {
 		}
 		P.onmouseover = Menu.divOver;
 		P.onmouseout = Menu.divOut;
-		ae(P, J);
+		append(P, J);
 		if (!Browser.ie6) {
 			if (I != 999) {
 				var H = ce("p");
-				ae(H, ce("em"));
-				ae(H, ce("var"));
-				ae(H, ce("strong"));
-				ae(H, P);
-				ae(e, H)
+				append(H, ce("em"));
+				append(H, ce("var"));
+				append(H, ce("strong"));
+				append(H, P);
+				append(e, H)
 			} else {
-				ae(T, ce("em"));
-				ae(T, ce("var"));
-				ae(T, ce("strong"));
-				ae(e, P)
+				append(T, ce("em"));
+				append(T, ce("var"));
+				append(T, ce("strong"));
+				append(e, P)
 			}
 		} else {
-			ae(e, P)
+			append(e, P)
 		}
-		ae(R, e);
-		ae(A, R);
-		ae(u, A);
-		ae(T, u);
+		append(R, e);
+		append(A, R);
+		append(u, A);
+		append(T, u);
 		T.style.left = T.style.top = "-2323px";
 		T.style.display = "";
 		var g = u.offsetWidth,
@@ -2178,9 +2178,9 @@ var Menu = {
 			} else {
 				c.onmouseover = Menu._hide
 			}
-			ae(f, ct(g[e][1]));
-			ae(c, f);
-			ae(h, c)
+			append(f, ct(g[e][1]));
+			append(c, f);
+			append(h, c)
 		}
 	},
 	explode: function (f) {
@@ -2326,16 +2326,16 @@ Tabs.prototype = {
 				}
 				ns(r);
 				r.onclick = Tabs.onClick.bind(f, r);
-				ae(r, ct(f.caption));
-				ae(s, e);
-				ae(s, r);
-				ae(m, s)
+				append(r, ct(f.caption));
+				append(s, e);
+				append(s, r);
+				append(m, s)
 			}
 			this.uls[0] = m;
-			ae(this.parent, m);
+			append(this.parent, m);
 			var t = ce("div");
 			t.style.cssFloat = t.style.styleFloat = "left";
-			ae(this.parent, t)
+			append(this.parent, t)
 		} else {
 			var t, g, r, q, o, c;
 			var n = ce("div");
@@ -2344,8 +2344,8 @@ Tabs.prototype = {
 			o.style.visibility = "hidden";
 			this.uls[0] = ce("ul");
 			this.uls[0].className = "tabs";
-			ae(o, this.uls[0]);
-			ae(n, o);
+			append(o, this.uls[0]);
+			append(n, o);
 			o = ce("div");
 			o.className = "tabs-levels";
 			for (var k = 1; k <= 3; ++k) {
@@ -2354,10 +2354,10 @@ Tabs.prototype = {
 				this.uls[k] = ce("ul");
 				this.uls[k].className = "tabs";
 				this.uls[k].style.top = ( - 30 * (3 - k)) + "px";
-				ae(c, this.uls[k]);
-				ae(o, c)
+				append(c, this.uls[k]);
+				append(o, c)
 			}
-			ae(n, o);
+			append(n, o);
 			for (var k = 0; k < this.tabs.length; ++k) {
 				var f = this.tabs[k];
 				for (var h = 0; h <= 3; ++h) {
@@ -2375,16 +2375,16 @@ Tabs.prototype = {
 					}
 					if (!Browser.ie6) {
 						o = ce("div");
-						ae(o, ct(f.caption));
-						ae(r, o)
+						append(o, ct(f.caption));
+						append(r, o)
 					}
-					ae(q, ct(f.caption));
-					ae(r, q);
-					ae(g, r);
-					ae(this.uls[h], g)
+					append(q, ct(f.caption));
+					append(r, q);
+					append(g, r);
+					append(this.uls[h], g)
 				}
 			}
-			ae(this.parent, n)
+			append(this.parent, n)
 		}
 		if (this.onLoad) {
 			t = this.onLoad();
@@ -2476,13 +2476,13 @@ var Icon = {
 			k = 1
 		}
 		g.className = "icon" + Icon.sizes[k];
-		ae(g, d);
-		ae(g, f);
+		append(g, d);
+		append(g, f);
 		Icon.setTexture(g, k, c);
 		if (b) {
 			var i = ce("a");
 			i.href = b;
-			ae(g, i)
+			append(g, i)
 		} else {
 			g.ondblclick = Icon.onDblClick
 		}
@@ -2523,14 +2523,14 @@ var Icon = {
 			b.style.right = "0";
 			b.style.bottom = "0";
 			b.style.position = "absolute";
-			ae(e, b)
+			append(e, b)
 		}
 		if (f != null && f > 0) {
 			b = g_createGlow("(" + f + ")", "q");
 			b.style.left = "0";
 			b.style.top = "0";
 			b.style.position = "absolute";
-			ae(e, b)
+			append(e, b)
 		}
 	},
 	getLink: function (a) {
@@ -2558,10 +2558,10 @@ var RedButton = {
 		h = ce("span");
 		d.href = "javascript:;";
 		d.className = "button-red";
-		ae(c, e);
-		ae(f, c);
-		ae(f, h);
-		ae(d, f);
+		append(c, e);
+		append(f, c);
+		append(f, h);
+		append(d, f);
 		RedButton.setText(d, k);
 		RedButton.enable(d, g);
 		RedButton.setFunc(d, j);
@@ -2602,18 +2602,18 @@ var Tooltip = {
 		if (h) {
 			a.innerHTML = h
 		}
-		ae(e, a);
-		ae(e, j);
-		ae(b, e);
-		ae(c, i);
-		ae(c, g);
-		ae(b, c);
-		ae(k, b);
+		append(e, a);
+		append(e, j);
+		append(b, e);
+		append(c, i);
+		append(c, g);
+		append(b, c);
+		append(k, b);
 		Tooltip.icon = ce("p");
 		Tooltip.icon.style.visibility = "hidden";
-		ae(Tooltip.icon, ce("div"));
-		ae(f, Tooltip.icon);
-		ae(f, k);
+		append(Tooltip.icon, ce("div"));
+		append(f, Tooltip.icon);
+		append(f, k);
 		return f
 	},
 	fix: function (d, b, f) {
@@ -2650,7 +2650,7 @@ var Tooltip = {
 	append: function (c, b) {
 		var c = $(c);
 		var a = Tooltip.create(b);
-		ae(c, a);
+		append(c, a);
 		Tooltip.fixSafe(a, 1, 1)
 	},
 	prepare: function () {
@@ -2661,7 +2661,7 @@ var Tooltip = {
 		b.style.position = "absolute";
 		b.style.left = b.style.top = "-2323px";
 		var a = ge("layers");
-		ae(a, b);
+		append(a, b);
 		Tooltip.tooltip = b;
 		Tooltip.tooltipTable = gE(b, "table")[0];
 		Tooltip.tooltipTd = gE(b, "td")[0];
@@ -2669,7 +2669,7 @@ var Tooltip = {
 			b = ce("iframe");
 			b.src = "javascript:0;";
 			b.frameBorder = 0;
-			ae(a, b);
+			append(a, b);
 			Tooltip.iframe = b
 		}
 	},
@@ -2862,7 +2862,7 @@ function Listview(a) {
 		if (this.parent) {
 			var k = ce("div");
 			k.id = m;
-			ae($(this.parent), k);
+			append($(this.parent), k);
 			this.container = k
 		} else {
 			this.container = ge(m)
@@ -3112,16 +3112,16 @@ Listview.prototype = {
 				for (var d = 0; d < this.nItemsPerRow; ++d) {
 					c = ce("col");
 					c.style.width = e;
-					ae(f, c)
+					append(f, c)
 				}
-				ae(this.mainContainer, f)
+				append(this.mainContainer, f)
 			} else {
 				this.table.className = "listview-mode-default";
 				this.createHeader();
 				this.updateSortArrow()
 			}
-			ae(this.table, this.thead);
-			ae(this.table, this.tbody);
+			append(this.table, this.thead);
+			append(this.table, this.tbody);
 			if (this.mode == Listview.MODE_CHECKBOX && Browser.ie) {
 				setTimeout(Listview.cbIeFix.bind(this), 1)
 			}
@@ -3148,10 +3148,10 @@ Listview.prototype = {
 			c.href = "javascript:;";
 			c.className = "listview-cb";
 			ns(c);
-			ae(c, ct(String.fromCharCode(160)));
-			ae(j, c);
-			ae(g, j);
-			ae(h, g)
+			append(c, ct(String.fromCharCode(160)));
+			append(j, c);
+			append(g, j);
+			append(h, g)
 		}
 		for (var f = 0, b = this.visibility.length; f < b; ++f) {
 			var e = this.visibility[f],
@@ -3181,17 +3181,17 @@ Listview.prototype = {
 			if (d.span != null) {
 				g.colSpan = d.span
 			}
-			ae(innerSpan, ct(d.name));
-			ae(outerSpan, innerSpan);
-			ae(c, outerSpan);
-			ae(j, c);
-			ae(g, j);
-			ae(h, g)
+			append(innerSpan, ct(d.name));
+			append(outerSpan, innerSpan);
+			append(c, outerSpan);
+			append(j, c);
+			append(g, j);
+			append(h, g)
 		}
 		if (this.hideHeader) {
 			this.thead.style.display = "none"
 		}
-		ae(this.thead, h)
+		append(this.thead, h)
 	},
 	createBands: function () {
 		var h = ce("div"),
@@ -3215,12 +3215,12 @@ Listview.prototype = {
 			}
 		}
 		if (!k.firstChild && this.mode != Listview.MODE_CHECKBOX) {
-			ae(k, ct(String.fromCharCode(160)))
+			append(k, ct(String.fromCharCode(160)))
 		}
 		if (this.mode != Listview.MODE_CHECKBOX) {
-			ae(i, ct(String.fromCharCode(160)))
+			append(i, ct(String.fromCharCode(160)))
 		}
-		ae(h, this.navTop);
+		append(h, this.navTop);
 		if (this.searchable) {
 			var l = this.updateFilters.bind(this, true),
 			d = (this._truncated ? "search-within-results2": "search-within-results"),
@@ -3229,7 +3229,7 @@ Listview.prototype = {
 			g = ce("a"),
 			f = ce("input");
 			c.className = "listview-quicksearch";
-			ae(c, b);
+			append(c, b);
 			g.href = "javascript:;";
 			g.onclick = function () {
 				var a = this.nextSibling;
@@ -3238,8 +3238,8 @@ Listview.prototype = {
 				l()
 			};
 			g.style.display = "none";
-			ae(g, ce("span"));
-			ae(c, g);
+			append(g, ce("span"));
+			append(c, g);
 			ns(g);
 			f.setAttribute("type", "text");
 			f.className = d;
@@ -3265,23 +3265,23 @@ Listview.prototype = {
 				},
 				1)
 			}
-			ae(c, f);
+			append(c, f);
 			this.quickSearchBox = f;
 			this.quickSearchGlass = b;
 			this.quickSearchClear = g;
-			ae(h, c)
+			append(h, c)
 		}
-		ae(h, k);
-		ae(j, this.navBot);
-		ae(j, i);
+		append(h, k);
+		append(j, this.navBot);
+		append(j, i);
 		if (this.mode == Listview.MODE_CHECKBOX) {
 			if (this.note) {
 				k.style.paddingBottom = "5px"
 			}
 			this.cbBarTop = this.createCbBar(true);
 			this.cbBarBot = this.createCbBar(false);
-			ae(h, this.cbBarTop);
-			ae(j, this.cbBarBot);
+			append(h, this.cbBarTop);
+			append(j, this.cbBarBot);
 			if (!this.noteTop.firstChild && !this.cbBarTop.firstChild) {
 				this.noteTop.innerHTML = "&nbsp;"
 			}
@@ -3301,21 +3301,21 @@ Listview.prototype = {
 		if (this.hideBands & 2) {
 			j.style.display = "none"
 		}
-		ae(this.container, this.bandTop);
+		append(this.container, this.bandTop);
 		if (this.clip) {
 			var e = ce("div");
 			e.className = "listview-clip";
 			e.style.width = this.clip.w + "px";
 			e.style.height = this.clip.h + "px";
 			this.clipDiv = e;
-			ae(e, this.mainContainer);
-			ae(e, this.noData);
-			ae(this.container, e)
+			append(e, this.mainContainer);
+			append(e, this.noData);
+			append(this.container, e)
 		} else {
-			ae(this.container, this.mainContainer);
-			ae(this.container, this.noData)
+			append(this.container, this.mainContainer);
+			append(this.container, this.noData)
 		}
-		ae(this.container, this.bandBot)
+		append(this.container, this.bandBot)
 	},
 	createNav: function (g) {
 		var c = ce("div"),
@@ -3329,10 +3329,10 @@ Listview.prototype = {
 		e = ce("b");
 		c.className = "listview-nav";
 		d.href = b.href = a.href = j.href = "javascript:;";
-		ae(d, ct(String.fromCharCode(171) + LANG.lvpage_first));
-		ae(b, ct(String.fromCharCode(8249) + LANG.lvpage_previous));
-		ae(a, ct(LANG.lvpage_next + String.fromCharCode(8250)));
-		ae(j, ct(LANG.lvpage_last + String.fromCharCode(187)));
+		append(d, ct(String.fromCharCode(171) + LANG.lvpage_first));
+		append(b, ct(String.fromCharCode(8249) + LANG.lvpage_previous));
+		append(a, ct(LANG.lvpage_next + String.fromCharCode(8250)));
+		append(j, ct(LANG.lvpage_last + String.fromCharCode(187)));
 		ns(d);
 		ns(b);
 		ns(a);
@@ -3341,19 +3341,19 @@ Listview.prototype = {
 		b.onclick = this.previousPage.bind(this);
 		a.onclick = this.nextPage.bind(this);
 		j.onclick = this.lastPage.bind(this);
-		ae(h, ct("a"));
-		ae(f, ct("a"));
-		ae(e, ct("a"));
-		ae(i, h);
-		ae(i, ct(LANG.hyphen));
-		ae(i, f);
-		ae(i, ct(LANG.lvpage_of));
-		ae(i, e);
-		ae(c, d);
-		ae(c, b);
-		ae(c, i);
-		ae(c, a);
-		ae(c, j);
+		append(h, ct("a"));
+		append(f, ct("a"));
+		append(e, ct("a"));
+		append(i, h);
+		append(i, ct(LANG.hyphen));
+		append(i, f);
+		append(i, ct(LANG.lvpage_of));
+		append(i, e);
+		append(c, d);
+		append(c, b);
+		append(c, i);
+		append(c, a);
+		append(c, j);
 		if (g) {
 			if (this.hideNav & 1) {
 				c.style.display = "none"
@@ -3421,7 +3421,7 @@ Listview.prototype = {
 				if (o.__hidden || o.__deleted) {++h;
 					continue
 				}
-				ae(this.mainDiv, this.getDiv(f))
+				append(this.mainDiv, this.getDiv(f))
 			}
 		} else {
 			if (this.mode == Listview.MODE_TILED) {
@@ -3436,9 +3436,9 @@ Listview.prototype = {
 					if (o.__hidden || o.__deleted) {++h;
 						continue
 					}
-					ae(l, this.getCell(f));
+					append(l, this.getCell(f));
 					if (++d == this.nItemsPerRow) {
-						ae(this.tbody, l);
+						append(this.tbody, l);
 						if (e + 1 < h) {
 							l = ce("tr")
 						}
@@ -3449,9 +3449,9 @@ Listview.prototype = {
 					for (; d < 4; ++d) {
 						var m = ce("td");
 						m.className = "empty-cell";
-						ae(l, m)
+						append(l, m)
 					}
-					ae(this.tbody, l)
+					append(this.tbody, l)
 				}
 			} else {
 				for (var e = 0; e < h; ++e) {
@@ -3463,7 +3463,7 @@ Listview.prototype = {
 					if (o.__hidden || o.__deleted) {++h;
 						continue
 					}
-					ae(this.tbody, this.getRow(f))
+					append(this.tbody, this.getRow(f))
 				}
 			}
 		}
@@ -3478,7 +3478,7 @@ Listview.prototype = {
 			a = (this.template.onNoData.bind(this, b))()
 		}
 		if (a == -1) {
-			ae(this.noData, ct(this.filtered ? LANG.lvnodata2: LANG.lvnodata))
+			append(this.noData, ct(this.filtered ? LANG.lvnodata2: LANG.lvnodata))
 		}
 	},
 	getDiv: function (a) {
@@ -3538,9 +3538,9 @@ Listview.prototype = {
 					}
 				}
 				j.__cb = b;
-				ae(c, b)
+				append(c, b)
 			}
-			ae(g, c)
+			append(g, c)
 		}
 		for (var d = 0, e = this.visibility.length; d < e; ++d) {
 			var f = this.visibility[d],
@@ -3564,7 +3564,7 @@ Listview.prototype = {
 			if (h != -1 && h != null) {
 				c.insertBefore(ct(h), c.firstChild)
 			}
-			ae(g, c)
+			append(g, c)
 		}
 		if (this.mode == Listview.MODE_CHECKBOX && j.__chk) {
 			g.className = "checked"
@@ -4330,8 +4330,8 @@ Listview.extraCols = {
 			if (b.outof) {
 				var a = ce("div");
 				a.className = "small q0";
-				ae(a, ct(sprintf(LANG.lvdrop_outof, b.outof)));
-				ae(c, a)
+				append(a, ct(sprintf(LANG.lvdrop_outof, b.outof)));
+				append(c, a)
 			}
 			return b.count
 		},
@@ -4446,17 +4446,17 @@ Listview.funcBox = {
 		}
 		for (var d = 0, b = f.location.length; d < b; ++d) {
 			if (d > 0) {
-				ae(g, ct(LANG.comma))
+				append(g, ct(LANG.comma))
 			}
 			var e = f.location[d];
 			if (e == -1) {
-				ae(g, ct(LANG.ellipsis))
+				append(g, ct(LANG.ellipsis))
 			} else {
 				var c = ce("a");
 				c.className = "q1";
 				c.href = "http://www.topwow.top/zone-" + e + ".html";
-				ae(c, ct(g_zones[e]));
-				ae(g, c)
+				append(c, ct(g_zones[e]));
+				append(g, c)
 			}
 		}
 	},
@@ -4491,9 +4491,9 @@ Listview.funcBox = {
 				n.style.lineHeight = "26px";
 				n.style.fontSize = "11px";
 				n.style.whiteSpace = "nowrap";
-				ae(n, ct(p));
-				ae(k, n);
-				ae(l, k)
+				append(n, ct(p));
+				append(k, n);
+				append(l, k)
 			}
 			var g = g_items;
 			if (m == 1) {
@@ -4519,14 +4519,14 @@ Listview.funcBox = {
 					}
 				}
 				o.style.cssFloat = o.style.styleFloat = "left";
-				ae(l, o)
+				append(l, o)
 			}
 			l.style.margin = "0 auto";
 			l.style.textAlign = "left";
 			l.style.width = (26 * h.length) + "px";
 			a.className = "clear";
-			ae(c, l);
-			ae(c, a);
+			append(c, l);
+			append(c, a);
 			return true
 		}
 	},
@@ -4550,19 +4550,19 @@ Listview.funcBox = {
 			if (g && g[f]) {
 				l.insertBefore(ce("var"), l.childNodes[1]); ++m
 			}
-			ae(k, l)
+			append(k, l)
 		}
 		k.style.margin = "0 auto";
 		k.style.textAlign = "left";
 		k.style.width = (26 * b.length) + "px";
 		a.className = "clear";
-		ae(e, k);
-		ae(e, a);
+		append(e, k);
+		append(e, a);
 		if (n && m == b.length) {
 			k = ce("div");
 			k.style.paddingTop = "4px";
-			ae(k, ct(n));
-			ae(e, k)
+			append(k, ct(n));
+			append(e, k)
 		}
 	},
 	getItemType: function (c, a, b) {
@@ -4629,7 +4629,7 @@ Listview.funcBox = {
 			}
 			new Ajax(e);
 			var b = ce("span");
-			ae(b, ct(LANG.lvcomment_reported));
+			append(b, ct(LANG.lvcomment_reported));
 			this.parentNode.replaceChild(b, this)
 		}
 	},
@@ -4766,19 +4766,19 @@ Listview.funcBox = {
 		d.type = "button";
 		d.value = LANG.compose_save;
 		d.onclick = Listview.funcBox.coEditButton.bind(d, g, true, e);
-		ae(b, d);
-		ae(b, ct(" "));
+		append(b, d);
+		append(b, ct(" "));
 		d = ce("input");
 		d.type = "button";
 		d.value = LANG.compose_cancel;
 		d.onclick = Listview.funcBox.coEditButton.bind(d, g, false, e);
-		ae(b, d);
-		ae(f, b);
+		append(b, d);
+		append(f, b);
 		var c = f;
 		if (Browser.ie6) {
 			c = ce("div");
 			c.style.width = "99%";
-			ae(c, f)
+			append(c, f)
 		}
 		if (e == -1) {
 			g.divPost.insertBefore(c, g.divBody.nextSibling)
@@ -4802,25 +4802,25 @@ Listview.funcBox = {
 		if (l == -1 || l == 0) {
 			var j = ce("div");
 			j.className = "comment-edit-modes";
-			ae(j, ct(LANG.compose_mode));
+			append(j, ct(LANG.compose_mode));
 			var o = ce("a");
 			o.className = "selected";
 			o.onclick = Listview.funcBox.coModeLink.bind(o, 1, l, b);
 			o.href = "javascript:;";
-			ae(o, ct(LANG.compose_edit));
-			ae(j, o);
-			ae(j, ct("|"));
+			append(o, ct(LANG.compose_edit));
+			append(j, o);
+			append(j, ct("|"));
 			var u = ce("a");
 			u.onclick = Listview.funcBox.coModeLink.bind(u, 2, l, b);
 			u.href = "javascript:;";
-			ae(u, ct(LANG.compose_preview));
-			ae(j, u);
-			ae(m, j)
+			append(u, ct(LANG.compose_preview));
+			append(j, u);
+			append(m, j)
 		}
 		var a = ce("div");
 		a.style.display = "none";
 		a.className = "comment-body" + Listview.funcBox.coGetColor(b, l);
-		ae(m, a);
+		append(m, a);
 		var h = ce("div");
 		h.className = "comment-edit-body";
 		var e = ce("div");
@@ -4861,8 +4861,8 @@ Listview.funcBox = {
 			} else {
 				v.className = "disclosure-on"
 			}
-			ae(v, ct(LANG.compose_livepreview));
-			ae(d, v);
+			append(v, ct(LANG.compose_livepreview));
+			append(d, v);
 			v.href = "javascript:;";
 			v.onclick = function () {
 				c(1);
@@ -4871,9 +4871,9 @@ Listview.funcBox = {
 			ns(v);
 			d.className = "first";
 			s.className = "pad";
-			ae(a, d);
-			ae(a, t);
-			ae(a, s);
+			append(a, d);
+			append(a, t);
+			append(a, s);
 			g_onAfterTyping(g, c, 50);
 			aE(g, "focus", function () {
 				c();
@@ -4981,18 +4981,18 @@ Listview.funcBox = {
 			}
 			w.src = "templates/wowhead/images/pixel.gif";
 			w.className = "toolbar-" + k.id;
-			ae(n, w);
-			ae(e, n)
+			append(n, w);
+			append(e, n)
 		}
-		ae(h, e);
-		ae(h, g);
-		ae(h, ce("br"));
+		append(h, e);
+		append(h, g);
+		append(h, ce("br"));
 		if (l == 4) {
-			ae(h, ct(sprintf(LANG.compose_limit2, f, 3)))
+			append(h, ct(sprintf(LANG.compose_limit2, f, 3)))
 		} else {
-			ae(h, ct(sprintf(LANG.compose_limit, f)))
+			append(h, ct(sprintf(LANG.compose_limit, f)))
 		}
-		ae(m, h);
+		append(m, h);
 		return g
 	},
 	coLivePreview: function (f, e, a, b) {
@@ -5195,7 +5195,7 @@ Listview.funcBox = {
 			a = a.substr(0, 1).toUpperCase() + a.substr(1)
 		}
 		d = ct(a);
-		ae(f, d)
+		append(f, d)
 	},
 	ssCellOver: function () {
 		this.className = "screenshot-caption-over"
@@ -5239,36 +5239,36 @@ Listview.funcBox = {
 			h = 1;
 			k = ce("span");
 			k.className = "moneygold";
-			ae(k, ct(Math.floor(a / 10000)));
-			ae(g, k);
+			append(k, ct(Math.floor(a / 10000)));
+			append(g, k);
 			a %= 10000
 		}
 		if (a >= 100) {
 			if (h) {
-				ae(g, ct(" "))
+				append(g, ct(" "))
 			} else {
 				h = 1
 			}
 			k = ce("span");
 			k.className = "moneysilver";
-			ae(k, ct(Math.floor(a / 100)));
-			ae(g, k);
+			append(k, ct(Math.floor(a / 100)));
+			append(g, k);
 			a %= 100
 		}
 		if (a >= 1 || f != null) {
 			if (h) {
-				ae(g, ct(" "))
+				append(g, ct(" "))
 			} else {
 				h = 1
 			}
 			k = ce("span");
 			k.className = "moneycopper";
-			ae(k, ct(a));
-			ae(g, k)
+			append(k, ct(a));
+			append(g, k)
 		}
 		if (m != null && m != 0) {
 			if (h) {
-				ae(g, ct(" "))
+				append(g, ct(" "))
 			} else {
 				h = 1
 			}
@@ -5277,12 +5277,12 @@ Listview.funcBox = {
 			k.onmouseover = Listview.funcBox.moneyHonorOver;
 			k.onmousemove = Tooltip.cursorUpdate;
 			k.onmouseout = Tooltip.hide;
-			ae(k, ct(number_format(Math.abs(m))));
-			ae(g, k)
+			append(k, ct(number_format(Math.abs(m))));
+			append(g, k)
 		}
 		if (j >= 1) {
 			if (h) {
-				ae(g, ct(" "))
+				append(g, ct(" "))
 			} else {
 				h = 1
 			}
@@ -5291,13 +5291,13 @@ Listview.funcBox = {
 			k.onmouseover = Listview.funcBox.moneyArenaOver;
 			k.onmousemove = Tooltip.cursorUpdate;
 			k.onmouseout = Tooltip.hide;
-			ae(k, ct(number_format(j)));
-			ae(g, k)
+			append(k, ct(number_format(j)));
+			append(g, k)
 		}
 		if (c != null) {
 			for (var b = 0; b < c.length; ++b) {
 				if (h) {
-					ae(g, ct(" "))
+					append(g, ct(" "))
 				} else {
 					h = 1
 				}
@@ -5307,13 +5307,13 @@ Listview.funcBox = {
 				k.href = "http://www.topwow.top/item-" + n + ".html";
 				k.className = "moneyitem";
 				k.style.backgroundImage = "url(images/icons/tiny/" + g_items.getIcon(n).toLowerCase() + ".gif)";
-				ae(k, ct(e));
-				ae(g, k)
+				append(k, ct(e));
+				append(g, k)
 			}
 		}
 		if (l != null) {
 			if (h) {
-				ae(g, ct(" "))
+				append(g, ct(" "))
 			} else {
 				h = 1
 			}
@@ -5322,8 +5322,8 @@ Listview.funcBox = {
 			k.onmouseover = Listview.funcBox.moneyAchievementOver;
 			k.onmousemove = Tooltip.cursorUpdate;
 			k.onmouseout = Tooltip.hide;
-			ae(k, ct(number_format(l)));
-			ae(g, k)
+			append(k, ct(number_format(l)));
+			append(g, k)
 		}
 	},
 	getUpperSource: function (a, b) {
@@ -5413,14 +5413,14 @@ Listview.templates = {
 				var b = ce("a");
 				b.style.fontFamily = "Verdana, sans-serif";
 				b.href = this.template.getItemLink(d);
-				ae(b, ct(d.name));
+				append(b, ct(d.name));
 				if (d.expansion) {
 					var c = ce("span");
 					c.className = (d.expansion == 1 ? "bc-icon": "wotlk-icon");
-					ae(c, b);
-					ae(e, c)
+					append(c, b);
+					append(e, c)
 				} else {
-					ae(e, b)
+					append(e, b)
 				}
 			},
 			getVisibleText: function (a) {
@@ -5444,8 +5444,8 @@ Listview.templates = {
 				if (b.side) {
 					var a = ce("span");
 					a.className = (b.side == 1 ? "alliance-icon": "horde-icon");
-					ae(a, ct(g_sides[b.side]));
-					ae(c, a)
+					append(a, ct(g_sides[b.side]));
+					append(c, a)
 				}
 			},
 			getVisibleText: function (a) {
@@ -5471,8 +5471,8 @@ Listview.templates = {
 						c += "." + d.category
 					}
 					b.href = c;
-					ae(b, ct(Listview.funcBox.getFactionCategory(d.category, d.category2)));
-					ae(e, b)
+					append(b, ct(Listview.funcBox.getFactionCategory(d.category, d.category2)));
+					append(e, b)
 				}
 			},
 			getVisibleText: function (a) {
@@ -5511,8 +5511,8 @@ Listview.templates = {
 				if (m.avail != null) {
 					n = m.avail
 				}
-				ae(f, g_items.createIcon(m.id, (this.iconSize == null ? 1 : this.iconSize), g, n));
-				ae(k, f);
+				append(f, g_items.createIcon(m.id, (this.iconSize == null ? 1 : this.iconSize), g, n));
+				append(k, f);
 				c.style.borderLeft = "none";
 				var l = ce("a");
 				l.className = "q" + (7 - parseInt(m.name.charAt(0)));
@@ -5522,8 +5522,8 @@ Listview.templates = {
 					Icon.getLink(f.firstChild).rel = m.rel;
 					l.rel = m.rel
 				}
-				ae(l, ct(m.name.substring(1)));
-				ae(c, l);
+				append(l, ct(m.name.substring(1)));
+				append(c, l);
 				if (typeof fi_nExtraCols == "number" && fi_nExtraCols >= 5) {
 					if (m.source != null && m.source.length == 1) {
 						var h = ce("div");
@@ -5540,35 +5540,35 @@ Listview.templates = {
 							}
 							l.href = "http://www.topwow.top/" + g_types[b.t] + "-" + b.ti + ".html";
 							if (b.n.length <= 30) {
-								ae(l, ct(b.n))
+								append(l, ct(b.n))
 							} else {
 								l.title = b.n;
-								ae(l, ct(trim(b.n.substr(0, 27)) + "..."))
+								append(l, ct(trim(b.n.substr(0, 27)) + "..."))
 							}
-							ae(h, l)
+							append(h, l)
 						} else {
-							ae(h, ct(Listview.funcBox.getUpperSource(m.source[0], b)))
+							append(h, ct(Listview.funcBox.getUpperSource(m.source[0], b)))
 						}
 						var e = Listview.funcBox.getLowerSource(m.source[0], b, j);
 						if (e != null) {
-							ae(h, ct(LANG.hyphen));
+							append(h, ct(LANG.hyphen));
 							if (e.pretext) {
-								ae(h, ct(e.pretext))
+								append(h, ct(e.pretext))
 							}
 							if (e.url) {
 								var l = ce("a");
 								l.className = "q1";
 								l.href = e.url;
-								ae(l, ct(e.text));
-								ae(h, l)
+								append(l, ct(e.text));
+								append(h, l)
 							} else {
-								ae(h, ct(e.text))
+								append(h, ct(e.text))
 							}
 							if (e.posttext) {
-								ae(h, ct(e.posttext))
+								append(h, ct(e.posttext))
 							}
 						}
-						ae(c, h)
+						append(c, h)
 					}
 				}
 			},
@@ -5713,35 +5713,35 @@ Listview.templates = {
 							}
 							j.href = "http://www.topwow.top/" + g_types[c.t] + "-" + c.ti + ".html";
 							if (this.iconSize == 0 || c.n.length <= 20) {
-								ae(j, ct(c.n))
+								append(j, ct(c.n))
 							} else {
 								j.title = c.n;
-								ae(j, ct(trim(c.n.substr(0, 17)) + "..."))
+								append(j, ct(trim(c.n.substr(0, 17)) + "..."))
 							}
-							ae(d, j)
+							append(d, j)
 						} else {
-							ae(d, ct(Listview.funcBox.getUpperSource(k.source[0], c)))
+							append(d, ct(Listview.funcBox.getUpperSource(k.source[0], c)))
 						}
 						var f = Listview.funcBox.getLowerSource(k.source[0], c, h);
 						if (this.iconSize != 0 && f != null) {
 							var b = ce("div");
 							b.className = "small2";
 							if (f.pretext) {
-								ae(b, ct(f.pretext))
+								append(b, ct(f.pretext))
 							}
 							if (f.url) {
 								var j = ce("a");
 								j.className = "q1";
 								j.href = f.url;
-								ae(j, ct(f.text));
-								ae(b, j)
+								append(j, ct(f.text));
+								append(b, j)
 							} else {
-								ae(b, ct(f.text))
+								append(b, ct(f.text))
 							}
 							if (f.posttext) {
-								ae(b, ct(f.posttext))
+								append(b, ct(f.posttext))
 							}
-							ae(d, b)
+							append(d, b)
 						}
 					} else {
 						var l = "";
@@ -5803,8 +5803,8 @@ Listview.templates = {
 				var b = ce("a");
 				var c = Listview.funcBox.getItemType(d.classs, d.subclass, d.subsubclass);
 				b.href = c.url;
-				ae(b, ct(c.text));
-				ae(e, b)
+				append(b, ct(c.text));
+				append(e, b)
 			},
 			getVisibleText: function (a) {
 				return Listview.funcBox.getItemType(a.classs, a.subclass, a.subsubclass).text
@@ -5842,8 +5842,8 @@ Listview.templates = {
 			a.value = LANG.button_deselect;
 			b.onclick = this.template.compareItems.bind(this);
 			a.onclick = Listview.cbSelect.bind(this, false);
-			ae(d, b);
-			ae(d, a)
+			append(d, b);
+			append(d, a)
 		},
 		compareItems: function () {
 			var b = this.getCheckedRows();
@@ -5907,13 +5907,13 @@ Listview.templates = {
 				b.className = "q" + (7 - parseInt(c.name.charAt(0)));
 				b.style.fontFamily = "Verdana, sans-serif";
 				b.href = this.template.getItemLink(c);
-				ae(b, ct(c.name.substring(1)));
-				ae(f, b);
+				append(b, ct(c.name.substring(1)));
+				append(f, b);
 				if (c.note) {
 					var e = ce("div");
 					e.className = "small";
-					ae(e, ct(g_itemset_notes[c.note]));
-					ae(f, e)
+					append(e, ct(g_itemset_notes[c.note]));
+					append(f, e)
 				}
 			},
 			getVisibleText: function (a) {
@@ -6041,13 +6041,13 @@ Listview.templates = {
 				var b = ce("a");
 				b.style.fontFamily = "Verdana, sans-serif";
 				b.href = this.template.getItemLink(c);
-				ae(b, ct(c.name));
-				ae(f, b);
+				append(b, ct(c.name));
+				append(f, b);
 				if (c.tag != null) {
 					var e = ce("div");
 					e.className = "small";
-					ae(e, ct("<" + c.tag + ">"));
-					ae(f, e)
+					append(e, ct("<" + c.tag + ">"));
+					append(f, e)
 				}
 			},
 			getVisibleText: function (a) {
@@ -6073,8 +6073,8 @@ Listview.templates = {
 				if (a.classification) {
 					var b = ce("div");
 					b.className = "small";
-					ae(b, ct(g_npc_classifications[a.classification]));
-					ae(c, b)
+					append(b, ct(g_npc_classifications[a.classification]));
+					append(c, b)
 				}
 				if (a.classification == 3) {
 					return "??"
@@ -6141,12 +6141,12 @@ Listview.templates = {
 				for (var a = 0; a < 2; ++a) {
 					if (b.react[a] != null) {
 						if (f++>0) {
-							ae(g, ct(" "))
+							append(g, ct(" "))
 						}
 						var e = ce("span");
 						e.className = (b.react[a] < 0 ? "q10": (b.react[a] > 0 ? "q2": "q"));
-						ae(e, ct(d[a]));
-						ae(g, e)
+						append(e, ct(d[a]));
+						append(g, e)
 					}
 				}
 			}
@@ -6161,8 +6161,8 @@ Listview.templates = {
 					var b = ce("a");
 					b.className = "q1";
 					b.href = "?npcs&filter=cr=35;crs=0;crv=" + c.skin;
-					ae(b, ct(c.skin));
-					ae(d, b)
+					append(b, ct(c.skin));
+					append(d, b)
 				}
 			},
 			hidden: 1
@@ -6176,8 +6176,8 @@ Listview.templates = {
 				d.className = "q1";
 				var b = ce("a");
 				b.href = "?pet=" + c.family;
-				ae(b, ct(g_pet_families[c.family]));
-				ae(d, b)
+				append(b, ct(g_pet_families[c.family]));
+				append(d, b)
 			},
 			getVisibleText: function (a) {
 				return g_pet_families[a.family]
@@ -6196,8 +6196,8 @@ Listview.templates = {
 				d.className = "small q1";
 				var b = ce("a");
 				b.href = "http://www.topwow.top/npcs-" + c.type +".html";
-				ae(b, ct(g_npc_types[c.type]));
-				ae(d, b)
+				append(b, ct(g_npc_types[c.type]));
+				append(d, b)
 			},
 			getVisibleText: function (a) {
 				return g_npc_types[a.type]
@@ -6225,8 +6225,8 @@ Listview.templates = {
 				var b = ce("a");
 				b.style.fontFamily = "Verdana, sans-serif";
 				b.href = this.template.getItemLink(c);
-				ae(b, ct(c.name));
-				ae(d, b)
+				append(b, ct(c.name));
+				append(d, b)
 			}
 		},
 		{
@@ -6259,8 +6259,8 @@ Listview.templates = {
 				d.className = "small q1";
 				var b = ce("a");
 				b.href = "http://www.topwow.top/objects-" + c.type +".html";
-				ae(b, ct(getGoType(c.type)));
-				ae(d, b)
+				append(b, ct(getGoType(c.type)));
+				append(d, b)
 			},
 			getVisibleText: function (a) {
 				return getGoType(a.type);
@@ -6288,8 +6288,8 @@ Listview.templates = {
 				var b = ce("a");
 				b.style.fontFamily = "Verdana, sans-serif";
 				b.href = this.template.getItemLink(c);
-				ae(b, ct(c.name));
-				ae(d, b)
+				append(b, ct(c.name));
+				append(d, b)
 			}
 		},
 		{
@@ -6303,17 +6303,17 @@ Listview.templates = {
 					b.className = "small";
 					nw(b);
 					if (a.type && a.daily) {
-						ae(b, ct(sprintf(LANG.lvquest_daily, g_quest_types[a.type])))
+						append(b, ct(sprintf(LANG.lvquest_daily, g_quest_types[a.type])))
 					} else {
 						if (a.daily) {
-							ae(b, ct(LANG.daily))
+							append(b, ct(LANG.daily))
 						} else {
 							if (a.type) {
-								ae(b, ct(g_quest_types[a.type]))
+								append(b, ct(g_quest_types[a.type]))
 							}
 						}
 					}
-					ae(c, b)
+					append(c, b)
 				}
 				return a.level
 			},
@@ -6356,8 +6356,8 @@ Listview.templates = {
 							b.className = "horde-icon"
 						}
 					}
-					ae(b, ct(g_sides[a.side]));
-					ae(c, b)
+					append(b, ct(g_sides[a.side]));
+					append(c, b)
 				} else {
 					return - 1
 				}
@@ -6396,12 +6396,12 @@ Listview.templates = {
 						c.style.padding = "4px"
 					}
 					if (b.xp > 0) {
-						ae(c, ct(sprintf(LANG.lvquest_xp, b.xp) + (b.money > 0 ? " + ": "")))
+						append(c, ct(sprintf(LANG.lvquest_xp, b.xp) + (b.money > 0 ? " + ": "")))
 					}
 					if (b.money > 0) {
 						Listview.funcBox.appendMoney(c, b.money)
 					}
-					ae(g, c)
+					append(g, c)
 				}
 			},
 			getVisibleText: function (a) {
@@ -6440,8 +6440,8 @@ Listview.templates = {
 					d.className = "small q1";
 					var b = ce("a");
 					b.href = "http://www.topwow.top/quests-" + c.category2 + "." + c.category + ".html";
-					ae(b, ct(Listview.funcBox.getQuestCategory(c.category)));
-					ae(d, b)
+					append(b, ct(Listview.funcBox.getQuestCategory(c.category)));
+					append(d, b)
 				}
 			},
 			getVisibleText: function (a) {
@@ -6479,8 +6479,8 @@ Listview.templates = {
 					o = g_spells.createIcon(g.id, 1)
 				}
 				o.style.cssFloat = o.style.styleFloat = "left";
-				ae(f, o);
-				ae(k, f);
+				append(f, o);
+				append(k, f);
 				e.style.borderLeft = "none";
 				var b = ce("div");
 				var n = ce("a");
@@ -6490,13 +6490,13 @@ Listview.templates = {
 				}
 				n.style.fontFamily = "Verdana, sans-serif";
 				n.href = this.template.getItemLink(g);
-				ae(n, ct(g.name.substring(1)));
-				ae(b, n);
+				append(n, ct(g.name.substring(1)));
+				append(b, n);
 				if (g.rank) {
 					var j = ce("div");
 					j.className = "small2";
-					ae(j, ct(g.rank));
-					ae(b, j)
+					append(j, ct(g.rank));
+					append(b, j)
 				}
 				if (g.races != null) {
 					b.style.position = "relative";
@@ -6507,22 +6507,22 @@ Listview.templates = {
 					j.style.right = j.style.bottom = "3px";
 					var m = g.races.toString();
 					if (m == "1,3,4,7,11") {
-						ae(j, ct(g_sides[1]))
+						append(j, ct(g_sides[1]))
 					} else {
 						if (m == "2,5,6,8,10") {
-							ae(j, ct(g_sides[2]))
+							append(j, ct(g_sides[2]))
 						} else {
 							for (var f = 0, h = g.races.length; f < h; ++f) {
 								if (f > 0) {
-									ae(j, ct(LANG.comma))
+									append(j, ct(LANG.comma))
 								}
-								ae(j, ct(g_chr_races[g.races[f]]))
+								append(j, ct(g_chr_races[g.races[f]]))
 							}
 						}
 					}
-					ae(b, j)
+					append(b, j)
 				}
-				ae(e, b)
+				append(e, b)
 			},
 			getVisibleText: function (a) {
 				var b = a.name;
@@ -6580,9 +6580,9 @@ Listview.templates = {
 						var f = j[e][1];
 						var l = g_items.createIcon(b, 1, f);
 						l.style.cssFloat = l.style.styleFloat = "left";
-						ae(k, l)
+						append(k, l)
 					}
-					ae(c, k)
+					append(c, k)
 				}
 			},
 			sortFunc: function (d, c) {
@@ -6644,10 +6644,10 @@ Listview.templates = {
 					b.className = "small";
 					for (var e = 0, g = f.skill.length; e < g; ++e) {
 						if (e > 0) {
-							ae(b, ct(LANG.comma))
+							append(b, ct(LANG.comma))
 						}
 						if (f.skill[e] == -1) {
-							ae(b, ct(LANG.ellipsis))
+							append(b, ct(LANG.ellipsis))
 						} else {
 							if (in_array([7, -2, -3, -5, -6, -7, 11, 9], f.cat) != -1) {
 								var l = ce("a");
@@ -6657,29 +6657,29 @@ Listview.templates = {
 								} else {
 									l.href = "?spells=" + f.cat + "." + (f.chrclass ? f.chrclass + ".": "") + f.skill[e]
 								}
-								ae(l, ct(g_spell_skills[f.skill[e]]));
-								ae(b, l)
+								append(l, ct(g_spell_skills[f.skill[e]]));
+								append(b, l)
 							} else {
-								ae(b, ct(g_spell_skills[f.skill[e]]))
+								append(b, ct(g_spell_skills[f.skill[e]]))
 							}
 						}
 					}
 					if (f.learnedat > 0) {
-						ae(b, ct(" ("));
+						append(b, ct(" ("));
 						var c = ce("span");
 						if (f.learnedat == 9999) {
 							c.className = "q0";
-							ae(c, ct("??"))
+							append(c, ct("??"))
 						} else {
 							if (f.learnedat > 0) {
-								ae(c, ct(f.learnedat));
+								append(c, ct(f.learnedat));
 								c.style.fontWeight = "bold"
 							}
 						}
-						ae(b, c);
-						ae(b, ct(")"))
+						append(b, c);
+						append(b, ct(")"))
 					}
-					ae(d, b);
+					append(d, b);
 					if (f.colors != null) {
 						this.template.columns[n].type = null;
 						var h = f.colors,
@@ -6697,15 +6697,15 @@ Listview.templates = {
 							for (var e = 0; e < h.length; ++e) {
 								if (h[e] > 0) {
 									if (m++>0) {
-										ae(b, ct(" "))
+										append(b, ct(" "))
 									}
 									var k = ce("span");
 									k.className = "r" + (e + 1);
-									ae(k, ct(h[e]));
-									ae(b, k)
+									append(k, ct(h[e]));
+									append(b, k)
 								}
 							}
-							ae(d, b)
+							append(d, b)
 						}
 					}
 				}
@@ -6752,14 +6752,14 @@ Listview.templates = {
 				var b = ce("a");
 				b.style.fontFamily = "Verdana, sans-serif";
 				b.href = this.template.getItemLink(c);
-				ae(b, ct(c.name));
+				append(b, ct(c.name));
 				if (c.expansion) {
 					var d = ce("span");
 					d.className = (c.expansion == 1 ? "bc-icon": "wotlk-icon");
-					ae(d, b);
-					ae(e, d)
+					append(d, b);
+					append(e, d)
 				} else {
-					ae(e, b)
+					append(e, b)
 				}
 			},
 			getVisibleText: function (a) {
@@ -6832,17 +6832,17 @@ Listview.templates = {
 				var p = ce("a");
 				p.href = "javascript:;";
 				p.onclick = Listview.funcBox.coToggleVis.bind(p, t);
-				ae(p, ct(LANG.lvcomment_show));
-				ae(g, p);
-				ae(g, ct(" " + String.fromCharCode(160) + " "))
+				append(p, ct(LANG.lvcomment_show));
+				append(g, p);
+				append(g, ct(" " + String.fromCharCode(160) + " "))
 			}
 			var n = ce("b");
-			ae(n, ct(LANG.lvcomment_rating));
+			append(n, ct(LANG.lvcomment_rating));
 			var q = ce("span");
-			ae(q, ct((t.rating > 0 ? "+": "") + t.rating));
-			ae(n, q);
-			ae(g, n);
-			ae(g, ct(" "));
+			append(q, ct((t.rating > 0 ? "+": "") + t.rating));
+			append(n, q);
+			append(g, n);
+			append(g, ct(" "));
 			var B = ce("span");
 			var j = ce("a"),
 			K = ce("a");
@@ -6857,42 +6857,42 @@ Listview.templates = {
 					A.onmouseover = Listview.funcBox.coCustomRatingOver;
 					A.onmousemove = Tooltip.cursorUpdate;
 					A.onmouseout = Tooltip.hide;
-					ae(A, ct("[~]"));
-					ae(B, A);
-					ae(B, ct(" "))
+					append(A, ct("[~]"));
+					append(B, A);
+					append(B, ct(" "))
 				}
 			} else {
 				j.href = K.href = "?account=signin"
 			}
-			ae(j, ct("[+]"));
+			append(j, ct("[+]"));
 			j.onmouseover = Listview.funcBox.coPlusRatingOver;
 			K.onmouseover = Listview.funcBox.coMinusRatingOver;
 			j.onmousemove = K.onmousemove = Tooltip.cursorUpdate;
 			j.onmouseout = K.onmouseout = Tooltip.hide;
-			ae(K, ct("[-]"));
-			ae(B, K);
-			ae(B, ct(" "));
-			ae(B, j);
-			ae(g, B);
+			append(K, ct("[-]"));
+			append(B, K);
+			append(B, ct(" "));
+			append(B, j);
+			append(g, B);
 			if (!i) {
 				B.style.display = "none"
 			}
-			ae(w, g);
-			ae(w, ct(LANG.lvcomment_by));
+			append(w, g);
+			append(w, ct(LANG.lvcomment_by));
 			var G = ce("a");
 			G.href = "?user=" + t.user;
-			ae(G, ct(t.user));
-			ae(w, G);
-			ae(w, ct(" "));
+			append(G, ct(t.user));
+			append(w, G);
+			append(w, ct(" "));
 			var a = ce("a");
 			a.className = "q0";
 			a.id = "comments:id=" + t.id;
 			a.href = "#" + a.id;
 			Listview.funcBox.coFormatDate(a, F, s);
 			a.style.cursor = "pointer";
-			ae(w, a);
-			ae(w, ct(LANG.lvcomment_patch1 + g_getPatchVersion(s) + LANG.lvcomment_patch2));
-			ae(H, w);
+			append(w, a);
+			append(w, ct(LANG.lvcomment_patch1 + g_getPatchVersion(s) + LANG.lvcomment_patch2));
+			append(H, w);
 			m.className = "comment-body" + Listview.funcBox.coGetColor(t);
 			if (t.indent) {
 				m.className += " comment-body-indent"
@@ -6901,87 +6901,87 @@ Listview.templates = {
 				mode: Markup.MODE_COMMENT,
 				roles: t.roles
 			});
-			ae(H, m);
+			append(H, m);
 			if ((t.roles & 26) == 0 || g_user.roles & 26) {
 				var E = ce("div");
 				t.divLastEdit = E;
 				E.className = "comment-lastedit";
-				ae(E, ct(LANG.lvcomment_lastedit));
+				append(E, ct(LANG.lvcomment_lastedit));
 				var o = ce("a");
-				ae(o, ct(" "));
-				ae(E, o);
-				ae(E, ct(" "));
+				append(o, ct(" "));
+				append(E, o);
+				append(E, ct(" "));
 				var z = ce("span");
-				ae(E, z);
-				ae(E, ct(" "));
+				append(E, z);
+				append(E, ct(" "));
 				Listview.funcBox.coUpdateLastEdit(t);
 				if (I) {
 					E.style.display = "none"
 				}
-				ae(H, E)
+				append(H, E)
 			}
 			k.className = "comment-links";
 			if (C) {
 				var b = ce("span");
 				var y = ce("a");
-				ae(y, ct(LANG.lvcomment_edit));
+				append(y, ct(LANG.lvcomment_edit));
 				y.onclick = Listview.funcBox.coEdit.bind(this, t, 0);
 				ns(y);
 				y.href = "javascript:;";
-				ae(b, y);
-				ae(b, ct("|"));
-				ae(k, b)
+				append(b, y);
+				append(b, ct("|"));
+				append(k, b)
 			}
 			if (v) {
 				var l = ce("span");
 				var r = ce("a");
-				ae(r, ct(LANG.lvcomment_delete));
+				append(r, ct(LANG.lvcomment_delete));
 				r.onclick = Listview.funcBox.coDelete.bind(this, t);
 				ns(r);
 				r.href = "javascript:;";
-				ae(l, r);
-				ae(l, ct("|"));
-				ae(k, l)
+				append(l, r);
+				append(l, ct("|"));
+				append(k, l)
 			}
 			if (c) {
 				var x = ce("span");
 				var e = ce("a");
-				ae(e, ct(LANG.lvcomment_detach));
+				append(e, ct(LANG.lvcomment_detach));
 				e.onclick = Listview.funcBox.coDetach.bind(this, t);
 				ns(e);
 				e.href = "javascript:;";
-				ae(x, e);
-				ae(x, ct("|"));
-				ae(k, x)
+				append(x, e);
+				append(x, ct("|"));
+				append(k, x)
 			}
 			if (J) {
 				var u = ce("span");
 				var f = ce("a");
-				ae(f, ct(LANG.lvcomment_report));
+				append(f, ct(LANG.lvcomment_report));
 				if (g_user.id > 0) {
 					f.onclick = Listview.funcBox.coReportClick.bind(f, t, 0);
 					f.href = "javascript:;"
 				} else {
 					f.href = "?account=signin"
 				}
-				ae(u, f);
-				ae(u, ct("|"));
-				ae(k, u)
+				append(u, f);
+				append(u, ct("|"));
+				append(k, u)
 			}
 			var h = ce("a");
-			ae(h, ct(LANG.lvcomment_reply));
+			append(h, ct(LANG.lvcomment_reply));
 			if (g_user.id > 0) {
 				h.onclick = Listview.funcBox.coReply.bind(this, t);
 				h.href = "javascript:;"
 			} else {
 				h.href = "?account=signin"
 			}
-			ae(k, h);
+			append(k, h);
 			if (I) {
 				m.style.display = "none";
 				k.style.display = "none"
 			}
-			ae(H, k)
+			append(H, k)
 		},
 		createNote: function (g) {
 			var f = ce("small");
@@ -6992,27 +6992,27 @@ Listview.templates = {
 			} else {
 				b.href = "?account=signin"
 			}
-			ae(b, ct(LANG.lvcomment_add));
-			ae(f, b);
+			append(b, ct(LANG.lvcomment_add));
+			append(f, b);
 			var e = ce("span");
 			e.style.padding = "0 5px";
 			e.style.color = "white";
-			ae(e, ct("|"));
-			ae(f, e);
-			ae(f, ct(LANG.lvcomment_sort));
+			append(e, ct("|"));
+			append(f, e);
+			append(f, ct(LANG.lvcomment_sort));
 			var c = ce("a");
 			c.href = "javascript:;";
-			ae(c, ct(LANG.lvcomment_sortdate));
+			append(c, ct(LANG.lvcomment_sortdate));
 			c.onclick = Listview.funcBox.coSortDate.bind(this, c);
-			ae(f, c);
-			ae(f, ct(LANG.comma));
+			append(f, c);
+			append(f, ct(LANG.comma));
 			var d = ce("a");
 			d.href = "javascript:;";
-			ae(d, ct(LANG.lvcomment_sortrating));
+			append(d, ct(LANG.lvcomment_sortrating));
 			d.onclick = Listview.funcBox.coSortHighestRatedFirst.bind(this, d);
-			ae(f, d);
+			append(f, d);
 			c.onclick();
-			ae(g, f)
+			append(g, f)
 		},
 		onNoData: function (c) {
 			if (typeof g_pageInfo == "object" && g_pageInfo.type > 0) {
@@ -7060,12 +7060,12 @@ Listview.templates = {
 				var b = ce("a");
 				b.style.fontFamily = "Verdana, sans-serif";
 				b.href = this.template.getItemLink(f);
-				ae(b, ct(f.subject));
-				ae(e, b);
+				append(b, ct(f.subject));
+				append(e, b);
 				var c = ce("div");
 				c.className = "small";
-				ae(c, ct(LANG.types[f.type][0]));
-				ae(e, c)
+				append(c, ct(LANG.types[f.type][0]));
+				append(e, c)
 			}
 		},
 		{
@@ -7080,27 +7080,27 @@ Listview.templates = {
 				if (j.rating >= 10) {
 					g.className += " comment-green"
 				}
-				ae(g, ct(Markup.removeTags(j.preview, {
+				append(g, ct(Markup.removeTags(j.preview, {
 					mode: (j.rating != null ? Markup.MODE_COMMENT: Markup.MODE_ARTICLE)
 				})));
-				ae(i, g);
+				append(i, g);
 				var e = j.rating != null;
 				var f = j.user != null;
 				if (e || f) {
 					g = ce("div");
 					g.className = "small3";
 					if (f) {
-						ae(g, ct(LANG.lvcomment_by));
+						append(g, ct(LANG.lvcomment_by));
 						var b = ce("a");
 						b.href = "?user=" + j.user;
-						ae(b, ct(j.user));
-						ae(g, b);
+						append(b, ct(j.user));
+						append(g, b);
 						if (e) {
-							ae(g, ct(LANG.hyphen))
+							append(g, ct(LANG.hyphen))
 						}
 					}
 					if (e) {
-						ae(g, ct(LANG.lvcomment_rating + (j.rating > 0 ? "+": "") + j.rating));
+						append(g, ct(LANG.lvcomment_rating + (j.rating > 0 ? "+": "") + j.rating));
 						var c = ce("span"),
 						h = "";
 						c.className = "q10";
@@ -7111,10 +7111,10 @@ Listview.templates = {
 								h = LANG.lvcomment_purged
 							}
 						}
-						ae(c, ct(h));
-						ae(g, c)
+						append(c, ct(h));
+						append(g, c)
 					}
-					ae(i, g)
+					append(i, g)
 				}
 			}
 		},
@@ -7128,7 +7128,7 @@ Listview.templates = {
 				c = (g_serverTime - a) / 1000;
 				var b = ce("span");
 				Listview.funcBox.coFormatDate(b, c, a, 0, 1);
-				ae(d, b)
+				append(d, b)
 			}
 		}],
 		getItemLink: function (a) {
@@ -7153,18 +7153,18 @@ Listview.templates = {
 			var v = ce("img"),
 			t = Math.min(150 / k.width, 150 / k.height);
 			v.src = "http://www.topwow.top/screenshots/thumb/" + k.id + ".webp";
-			ae(q, v);
-			ae(e, q);
+			append(q, v);
+			append(e, q);
 			var p = ce("div");
 			p.className = "screenshot-cell-user";
 			var m = (k.user != null && k.user.length);
 			if (m) {
 				q = ce("a");
 				q.href = "?user=" + k.user;
-				ae(q, ct(k.user));
-				ae(p, ct(LANG.lvscreenshot_from));
-				ae(p, q);
-				ae(p, ct(" "))
+				append(q, ct(k.user));
+				append(p, ct(LANG.lvscreenshot_from));
+				append(p, q);
+				append(p, ct(" "))
 			}
 			var j = ce("span");
 			if (m) {
@@ -7172,8 +7172,8 @@ Listview.templates = {
 			} else {
 				Listview.funcBox.coFormatDate(j, f, o, 0, 1)
 			}
-			ae(p, j);
-			ae(e, p);
+			append(p, j);
+			append(e, p);
 			p = ce("div");
 			p.style.position = "relative";
 			p.style.height = "1em";
@@ -7187,28 +7187,28 @@ Listview.templates = {
 				r.className = "screenshot-caption";
 				if (g) {
 					var c = ce("small");
-					ae(c, ct(LANG.types[k.type][0] + LANG.colon));
+					append(c, ct(LANG.types[k.type][0] + LANG.colon));
 					var b = ce("a");
-					ae(b, ct(k.subject));
+					append(b, ct(k.subject));
 					b.href = "http://www.topwow.top/" + g_types[k.type] + "-" + k.typeId +".html";
-					ae(c, b);
-					ae(r, c);
+					append(c, b);
+					append(r, c);
 					if (h && k.caption.length) {
-						ae(c, ct(" (...)"))
+						append(c, ct(" (...)"))
 					}
-					ae(c, ce("br"))
+					append(c, ce("br"))
 				}
 				if (h) {
 					aE(e, "mouseover", Listview.funcBox.ssCellOver.bind(r));
 					aE(e, "mouseout", Listview.funcBox.ssCellOut.bind(r));
 					var n = ce("span");
 					n.innerHTML = k.caption;
-					ae(r, n)
+					append(r, n)
 				}
-				ae(p, r)
+				append(p, r)
 			}
 			aE(e, "click", Listview.funcBox.ssCellClick.bind(this, l));
-			ae(e, p)
+			append(e, p)
 		},
 		createNote: function (d) {
 			if (typeof g_pageInfo == "object" && g_pageInfo.type > 0) {
@@ -7220,9 +7220,9 @@ Listview.templates = {
 				} else {
 					b.href = "?account=signin"
 				}
-				ae(b, ct(LANG.lvscreenshot_submit));
-				ae(c, b);
-				ae(d, c)
+				append(b, ct(LANG.lvscreenshot_submit));
+				append(c, b);
+				append(d, c)
 			}
 		},
 		onNoData: function (c) {
@@ -7281,21 +7281,21 @@ Listview.templates = {
 				e.style.width = "1px";
 				e.style.padding = "0";
 				e.style.borderRight = "none";
-				ae(e, Icon.create(b.icon, 0));
-				ae(g, e);
+				append(e, Icon.create(b.icon, 0));
+				append(g, e);
 				k.style.borderLeft = "none";
 				var j = ce("div");
 				var c = ce("a");
 				c.style.fontFamily = "Verdana, sans-serif";
 				c.href = this.template.getItemLink(b);
-				ae(c, ct(b.name));
+				append(c, ct(b.name));
 				if (b.expansion) {
 					var f = ce("span");
 					f.className = (b.expansion == 1 ? "bc-icon": "wotlk-icon");
-					ae(f, c);
-					ae(j, f)
+					append(f, c);
+					append(j, f)
 				} else {
-					ae(j, c)
+					append(j, c)
 				}
 				if (b.exotic) {
 					j.style.position = "relative";
@@ -7305,10 +7305,10 @@ Listview.templates = {
 					h.style.position = "absolute";
 					h.style.right = "3px";
 					h.style.bottom = "0px";
-					ae(h, ct(LANG.lvpet_exotic));
-					ae(j, h)
+					append(h, ct(LANG.lvpet_exotic));
+					append(j, h)
 				}
-				ae(k, j)
+				append(k, j)
 			},
 			getVisibleText: function (a) {
 				var b = a.name;
@@ -7359,7 +7359,7 @@ Listview.templates = {
 			name: LANG.damage,
 			value: "damage",
 			compute: function (a, b) {
-				ae(b, this.template.getStatPct(a.damage))
+				append(b, this.template.getStatPct(a.damage))
 			}
 		},
 		{
@@ -7367,7 +7367,7 @@ Listview.templates = {
 			name: LANG.armor,
 			value: "armor",
 			compute: function (a, b) {
-				ae(b, this.template.getStatPct(a.armor))
+				append(b, this.template.getStatPct(a.armor))
 			}
 		},
 		{
@@ -7375,7 +7375,7 @@ Listview.templates = {
 			name: LANG.health,
 			value: "health",
 			compute: function (a, b) {
-				ae(b, this.template.getStatPct(a.health))
+				append(b, this.template.getStatPct(a.health))
 			}
 		},
 		{
@@ -7481,8 +7481,8 @@ Listview.templates = {
 					d.className = "small q1";
 					var c = ce("a");
 					c.href = "?pets=" + b.type;
-					ae(c, ct(g_pet_types[b.type]));
-					ae(d, c)
+					append(c, ct(g_pet_types[b.type]));
+					append(d, c)
 				}
 			},
 			getVisibleText: function (a) {
@@ -7501,11 +7501,11 @@ Listview.templates = {
 			var a = ce("span");
 			if (!isNaN(b) && b > 0) {
 				a.className = "q2";
-				ae(a, ct("+" + b + "%"))
+				append(a, ct("+" + b + "%"))
 			} else {
 				if (!isNaN(b) && b < 0) {
 					a.className = "q10";
-					ae(a, ct(b + "%"))
+					append(a, ct(b + "%"))
 				}
 			}
 			return a
@@ -7532,21 +7532,21 @@ Listview.templates = {
 				f.style.width = "1px";
 				f.style.padding = "0";
 				f.style.borderRight = "none";
-				ae(f, g_achievements.createIcon(c.id, 1));
+				append(f, g_achievements.createIcon(c.id, 1));
 				Icon.getLink(f.firstChild).rel = b;
-				ae(g, f);
+				append(g, f);
 				j.style.borderLeft = "none";
 				var e = ce("a");
 				e.style.fontFamily = "Verdana, sans-serif";
 				e.href = this.template.getItemLink(c);
 				e.rel = b;
-				ae(e, ct(c.name));
-				ae(j, e);
+				append(e, ct(c.name));
+				append(j, e);
 				if (c.description != null) {
 					var h = ce("div");
 					h.className = "small";
-					ae(h, ct(c.description));
-					ae(j, h)
+					append(h, ct(c.description));
+					append(j, h)
 				}
 			},
 			getVisibleText: function (a) {
@@ -7567,8 +7567,8 @@ Listview.templates = {
 					var c = ce("a");
 					c.className = "q1";
 					c.href = "http://www.topwow.top/zone-" + b.zone +".html";
-					ae(c, ct(g_zones[b.zone]));
-					ae(d, c)
+					append(c, ct(g_zones[b.zone]));
+					append(d, c)
 				}
 			},
 			getVisibleText: function (a) {
@@ -7593,8 +7593,8 @@ Listview.templates = {
 							b.className = "horde-icon"
 						}
 					}
-					ae(b, ct(g_sides[a.side]));
-					ae(c, b)
+					append(b, ct(g_sides[a.side]));
+					append(c, b)
 				} else {
 					return - 1
 				}
@@ -7629,8 +7629,8 @@ Listview.templates = {
 				d.className = "small q1";
 				var c = ce("a");
 				c.href = "http://www.topwow.top/achievements-" + b.category +".html";
-				ae(c, ct(g_achievement_categories[b.category]));
-				ae(d, c)
+				append(c, ct(g_achievement_categories[b.category]));
+				append(d, c)
 			},
 			getVisibleText: function (a) {
 				return g_achievement_categories[a.category]
@@ -7662,8 +7662,8 @@ Listview.templates = {
 					e.style.width = "1px";
 					e.style.padding = "0";
 					e.style.borderRight = "none";
-					ae(e, Icon.create(f.icon ? f.icon: "chr_" + g_file_races[f.race] + "_" + g_file_genders[f.gender] + "_" + g_file_classes[f.classs] + "0" + (f.level > 59 ? (Math.floor((f.level - 60) / 10) + 2) : 1), 1));
-					ae(h, e);
+					append(e, Icon.create(f.icon ? f.icon: "chr_" + g_file_races[f.race] + "_" + g_file_genders[f.gender] + "_" + g_file_classes[f.classs] + "0" + (f.level > 59 ? (Math.floor((f.level - 60) / 10) + 2) : 1), 1));
+					append(h, e);
 					c.style.borderLeft = "none"
 				} else {
 					c.colSpan = 2
@@ -7673,21 +7673,21 @@ Listview.templates = {
 				var k = ce("a");
 				k.style.fontFamily = "Verdana, sans-serif";
 				k.href = this.template.getItemLink(f);
-				ae(k, ct(f.name));
-				ae(b, k);
+				append(k, ct(f.name));
+				append(b, k);
 				var g = ce("div");
 				g.className = "small";
 				if (f.guild) {
 					var k = ce("a");
 					k.className = "q1";
 					k.href = "?profiles=" + f.region + "." + f.realm + "&filter=cr=9;crs=0;crv=" + str_replace(urlencode(f.guild), "%20", "+") + "&roster=1";
-					ae(k, ct(f.guild));
-					ae(g, ct("<"));
-					ae(g, k);
-					ae(g, ct(">"))
+					append(k, ct(f.guild));
+					append(g, ct("<"));
+					append(g, k);
+					append(g, ct(">"))
 				} else {
 					if (f.description) {
-						ae(g, ct(f.description))
+						append(g, ct(f.description))
 					}
 				}
 				var l = ce("span"),
@@ -7696,9 +7696,9 @@ Listview.templates = {
 				if (f.deleted) {
 					j = LANG.lvcomment_deleted
 				}
-				ae(l, ct(j));
-				ae(g, l);
-				ae(b, g);
+				append(l, ct(j));
+				append(g, l);
+				append(b, g);
 				var g = ce("div");
 				g.className = "small";
 				g.style.fontStyle = "italic";
@@ -7706,10 +7706,10 @@ Listview.templates = {
 				g.style.right = "3px";
 				g.style.bottom = "0px";
 				if (!f.published && !f.region && !f.realm) {
-					ae(g, ct(LANG.privateprofile))
+					append(g, ct(LANG.privateprofile))
 				}
-				ae(b, g);
-				ae(c, b)
+				append(b, g);
+				append(c, b)
 			},
 			getVisibleText: function (a) {
 				var b = a.name;
@@ -7741,9 +7741,9 @@ Listview.templates = {
 				e.style.textAlign = "left";
 				e.style.width = "26px";
 				c.className = "clear";
-				ae(e, b);
-				ae(f, e);
-				ae(f, c)
+				append(e, b);
+				append(f, e);
+				append(f, c)
 			},
 			getVisibleText: function (a) {
 				return g_sides[a.faction + 1]
@@ -7790,9 +7790,9 @@ Listview.templates = {
 					e.style.textAlign = "left";
 					e.style.width = "26px";
 					c.className = "clear";
-					ae(e, b);
-					ae(f, e);
-					ae(f, c)
+					append(e, b);
+					append(f, e);
+					append(f, c)
 				}
 			},
 			getVisibleText: function (a) {
@@ -7823,9 +7823,9 @@ Listview.templates = {
 					e.style.textAlign = "left";
 					e.style.width = "26px";
 					c.className = "clear";
-					ae(e, b);
-					ae(f, e);
-					ae(f, c)
+					append(e, b);
+					append(f, e);
+					append(f, c)
 				} else {
 					return - 1
 				}
@@ -7878,9 +7878,9 @@ Listview.templates = {
 				};
 				b.onmousemove = Tooltip.cursorUpdate;
 				b.onmouseout = Tooltip.hide;
-				ae(b, ct(e.talenttree1 + " / " + e.talenttree2 + " / " + e.talenttree3));
-				ae(h, b);
-				ae(j, h)
+				append(b, ct(e.talenttree1 + " / " + e.talenttree2 + " / " + e.talenttree3));
+				append(h, b);
+				append(j, h)
 			},
 			getVisibleText: function (a) {
 				if (a.talenttree1 || a.talenttree2 || a.talenttree3) {
@@ -7947,8 +7947,8 @@ Listview.templates = {
 				} else {
 					if (c.guildrank == 0) {
 						var a = ce("b");
-						ae(a, ct(LANG.guildleader));
-						ae(d, a)
+						append(a, ct(LANG.guildleader));
+						append(d, a)
 					}
 				}
 			},
@@ -7986,25 +7986,25 @@ Listview.templates = {
 						b = ce("a");
 						b.className = "q1";
 						b.href = "?profiles=" + c.region + "." + c.realm;
-						ae(b, ct(c.realmname));
-						ae(e, b);
-						ae(e, ce("br"))
+						append(b, ct(c.realmname));
+						append(e, b);
+						append(e, ce("br"))
 					}
 					var d = ce("small");
 					b = ce("a");
 					b.className = "q1";
 					b.href = "?profiles=" + c.region;
-					ae(b, ct(c.region.toUpperCase()));
-					ae(d, b);
+					append(b, ct(c.region.toUpperCase()));
+					append(d, b);
 					if (c.battlegroup) {
-						ae(d, ct(LANG.hyphen));
+						append(d, ct(LANG.hyphen));
 						b = ce("a");
 						b.className = "q1";
 						b.href = "?profiles=" + c.region + "." + c.battlegroup;
-						ae(b, ct(c.battlegroupname));
-						ae(d, b)
+						append(b, ct(c.battlegroupname));
+						append(d, b)
 					}
-					ae(e, d)
+					append(e, d)
 				}
 			},
 			getVisibleText: function (a) {
@@ -8042,8 +8042,8 @@ Listview.templates = {
 				var b = ce("a");
 				b.className = "q1";
 				b.href = "?profiles=" + c.region + "." + c.realm + "&filter=cr=9;crs=0;crv=" + str_replace(urlencode(c.guild), "%20", "+") + "&roster=1";
-				ae(b, ct(c.guild));
-				ae(d, b)
+				append(b, ct(c.guild));
+				append(d, b)
 			}
 		}],
 		getItemLink: function (a) {
@@ -8078,31 +8078,31 @@ Listview.templates = {
 			b.className = "pet-zoom";
 			b.href = "javascript:;";
 			b.onclick = this.template.modelShow.bind(this.template, c.npcId, c.displayId);
-			ae(j, b);
+			append(j, b);
 			var g = ce("div");
 			g.id = "pm" + c.displayId;
-			ae(j, g);
-			ae(k, j);
+			append(j, g);
+			append(k, j);
 			j = ce("div");
 			j.className = "screenshot-cell-user";
 			b = ce("a");
 			b.href = this.template.getItemLink(c);
-			ae(b, ct(c.skin));
-			ae(j, b);
-			ae(j, ct(" (" + c.count + ")"));
-			ae(k, j);
+			append(b, ct(c.skin));
+			append(j, b);
+			append(j, ct(" (" + c.count + ")"));
+			append(k, j);
 			j = ce("div");
 			j.style.position = "relative";
 			j.style.height = "1em";
 			var h = ce("div");
 			h.className = "screenshot-caption";
 			var f = ce("small");
-			ae(f, ct(LANG.level + ": "));
-			ae(f, ct(c.level_min + (c.level_min == c.level_max ? "": LANG.hyphen + (c.level_max == 9999 ? "??": c.level_max))));
-			ae(f, ce("br"));
-			ae(h, f);
-			ae(j, h);
-			ae(k, j);
+			append(f, ct(LANG.level + ": "));
+			append(f, ct(c.level_min + (c.level_min == c.level_max ? "": LANG.hyphen + (c.level_max == 9999 ? "??": c.level_max))));
+			append(f, ce("br"));
+			append(h, f);
+			append(j, h);
+			append(k, j);
 			setTimeout(this.template.appendFlash.bind(g, c), 1)
 		},
 		getItemLink: function (a) {
@@ -8706,7 +8706,7 @@ function () {
 		container = ce("div");
 		container.className = "live-search";
 		container.style.display = "none";
-		ae(ge("layers"), container);
+		append(ge("layers"), container);
 		aE(window, "resize", adjust.bind(0, 1));
 		aE(document, "click", hide)
 	}
@@ -8734,9 +8734,9 @@ function () {
 			de(container.firstChild)
 		}
 		if (!Browser.ie6) {
-			ae(container, ce("em"));
-			ae(container, ce("var"));
-			ae(container, ce("strong"))
+			append(container, ce("em"));
+			append(container, ce("var"));
+			append(container, ce("strong"))
 		}
 		search = search.replace(/[^a-z0-9\-]/i, " ");
 		search = trim(search.replace(/\s+/g, " "));
@@ -8787,19 +8787,19 @@ function () {
 				}
 			}
 			if (!textbox._summary && !textbox._profileslots) {
-				ae(sp, ct(LANG.types[type][0]))
+				append(sp, ct(LANG.types[type][0]))
 			}
-			ae(a, sp);
+			append(a, sp);
 			var buffer = suggz[i];
 			buffer = buffer.replace(regex, boldify);
 			sp2.innerHTML = buffer;
-			ae(a, sp2);
+			append(a, sp2);
 			if (type == 6 && param2) {
-				ae(a, ct(" (" + param2 + ")"))
+				append(a, ct(" (" + param2 + ")"))
 			}
-			ae(div2, a);
-			ae(div, div2);
-			ae(container, div)
+			append(div2, a);
+			append(div, div2);
+			append(container, div)
 		}
 	}
 	function receive(xhr, opt) {
@@ -9005,9 +9005,9 @@ function () {
 		n = ce("div");
 		n.className = "lightbox-inner";
 		d.style.display = m.style.display = "none";
-		ae(p, d);
-		ae(m, n);
-		ae(p, m)
+		append(p, d);
+		append(m, n);
+		append(p, m)
 	}
 	function g(p) {
 		p = $E(p);
@@ -9067,7 +9067,7 @@ function () {
 		if (h[t] == null) {
 			r = 1;
 			q = ce("div");
-			ae(n, q);
+			append(n, q);
 			h[t] = q
 		} else {
 			q = h[t]
@@ -9409,49 +9409,49 @@ function () {
 			w = ce("div");
 			var K = ce("div");
 			K.id = "dsjkgbdsg2346";
-			ae(u, K);
+			append(u, K);
 			L.className = "modelviewer-screen";
 			u.style.display = n.style.display = w.style.display = "none";
-			ae(L, u);
-			ae(L, n);
-			ae(L, w);
-			ae(M, L);
+			append(L, u);
+			append(L, n);
+			append(L, w);
+			append(M, L);
 			D = ce("a"),
 			B = ce("a");
 			D.className = "modelviewer-help";
 			D.href = "?help=modelviewer";
 			D.target = "_blank";
-			ae(D, ce("span"));
+			append(D, ce("span"));
 			B.className = "modelviewer-close";
 			B.href = "javascript:;";
 			B.onclick = Lightbox.hide;
-			ae(B, ce("span"));
-			ae(M, B);
-			ae(M, D);
+			append(B, ce("span"));
+			append(M, B);
+			append(M, D);
 			var J = ce("div"),
 			C = ce("span"),
 			D = ce("a"),
 			B = ce("a");
 			J.className = "modelviewer-quality";
 			D.href = B.href = "javascript:;";
-			ae(D, ct("Flash"));
-			ae(B, ct("Java"));
+			append(D, ct("Flash"));
+			append(B, ct("Java"));
 			D.onclick = j.bind(D, 0);
 			B.onclick = j.bind(B, 1);
-			ae(C, D);
-			ae(C, ct(" " + String.fromCharCode(160)));
-			ae(C, B);
+			append(C, D);
+			append(C, ct(" " + String.fromCharCode(160)));
+			append(C, B);
 			if (f()) {
 				var A = ce("a");
 				A.href = "javascript:;";
-				ae(A, ct("Plugin"));
+				append(A, ct("Plugin"));
 				A.onclick = j.bind(A, 2);
-				ae(C, ct(" " + String.fromCharCode(160)));
-				ae(C, A)
+				append(C, ct(" " + String.fromCharCode(160)));
+				append(C, A)
 			}
-			ae(J, ce("div"));
-			ae(J, C);
-			ae(M, J);
+			append(J, ce("div"));
+			append(J, C);
+			append(M, J);
 			g = ce("div");
 			g.className = "modelviewer-model";
 			var K = function (O, N) {
@@ -9463,34 +9463,34 @@ function () {
 			q = ce("select");
 			e = ce("select");
 			p.onchange = q.onchange = e.onchange = b;
-			ae(p, ce("option"));
+			append(p, ce("option"));
 			for (var G = 0, I = o.length; G < I; ++G) {
 				var F = ce("option");
 				F.value = o[G].id;
-				ae(F, ct(o[G].name));
-				ae(p, F)
+				append(F, ct(o[G].name));
+				append(p, F)
 			}
 			for (var G = 0, I = o.length; G < I; ++G) {
 				var F = ce("option");
 				F.value = o[G].id;
-				ae(F, ct(o[G].name));
-				ae(q, F)
+				append(F, ct(o[G].name));
+				append(q, F)
 			}
 			for (var G = 0, I = i.length; G < I; ++G) {
 				var F = ce("option");
 				F.value = i[G].id;
-				ae(F, ct(i[G].name));
-				ae(e, F)
+				append(F, ct(i[G].name));
+				append(e, F)
 			}
 			e.style.display = "none";
-			ae(g, ce("div"));
-			ae(g, p);
-			ae(g, q);
-			ae(g, e);
-			ae(M, g);
+			append(g, ce("div"));
+			append(g, p);
+			append(g, q);
+			append(g, e);
+			append(M, g);
 			J = ce("div");
 			J.className = "clear";
-			ae(M, J)
+			append(M, J)
 		}
 		switch (E.type) {
 		case 1:
@@ -9791,11 +9791,11 @@ function () {
 			w.href = "javascript:;";
 			x.href = "javascript:;";
 			var I = ce("span");
-			ae(I, ce("b"));
-			ae(w, I);
+			append(I, ce("b"));
+			append(w, I);
 			var I = ce("span");
-			ae(I, ce("b"));
-			ae(x, I);
+			append(I, ce("b"));
+			append(x, I);
 			w.onclick = a;
 			x.onclick = p;
 			t = ce("a");
@@ -9803,8 +9803,8 @@ function () {
 			t.href = "javascript:;";
 			t.onclick = Lightbox.hide;
 			var I = ce("span");
-			ae(I, ce("b"));
-			ae(t, I);
+			append(I, ce("b"));
+			append(t, I);
 			if (Browser.ie6) {
 				ns(w);
 				ns(x);
@@ -9815,40 +9815,40 @@ function () {
 					this.firstChild.style.display = ""
 				}
 			}
-			ae(n, w);
-			ae(n, x);
-			ae(n, t);
+			append(n, w);
+			append(n, x);
+			append(n, t);
 			i = ce("div");
-			ae(n, i);
-			ae(C, n);
+			append(n, i);
+			append(C, n);
 			var H = ce("a");
 			H.className = "screenshotviewer-close";
 			H.href = "javascript:;";
 			H.onclick = Lightbox.hide;
-			ae(H, ce("span"));
-			ae(C, H);
+			append(H, ce("span"));
+			append(C, H);
 			h = ce("a");
 			h.className = "screenshotviewer-original";
 			h.href = "javascript:;";
 			h.target = "_blank";
-			ae(h, ce("span"));
-			ae(C, h);
+			append(h, ce("span"));
+			append(C, h);
 			v = ce("div");
 			v.className = "screenshotviewer-from";
 			var E = ce("span");
-			ae(E, ct(LANG.lvscreenshot_from));
-			ae(E, ce("a"));
-			ae(E, ct(" "));
-			ae(E, ce("span"));
-			ae(v, E);
-			ae(v, ce("span"));
-			ae(C, v);
+			append(E, ct(LANG.lvscreenshot_from));
+			append(E, ce("a"));
+			append(E, ct(" "));
+			append(E, ce("span"));
+			append(v, E);
+			append(v, ce("span"));
+			append(C, v);
 			j = ce("div");
 			j.className = "screenshotviewer-caption";
-			ae(C, j);
+			append(C, j);
 			var F = ce("div");
 			F.className = "clear";
-			ae(C, F)
+			append(C, F)
 		}
 		o = location.hash;
 		if (z.length > 1) {
@@ -9925,7 +9925,7 @@ var Ads = {
 		a.frameBorder = 0;
 		a.scrolling = "no";
 		a.src = "http://static.wowhead.com/ads/dynamic/" + c + ".html?4";
-		ae(b, a)
+		append(b, a)
 	},
 	removeAll: function () {
 		for (var e in Ads.dimensions) {
