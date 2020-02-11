@@ -38,9 +38,9 @@ function normalEvent(myEvent) {
 	}
 	myEvent._target = myEvent.target ? myEvent.target: myEvent.srcElement;
 	myEvent._wheelDelta = myEvent.wheelDelta ? myEvent.wheelDelta: -myEvent.detail;
-	return a
+	return myEvent
 }
-function $A(c) {
+function toArray(c) {
 	var e = [];
 	for (var d = 0, b = c.length; d < b; ++d) {
 		e.push(c[d])
@@ -48,11 +48,11 @@ function $A(c) {
 	return e
 }
 Function.prototype.bind = function () {
-	var c = this,
-	a = $A(arguments),
+	var func = this,
+	a = toArray(arguments),
 	b = a.shift();
 	return function () {
-		return c.apply(b, a.concat($A(arguments)))
+		return func.apply(b, a.concat(toArray(arguments)))
 	}
 };
 function strcmp(d, c) {
@@ -167,7 +167,7 @@ function array_apply(d, h, c) {
 function getElement(a) {
 	return document.getElementById(a)
 }
-function gE(a, b) {
+function getElemTag(a, b) {
 	return a.getElementsByTagName(b)
 }
 function ce(c, b) {
@@ -1539,7 +1539,7 @@ function g_disclose(a, b) {
 }
 function co_addYourComment() {
 	tabsContribute.focus(0);
-	var a = gE(document.forms.addcomment, "textarea")[0];
+	var a = getElemTag(document.forms.addcomment, "textarea")[0];
 	a.focus()
 }
 function co_cancelReply() {
@@ -1547,7 +1547,7 @@ function co_cancelReply() {
 	document.forms.addcomment.elements.replyto.value = ""
 }
 function co_validateForm(b) {
-	var a = gE(b, "textarea")[0];
+	var a = getElemTag(b, "textarea")[0];
 	if (Listview.funcBox.coValidate(a)) {
 		if (g_user.permissions & 1) {
 			return true
@@ -2053,7 +2053,7 @@ var Menu = {
 	clean: function (b) {
 		for (var c = b; c < Menu.selection.length; ++c) {
 			if (Menu.selection[c] != -1) {
-				var e = gE(Menu.divs[c], "a")[Menu.selection[c]];
+				var e = getElemTag(Menu.divs[c], "a")[Menu.selection[c]];
 				if (e.className.indexOf("sub") != -1) {
 					e.className = "sub"
 				} else {
@@ -2238,7 +2238,7 @@ Tabs.prototype = {
 			a = this.tabs.length + a
 		}
 		this.forceScroll = 1;
-		gE(this.uls[this.oldMode ? 0 : 2], "a")[a].onclick({},
+		getElemTag(this.uls[this.oldMode ? 0 : 2], "a")[a].onclick({},
 		true);
 		this.forceScroll = null
 	},
@@ -2265,7 +2265,7 @@ Tabs.prototype = {
 		}++this.nShows;
 		var a = this.oldMode ? 0 : 3;
 		for (var d = 0; d <= a; ++d) {
-			b = gE(this.uls[d], "a");
+			b = getElemTag(this.uls[d], "a");
 			if (this.selectedTab != -1) {
 				b[this.selectedTab].className = ""
 			}
@@ -2374,7 +2374,7 @@ Tabs.prototype = {
 		var a = this.oldMode ? 0 : 3;
 		this.tabs[d].caption = c;
 		for (var e = 0; e <= a; ++e) {
-			var b = gE(this.uls[e], "a");
+			var b = getElemTag(this.uls[e], "a");
 			g_setTextNodes(b[d], c)
 		}
 	},
@@ -2384,7 +2384,7 @@ Tabs.prototype = {
 		}
 		var b = this.oldMode ? 0 : 3;
 		for (var e = 0; e <= b; ++e) {
-			var c = gE(this.uls[e], "a");
+			var c = getElemTag(this.uls[e], "a");
 			c[d].href = "#" + this.tabs[d].id + ":" + a
 		}
 	},
@@ -2488,7 +2488,7 @@ var Icon = {
 		}
 	},
 	setNumQty: function (e, c, f) {
-		var b = gE(e, "span");
+		var b = getElemTag(e, "span");
 		for (var d = 0, a = b.length; d < a; ++d) {
 			if (b[d]) {
 				de(b[d])
@@ -2510,7 +2510,7 @@ var Icon = {
 		}
 	},
 	getLink: function (a) {
-		return gE(a, "a")[0]
+		return getElemTag(a, "a")[0]
 	},
 	onDblClick: function () {
 		if (this.firstChild) {
@@ -2593,8 +2593,8 @@ var Tooltip = {
 		return f
 	},
 	fix: function (d, b, f) {
-		var e = gE(d, "table")[0],
-		h = gE(e, "td")[0],
+		var e = getElemTag(d, "table")[0],
+		h = getElemTag(e, "td")[0],
 		g = h.childNodes;
 		if (g.length >= 2 && g[0].nodeName == "TABLE" && g[1].nodeName == "TABLE") {
 			g[0].style.whiteSpace = "nowrap";
@@ -2639,8 +2639,8 @@ var Tooltip = {
 		var a = getElement("layers");
 		append(a, b);
 		Tooltip.tooltip = b;
-		Tooltip.tooltipTable = gE(b, "table")[0];
-		Tooltip.tooltipTd = gE(b, "td")[0];
+		Tooltip.tooltipTable = getElemTag(b, "table")[0];
+		Tooltip.tooltipTd = getElemTag(b, "td")[0];
 		if (Browser.ie6) {
 			b = ce("iframe");
 			b.src = "javascript:0;";
@@ -4103,7 +4103,7 @@ Listview.cbCellClick = function (a) {
 	sp(a)
 };
 Listview.cbIeFix = function () {
-	var d = gE(this.tbody, "tr");
+	var d = getElemTag(this.tbody, "tr");
 	for (var c = 0, a = d.length; c < a; ++c) {
 		var b = d[c].firstChild.firstChild;
 		if (b) {
@@ -4996,7 +4996,7 @@ Listview.funcBox = {
 	},
 	coEditButton: function (f, d, e) {
 		if (d) {
-			var a = gE(f.divEdit, "textarea")[0];
+			var a = getElemTag(f.divEdit, "textarea")[0];
 			if (!Listview.funcBox.coValidate(a, e)) {
 				return
 			}
@@ -5046,11 +5046,11 @@ Listview.funcBox = {
 	coModeLink: function (e, b, f) {
 		var j = Listview.funcBox.coGetCharLimit(e);
 		var c = Markup.MODE_COMMENT;
-		array_walk(gE(this.parentNode, "a"), function (k) {
+		array_walk(getElemTag(this.parentNode, "a"), function (k) {
 			k.className = ""
 		});
 		this.className = "selected";
-		var d = gE(this.parentNode.parentNode, "textarea")[0],
+		var d = getElemTag(this.parentNode.parentNode, "textarea")[0],
 		i = d.parentNode,
 		a = i.previousSibling;
 		if (b == 4) {
@@ -5082,7 +5082,7 @@ Listview.funcBox = {
 	coReply: function (b) {
 		document.forms.addcomment.elements.replyto.value = b.replyTo;
 		var a = getElement("gjkdlfgkjh436");
-		gE(a, "span")[0].innerHTML = b.user;
+		getElemTag(a, "span")[0].innerHTML = b.user;
 		a.style.display = "";
 		co_addYourComment()
 	},
@@ -9916,7 +9916,7 @@ var Ads = {
 		Ads.removed = true
 	},
 	hide: function (b) {
-		var a = gE(b, "iframe")[0];
+		var a = getElemTag(b, "iframe")[0];
 		if (a) {
 			a.style.display = "none";
 			Ads.hidden.push(b)
@@ -9934,7 +9934,7 @@ var Ads = {
 		}
 	},
 	isHidden: function (b) {
-		var a = gE(b, "iframe")[0];
+		var a = getElemTag(b, "iframe")[0];
 		if (a) {
 			return a.style.display == "none"
 		}
@@ -9966,7 +9966,7 @@ var Ads = {
 		if (Ads.hidden.length) {
 			for (var c = 0, a = Ads.hidden.length; c < a; ++c) {
 				var d = Ads.hidden[c],
-				b = gE(d, "iframe")[0];
+				b = getElemTag(d, "iframe")[0];
 				if (b) {
 					b.style.display = ""
 				}
