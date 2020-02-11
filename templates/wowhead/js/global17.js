@@ -170,7 +170,7 @@ function getElement(a) {
 function getElemTag(a, b) {
 	return a.getElementsByTagName(b)
 }
-function ce(c, b) {
+function createElem(c, b) {
 	var a = document.createElement(c);
 	if (b) {
 		cOr(a, b)
@@ -665,14 +665,14 @@ function g_createReverseLookupJson(b) {
 	return c
 }
 function g_initHeader(c) {
-	var l = ce("dl"),
+	var l = createElem("dl"),
 	p = (c == 5);
 	for (var k = 0, m = mn_path.length; k < m; ++k) {
-		var g = ce("dt");
-		var q = ce("a");
-		var n = ce("ins");
-		var h = ce("big");
-		var f = ce("span");
+		var g = createElem("dt");
+		var q = createElem("a");
+		var n = createElem("ins");
+		var h = createElem("big");
+		var f = createElem("span");
 		var o = mn_path[k][0];
 		var j = (o == c);
 		var e = (!j && mn_path[k][3]);
@@ -841,16 +841,16 @@ function g_initPath(p, f) {
 	k = null,
 	o = 0,
 	l = getElement("main-precontents"),
-	n = ce("div");
+	n = createElem("div");
 	ee(l);
 	if (g_initPath.lastIt) {
 		g_initPath.lastIt.checked = null
 	}
 	n.className = "path";
 	if (f != null) {
-		var m = ce("div");
+		var m = createElem("div");
 		m.className = "path-right";
-		var q = ce("a");
+		var q = createElem("a");
 		q.href = "javascript:;";
 		q.id = "fi_toggle";
 		ns(q);
@@ -879,8 +879,8 @@ function g_initPath(p, f) {
 			o = 1;
 			break
 		}
-		q = ce("a");
-		b = ce("span");
+		q = createElem("a");
+		b = createElem("span");
 		if (h[2]) {
 			q.href = h[2]
 		} else {
@@ -916,8 +916,8 @@ function g_initPath(p, f) {
 	} else {
 		if (c && c[3]) {
 			k.className = "menuarrow";
-			q = ce("a");
-			b = ce("span");
+			q = createElem("a");
+			b = createElem("span");
 			q.href = "javascript:;";
 			ns(q);
 			q.style.textDecoration = "none";
@@ -932,7 +932,7 @@ function g_initPath(p, f) {
 			append(n, b)
 		}
 	}
-	var m = ce("div");
+	var m = createElem("div");
 	m.className = "clear";
 	append(n, m);
 	append(l, n);
@@ -998,10 +998,10 @@ function g_cleanCharacterName(e) {
 	return d
 }
 function g_createGlow(a, h) {
-	var e = ce("span");
+	var e = createElem("span");
 	for (var c = -1; c <= 1; ++c) {
 		for (var b = -1; b <= 1; ++b) {
-			var g = ce("div");
+			var g = createElem("div");
 			g.style.position = "absolute";
 			g.style.whiteSpace = "nowrap";
 			g.style.left = c + "px";
@@ -1018,7 +1018,7 @@ function g_createGlow(a, h) {
 	}
 	e.style.position = "relative";
 	e.className = "glow" + (h != null ? " " + h: "");
-	var f = ce("span");
+	var f = createElem("span");
 	f.style.visibility = "hidden";
 	append(f, ct(a));
 	append(e, f);
@@ -1039,28 +1039,28 @@ function g_createProgressBar(c) {
 	}
 	var d, e;
 	if (c.hoverText) {
-		d = ce("a");
+		d = createElem("a");
 		d.href = "javascript:;"
 	} else {
-		d = ce("span")
+		d = createElem("span")
 	}
 	d.className = "progressbar";
 	if (c.text || c.hoverText) {
-		e = ce("div");
+		e = createElem("div");
 		e.className = "progressbar-text";
 		if (c.text) {
-			var a = ce("del");
+			var a = createElem("del");
 			append(a, ct(c.text));
 			append(e, a)
 		}
 		if (c.hoverText) {
-			var b = ce("ins");
+			var b = createElem("ins");
 			append(b, ct(c.hoverText));
 			append(e, b)
 		}
 		append(d, e)
 	}
-	e = ce("div");
+	e = createElem("div");
 	e.className = "progressbar-" + c.color;
 	e.style.width = c.width + "%";
 	append(e, ct(String.fromCharCode(160)));
@@ -1113,7 +1113,7 @@ function g_createAchievementBar(a, c) {
 	return g_createProgressBar(b)
 }
 function g_createCaptcha(c) {
-	var b = ce("a");
+	var b = createElem("a");
 	b.href = "javascript:;";
 	b.className = "captcha";
 	b.title = LANG.tooltip_captcha;
@@ -1121,12 +1121,12 @@ function g_createCaptcha(c) {
 		b.style.marginLeft = b.style.marginRight = "auto"
 	}
 	if (Browser.ie6) {
-		var d = ce("img");
+		var d = createElem("img");
 		d.src = "?captcha&foo=" + Math.random();
 		append(b, d);
 		b.onclick = function () {
 			de(this.firstChild);
-			var a = ce("img");
+			var a = createElem("img");
 			a.src = "?captcha&foo=" + Math.random();
 			append(b, a);
 			this.blur()
@@ -1429,10 +1429,10 @@ function g_addPages(l, b) {
 	function o(q, d) {
 		var i;
 		if (q == b.page) {
-			i = ce("span");
+			i = createElem("span");
 			i.className = "selected"
 		} else {
-			i = ce("a");
+			i = createElem("a");
 			i.href = (q > 1 ? b.url + b.sep + q + b.pound: b.url + b.pound)
 		}
 		append(i, ct(d != null ? d: q));
@@ -1448,15 +1448,15 @@ function g_addPages(l, b) {
 		return
 	}
 	var c = (b.align && b.align == "left");
-	var e = ce("div"),
+	var e = createElem("div"),
 	k,
-	p = ce("var");
+	p = createElem("var");
 	e.className = "pages";
 	if (c) {
 		e.className += " pages-left"
 	}
 	if (b.nPages > 1) {
-		k = ce("div");
+		k = createElem("div");
 		k.className = "pages-numbers";
 		var n = Math.max(2, b.page - 3);
 		var h = Math.min(b.nPages - 1, b.page + 3);
@@ -1466,7 +1466,7 @@ function g_addPages(l, b) {
 		}
 		m.push(o(b.nPages));
 		if (h < b.nPages - 1) {
-			var a = ce("span");
+			var a = createElem("span");
 			append(a, ct("..."));
 			m.push(a)
 		}
@@ -1474,7 +1474,7 @@ function g_addPages(l, b) {
 			m.push(o(g))
 		}
 		if (n > 2) {
-			var a = ce("span");
+			var a = createElem("span");
 			append(a, ct("..."));
 			m.push(a)
 		}
@@ -1491,13 +1491,13 @@ function g_addPages(l, b) {
 		k.firstChild.style.marginRight = "0";
 		k.lastChild.style.marginLeft = "0"
 	}
-	var p = ce("var");
+	var p = createElem("var");
 	append(p, ct(sprintf(LANG[b.wording[b.nItems == 1 ? 0 : 1]], b.nItems)));
 	if (b.nPages > 1) {
-		var a = ce("span");
+		var a = createElem("span");
 		append(a, ct(String.fromCharCode(8211)));
 		append(p, a);
-		var f = ce("a");
+		var f = createElem("a");
 		f.className = "gotopage";
 		f.href = "javascript:;";
 		ns(f);
@@ -1581,7 +1581,7 @@ try{
 	});
 	if (k != -1) {
 		var c = lv_screenshots[k];
-		var l = ce("a");
+		var l = createElem("a");
 		l.href = "#screenshots:id=" + c.id;
 		l.onclick = function (a) {
 			ScreenshotViewer.show({
@@ -1590,15 +1590,15 @@ try{
 			});
 			return rf2(a)
 		};
-		var f = ce("img"),
+		var f = createElem("img"),
 		e = Math.min(150 / c.width, 150 / c.height);
 		f.src = "http://www.topwow.top/screenshots/thumb/" + c.id + ".webp";
 		f.className = "border";
 		append(l, f);
 		append(m, l);
-		var g = ce("div");
-		var n = ce("small");
-		l = ce("a");
+		var g = createElem("div");
+		var n = createElem("small");
+		l = createElem("a");
 		if (g_user.id > 0) {
 			l.href = "javascript:;";
 			l.onclick = ss_submitAScreenshot
@@ -1608,11 +1608,11 @@ try{
 		append(l, ct(LANG.infobox_submitone));
 		append(n, l);
 		append(n, ct(" " + String.fromCharCode(160)));
-		var j = ce("b");
+		var j = createElem("b");
 		append(j, ct("|"));
 		append(n, j);
 		append(n, ct(String.fromCharCode(160) + " "));
-		l = ce("a");
+		l = createElem("a");
 		l.href = "javascript:;";
 		l.onclick = function () {
 			tabsRelated.focus( - 1);
@@ -1704,7 +1704,7 @@ function g_ajaxIshRequest(b) {
 	if (a.refresh != null) {
 		b += "&refresh"
 	}
-	append(c, ce("script", {
+	append(c, createElem("script", {
 		type: "text/javascript",
 		src: b
 	}))
@@ -1816,7 +1816,7 @@ var Menu = {
 	getIframe: function (a) {
 		var b;
 		if (Menu.iframes[a] == null) {
-			b = ce("iframe");
+			b = createElem("iframe");
 			b.src = "javascript:0;";
 			b.frameBorder = 0;
 			append(getElement("layers"), b);
@@ -1829,7 +1829,7 @@ var Menu = {
 	getDiv: function (a, b) {
 		var c;
 		if (Menu.divs[a] == null) {
-			c = ce("div");
+			c = createElem("div");
 			c.className = "menu";
 			append(getElement("layers"), c);
 			Menu.divs[a] = c
@@ -1845,12 +1845,12 @@ var Menu = {
 		while (T.firstChild) {
 			de(T.firstChild)
 		}
-		var u = ce("table"),
-		A = ce("tbody"),
-		R = ce("tr"),
-		e = ce("td"),
-		P = ce("div"),
-		J = ce("div");
+		var u = createElem("table"),
+		A = createElem("tbody"),
+		R = createElem("tr"),
+		e = createElem("td"),
+		P = createElem("div"),
+		J = createElem("div");
 		var I = 999;
 		var b = g_getWindowSize(),
 		l = g_getScroll(),
@@ -1874,7 +1874,7 @@ var Menu = {
 			var Q = c[L];
 			if(Q==undefined || Q==null) continue;
 			if (Q[0] == null) {
-				var q = ce("span");
+				var q = createElem("span");
 				q.className = "separator";
 				ns(q);
 				append(q, ct(Q[1]));
@@ -1882,7 +1882,7 @@ var Menu = {
 				q.onmouseover = Menu.sepOver;
 				append(J, q)
 			} else {
-				var U = ce("a");
+				var U = createElem("a");
 				U.d = T;
 				U.k = K++;
 				U.i = L;
@@ -1908,8 +1908,8 @@ var Menu = {
 					ns(U)
 				}
 				U.onmouseover = Menu.elemOver;
-				var G = ce("span"),
-				S = ce("span");
+				var G = createElem("span"),
+				S = createElem("span");
 				if (Q[3] != null) {
 					G.className = "menusub"
 				}
@@ -1943,20 +1943,20 @@ var Menu = {
 				P.onmouseout = Menu.divOut;
 				append(P, J);
 				if (!Browser.ie6) {
-					var H = ce("p");
-					append(H, ce("em"));
-					append(H, ce("var"));
-					append(H, ce("strong"));
+					var H = createElem("p");
+					append(H, createElem("em"));
+					append(H, createElem("var"));
+					append(H, createElem("strong"));
 					append(H, P);
 					append(e, H)
 				} else {
 					append(e, P)
 				}
 				append(R, e);
-				e = ce("td");
-				H = ce("p");
-				P = ce("div");
-				J = ce("div");
+				e = createElem("td");
+				H = createElem("p");
+				P = createElem("div");
+				J = createElem("div");
 				r = 0
 			}
 		}
@@ -1965,16 +1965,16 @@ var Menu = {
 		append(P, J);
 		if (!Browser.ie6) {
 			if (I != 999) {
-				var H = ce("p");
-				append(H, ce("em"));
-				append(H, ce("var"));
-				append(H, ce("strong"));
+				var H = createElem("p");
+				append(H, createElem("em"));
+				append(H, createElem("var"));
+				append(H, createElem("strong"));
 				append(H, P);
 				append(e, H)
 			} else {
-				append(T, ce("em"));
-				append(T, ce("var"));
-				append(T, ce("strong"));
+				append(T, createElem("em"));
+				append(T, createElem("var"));
+				append(T, createElem("strong"));
 				append(e, P)
 			}
 		} else {
@@ -2136,8 +2136,8 @@ var Menu = {
 			if (g[e][0] == null) {
 				continue
 			}
-			var c = ce("a"),
-			f = ce("span");
+			var c = createElem("a"),
+			f = createElem("span");
 			if (g[e][2]) {
 				c.href = g[e][2]
 			} else {
@@ -2288,13 +2288,13 @@ Tabs.prototype = {
 	flush: function (p) {
 		if (this.oldMode) {
 			var m, s, e, r;
-			m = ce("ul");
+			m = createElem("ul");
 			m.className = "old-tabs";
 			for (var k = 0; k < this.tabs.length; ++k) {
 				var f = this.tabs[k];
-				s = ce("li");
-				e = ce("div");
-				r = ce("a");
+				s = createElem("li");
+				e = createElem("div");
+				r = createElem("a");
 				if (this.poundable) {
 					r.href = "#" + f.id
 				} else {
@@ -2309,25 +2309,25 @@ Tabs.prototype = {
 			}
 			this.uls[0] = m;
 			append(this.parent, m);
-			var t = ce("div");
+			var t = createElem("div");
 			t.style.cssFloat = t.style.styleFloat = "left";
 			append(this.parent, t)
 		} else {
 			var t, g, r, q, o, c;
-			var n = ce("div");
+			var n = createElem("div");
 			n.className = "tabs-container";
-			o = ce("div");
+			o = createElem("div");
 			o.style.visibility = "hidden";
-			this.uls[0] = ce("ul");
+			this.uls[0] = createElem("ul");
 			this.uls[0].className = "tabs";
 			append(o, this.uls[0]);
 			append(n, o);
-			o = ce("div");
+			o = createElem("div");
 			o.className = "tabs-levels";
 			for (var k = 1; k <= 3; ++k) {
-				c = ce("div");
+				c = createElem("div");
 				c.className = "tabs-level";
-				this.uls[k] = ce("ul");
+				this.uls[k] = createElem("ul");
 				this.uls[k].className = "tabs";
 				this.uls[k].style.top = ( - 30 * (3 - k)) + "px";
 				append(c, this.uls[k]);
@@ -2337,9 +2337,9 @@ Tabs.prototype = {
 			for (var k = 0; k < this.tabs.length; ++k) {
 				var f = this.tabs[k];
 				for (var h = 0; h <= 3; ++h) {
-					g = ce("li");
-					r = ce("a");
-					q = ce("b");
+					g = createElem("li");
+					r = createElem("a");
+					q = createElem("b");
 					if (this.poundable) {
 						r.href = "#" + f.id
 					} else {
@@ -2350,7 +2350,7 @@ Tabs.prototype = {
 						r.onclick = Tabs.onClick.bind(f, r)
 					}
 					if (!Browser.ie6) {
-						o = ce("div");
+						o = createElem("div");
 						append(o, ct(f.caption));
 						append(r, o)
 					}
@@ -2445,9 +2445,9 @@ var Icon = {
 	sizes: ["small", "medium", "large"],
 	sizes2: [18, 36, 56],
 	create: function (c, k, h, b, e, j) {
-		var g = ce("div"),
-		d = ce("ins"),
-		f = ce("del");
+		var g = createElem("div"),
+		d = createElem("ins"),
+		f = createElem("del");
 		if (k == null) {
 			k = 1
 		}
@@ -2456,7 +2456,7 @@ var Icon = {
 		append(g, f);
 		Icon.setTexture(g, k, c);
 		if (b) {
-			var i = ce("a");
+			var i = createElem("a");
 			i.href = b;
 			append(g, i)
 		} else {
@@ -2527,11 +2527,11 @@ var Icon = {
 };
 var RedButton = {
 	create: function (k, g, j) {
-		var d = ce("a"),
-		f = ce("em"),
-		c = ce("b"),
-		e = ce("i"),
-		h = ce("span");
+		var d = createElem("a"),
+		f = createElem("em"),
+		c = createElem("b"),
+		e = createElem("i"),
+		h = createElem("span");
 		d.href = "javascript:;";
 		d.className = "button-red";
 		append(c, e);
@@ -2562,15 +2562,15 @@ var RedButton = {
 };
 var Tooltip = {
 	create: function (h) {
-		var f = ce("div"),
-		k = ce("table"),
-		b = ce("tbody"),
-		e = ce("tr"),
-		c = ce("tr"),
-		a = ce("td"),
-		j = ce("th"),
-		i = ce("th"),
-		g = ce("th");
+		var f = createElem("div"),
+		k = createElem("table"),
+		b = createElem("tbody"),
+		e = createElem("tr"),
+		c = createElem("tr"),
+		a = createElem("td"),
+		j = createElem("th"),
+		i = createElem("th"),
+		g = createElem("th");
 		f.className = "tooltip";
 		j.style.backgroundPosition = "top right";
 		i.style.backgroundPosition = "bottom left";
@@ -2585,9 +2585,9 @@ var Tooltip = {
 		append(c, g);
 		append(b, c);
 		append(k, b);
-		Tooltip.icon = ce("p");
+		Tooltip.icon = createElem("p");
 		Tooltip.icon.style.visibility = "hidden";
-		append(Tooltip.icon, ce("div"));
+		append(Tooltip.icon, createElem("div"));
 		append(f, Tooltip.icon);
 		append(f, k);
 		return f
@@ -2642,7 +2642,7 @@ var Tooltip = {
 		Tooltip.tooltipTable = getElemTag(b, "table")[0];
 		Tooltip.tooltipTd = getElemTag(b, "td")[0];
 		if (Browser.ie6) {
-			b = ce("iframe");
+			b = createElem("iframe");
 			b.src = "javascript:0;";
 			b.frameBorder = 0;
 			append(a, b);
@@ -2836,7 +2836,7 @@ function Listview(a) {
 	if (this.id) {
 		var m = (this.tabs ? "tab-": "lv-") + this.id;
 		if (this.parent) {
-			var k = ce("div");
+			var k = createElem("div");
 			k.id = m;
 			append(dom(this.parent), k);
 			this.container = k
@@ -3071,22 +3071,22 @@ Listview.prototype = {
 				}
 			}
 		}
-		this.noData = ce("div");
+		this.noData = createElem("div");
 		this.noData.className = "listview-nodata text";
 		if (this.mode == Listview.MODE_DIV) {
-			this.mainContainer = this.mainDiv = ce("div");
+			this.mainContainer = this.mainDiv = createElem("div");
 			this.mainContainer.className = "listview-mode-div"
 		} else {
-			this.mainContainer = this.table = ce("table");
-			this.thead = ce("thead");
-			this.tbody = ce("tbody");
+			this.mainContainer = this.table = createElem("table");
+			this.thead = createElem("thead");
+			this.tbody = createElem("tbody");
 			if (this.mode == Listview.MODE_TILED) {
 				this.table.className = "listview-mode-tiled";
 				var e = (100 / this.nItemsPerRow) + "%",
-				f = ce("colgroup"),
+				f = createElem("colgroup"),
 				c;
 				for (var d = 0; d < this.nItemsPerRow; ++d) {
-					c = ce("col");
+					c = createElem("col");
 					c.style.width = e;
 					append(f, c)
 				}
@@ -3115,11 +3115,11 @@ Listview.prototype = {
 		}
 	},
 	createHeader: function () {
-		var h = ce("tr");
+		var h = createElem("tr");
 		if (this.mode == Listview.MODE_CHECKBOX) {
-			var g = ce("th"),
-			j = ce("div"),
-			c = ce("a");
+			var g = createElem("th"),
+			j = createElem("div"),
+			c = createElem("a");
 			g.style.width = "33px";
 			c.href = "javascript:;";
 			c.className = "listview-cb";
@@ -3132,11 +3132,11 @@ Listview.prototype = {
 		for (var f = 0, b = this.visibility.length; f < b; ++f) {
 			var e = this.visibility[f],
 			d = this.columns[e],
-			g = ce("th");
-			j = ce("div"),
-			c = ce("a"),
-			outerSpan = ce("span"),
-			innerSpan = ce("span");
+			g = createElem("th");
+			j = createElem("div"),
+			c = createElem("a"),
+			outerSpan = createElem("span"),
+			innerSpan = createElem("span");
 			d.__th = g;
 			c.href = "javascript:;";
 			if (this.filtrable && (d.filtrable == null || d.filtrable)) {
@@ -3170,10 +3170,10 @@ Listview.prototype = {
 		append(this.thead, h)
 	},
 	createBands: function () {
-		var h = ce("div"),
-		j = ce("div"),
-		k = ce("div"),
-		i = ce("div");
+		var h = createElem("div"),
+		j = createElem("div"),
+		k = createElem("div"),
+		i = createElem("div");
 		this.bandTop = h;
 		this.bandBot = j;
 		this.noteTop = k;
@@ -3200,10 +3200,10 @@ Listview.prototype = {
 		if (this.searchable) {
 			var l = this.updateFilters.bind(this, true),
 			d = (this._truncated ? "search-within-results2": "search-within-results"),
-			c = ce("span"),
-			b = ce("em"),
-			g = ce("a"),
-			f = ce("input");
+			c = createElem("span"),
+			b = createElem("em"),
+			g = createElem("a"),
+			f = createElem("input");
 			c.className = "listview-quicksearch";
 			append(c, b);
 			g.href = "javascript:;";
@@ -3214,7 +3214,7 @@ Listview.prototype = {
 				l()
 			};
 			g.style.display = "none";
-			append(g, ce("span"));
+			append(g, createElem("span"));
 			append(c, g);
 			ns(g);
 			f.setAttribute("type", "text");
@@ -3279,7 +3279,7 @@ Listview.prototype = {
 		}
 		append(this.container, this.bandTop);
 		if (this.clip) {
-			var e = ce("div");
+			var e = createElem("div");
 			e.className = "listview-clip";
 			e.style.width = this.clip.w + "px";
 			e.style.height = this.clip.h + "px";
@@ -3294,15 +3294,15 @@ Listview.prototype = {
 		append(this.container, this.bandBot)
 	},
 	createNav: function (g) {
-		var c = ce("div"),
-		d = ce("a"),
-		b = ce("a"),
-		a = ce("a"),
-		j = ce("a"),
-		i = ce("span"),
-		h = ce("b"),
-		f = ce("b"),
-		e = ce("b");
+		var c = createElem("div"),
+		d = createElem("a"),
+		b = createElem("a"),
+		a = createElem("a"),
+		j = createElem("a"),
+		i = createElem("span"),
+		h = createElem("b"),
+		f = createElem("b"),
+		e = createElem("b");
 		c.className = "listview-nav";
 		d.href = b.href = a.href = j.href = "javascript:;";
 		append(d, ct(String.fromCharCode(171) + LANG.lvpage_first));
@@ -3342,7 +3342,7 @@ Listview.prototype = {
 		return c
 	},
 	createCbBar: function (a) {
-		var b = ce("div");
+		var b = createElem("div");
 		if (this.createCbControls) {
 			this.createCbControls(b, a)
 		}
@@ -3402,7 +3402,7 @@ Listview.prototype = {
 		} else {
 			if (this.mode == Listview.MODE_TILED) {
 				var d = 0,
-				l = ce("tr");
+				l = createElem("tr");
 				for (var e = 0; e < h; ++e) {
 					var f = n + e,
 					o = this.data[f];
@@ -3416,14 +3416,14 @@ Listview.prototype = {
 					if (++d == this.nItemsPerRow) {
 						append(this.tbody, l);
 						if (e + 1 < h) {
-							l = ce("tr")
+							l = createElem("tr")
 						}
 						d = 0
 					}
 				}
 				if (d != 0) {
 					for (; d < 4; ++d) {
-						var m = ce("td");
+						var m = createElem("td");
 						m.className = "empty-cell";
 						append(l, m)
 					}
@@ -3465,7 +3465,7 @@ Listview.prototype = {
 		return b.__div
 	},
 	createDiv: function (b, a) {
-		var c = ce("div");
+		var c = createElem("div");
 		b.__div = c;
 		(this.template.compute.bind(this, b, c, a))()
 	},
@@ -3477,7 +3477,7 @@ Listview.prototype = {
 		return b.__td
 	},
 	createCell: function (b, a) {
-		var c = ce("td");
+		var c = createElem("td");
 		b.__td = c;
 		(this.template.compute.bind(this, b, c, a))();
 		if (this.template.getItemLink) {
@@ -3496,14 +3496,14 @@ Listview.prototype = {
 		return b.__tr
 	},
 	createRow: function (j) {
-		var g = ce("tr");
+		var g = createElem("tr");
 		j.__tr = g;
 		if (this.mode == Listview.MODE_CHECKBOX) {
-			var c = ce("td");
+			var c = createElem("td");
 			if (!j.__nochk) {
 				c.className = "listview-cb";
 				c.onclick = Listview.cbCellClick;
-				var b = ce("input");
+				var b = createElem("input");
 				ns(b);
 				b.type = "checkbox";
 				b.onclick = Listview.cbClick;
@@ -3521,7 +3521,7 @@ Listview.prototype = {
 		for (var d = 0, e = this.visibility.length; d < e; ++d) {
 			var f = this.visibility[d],
 			a = this.columns[f],
-			c = ce("td"),
+			c = createElem("td"),
 			h;
 			if (a.align != null) {
 				c.style.textAlign = a.align
@@ -4304,7 +4304,7 @@ Listview.extraCols = {
 				return
 			}
 			if (b.outof) {
-				var a = ce("div");
+				var a = createElem("div");
 				a.className = "small q0";
 				append(a, ct(sprintf(LANG.lvdrop_outof, b.outof)));
 				append(c, a)
@@ -4428,7 +4428,7 @@ Listview.funcBox = {
 			if (e == -1) {
 				append(g, ct(LANG.ellipsis))
 			} else {
-				var c = ce("a");
+				var c = createElem("a");
 				c.className = "q1";
 				c.href = "http://www.topwow.top/zone-" + e + ".html";
 				append(c, ct(g_zones[e]));
@@ -4454,13 +4454,13 @@ Listview.funcBox = {
 	},
 	createCenteredIcons: function (h, c, p, m) {
 		if (h != null) {
-			var l = ce("div"),
-			a = ce("div");
+			var l = createElem("div"),
+			a = createElem("div");
 			if (p) {
-				var k = ce("div");
+				var k = createElem("div");
 				k.style.position = "relative";
 				k.style.width = "1px";
-				var n = ce("div");
+				var n = createElem("div");
 				n.className = "q0";
 				n.style.position = "absolute";
 				n.style.right = "2px";
@@ -4478,7 +4478,7 @@ Listview.funcBox = {
 			for (var e = 0, j = h.length; e < j; ++e) {
 				var o;
 				if (h[e] == null) {
-					o = ce("div");
+					o = createElem("div");
 					o.style.width = o.style.height = "26px"
 				} else {
 					var b, f;
@@ -4508,8 +4508,8 @@ Listview.funcBox = {
 	},
 	createSocketedIcons: function (b, e, c, g, n) {
 		var m = 0,
-		k = ce("div"),
-		a = ce("div");
+		k = createElem("div"),
+		a = createElem("div");
 		for (var f = 0, h = b.length; f < h; ++f) {
 			var l, j = c[f];
 			if (!c || !j) {
@@ -4524,7 +4524,7 @@ Listview.funcBox = {
 			l.className += " iconsmall-socket-" + g_file_gems[b[f]] + (!c || !j ? "-empty": "");
 			l.style.cssFloat = l.style.styleFloat = "left";
 			if (g && g[f]) {
-				l.insertBefore(ce("var"), l.childNodes[1]); ++m
+				l.insertBefore(createElem("var"), l.childNodes[1]); ++m
 			}
 			append(k, l)
 		}
@@ -4535,7 +4535,7 @@ Listview.funcBox = {
 		append(e, k);
 		append(e, a);
 		if (n && m == b.length) {
-			k = ce("div");
+			k = createElem("div");
 			k.style.paddingTop = "4px";
 			append(k, ct(n));
 			append(e, k)
@@ -4604,7 +4604,7 @@ Listview.funcBox = {
 				e += "&reasonmore=" + urlencode(a)
 			}
 			new Ajax(e);
-			var b = ce("span");
+			var b = createElem("span");
 			append(b, ct(LANG.lvcomment_reported));
 			this.parentNode.replaceChild(b, this)
 		}
@@ -4727,7 +4727,7 @@ Listview.funcBox = {
 	coEdit: function (g, e) {
 		g.divBody.style.display = "none";
 		g.divLinks.firstChild.style.display = "none";
-		var f = ce("div");
+		var f = createElem("div");
 		f.className = "comment-edit";
 		g.divEdit = f;
 		if (e == -1) {
@@ -4736,15 +4736,15 @@ Listview.funcBox = {
 			}
 		}
 		var a = Listview.funcBox.coEditAppend(f, g, e);
-		var b = ce("div");
+		var b = createElem("div");
 		b.className = "comment-edit-buttons";
-		var d = ce("input");
+		var d = createElem("input");
 		d.type = "button";
 		d.value = LANG.compose_save;
 		d.onclick = Listview.funcBox.coEditButton.bind(d, g, true, e);
 		append(b, d);
 		append(b, ct(" "));
-		d = ce("input");
+		d = createElem("input");
 		d.type = "button";
 		d.value = LANG.compose_cancel;
 		d.onclick = Listview.funcBox.coEditButton.bind(d, g, false, e);
@@ -4752,7 +4752,7 @@ Listview.funcBox = {
 		append(f, b);
 		var c = f;
 		if (Browser.ie6) {
-			c = ce("div");
+			c = createElem("div");
 			c.style.width = "99%";
 			append(c, f)
 		}
@@ -4776,32 +4776,32 @@ Listview.funcBox = {
 			}
 		}
 		if (l == -1 || l == 0) {
-			var j = ce("div");
+			var j = createElem("div");
 			j.className = "comment-edit-modes";
 			append(j, ct(LANG.compose_mode));
-			var o = ce("a");
+			var o = createElem("a");
 			o.className = "selected";
 			o.onclick = Listview.funcBox.coModeLink.bind(o, 1, l, b);
 			o.href = "javascript:;";
 			append(o, ct(LANG.compose_edit));
 			append(j, o);
 			append(j, ct("|"));
-			var u = ce("a");
+			var u = createElem("a");
 			u.onclick = Listview.funcBox.coModeLink.bind(u, 2, l, b);
 			u.href = "javascript:;";
 			append(u, ct(LANG.compose_preview));
 			append(j, u);
 			append(m, j)
 		}
-		var a = ce("div");
+		var a = createElem("div");
 		a.style.display = "none";
 		a.className = "comment-body" + Listview.funcBox.coGetColor(b, l);
 		append(m, a);
-		var h = ce("div");
+		var h = createElem("div");
 		h.className = "comment-edit-body";
-		var e = ce("div");
+		var e = createElem("div");
 		e.className = "toolbar";
-		var g = ce("textarea");
+		var g = createElem("textarea");
 		g.className = "comment-editbox";
 		g.rows = 10;
 		g.value = b.body;
@@ -4826,10 +4826,10 @@ Listview.funcBox = {
 			break
 		}
 		if (l != -1 && l != 0) {
-			var d = ce("h3"),
-			v = ce("a"),
-			t = ce("div"),
-			s = ce("div");
+			var d = createElem("h3"),
+			v = createElem("a"),
+			t = createElem("div"),
+			s = createElem("div");
 			var c = Listview.funcBox.coLivePreview.bind(g, b, l, t);
 			if (b.body) {
 				v.className = "disclosure-off";
@@ -4946,8 +4946,8 @@ Listview.funcBox = {
 			if (l == 4 && k.id == "quote") {
 				break
 			}
-			var n = ce("button");
-			var w = ce("img");
+			var n = createElem("button");
+			var w = createElem("img");
 			n.setAttribute("type", "button");
 			n.title = k.title;
 			if (k.onclick != null) {
@@ -4962,7 +4962,7 @@ Listview.funcBox = {
 		}
 		append(h, e);
 		append(h, g);
-		append(h, ce("br"));
+		append(h, createElem("br"));
 		if (l == 4) {
 			append(h, ct(sprintf(LANG.compose_limit2, f, 3)))
 		} else {
@@ -5213,7 +5213,7 @@ Listview.funcBox = {
 		var k, h = 0;
 		if (a >= 10000) {
 			h = 1;
-			k = ce("span");
+			k = createElem("span");
 			k.className = "moneygold";
 			append(k, ct(Math.floor(a / 10000)));
 			append(g, k);
@@ -5225,7 +5225,7 @@ Listview.funcBox = {
 			} else {
 				h = 1
 			}
-			k = ce("span");
+			k = createElem("span");
 			k.className = "moneysilver";
 			append(k, ct(Math.floor(a / 100)));
 			append(g, k);
@@ -5237,7 +5237,7 @@ Listview.funcBox = {
 			} else {
 				h = 1
 			}
-			k = ce("span");
+			k = createElem("span");
 			k.className = "moneycopper";
 			append(k, ct(a));
 			append(g, k)
@@ -5248,7 +5248,7 @@ Listview.funcBox = {
 			} else {
 				h = 1
 			}
-			k = ce("span");
+			k = createElem("span");
 			k.className = "money" + (m < 0 ? "horde": "alliance") + " tip";
 			k.onmouseover = Listview.funcBox.moneyHonorOver;
 			k.onmousemove = Tooltip.cursorUpdate;
@@ -5262,7 +5262,7 @@ Listview.funcBox = {
 			} else {
 				h = 1
 			}
-			k = ce("span");
+			k = createElem("span");
 			k.className = "moneyarena tip";
 			k.onmouseover = Listview.funcBox.moneyArenaOver;
 			k.onmousemove = Tooltip.cursorUpdate;
@@ -5279,7 +5279,7 @@ Listview.funcBox = {
 				}
 				var n = c[b][0];
 				var e = c[b][1];
-				k = ce("a");
+				k = createElem("a");
 				k.href = "http://www.topwow.top/item-" + n + ".html";
 				k.className = "moneyitem";
 				k.style.backgroundImage = "url(images/icons/tiny/" + g_items.getIcon(n).toLowerCase() + ".gif)";
@@ -5293,7 +5293,7 @@ Listview.funcBox = {
 			} else {
 				h = 1
 			}
-			k = ce("span");
+			k = createElem("span");
 			k.className = "moneyachievement tip";
 			k.onmouseover = Listview.funcBox.moneyAchievementOver;
 			k.onmousemove = Tooltip.cursorUpdate;
@@ -5386,12 +5386,12 @@ Listview.templates = {
 			align: "left",
 			value: "name",
 			compute: function (d, e) {
-				var b = ce("a");
+				var b = createElem("a");
 				b.style.fontFamily = "Verdana, sans-serif";
 				b.href = this.template.getItemLink(d);
 				append(b, ct(d.name));
 				if (d.expansion) {
-					var c = ce("span");
+					var c = createElem("span");
 					c.className = (d.expansion == 1 ? "bc-icon": "wotlk-icon");
 					append(c, b);
 					append(e, c)
@@ -5418,7 +5418,7 @@ Listview.templates = {
 			width: "10%",
 			compute: function (b, c) {
 				if (b.side) {
-					var a = ce("span");
+					var a = createElem("span");
 					a.className = (b.side == 1 ? "alliance-icon": "horde-icon");
 					append(a, ct(g_sides[b.side]));
 					append(c, a)
@@ -5441,7 +5441,7 @@ Listview.templates = {
 			compute: function (d, e) {
 				if (d.category2 != null) {
 					e.className = "small q1";
-					var b = ce("a"),
+					var b = createElem("a"),
 					c = "http://www.topwow.top/factions-" + d.category2 +".html";
 					if (d.category) {
 						c += "." + d.category
@@ -5475,7 +5475,7 @@ Listview.templates = {
 			span: 2,
 			value: "name",
 			compute: function (m, c, k) {
-				var f = ce("td");
+				var f = createElem("td");
 				f.style.width = "1px";
 				f.style.padding = "0";
 				f.style.borderRight = "none";
@@ -5490,7 +5490,7 @@ Listview.templates = {
 				append(f, g_items.createIcon(m.id, (this.iconSize == null ? 1 : this.iconSize), g, n));
 				append(k, f);
 				c.style.borderLeft = "none";
-				var l = ce("a");
+				var l = createElem("a");
 				l.className = "q" + (7 - parseInt(m.name.charAt(0)));
 				l.style.fontFamily = "Verdana, sans-serif";
 				l.href = this.template.getItemLink(m);
@@ -5502,13 +5502,13 @@ Listview.templates = {
 				append(c, l);
 				if (typeof fi_nExtraCols == "number" && fi_nExtraCols >= 5) {
 					if (m.source != null && m.source.length == 1) {
-						var h = ce("div");
+						var h = createElem("div");
 						h.className = "small2";
 						var b = (m.sourcemore ? m.sourcemore[0] : {});
 						var j = 0;
 						if (b.t) {
 							j = b.t;
-							var l = ce("a");
+							var l = createElem("a");
 							if (b.q != null) {
 								l.className = "q" + b.q
 							} else {
@@ -5532,7 +5532,7 @@ Listview.templates = {
 								append(h, ct(e.pretext))
 							}
 							if (e.url) {
-								var l = ce("a");
+								var l = createElem("a");
 								l.className = "q1";
 								l.href = e.url;
 								append(l, ct(e.text));
@@ -5681,7 +5681,7 @@ Listview.templates = {
 						var h = 0;
 						if (c.t) {
 							h = c.t;
-							var j = ce("a");
+							var j = createElem("a");
 							if (c.q != null) {
 								j.className = "q" + c.q
 							} else {
@@ -5696,17 +5696,17 @@ Listview.templates = {
 							}
 							append(d, j)
 						} else {
-							append(d, ct(Listview.funcBox.getUpperSource(k.source[0], c)))
+							append(d, ct(Listview.funcBox.getUpperSourcreateElem(k.source[0], c)))
 						}
-						var f = Listview.funcBox.getLowerSource(k.source[0], c, h);
+						var f = Listview.funcBox.getLowerSourcreateElem(k.source[0], c, h);
 						if (this.iconSize != 0 && f != null) {
-							var b = ce("div");
+							var b = createElem("div");
 							b.className = "small2";
 							if (f.pretext) {
 								append(b, ct(f.pretext))
 							}
 							if (f.url) {
-								var j = ce("a");
+								var j = creatElem("a");
 								j.className = "q1";
 								j.href = f.url;
 								append(j, ct(f.text));
@@ -5776,7 +5776,7 @@ Listview.templates = {
 			compute: function (d, e) {
 				e.className = "small q1";
 				nw(e);
-				var b = ce("a");
+				var b = creatElem("a");
 				var c = Listview.funcBox.getItemType(d.classs, d.subclass, d.subsubclass);
 				b.href = c.url;
 				append(b, ct(c.text));
@@ -5811,8 +5811,8 @@ Listview.templates = {
 			if (!c && this._nComparable < 15) {
 				return
 			}
-			var b = ce("input"),
-			a = ce("input");
+			var b = creatElem("input"),
+			a = creatElem("input");
 			b.type = a.type = "button";
 			b.value = LANG.button_compare;
 			a.value = LANG.button_deselect;
@@ -5879,14 +5879,14 @@ Listview.templates = {
 			align: "left",
 			value: "name",
 			compute: function (c, f) {
-				var b = ce("a");
+				var b = creatElem("a");
 				b.className = "q" + (7 - parseInt(c.name.charAt(0)));
 				b.style.fontFamily = "Verdana, sans-serif";
 				b.href = this.template.getItemLink(c);
 				append(b, ct(c.name.substring(1)));
 				append(f, b);
 				if (c.note) {
-					var e = ce("div");
+					var e = creatElem("div");
 					e.className = "small";
 					append(e, ct(g_itemset_notes[c.note]));
 					append(f, e)
@@ -6014,13 +6014,13 @@ Listview.templates = {
 			align: "left",
 			value: "name",
 			compute: function (c, f) {
-				var b = ce("a");
+				var b = creatElem("a");
 				b.style.fontFamily = "Verdana, sans-serif";
 				b.href = this.template.getItemLink(c);
 				append(b, ct(c.name));
 				append(f, b);
 				if (c.tag != null) {
-					var e = ce("div");
+					var e = creatElem("div");
 					e.className = "small";
 					append(e, ct("<" + c.tag + ">"));
 					append(f, e)
@@ -6047,7 +6047,7 @@ Listview.templates = {
 			},
 			compute: function (a, c) {
 				if (a.classification) {
-					var b = ce("div");
+					var b = creatElem("div");
 					b.className = "small";
 					append(b, ct(g_npc_classifications[a.classification]));
 					append(c, b)
@@ -6119,7 +6119,7 @@ Listview.templates = {
 						if (f++>0) {
 							append(g, ct(" "))
 						}
-						var e = ce("span");
+						var e = creatElem("span");
 						e.className = (b.react[a] < 0 ? "q10": (b.react[a] > 0 ? "q2": "q"));
 						append(e, ct(d[a]));
 						append(g, e)
@@ -6134,7 +6134,7 @@ Listview.templates = {
 			value: "skin",
 			compute: function (c, d) {
 				if (c.skin) {
-					var b = ce("a");
+					var b = creatElem("a");
 					b.className = "q1";
 					b.href = "?npcs&filter=cr=35;crs=0;crv=" + c.skin;
 					append(b, ct(c.skin));
@@ -6150,7 +6150,7 @@ Listview.templates = {
 			width: "12%",
 			compute: function (c, d) {
 				d.className = "q1";
-				var b = ce("a");
+				var b = creatElem("a");
 				b.href = "?pet=" + c.family;
 				append(b, ct(g_pet_families[c.family]));
 				append(d, b)
@@ -6170,7 +6170,7 @@ Listview.templates = {
 			width: "12%",
 			compute: function (c, d) {
 				d.className = "small q1";
-				var b = ce("a");
+				var b = creatElem("a");
 				b.href = "http://www.topwow.top/npcs-" + c.type +".html";
 				append(b, ct(g_npc_types[c.type]));
 				append(d, b)
@@ -6198,7 +6198,7 @@ Listview.templates = {
 			align: "left",
 			value: "name",
 			compute: function (c, d) {
-				var b = ce("a");
+				var b = creatElem("a");
 				b.style.fontFamily = "Verdana, sans-serif";
 				b.href = this.template.getItemLink(c);
 				append(b, ct(c.name));
@@ -6233,7 +6233,7 @@ Listview.templates = {
 			width: "12%",
 			compute: function (c, d) {
 				d.className = "small q1";
-				var b = ce("a");
+				var b = creatElem("a");
 				b.href = "http://www.topwow.top/objects-" + c.type +".html";
 				append(b, ct(getGoType(c.type)));
 				append(d, b)
@@ -6261,7 +6261,7 @@ Listview.templates = {
 			align: "left",
 			value: "name",
 			compute: function (c, d) {
-				var b = ce("a");
+				var b = creatElem("a");
 				b.style.fontFamily = "Verdana, sans-serif";
 				b.href = this.template.getItemLink(c);
 				append(b, ct(c.name));
@@ -6275,7 +6275,7 @@ Listview.templates = {
 			value: "level",
 			compute: function (a, c) {
 				if (a.type || a.daily) {
-					var b = ce("div");
+					var b = creatElem("div");
 					b.className = "small";
 					nw(b);
 					if (a.type && a.daily) {
@@ -6324,7 +6324,7 @@ Listview.templates = {
 			width: "10%",
 			compute: function (a, c) {
 				if (a.side) {
-					var b = ce("span");
+					var b = creatElem("span");
 					if (a.side == 1) {
 						b.className = "alliance-icon"
 					} else {
@@ -6367,7 +6367,7 @@ Listview.templates = {
 					Listview.funcBox.createCenteredIcons(b.itemrewards, g, e)
 				}
 				if (b.xp > 0 || b.money > 0) {
-					var c = ce("div");
+					var c = creatElem("div");
 					if (a) {
 						c.style.padding = "4px"
 					}
@@ -6414,7 +6414,7 @@ Listview.templates = {
 			compute: function (c, d) {
 				if (c.category != 0) {
 					d.className = "small q1";
-					var b = ce("a");
+					var b = creatElem("a");
 					b.href = "http://www.topwow.top/quests-" + c.category2 + "." + c.category + ".html";
 					append(b, ct(Listview.funcBox.getQuestCategory(c.category)));
 					append(d, b)
@@ -6444,7 +6444,7 @@ Listview.templates = {
 			span: 2,
 			value: "name",
 			compute: function (g, e, k) {
-				var f = ce("td"),
+				var f = creatElem("td"),
 				o;
 				f.style.width = "44px";
 				f.style.padding = "0";
@@ -6458,8 +6458,8 @@ Listview.templates = {
 				append(f, o);
 				append(k, f);
 				e.style.borderLeft = "none";
-				var b = ce("div");
-				var n = ce("a");
+				var b = creatElem("div");
+				var n = creatElem("a");
 				var l = g.name.charAt(0);
 				if (l != "@") {
 					n.className = "q" + (7 - parseInt(l))
@@ -6469,14 +6469,14 @@ Listview.templates = {
 				append(n, ct(g.name.substring(1)));
 				append(b, n);
 				if (g.rank) {
-					var j = ce("div");
+					var j = creatElem("div");
 					j.className = "small2";
 					append(j, ct(g.rank));
 					append(b, j)
 				}
 				if (g.races != null) {
 					b.style.position = "relative";
-					var j = ce("div");
+					var j = creatElem("div");
 					j.className = "small";
 					j.style.fontStyle = "italic";
 					j.style.position = "absolute";
@@ -6548,7 +6548,7 @@ Listview.templates = {
 				var a = (g.reagents != null);
 				if (a) {
 					c.style.padding = "0";
-					var k = ce("div");
+					var k = creatElem("div");
 					var j = g.reagents;
 					k.style.width = (44 * j.length) + "px";
 					for (var e = 0, h = j.length; e < h; ++e) {
@@ -6616,7 +6616,7 @@ Listview.templates = {
 			},
 			compute: function (f, d, j, n) {
 				if (f.skill != null) {
-					var b = ce("div");
+					var b = creatElem("div");
 					b.className = "small";
 					for (var e = 0, g = f.skill.length; e < g; ++e) {
 						if (e > 0) {
@@ -6626,7 +6626,7 @@ Listview.templates = {
 							append(b, ct(LANG.ellipsis))
 						} else {
 							if (in_array([7, -2, -3, -5, -6, -7, 11, 9], f.cat) != -1) {
-								var l = ce("a");
+								var l = creatElem("a");
 								l.className = "q1";
 								if (in_array([ - 5, -6, -7], f.cat) != -1) {
 									l.href = "?spells=" + f.cat
@@ -6642,7 +6642,7 @@ Listview.templates = {
 					}
 					if (f.learnedat > 0) {
 						append(b, ct(" ("));
-						var c = ce("span");
+						var c = creatElem("span");
 						if (f.learnedat == 9999) {
 							c.className = "q0";
 							append(c, ct("??"))
@@ -6667,7 +6667,7 @@ Listview.templates = {
 						}
 						if (m > 0) {
 							m = 0;
-							b = ce("div");
+							b = creatElem("div");
 							b.className = "small";
 							b.style.fontWeight = "bold";
 							for (var e = 0; e < h.length; ++e) {
@@ -6675,7 +6675,7 @@ Listview.templates = {
 									if (m++>0) {
 										append(b, ct(" "))
 									}
-									var k = ce("span");
+									var k = creatElem("span");
 									k.className = "r" + (e + 1);
 									append(k, ct(h[e]));
 									append(b, k)
@@ -6725,12 +6725,12 @@ Listview.templates = {
 			align: "left",
 			value: "name",
 			compute: function (c, e) {
-				var b = ce("a");
+				var b = creatElem("a");
 				b.style.fontFamily = "Verdana, sans-serif";
 				b.href = this.template.getItemLink(c);
 				append(b, ct(c.name));
 				if (c.expansion) {
-					var d = ce("span");
+					var d = creatElem("span");
 					d.className = (c.expansion == 1 ? "bc-icon": "wotlk-icon");
 					append(d, b);
 					append(e, d)
@@ -6795,39 +6795,39 @@ Listview.templates = {
 			if (t.indent) {
 				H.className += " comment-indent"
 			}
-			var w = ce("div");
-			var m = ce("div");
-			var k = ce("div");
+			var w = creatElem("div");
+			var m = creatElem("div");
+			var k = creatElem("div");
 			t.divHeader = w;
 			t.divBody = m;
 			t.divLinks = k;
 			w.className = (I ? "comment-header-bt": "comment-header");
-			var g = ce("div");
+			var g = creatElem("div");
 			g.className = "comment-rating";
 			if (I) {
-				var p = ce("a");
+				var p = creatElem("a");
 				p.href = "javascript:;";
 				p.onclick = Listview.funcBox.coToggleVis.bind(p, t);
 				append(p, ct(LANG.lvcomment_show));
 				append(g, p);
 				append(g, ct(" " + String.fromCharCode(160) + " "))
 			}
-			var n = ce("b");
+			var n = creatElem("b");
 			append(n, ct(LANG.lvcomment_rating));
-			var q = ce("span");
+			var q = creatElem("span");
 			append(q, ct((t.rating > 0 ? "+": "") + t.rating));
 			append(n, q);
 			append(g, n);
 			append(g, ct(" "));
-			var B = ce("span");
-			var j = ce("a"),
-			K = ce("a");
+			var B = creatElem("span");
+			var j = creatElem("a"),
+			K = creatElem("a");
 			if (D) {
 				j.href = K.href = "javascript:;";
 				j.onclick = Listview.funcBox.coRate.bind(j, t, 1);
 				K.onclick = Listview.funcBox.coRate.bind(K, t, -1);
 				if (d) {
-					var A = ce("a");
+					var A = creatElem("a");
 					A.href = "javascript:;";
 					A.onclick = Listview.funcBox.coRate.bind(A, t, 0);
 					A.onmouseover = Listview.funcBox.coCustomRatingOver;
@@ -6855,12 +6855,12 @@ Listview.templates = {
 			}
 			append(w, g);
 			append(w, ct(LANG.lvcomment_by));
-			var G = ce("a");
+			var G = creatElem("a");
 			G.href = "?user=" + t.user;
 			append(G, ct(t.user));
 			append(w, G);
 			append(w, ct(" "));
-			var a = ce("a");
+			var a = creatElem("a");
 			a.className = "q0";
 			a.id = "comments:id=" + t.id;
 			a.href = "#" + a.id;
@@ -6879,15 +6879,15 @@ Listview.templates = {
 			});
 			append(H, m);
 			if ((t.roles & 26) == 0 || g_user.roles & 26) {
-				var E = ce("div");
+				var E = creatElem("div");
 				t.divLastEdit = E;
 				E.className = "comment-lastedit";
 				append(E, ct(LANG.lvcomment_lastedit));
-				var o = ce("a");
+				var o = creatElem("a");
 				append(o, ct(" "));
 				append(E, o);
 				append(E, ct(" "));
-				var z = ce("span");
+				var z = creatElem("span");
 				append(E, z);
 				append(E, ct(" "));
 				Listview.funcBox.coUpdateLastEdit(t);
@@ -6898,8 +6898,8 @@ Listview.templates = {
 			}
 			k.className = "comment-links";
 			if (C) {
-				var b = ce("span");
-				var y = ce("a");
+				var b = creatElem("span");
+				var y = creatElem("a");
 				append(y, ct(LANG.lvcomment_edit));
 				y.onclick = Listview.funcBox.coEdit.bind(this, t, 0);
 				ns(y);
@@ -6909,8 +6909,8 @@ Listview.templates = {
 				append(k, b)
 			}
 			if (v) {
-				var l = ce("span");
-				var r = ce("a");
+				var l = creatElem("span");
+				var r = creatElem("a");
 				append(r, ct(LANG.lvcomment_delete));
 				r.onclick = Listview.funcBox.coDelete.bind(this, t);
 				ns(r);
@@ -6920,8 +6920,8 @@ Listview.templates = {
 				append(k, l)
 			}
 			if (c) {
-				var x = ce("span");
-				var e = ce("a");
+				var x = creatElem("span");
+				var e = creatElem("a");
 				append(e, ct(LANG.lvcomment_detach));
 				e.onclick = Listview.funcBox.coDetach.bind(this, t);
 				ns(e);
@@ -6931,8 +6931,8 @@ Listview.templates = {
 				append(k, x)
 			}
 			if (J) {
-				var u = ce("span");
-				var f = ce("a");
+				var u = creatElem("span");
+				var f = creatElem("a");
 				append(f, ct(LANG.lvcomment_report));
 				if (g_user.id > 0) {
 					f.onclick = Listview.funcBox.coReportClick.bind(f, t, 0);
@@ -6944,7 +6944,7 @@ Listview.templates = {
 				append(u, ct("|"));
 				append(k, u)
 			}
-			var h = ce("a");
+			var h = creatElem("a");
 			append(h, ct(LANG.lvcomment_reply));
 			if (g_user.id > 0) {
 				h.onclick = Listview.funcBox.coReply.bind(this, t);
@@ -6960,8 +6960,8 @@ Listview.templates = {
 			append(H, k)
 		},
 		createNote: function (g) {
-			var f = ce("small");
-			var b = ce("a");
+			var f = creatElem("small");
+			var b = creatElem("a");
 			if (g_user.id > 0) {
 				b.href = "javascript:;";
 				b.onclick = co_addYourComment
@@ -6970,19 +6970,19 @@ Listview.templates = {
 			}
 			append(b, ct(LANG.lvcomment_add));
 			append(f, b);
-			var e = ce("span");
+			var e = creatElem("span");
 			e.style.padding = "0 5px";
 			e.style.color = "white";
 			append(e, ct("|"));
 			append(f, e);
 			append(f, ct(LANG.lvcomment_sort));
-			var c = ce("a");
+			var c = creatElem("a");
 			c.href = "javascript:;";
 			append(c, ct(LANG.lvcomment_sortdate));
 			c.onclick = Listview.funcBox.coSortDate.bind(this, c);
 			append(f, c);
 			append(f, ct(LANG.comma));
-			var d = ce("a");
+			var d = creatElem("a");
 			d.href = "javascript:;";
 			append(d, ct(LANG.lvcomment_sortrating));
 			d.onclick = Listview.funcBox.coSortHighestRatedFirst.bind(this, d);
@@ -7033,12 +7033,12 @@ Listview.templates = {
 			align: "left",
 			value: "subject",
 			compute: function (f, e) {
-				var b = ce("a");
+				var b = creatElem("a");
 				b.style.fontFamily = "Verdana, sans-serif";
 				b.href = this.template.getItemLink(f);
 				append(b, ct(f.subject));
 				append(e, b);
-				var c = ce("div");
+				var c = creatElem("div");
 				c.className = "small";
 				append(c, ct(LANG.types[f.type][0]));
 				append(e, c)
@@ -7051,7 +7051,7 @@ Listview.templates = {
 			width: "50%",
 			value: "preview",
 			compute: function (j, i) {
-				var g = ce("div");
+				var g = creatElem("div");
 				g.className = "crop";
 				if (j.rating >= 10) {
 					g.className += " comment-green"
@@ -7063,11 +7063,11 @@ Listview.templates = {
 				var e = j.rating != null;
 				var f = j.user != null;
 				if (e || f) {
-					g = ce("div");
+					g = creatElem("div");
 					g.className = "small3";
 					if (f) {
 						append(g, ct(LANG.lvcomment_by));
-						var b = ce("a");
+						var b = creatElem("a");
 						b.href = "?user=" + j.user;
 						append(b, ct(j.user));
 						append(g, b);
@@ -7077,7 +7077,7 @@ Listview.templates = {
 					}
 					if (e) {
 						append(g, ct(LANG.lvcomment_rating + (j.rating > 0 ? "+": "") + j.rating));
-						var c = ce("span"),
+						var c = creatElem("span"),
 						h = "";
 						c.className = "q10";
 						if (j.deleted) {
@@ -7102,7 +7102,7 @@ Listview.templates = {
 			compute: function (e, d) {
 				var a = new Date(e.date),
 				c = (g_serverTime - a) / 1000;
-				var b = ce("span");
+				var b = creatElem("span");
 				Listview.funcBox.coFormatDate(b, c, a, 0, 1);
 				append(d, b)
 			}
@@ -7123,26 +7123,26 @@ Listview.templates = {
 			f = (g_serverTime - o) / 1000;
 			e.className = "screenshot-cell";
 			e.vAlign = "bottom";
-			var q = ce("a");
+			var q = creatElem("a");
 			q.href = "#screenshots:id=" + k.id;
 			q.onclick = rf2;
-			var v = ce("img"),
+			var v = creatElem("img"),
 			t = Math.min(150 / k.width, 150 / k.height);
 			v.src = "http://www.topwow.top/screenshots/thumb/" + k.id + ".webp";
 			append(q, v);
 			append(e, q);
-			var p = ce("div");
+			var p = creatElem("div");
 			p.className = "screenshot-cell-user";
 			var m = (k.user != null && k.user.length);
 			if (m) {
-				q = ce("a");
+				q = creatElem("a");
 				q.href = "?user=" + k.user;
 				append(q, ct(k.user));
 				append(p, ct(LANG.lvscreenshot_from));
 				append(p, q);
 				append(p, ct(" "))
 			}
-			var j = ce("span");
+			var j = creatElem("span");
 			if (m) {
 				Listview.funcBox.coFormatDate(j, f, o)
 			} else {
@@ -7150,7 +7150,7 @@ Listview.templates = {
 			}
 			append(p, j);
 			append(e, p);
-			p = ce("div");
+			p = creatElem("div");
 			p.style.position = "relative";
 			p.style.height = "1em";
 			if (g_getLocale(true) != 0 && k.caption) {
@@ -7159,12 +7159,12 @@ Listview.templates = {
 			var h = (k.caption != null && k.caption.length);
 			var g = (k.subject != null && k.subject.length);
 			if (h || g) {
-				var r = ce("div");
+				var r = creatElem("div");
 				r.className = "screenshot-caption";
 				if (g) {
-					var c = ce("small");
+					var c = creatElem("small");
 					append(c, ct(LANG.types[k.type][0] + LANG.colon));
-					var b = ce("a");
+					var b = creatElem("a");
 					append(b, ct(k.subject));
 					b.href = "http://www.topwow.top/" + g_types[k.type] + "-" + k.typeId +".html";
 					append(c, b);
@@ -7172,12 +7172,12 @@ Listview.templates = {
 					if (h && k.caption.length) {
 						append(c, ct(" (...)"))
 					}
-					append(c, ce("br"))
+					append(c, creatElem("br"))
 				}
 				if (h) {
 					aE(e, "mouseover", Listview.funcBox.ssCellOver.bind(r));
 					aE(e, "mouseout", Listview.funcBox.ssCellOut.bind(r));
-					var n = ce("span");
+					var n = creatElem("span");
 					n.innerHTML = k.caption;
 					append(r, n)
 				}
@@ -7188,8 +7188,8 @@ Listview.templates = {
 		},
 		createNote: function (d) {
 			if (typeof g_pageInfo == "object" && g_pageInfo.type > 0) {
-				var c = ce("small");
-				var b = ce("a");
+				var c = creatElem("small");
+				var b = creatElem("a");
 				if (g_user.id > 0) {
 					b.href = "javascript:;";
 					b.onclick = ss_submitAScreenshot
@@ -7253,20 +7253,20 @@ Listview.templates = {
 			value: "name",
 			span: 2,
 			compute: function (b, k, g) {
-				var e = ce("td");
+				var e = creatElem("td");
 				e.style.width = "1px";
 				e.style.padding = "0";
 				e.style.borderRight = "none";
 				append(e, Icon.create(b.icon, 0));
 				append(g, e);
 				k.style.borderLeft = "none";
-				var j = ce("div");
-				var c = ce("a");
+				var j = creatElem("div");
+				var c = creatElem("a");
 				c.style.fontFamily = "Verdana, sans-serif";
 				c.href = this.template.getItemLink(b);
 				append(c, ct(b.name));
 				if (b.expansion) {
-					var f = ce("span");
+					var f = creatElem("span");
 					f.className = (b.expansion == 1 ? "bc-icon": "wotlk-icon");
 					append(f, c);
 					append(j, f)
@@ -7275,7 +7275,7 @@ Listview.templates = {
 				}
 				if (b.exotic) {
 					j.style.position = "relative";
-					var h = ce("div");
+					var h = creatElem("div");
 					h.className = "small";
 					h.style.fontStyle = "italic";
 					h.style.position = "absolute";
@@ -7455,7 +7455,7 @@ Listview.templates = {
 			compute: function (b, d) {
 				if (b.type != null) {
 					d.className = "small q1";
-					var c = ce("a");
+					var c = creatElem("a");
 					c.href = "?pets=" + b.type;
 					append(c, ct(g_pet_types[b.type]));
 					append(d, c)
@@ -7474,7 +7474,7 @@ Listview.templates = {
 			return "http://www.topwow.top/pet-" + a.id +".html"
 		},
 		getStatPct: function (b) {
-			var a = ce("span");
+			var a = creatElem("span");
 			if (!isNaN(b) && b > 0) {
 				a.className = "q2";
 				append(a, ct("+" + b + "%"))
@@ -7504,7 +7504,7 @@ Listview.templates = {
 				if (c.who && c.completed) {
 					b = "who=" + c.who + "&when=" + c.completed.getTime()
 				}
-				var f = ce("td");
+				var f = creatElem("td");
 				f.style.width = "1px";
 				f.style.padding = "0";
 				f.style.borderRight = "none";
@@ -7512,14 +7512,14 @@ Listview.templates = {
 				Icon.getLink(f.firstChild).rel = b;
 				append(g, f);
 				j.style.borderLeft = "none";
-				var e = ce("a");
+				var e = creatElem("a");
 				e.style.fontFamily = "Verdana, sans-serif";
 				e.href = this.template.getItemLink(c);
 				e.rel = b;
 				append(e, ct(c.name));
 				append(j, e);
 				if (c.description != null) {
-					var h = ce("div");
+					var h = creatElem("div");
 					h.className = "small";
 					append(h, ct(c.description));
 					append(j, h)
@@ -7540,7 +7540,7 @@ Listview.templates = {
 			width: "15%",
 			compute: function (b, d) {
 				if (b.zone) {
-					var c = ce("a");
+					var c = creatElem("a");
 					c.className = "q1";
 					c.href = "http://www.topwow.top/zone-" + b.zone +".html";
 					append(c, ct(g_zones[b.zone]));
@@ -7561,7 +7561,7 @@ Listview.templates = {
 			width: "10%",
 			compute: function (a, c) {
 				if (a.side) {
-					var b = ce("span");
+					var b = creatElem("span");
 					if (a.side == 1) {
 						b.className = "alliance-icon"
 					} else {
@@ -7603,7 +7603,7 @@ Listview.templates = {
 			width: "15%",
 			compute: function (b, d) {
 				d.className = "small q1";
-				var c = ce("a");
+				var c = creatElem("a");
 				c.href = "http://www.topwow.top/achievements-" + b.category +".html";
 				append(c, ct(g_achievement_categories[b.category]));
 				append(d, c)
@@ -7634,7 +7634,7 @@ Listview.templates = {
 			span: 2,
 			compute: function (f, c, h) {
 				if (f.level) {
-					var e = ce("td");
+					var e = creatElem("td");
 					e.style.width = "1px";
 					e.style.padding = "0";
 					e.style.borderRight = "none";
@@ -7644,17 +7644,17 @@ Listview.templates = {
 				} else {
 					c.colSpan = 2
 				}
-				var b = ce("div");
+				var b = creatElem("div");
 				b.style.position = "relative";
-				var k = ce("a");
+				var k = creatElem("a");
 				k.style.fontFamily = "Verdana, sans-serif";
 				k.href = this.template.getItemLink(f);
 				append(k, ct(f.name));
 				append(b, k);
-				var g = ce("div");
+				var g = creatElem("div");
 				g.className = "small";
 				if (f.guild) {
-					var k = ce("a");
+					var k = creatElem("a");
 					k.className = "q1";
 					k.href = "?profiles=" + f.region + "." + f.realm + "&filter=cr=9;crs=0;crv=" + str_replace(urlencode(f.guild), "%20", "+") + "&roster=1";
 					append(k, ct(f.guild));
@@ -7666,7 +7666,7 @@ Listview.templates = {
 						append(g, ct(f.description))
 					}
 				}
-				var l = ce("span"),
+				var l = creatElem("span"),
 				j = "";
 				l.className = "q10";
 				if (f.deleted) {
@@ -7675,7 +7675,7 @@ Listview.templates = {
 				append(l, ct(j));
 				append(g, l);
 				append(b, g);
-				var g = ce("div");
+				var g = creatElem("div");
 				g.className = "small";
 				g.style.fontStyle = "italic";
 				g.style.position = "absolute";
@@ -7703,8 +7703,8 @@ Listview.templates = {
 				if (!a.size && !a.members && !a.level) {
 					return
 				}
-				var e = ce("div"),
-				c = ce("div"),
+				var e = creatElem("div"),
+				c = creatElem("div"),
 				b;
 				b = Icon.create("faction_" + g_file_factions[a.faction + 1], 0);
 				b.onmouseover = function (d) {
@@ -7752,8 +7752,8 @@ Listview.templates = {
 			type: "text",
 			compute: function (a, f) {
 				if (a.race) {
-					var e = ce("div"),
-					c = ce("div"),
+					var e = creatElem("div"),
+					c = creatElem("div"),
 					b;
 					b = Icon.create("race_" + g_file_races[a.race] + "_" + g_file_genders[a.gender], 0);
 					b.onmouseover = function (d) {
@@ -7785,8 +7785,8 @@ Listview.templates = {
 			type: "text",
 			compute: function (a, f) {
 				if (a.classs) {
-					var e = ce("div"),
-					c = ce("div"),
+					var e = creatElem("div"),
+					c = creatElem("div"),
 					b;
 					b = Icon.create("class_" + g_file_classes[a.classs], 0);
 					b.onmouseover = function (d) {
@@ -7834,8 +7834,8 @@ Listview.templates = {
 				f = pr_getSpecFromTalents(e.classs, i),
 				c,
 				g,
-				b = ce("a");
-				var h = ce("div");
+				b = creatElem("a");
+				var h = creatElem("div");
 				h.style.width = "82px";
 				h.style.height = "23px";
 				h.style.margin = "0 auto";
@@ -7843,7 +7843,7 @@ Listview.templates = {
 				h.style.backgroundImage = "url(" + f.icon + ")";
 				h.style.backgroundRepeat = "no-repeat";
 				h.style.backgroundPosition = "left";
-				var b = ce("a");
+				var b = creatElem("a");
 				b.className = "small q1";
 				b.style.padding = "7px 0 7px 28px";
 				b.style.fontWeight = "bold";
@@ -7922,7 +7922,7 @@ Listview.templates = {
 					return sprintf(LANG.rankno, c.guildrank)
 				} else {
 					if (c.guildrank == 0) {
-						var a = ce("b");
+						var a = creatElem("b");
 						append(a, ct(LANG.guildleader));
 						append(d, a)
 					}
@@ -7959,22 +7959,22 @@ Listview.templates = {
 				var b;
 				if (c.region) {
 					if (c.realm) {
-						b = ce("a");
+						b = creatElem("a");
 						b.className = "q1";
 						b.href = "?profiles=" + c.region + "." + c.realm;
 						append(b, ct(c.realmname));
 						append(e, b);
-						append(e, ce("br"))
+						append(e, creatElem("br"))
 					}
-					var d = ce("small");
-					b = ce("a");
+					var d = creatElem("small");
+					b = creatElem("a");
 					b.className = "q1";
 					b.href = "?profiles=" + c.region;
 					append(b, ct(c.region.toUpperCase()));
 					append(d, b);
 					if (c.battlegroup) {
 						append(d, ct(LANG.hyphen));
-						b = ce("a");
+						b = creatElem("a");
 						b.className = "q1";
 						b.href = "?profiles=" + c.region + "." + c.battlegroup;
 						append(b, ct(c.battlegroupname));
@@ -8015,7 +8015,7 @@ Listview.templates = {
 				if (!c.region || !c.battlegroup || !c.realm || !c.guild) {
 					return
 				}
-				var b = ce("a");
+				var b = creatElem("a");
 				b.className = "q1";
 				b.href = "?profiles=" + c.region + "." + c.realm + "&filter=cr=9;crs=0;crv=" + str_replace(urlencode(c.guild), "%20", "+") + "&roster=1";
 				append(b, ct(c.guild));
@@ -8048,34 +8048,34 @@ Listview.templates = {
 		compute: function (c, k, e) {
 			k.className = "screenshot-cell";
 			k.vAlign = "bottom";
-			var j = ce("div");
+			var j = creatElem("div");
 			j.className = "pet-model";
-			var b = ce("a");
+			var b = creatElem("a");
 			b.className = "pet-zoom";
 			b.href = "javascript:;";
 			b.onclick = this.template.modelShow.bind(this.template, c.npcId, c.displayId);
 			append(j, b);
-			var g = ce("div");
+			var g = creatElem("div");
 			g.id = "pm" + c.displayId;
 			append(j, g);
 			append(k, j);
-			j = ce("div");
+			j = creatElem("div");
 			j.className = "screenshot-cell-user";
-			b = ce("a");
+			b = creatElem("a");
 			b.href = this.template.getItemLink(c);
 			append(b, ct(c.skin));
 			append(j, b);
 			append(j, ct(" (" + c.count + ")"));
 			append(k, j);
-			j = ce("div");
+			j = creatElem("div");
 			j.style.position = "relative";
 			j.style.height = "1em";
-			var h = ce("div");
+			var h = creatElem("div");
 			h.className = "screenshot-caption";
-			var f = ce("small");
+			var f = creatElem("small");
 			append(f, ct(LANG.level + ": "));
 			append(f, ct(c.level_min + (c.level_min == c.level_max ? "": LANG.hyphen + (c.level_max == 9999 ? "??": c.level_max))));
-			append(f, ce("br"));
+			append(f, creatElem("br"));
 			append(h, f);
 			append(j, h);
 			append(k, j);
@@ -8679,7 +8679,7 @@ function () {
 			return
 		}
 		prepared = 1;
-		container = ce("div");
+		container = creatElem("div");
 		container.className = "live-search";
 		container.style.display = "none";
 		append(getElement("layers"), container);
@@ -8710,9 +8710,9 @@ function () {
 			de(container.firstChild)
 		}
 		if (!Browser.ie6) {
-			append(container, ce("em"));
-			append(container, ce("var"));
-			append(container, ce("strong"))
+			append(container, creatElem("em"));
+			append(container, creatElem("var"));
+			append(container, creatElem("strong"))
 		}
 		search = search.replace(/[^a-z0-9\-]/i, " ");
 		search = trim(search.replace(/\s+/g, " "));
@@ -8726,11 +8726,11 @@ function () {
 			typeId = dataz[i][1],
 			param1 = dataz[i][2],
 			param2 = dataz[i][3],
-			a = ce("a"),
-			sp = ce("i"),
-			sp2 = ce("span"),
-			div = ce("div"),
-			div2 = ce("div");
+			a = creatElem("a"),
+			sp = creatElem("i"),
+			sp2 = creatElem("span"),
+			div = creatElem("div"),
+			div2 = creatElem("div");
 			div.i = i;
 			a.onmouseover = aOver;
 			if (textbox._summary) {
@@ -8974,11 +8974,11 @@ function () {
 		}
 		i = 1;
 		var p = getElement("layers");
-		d = ce("div");
+		d = creatElem("div");
 		d.className = "lightbox-overlay";
-		m = ce("div");
+		m = creatElem("div");
 		m.className = "lightbox-outer";
-		n = ce("div");
+		n = creatElem("div");
 		n.className = "lightbox-inner";
 		d.style.display = m.style.display = "none";
 		append(p, d);
@@ -9042,7 +9042,7 @@ function () {
 		q;
 		if (h[t] == null) {
 			r = 1;
-			q = ce("div");
+			q = creatElem("div");
 			append(n, q);
 			h[t] = q
 		} else {
@@ -9379,11 +9379,11 @@ function () {
 		Lightbox.setSize(620, 452);
 		if (H) {
 			M.className = "modelviewer";
-			var L = ce("div");
-			u = ce("div");
-			n = ce("div");
-			w = ce("div");
-			var K = ce("div");
+			var L = creatElem("div");
+			u = creatElem("div");
+			n = creatElem("div");
+			w = creatElem("div");
+			var K = creatElem("div");
 			K.id = "dsjkgbdsg2346";
 			append(u, K);
 			L.className = "modelviewer-screen";
@@ -9392,22 +9392,22 @@ function () {
 			append(L, n);
 			append(L, w);
 			append(M, L);
-			D = ce("a"),
-			B = ce("a");
+			D = creatElem("a"),
+			B = creatElem("a");
 			D.className = "modelviewer-help";
 			D.href = "?help=modelviewer";
 			D.target = "_blank";
-			append(D, ce("span"));
+			append(D, creatElem("span"));
 			B.className = "modelviewer-close";
 			B.href = "javascript:;";
 			B.onclick = Lightbox.hide;
-			append(B, ce("span"));
+			append(B, creatElem("span"));
 			append(M, B);
 			append(M, D);
-			var J = ce("div"),
-			C = ce("span"),
-			D = ce("a"),
-			B = ce("a");
+			var J = creatElem("div"),
+			C = creatElem("span"),
+			D = creatElem("a"),
+			B = creatElem("a");
 			J.className = "modelviewer-quality";
 			D.href = B.href = "javascript:;";
 			append(D, ct("Flash"));
@@ -9418,53 +9418,53 @@ function () {
 			append(C, ct(" " + String.fromCharCode(160)));
 			append(C, B);
 			if (f()) {
-				var A = ce("a");
+				var A = creatElem("a");
 				A.href = "javascript:;";
 				append(A, ct("Plugin"));
 				A.onclick = j.bind(A, 2);
 				append(C, ct(" " + String.fromCharCode(160)));
 				append(C, A)
 			}
-			append(J, ce("div"));
+			append(J, creatElem("div"));
 			append(J, C);
 			append(M, J);
-			g = ce("div");
+			g = creatElem("div");
 			g.className = "modelviewer-model";
 			var K = function (O, N) {
 				return strcmp(O.name, N.name)
 			};
 			o.sort(K);
 			i.sort(K);
-			p = ce("select");
-			q = ce("select");
-			e = ce("select");
+			p = creatElem("select");
+			q = creatElem("select");
+			e = creatElem("select");
 			p.onchange = q.onchange = e.onchange = b;
-			append(p, ce("option"));
+			append(p, creatElem("option"));
 			for (var G = 0, I = o.length; G < I; ++G) {
-				var F = ce("option");
+				var F = creatElem("option");
 				F.value = o[G].id;
 				append(F, ct(o[G].name));
 				append(p, F)
 			}
 			for (var G = 0, I = o.length; G < I; ++G) {
-				var F = ce("option");
+				var F = creatElem("option");
 				F.value = o[G].id;
 				append(F, ct(o[G].name));
 				append(q, F)
 			}
 			for (var G = 0, I = i.length; G < I; ++G) {
-				var F = ce("option");
+				var F = creatElem("option");
 				F.value = i[G].id;
 				append(F, ct(i[G].name));
 				append(e, F)
 			}
 			e.style.display = "none";
-			append(g, ce("div"));
+			append(g, creatElem("div"));
 			append(g, p);
 			append(g, q);
 			append(g, e);
 			append(M, g);
-			J = ce("div");
+			J = creatElem("div");
 			J.className = "clear";
 			append(M, J)
 		}
@@ -9758,28 +9758,28 @@ function () {
 		}
 		if (G) {
 			C.className = "screenshotviewer";
-			n = ce("div");
+			n = creatElem("div");
 			n.className = "screenshotviewer-screen";
-			w = ce("a");
-			x = ce("a");
+			w = creatElem("a");
+			x = creatElem("a");
 			w.className = "screenshotviewer-prev";
 			x.className = "screenshotviewer-next";
 			w.href = "javascript:;";
 			x.href = "javascript:;";
-			var I = ce("span");
-			append(I, ce("b"));
+			var I = creatElem("span");
+			append(I, creatElem("b"));
 			append(w, I);
-			var I = ce("span");
-			append(I, ce("b"));
+			var I = creatElem("span");
+			append(I, creatElem("b"));
 			append(x, I);
 			w.onclick = a;
 			x.onclick = p;
-			t = ce("a");
+			t = creatElem("a");
 			t.className = "screenshotviewer-cover";
 			t.href = "javascript:;";
 			t.onclick = Lightbox.hide;
-			var I = ce("span");
-			append(I, ce("b"));
+			var I = creatElem("span");
+			append(I, creatElem("b"));
 			append(t, I);
 			if (Browser.ie6) {
 				ns(w);
@@ -9794,35 +9794,35 @@ function () {
 			append(n, w);
 			append(n, x);
 			append(n, t);
-			i = ce("div");
+			i = creatElem("div");
 			append(n, i);
 			append(C, n);
-			var H = ce("a");
+			var H = creatElem("a");
 			H.className = "screenshotviewer-close";
 			H.href = "javascript:;";
 			H.onclick = Lightbox.hide;
-			append(H, ce("span"));
+			append(H, creatElem("span"));
 			append(C, H);
-			h = ce("a");
+			h = creatElem("a");
 			h.className = "screenshotviewer-original";
 			h.href = "javascript:;";
 			h.target = "_blank";
-			append(h, ce("span"));
+			append(h, creatElem("span"));
 			append(C, h);
-			v = ce("div");
+			v = creatElem("div");
 			v.className = "screenshotviewer-from";
-			var E = ce("span");
+			var E = creatElem("span");
 			append(E, ct(LANG.lvscreenshot_from));
-			append(E, ce("a"));
+			append(E, creatElem("a"));
 			append(E, ct(" "));
-			append(E, ce("span"));
+			append(E, creatElem("span"));
 			append(v, E);
-			append(v, ce("span"));
+			append(v, creatElem("span"));
 			append(C, v);
-			j = ce("div");
+			j = creatElem("div");
 			j.className = "screenshotviewer-caption";
 			append(C, j);
-			var F = ce("div");
+			var F = creatElem("div");
 			F.className = "clear";
 			append(C, F)
 		}
@@ -9895,7 +9895,7 @@ var Ads = {
 			de(b);
 			return
 		}
-		var a = ce("iframe");
+		var a = creatElem("iframe");
 		a.width = Ads.dimensions[c][0];
 		a.height = Ads.dimensions[c][1];
 		a.frameBorder = 0;
