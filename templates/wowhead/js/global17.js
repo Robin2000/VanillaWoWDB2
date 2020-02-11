@@ -32,7 +32,7 @@ function $(c) {
 		return b
 	}
 	if (typeof c == "string") {
-		c = ge(c)
+		c = getElement(c)
 	}
 	return c
 }
@@ -188,7 +188,7 @@ function array_apply(d, h, c) {
 		h(d[e], c, d, e)
 	}
 }
-function ge(a) {
+function getElement(a) {
 	return document.getElementById(a)
 }
 function gE(a, b) {
@@ -729,8 +729,8 @@ function g_initHeader(c) {
 		append(g, q);
 		append(l, g)
 	}
-	append(ge("ptewhjkst46"), l);
-	var b = ge("kbl34h6b43");
+	append(getElement("ptewhjkst46"), l);
+	var b = getElement("kbl34h6b43");
 	if (c != null && c >= 0 && c < mn_path.length) {
 		switch (c) {
 		case 0:
@@ -752,7 +752,7 @@ function g_initHeader(c) {
 	} else {
 		append(b, ct(String.fromCharCode(160)))
 	}
-	var r = ge("oh2345v5ks");
+	var r = getElement("oh2345v5ks");
 	var s = r.previousSibling;
 	var d = r.parentNode;
 	ns(s);
@@ -791,7 +791,7 @@ function g_initHeader(c) {
 	}
 }
 function g_initHeaderMenus() {
-	var c = ge("toptabs-menu-user");
+	var c = getElement("toptabs-menu-user");
 	if (c) {
 		c.menu = [[0, LANG.userpage, "?user=" + g_user.name], [0, LANG.settings, "?account"], [0, LANG.signout, "?account=signout"]];
 		if (location.href.match(new RegExp("?user=" + g_user.name + "$", "i"))) {
@@ -805,7 +805,7 @@ function g_initHeaderMenus() {
 		c.onmouseout = Menu.hide;
 		c.href = "?user=" + g_user.name
 	}
-	c = ge("toptabs-menu-profiles");
+	c = getElement("toptabs-menu-profiles");
 	if (c) {
 		c.menu = [];
 		if (g_user.characters) {
@@ -834,7 +834,7 @@ function g_initHeaderMenus() {
 		c.onmouseout = Menu.hide;
 		c.href = "?user=" + g_user.name + "#profiles"
 	}
-	c = ge("toptabs-menu-language");
+	c = getElement("toptabs-menu-language");
 	if (c) {
 		var g = "www",
 		d = location.href,
@@ -864,7 +864,7 @@ function g_initPath(p, f) {
 	c = null,
 	k = null,
 	o = 0,
-	l = ge("main-precontents"),
+	l = getElement("main-precontents"),
 	n = ce("div");
 	ee(l);
 	if (g_initPath.lastIt) {
@@ -1165,7 +1165,7 @@ function g_createCaptcha(c) {
 }
 function g_revealCaptcha(a) {
 	if ((g_user.permissions & 1) == 0) {
-		var c = ge("klrbetkjerbt46");
+		var c = getElement("klrbetkjerbt46");
 		if (!c.firstChild) {
 			var b = g_createCaptcha(a);
 			append(c, b);
@@ -1306,13 +1306,13 @@ function g_getPatchVersion(e) {
 g_getPatchVersion.V = ["1.12.0", "1.12.1", "1.12.2", "2.0.1", "2.0.3", "2.0.4", "2.0.5", "2.0.6", "2.0.7", "2.0.8", "2.0.10", "2.0.12", "2.1.0", "2.1.1", "2.1.2", "2.1.3", "2.2.0", "2.2.2", "2.2.3", "2.3.0", "2.3.2", "2.3.3", "2.4.0", "2.4.1", "2.4.2", "2.4.3", "3.0.2", "3.0.3", "3.0.8", "3.0.9", "3.1.0", "3.1.1", "3.1.2", "3.1.3", "???"];
 g_getPatchVersion.T = [1153540800000, 1159243200000, 1160712000000, 1165294800000, 1168318800000, 1168578000000, 1168750800000, 1169528400000, 1171342800000, 1171602000000, 1173157200000, 1175572800000, 1179806400000, 1181016000000, 1182225600000, 1184040000000, 1190692800000, 1191297600000, 1191902400000, 1194930000000, 1199768400000, 1200978000000, 1206417600000, 1207022400000, 1210651200000, 1216094400000, 1223956800000, 1225774800000, 1232427600000, 1234242000000, 1239681600000, 1240286400000, 1242705600000, 1243915200000, 9999999999999];
 function g_expandSite() {
-	ge("wrapper").className = "nosidebar";
+	getElement("wrapper").className = "nosidebar";
 	Ads.removeAll();
-	var a = ge("topbar-expand");
+	var a = getElement("topbar-expand");
 	if (a) {
 		de(a)
 	}
-	a = ge("sidebar");
+	a = getElement("sidebar");
 	if (a) {
 		de(a)
 	}
@@ -1567,7 +1567,7 @@ function co_addYourComment() {
 	a.focus()
 }
 function co_cancelReply() {
-	ge("gjkdlfgkjh436").style.display = "none";
+	getElement("gjkdlfgkjh436").style.display = "none";
 	document.forms.addcomment.elements.replyto.value = ""
 }
 function co_validateForm(b) {
@@ -1597,7 +1597,7 @@ function ss_validateForm(a) {
 }
 function ss_appendSticky() {
 try{
-	var m = ge("infobox-sticky");
+	var m = getElement("infobox-sticky");
 	var i = g_pageInfo.type;
 	var h = g_pageInfo.typeId;
 	var k = in_array(lv_screenshots, 1, function (a) {
@@ -1843,7 +1843,7 @@ var Menu = {
 			b = ce("iframe");
 			b.src = "javascript:0;";
 			b.frameBorder = 0;
-			append(ge("layers"), b);
+			append(getElement("layers"), b);
 			Menu.iframes[a] = b
 		} else {
 			b = Menu.iframes[a]
@@ -1855,7 +1855,7 @@ var Menu = {
 		if (Menu.divs[a] == null) {
 			c = ce("div");
 			c.className = "menu";
-			append(ge("layers"), c);
+			append(getElement("layers"), c);
 			Menu.divs[a] = c
 		} else {
 			c = Menu.divs[a]
@@ -2246,7 +2246,7 @@ Tabs.prototype = {
 	},
 	del: function (a) {
 		if (this.tabs[a]) {
-			ge("tab-" + this.tabs[a].id).style.display = "none";
+			getElement("tab-" + this.tabs[a].id).style.display = "none";
 			this.selectedTab = -1;
 			this.uls = [];
 			this.tabs.splice(a, 1);
@@ -2445,9 +2445,9 @@ Tabs.onLoad = function () {
 Tabs.onShow = function (d, e) {
 	var b;
 	if (e) {
-		ge("tab-" + e.id).style.display = "none"
+		getElement("tab-" + e.id).style.display = "none"
 	}
-	b = ge("tab-" + d.id);
+	b = getElement("tab-" + d.id);
 	b.style.display = "";
 	if ((this.nShows == 1 && this.poundedTab != null && this.poundedTab >= 0) || this.forceScroll) {
 		var c, a;
@@ -2660,7 +2660,7 @@ var Tooltip = {
 		var b = Tooltip.create();
 		b.style.position = "absolute";
 		b.style.left = b.style.top = "-2323px";
-		var a = ge("layers");
+		var a = getElement("layers");
 		append(a, b);
 		Tooltip.tooltip = b;
 		Tooltip.tooltipTable = gE(b, "table")[0];
@@ -2865,7 +2865,7 @@ function Listview(a) {
 			append($(this.parent), k);
 			this.container = k
 		} else {
-			this.container = ge(m)
+			this.container = getElement(m)
 		}
 	} else {
 		return
@@ -5105,7 +5105,7 @@ Listview.funcBox = {
 	},
 	coReply: function (b) {
 		document.forms.addcomment.elements.replyto.value = b.replyTo;
-		var a = ge("gjkdlfgkjh436");
+		var a = getElement("gjkdlfgkjh436");
 		gE(a, "span")[0].innerHTML = b.user;
 		a.style.display = "";
 		co_addYourComment()
@@ -8706,7 +8706,7 @@ function () {
 		container = ce("div");
 		container.className = "live-search";
 		container.style.display = "none";
-		append(ge("layers"), container);
+		append(getElement("layers"), container);
 		aE(window, "resize", adjust.bind(0, 1));
 		aE(document, "click", hide)
 	}
@@ -8997,7 +8997,7 @@ function () {
 			return
 		}
 		i = 1;
-		var p = ge("layers");
+		var p = getElement("layers");
 		d = ce("div");
 		d.className = "lightbox-overlay";
 		m = ce("div");
@@ -9554,7 +9554,7 @@ function () {
 					l(A[2])
 				}
 			} else {
-				var B = ge("dsgndslgn464d");
+				var B = getElement("dsgndslgn464d");
 				if (B) {
 					B.onclick()
 				}
@@ -9904,7 +9904,7 @@ var Ads = {
 				if (f == "medrect" && location.href.indexOf("?profile") != -1) {
 					e = true
 				}
-				var d = ge(c[b]);
+				var d = getElement(c[b]);
 				if (d) {
 					if (!e) {
 						Ads.fillSpot(f, d);
@@ -9931,7 +9931,7 @@ var Ads = {
 		for (var e in Ads.dimensions) {
 			var c = Ads.spots[e];
 			for (var b = 0, a = c.length; b < a; ++b) {
-				var d = ge(c[b]);
+				var d = getElement(c[b]);
 				if (d) {
 					de(d)
 				}
@@ -9950,7 +9950,7 @@ var Ads = {
 		for (var e in Ads.dimensions) {
 			var c = Ads.spots[e];
 			for (var b = 0, a = c.length; b < a; ++b) {
-				var d = ge(c[b]);
+				var d = getElement(c[b]);
 				if (d && !Ads.isHidden(d)) {
 					Ads.hide(d)
 				}
@@ -9969,7 +9969,7 @@ var Ads = {
 		for (var h in Ads.dimensions) {
 			var d = Ads.spots[h];
 			for (var c = 0, a = d.length; c < a; ++c) {
-				var f = ge(d[c]);
+				var f = getElement(d[c]);
 				if (f) {
 					if (!Ads.isHidden(f)) {
 						coords = ac(f);
