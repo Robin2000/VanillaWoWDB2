@@ -1,33 +1,9 @@
-/*
- global.js version 278 (09.07.2009)
- Differences from origin:
- 1. Change:
-   - http://static.wowhead.com/images/icons/	->	images/icons/
-   - http://static.wowhead.com/images/	->	templates/wowhead/images/
- 2. In function M(aa, W) of class $WowheadPower:
-   - commented locale definition from host
-   - chaned Y calculation to use locale.id
- 3. In fucntion b(W, S, X, Q, T) of class $WowheadPower:
-   - commented host definition
- 4. In function g_initHeaderMenus()
-   - commented old (host-based) locale definition
-   - added new (locale.id-based) locale definition
-   - changed language-menu to include only English and Russian
-   - changed Russian locale.id to 8 (like in WoW-client)
- 5. In g_locales array:
-   - Changed id of ruru locale to 8
- 6. Change to relative path:
-   - ?		->		?	(104)
- 7. Changed LiveSearch
-   - relocate ?search to opensearch.php?search
- 8. Added this.applySort(); in Listview prototype. May be it unneeded in some case, but i can't find such examples.
-*/
-function $(c) {
+function dom(c) {
 	if (arguments.length > 1) {
 		var b = [];
 		var a;
 		for (var d = 0, a = arguments.length; d < a; ++d) {
-			b.push($(arguments[d]))
+			b.push(dom(arguments[d]))
 		}
 		return b
 	}
@@ -36,32 +12,32 @@ function $(c) {
 	}
 	return c
 }
-function $E(a) {
-	if (!a) {
+function normalEvent(myEvent) {
+	if (!myEvent) {
 		if (typeof event != "undefined") {
-			a = event
+			myEvent = event
 		} else {
 			return null
 		}
 	}
-	if (a.which) {
-		a._button = a.which
+	if (myEvent.which) {
+		myEvent._button = myEvent.which
 	} else {
-		a._button = a.button;
+		myEvent._button = myEvent.button;
 		if (Browser.ie) {
-			if (a._button & 4) {
-				a._button = 2
+			if (myEvent._button & 4) {
+				myEvent._button = 2
 			} else {
-				if (a._button & 2) {
-					a._button = 3
+				if (myEvent._button & 2) {
+					myEvent._button = 3
 				}
 			}
 		} else {
-			a._button = a.button + 1
+			myEvent._button = myEvent.button + 1
 		}
 	}
-	a._target = a.target ? a.target: a.srcElement;
-	a._wheelDelta = a.wheelDelta ? a.wheelDelta: -a.detail;
+	myEvent._target = myEvent.target ? myEvent.target: myEvent.srcElement;
+	myEvent._wheelDelta = myEvent.wheelDelta ? myEvent.wheelDelta: -myEvent.detail;
 	return a
 }
 function $A(c) {
@@ -235,7 +211,7 @@ function rf() {
 	return false
 }
 function rf2(a) {
-	a = $E(a);
+	a = normalEvent(a);
 	if (a.ctrlKey || a.shiftKey || a.altKey || a.metaKey) {
 		return
 	}
@@ -484,7 +460,7 @@ function g_scrollTo(c, b) {
 	e = k.h,
 	g = m.x,
 	d = m.y;
-	c = $(c);
+	c = dom(c);
 	if (b == null) {
 		b = []
 	} else {
@@ -1318,7 +1294,7 @@ function g_expandSite() {
 	}
 }
 function g_insertTag(d, a, i, j) {
-	var b = $(d);
+	var b = dom(d);
 	b.focus();
 	if (b.selectionStart != null) {
 		var l = b.selectionStart,
@@ -1427,7 +1403,7 @@ function g_onClick(c, d) {
 		return false
 	};
 	c.onmouseup = function (f) {
-		f = $E(f);
+		f = normalEvent(f);
 		if (f._button == 3 || f.shiftKey || f.ctrlKey) {
 			a(2)
 		} else {
@@ -1771,7 +1747,7 @@ var Menu = {
 		Menu.selection = [ - 1];
 		Menu.currentLink = null;
 		if (! (a && d)) {
-			b = $E(b);
+			b = normalEvent(b);
 			var c = g_getCursorPos(b);
 			a = c.x;
 			d = c.y
@@ -2209,7 +2185,7 @@ var Menu = {
 function Tabs(a) {
 	cO(this, a);
 	if (this.parent) {
-		this.parent = $(this.parent)
+		this.parent = dom(this.parent)
 	} else {
 		return
 	}
@@ -2648,7 +2624,7 @@ var Tooltip = {
 		}
 	},
 	append: function (c, b) {
-		var c = $(c);
+		var c = dom(c);
 		var a = Tooltip.create(b);
 		append(c, a);
 		Tooltip.fixSafe(a, 1, 1)
@@ -2801,7 +2777,7 @@ var Tooltip = {
 		if (b) {
 			f = '<span class="' + b + '">' + f + "</span>"
 		}
-		d = $E(d);
+		d = normalEvent(d);
 		var g = g_getCursorPos(d);
 		Tooltip.prepare();
 		Tooltip.set(f);
@@ -2819,7 +2795,7 @@ var Tooltip = {
 		if (Tooltip.disabled || !Tooltip.tooltip) {
 			return
 		}
-		b = $E(b);
+		b = normalEvent(b);
 		if (!a || a < 10) {
 			a = 10
 		}
@@ -2862,7 +2838,7 @@ function Listview(a) {
 		if (this.parent) {
 			var k = ce("div");
 			k.id = m;
-			append($(this.parent), k);
+			append(dom(this.parent), k);
 			this.container = k
 		} else {
 			this.container = getElement(m)
@@ -3578,7 +3554,7 @@ Listview.prototype = {
 		}
 	},
 	itemClick: function (d, c) {
-		c = $E(c);
+		c = normalEvent(c);
 		var a = 0,
 		b = c._target;
 		while (b && a < 3) {
@@ -4153,7 +4129,7 @@ Listview.itemOut = function () {
 	this.style.backgroundColor = (this.className == "checked" ? "#242424": "transparent")
 };
 Listview.headerClick = function (a, b, c) {
-	c = $E(c);
+	c = normalEvent(c);
 	if (c._button == 3 || c.shiftKey || c.ctrlKey) {
 		Tooltip.hide();
 		setTimeout(Listview.headerFilter.bind(this, a, null), 1)
@@ -5204,7 +5180,7 @@ Listview.funcBox = {
 		this.className = "screenshot-caption"
 	},
 	ssCellClick: function (b, d) {
-		d = $E(d);
+		d = normalEvent(d);
 		if (d.shiftKey || d.ctrlKey) {
 			return
 		}
@@ -8419,7 +8395,7 @@ function () {
 		}
 	}
 	function u(event) {
-		event = $E(event);
+		event = normalEvent(event);
 		var td = event._target;
 		var O = 0;
 
@@ -8429,7 +8405,7 @@ function () {
 		
 	}
 	function a(O) {
-		O = $E(O);
+		O = normalEvent(O);
 		n(O);
 		Tooltip.move(B, z, 0, 0, o, x)
 	}
@@ -8895,7 +8871,7 @@ function () {
 		}
 	}
 	function onKeyUp(e) {
-		e = $E(e);
+		e = normalEvent(e);
 		var textbox = e._target;
 		switch (e.keyCode) {
 		case 48:
@@ -8931,7 +8907,7 @@ function () {
 		}
 	}
 	function onKeyDown(e) {
-		e = $E(e);
+		e = normalEvent(e);
 		var textbox = e._target;
 		switch (e.keyCode) {
 		case 27:
@@ -8946,7 +8922,7 @@ function () {
 		}
 	}
 	function onFocus(e) {
-		e = $E(e);
+		e = normalEvent(e);
 		var textbox = e._target;
 		if (textbox != document) {
 			currentTextbox = textbox
@@ -9010,7 +8986,7 @@ function () {
 		append(p, m)
 	}
 	function g(p) {
-		p = $E(p);
+		p = normalEvent(p);
 		switch (p.keyCode) {
 		case 27:
 			e();
@@ -9739,7 +9715,7 @@ function () {
 		return false
 	}
 	function m(C) {
-		C = $E(C);
+		C = normalEvent(C);
 		switch (C.keyCode) {
 		case 37:
 			a();
