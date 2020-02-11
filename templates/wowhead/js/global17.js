@@ -177,7 +177,7 @@ function createElem(tag, b) {
 	}
 	return a
 }
-function de(a) {
+function delElem(a) {
 	a.parentNode.removeChild(a)
 }
 function append(parent, child) {
@@ -194,14 +194,14 @@ function ee(a, b) {
 		a.removeChild(a.childNodes[b])
 	}
 }
-function ct(a) {
+function createText(a) {
 	return document.createTextNode(a)
 }
 function st(a, b) {
 	if (a.firstChild && a.firstChild.nodeType == 3) {
 		a.firstChild.nodeValue = b
 	} else {
-		aef(a, ct(b))
+		aef(a, createText(b))
 	}
 }
 function nw(a) {
@@ -697,9 +697,9 @@ function g_initHeader(c) {
 		if (j) {
 			q.className = "selected"
 		}
-		append(h, ct(mn_path[k][1].charAt(0)));
+		append(h, createText(mn_path[k][1].charAt(0)));
 		append(n, h);
-		append(n, ct(mn_path[k][1].substr(1)));
+		append(n, createText(mn_path[k][1].substr(1)));
 		append(q, n);
 		append(q, f);
 		append(g, q);
@@ -726,7 +726,7 @@ function g_initHeader(c) {
 			break
 		}
 	} else {
-		append(b, ct(String.fromCharCode(160)))
+		append(b, createText(String.fromCharCode(160)))
 	}
 	var r = getElement("oh2345v5ks");
 	var s = r.previousSibling;
@@ -857,10 +857,10 @@ function g_initPath(p, f) {
 		q.onclick = fi_toggle;
 		if (f) {
 			q.className = "disclosure-on";
-			append(q, ct(LANG.fihide))
+			append(q, createText(LANG.fihide))
 		} else {
 			q.className = "disclosure-off";
-			append(q, ct(LANG.fishow))
+			append(q, createText(LANG.fishow))
 		}
 		append(m, q);
 		append(l, m)
@@ -893,7 +893,7 @@ function g_initPath(p, f) {
 		if (g < p.length - 1 && h[3]) {
 			b.className = "menuarrow"
 		}
-		append(q, ct(h[4] == null ? h[1] : h[4]));
+		append(q, createText(h[4] == null ? h[1] : h[4]));
 		if (g == 0) {
 			q.menu = mn_path
 		} else {
@@ -924,7 +924,7 @@ function g_initPath(p, f) {
 			q.style.paddingRight = "16px";
 			q.style.color = "white";
 			q.style.cursor = "default";
-			append(q, ct("..."));
+			append(q, createText("..."));
 			q.menu = c[3];
 			q.onmouseover = Menu.show;
 			q.onmouseout = Menu.hide;
@@ -1012,7 +1012,7 @@ function g_createGlow(a, h) {
 				g.style.color = "black";
 				g.style.zIndex = 2
 			}
-			append(g, ct(a));
+			append(g, createText(a));
 			append(e, g)
 		}
 	}
@@ -1020,7 +1020,7 @@ function g_createGlow(a, h) {
 	e.className = "glow" + (h != null ? " " + h: "");
 	var f = createElem("span");
 	f.style.visibility = "hidden";
-	append(f, ct(a));
+	append(f, createText(a));
 	append(e, f);
 	return e
 }
@@ -1050,12 +1050,12 @@ function g_createProgressBar(c) {
 		e.className = "progressbar-text";
 		if (c.text) {
 			var a = createElem("del");
-			append(a, ct(c.text));
+			append(a, createText(c.text));
 			append(e, a)
 		}
 		if (c.hoverText) {
 			var b = createElem("ins");
-			append(b, ct(c.hoverText));
+			append(b, createText(c.hoverText));
 			append(e, b)
 		}
 		append(d, e)
@@ -1063,7 +1063,7 @@ function g_createProgressBar(c) {
 	e = createElem("div");
 	e.className = "progressbar-" + c.color;
 	e.style.width = c.width + "%";
-	append(e, ct(String.fromCharCode(160)));
+	append(e, createText(String.fromCharCode(160)));
 	append(d, e);
 	return d
 }
@@ -1125,7 +1125,7 @@ function g_createCaptcha(c) {
 		d.src = "?captcha&foo=" + Math.random();
 		append(b, d);
 		b.onclick = function () {
-			de(this.firstChild);
+			delElem(this.firstChild);
 			var a = createElem("img");
 			a.src = "?captcha&foo=" + Math.random();
 			append(b, a);
@@ -1286,11 +1286,11 @@ function g_expandSite() {
 	Ads.removeAll();
 	var a = getElement("topbar-expand");
 	if (a) {
-		de(a)
+		delElem(a)
 	}
 	a = getElement("sidebar");
 	if (a) {
-		de(a)
+		delElem(a)
 	}
 }
 function g_insertTag(d, a, i, j) {
@@ -1435,7 +1435,7 @@ function g_addPages(l, b) {
 			i = createElem("a");
 			i.href = (q > 1 ? b.url + b.sep + q + b.pound: b.url + b.pound)
 		}
-		append(i, ct(d != null ? d: q));
+		append(i, createText(d != null ? d: q));
 		return i
 	}
 	if (!b.pound) {
@@ -1467,7 +1467,7 @@ function g_addPages(l, b) {
 		m.push(o(b.nPages));
 		if (h < b.nPages - 1) {
 			var a = createElem("span");
-			append(a, ct("..."));
+			append(a, createText("..."));
 			m.push(a)
 		}
 		for (var g = h; g >= n; --g) {
@@ -1475,7 +1475,7 @@ function g_addPages(l, b) {
 		}
 		if (n > 2) {
 			var a = createElem("span");
-			append(a, ct("..."));
+			append(a, createText("..."));
 			m.push(a)
 		}
 		m.push(o(1));
@@ -1492,17 +1492,17 @@ function g_addPages(l, b) {
 		k.lastChild.style.marginLeft = "0"
 	}
 	var p = createElem("var");
-	append(p, ct(sprintf(LANG[b.wording[b.nItems == 1 ? 0 : 1]], b.nItems)));
+	append(p, createText(sprintf(LANG[b.wording[b.nItems == 1 ? 0 : 1]], b.nItems)));
 	if (b.nPages > 1) {
 		var a = createElem("span");
-		append(a, ct(String.fromCharCode(8211)));
+		append(a, createText(String.fromCharCode(8211)));
 		append(p, a);
 		var f = createElem("a");
 		f.className = "gotopage";
 		f.href = "javascript:;";
 		ns(f);
 		if (Browser.ie) {
-			append(f, ct(" "))
+			append(f, createText(" "))
 		}
 		f.onclick = function () {
 			var d = prompt(sprintf(LANG.prompt_gotopage, 1, b.nPages), b.page);
@@ -1605,20 +1605,20 @@ try{
 		} else {
 			l.href = "?account=signin"
 		}
-		append(l, ct(LANG.infobox_submitone));
+		append(l, createText(LANG.infobox_submitone));
 		append(n, l);
-		append(n, ct(" " + String.fromCharCode(160)));
+		append(n, createText(" " + String.fromCharCode(160)));
 		var j = createElem("b");
-		append(j, ct("|"));
+		append(j, createText("|"));
 		append(n, j);
-		append(n, ct(String.fromCharCode(160) + " "));
+		append(n, createText(String.fromCharCode(160) + " "));
 		l = createElem("a");
 		l.href = "javascript:;";
 		l.onclick = function () {
 			tabsRelated.focus( - 1);
 			return false
 		};
-		append(l, ct(sprintf(LANG.infobox_showall, lv_screenshots.length)));
+		append(l, createText(sprintf(LANG.infobox_showall, lv_screenshots.length)));
 		append(n, l);
 		append(g, n);
 		append(m, g)
@@ -1843,7 +1843,7 @@ var Menu = {
 	showDepth: function (M, c, C, B, N, F, z, v) {
 		var W, T = Menu.getDiv(M, c);
 		while (T.firstChild) {
-			de(T.firstChild)
+			delElem(T.firstChild)
 		}
 		var u = createElem("table"),
 		A = createElem("tbody"),
@@ -1877,7 +1877,7 @@ var Menu = {
 				var q = createElem("span");
 				q.className = "separator";
 				ns(q);
-				append(q, ct(Q[1]));
+				append(q, createText(Q[1]));
 				q.d = T;
 				q.onmouseover = Menu.sepOver;
 				append(J, q)
@@ -1933,7 +1933,7 @@ var Menu = {
 						}
 					}
 				}
-				append(S, ct(Q[1]));
+				append(S, createText(Q[1]));
 				append(G, S);
 				append(U, G);
 				append(J, U)
@@ -2154,7 +2154,7 @@ var Menu = {
 			} else {
 				c.onmouseover = Menu._hide
 			}
-			append(f, ct(g[e][1]));
+			append(f, createText(g[e][1]));
 			append(c, f);
 			append(h, c)
 		}
@@ -2228,7 +2228,7 @@ Tabs.prototype = {
 			this.tabs.splice(a, 1);
 			this.nShows = 0;
 			while (this.parent.firstChild) {
-				de(this.parent.firstChild)
+				delElem(this.parent.firstChild)
 			}
 			this.flush()
 		}
@@ -2302,7 +2302,7 @@ Tabs.prototype = {
 				}
 				ns(r);
 				r.onclick = Tabs.onClick.bind(f, r);
-				append(r, ct(f.caption));
+				append(r, createText(f.caption));
 				append(s, e);
 				append(s, r);
 				append(m, s)
@@ -2351,10 +2351,10 @@ Tabs.prototype = {
 					}
 					if (!Browser.ie6) {
 						o = createElem("div");
-						append(o, ct(f.caption));
+						append(o, createText(f.caption));
 						append(r, o)
 					}
-					append(q, ct(f.caption));
+					append(q, createText(f.caption));
 					append(r, q);
 					append(g, r);
 					append(this.uls[h], g)
@@ -2491,7 +2491,7 @@ var Icon = {
 		var b = getElemTag(e, "span");
 		for (var d = 0, a = b.length; d < a; ++d) {
 			if (b[d]) {
-				de(b[d])
+				delElem(b[d])
 			}
 		}
 		if (c != null && ((c > 1 && c < 2147483647) || c.length)) {
@@ -3124,7 +3124,7 @@ Listview.prototype = {
 			c.href = "javascript:;";
 			c.className = "listview-cb";
 			ns(c);
-			append(c, ct(String.fromCharCode(160)));
+			append(c, createText(String.fromCharCode(160)));
 			append(j, c);
 			append(g, j);
 			append(h, g)
@@ -3157,7 +3157,7 @@ Listview.prototype = {
 			if (d.span != null) {
 				g.colSpan = d.span
 			}
-			append(innerSpan, ct(d.name));
+			append(innerSpan, createText(d.name));
 			append(outerSpan, innerSpan);
 			append(c, outerSpan);
 			append(j, c);
@@ -3191,10 +3191,10 @@ Listview.prototype = {
 			}
 		}
 		if (!k.firstChild && this.mode != Listview.MODE_CHECKBOX) {
-			append(k, ct(String.fromCharCode(160)))
+			append(k, createText(String.fromCharCode(160)))
 		}
 		if (this.mode != Listview.MODE_CHECKBOX) {
-			append(i, ct(String.fromCharCode(160)))
+			append(i, createText(String.fromCharCode(160)))
 		}
 		append(h, this.navTop);
 		if (this.searchable) {
@@ -3305,10 +3305,10 @@ Listview.prototype = {
 		e = createElem("b");
 		c.className = "listview-nav";
 		d.href = b.href = a.href = j.href = "javascript:;";
-		append(d, ct(String.fromCharCode(171) + LANG.lvpage_first));
-		append(b, ct(String.fromCharCode(8249) + LANG.lvpage_previous));
-		append(a, ct(LANG.lvpage_next + String.fromCharCode(8250)));
-		append(j, ct(LANG.lvpage_last + String.fromCharCode(187)));
+		append(d, createText(String.fromCharCode(171) + LANG.lvpage_first));
+		append(b, createText(String.fromCharCode(8249) + LANG.lvpage_previous));
+		append(a, createText(LANG.lvpage_next + String.fromCharCode(8250)));
+		append(j, createText(LANG.lvpage_last + String.fromCharCode(187)));
 		ns(d);
 		ns(b);
 		ns(a);
@@ -3317,13 +3317,13 @@ Listview.prototype = {
 		b.onclick = this.previousPage.bind(this);
 		a.onclick = this.nextPage.bind(this);
 		j.onclick = this.lastPage.bind(this);
-		append(h, ct("a"));
-		append(f, ct("a"));
-		append(e, ct("a"));
+		append(h, createText("a"));
+		append(f, createText("a"));
+		append(e, createText("a"));
 		append(i, h);
-		append(i, ct(LANG.hyphen));
+		append(i, createText(LANG.hyphen));
 		append(i, f);
-		append(i, ct(LANG.lvpage_of));
+		append(i, createText(LANG.lvpage_of));
 		append(i, e);
 		append(c, d);
 		append(c, b);
@@ -3454,7 +3454,7 @@ Listview.prototype = {
 			a = (this.template.onNoData.bind(this, b))()
 		}
 		if (a == -1) {
-			append(this.noData, ct(this.filtered ? LANG.lvnodata2: LANG.lvnodata))
+			append(this.noData, createText(this.filtered ? LANG.lvnodata2: LANG.lvnodata))
 		}
 	},
 	getDiv: function (a) {
@@ -3538,7 +3538,7 @@ Listview.prototype = {
 				}
 			}
 			if (h != -1 && h != null) {
-				c.insertBefore(ct(h), c.firstChild)
+				c.insertBefore(createText(h), c.firstChild)
 			}
 			append(g, c)
 		}
@@ -4306,7 +4306,7 @@ Listview.extraCols = {
 			if (b.outof) {
 				var a = createElem("div");
 				a.className = "small q0";
-				append(a, ct(sprintf(LANG.lvdrop_outof, b.outof)));
+				append(a, createText(sprintf(LANG.lvdrop_outof, b.outof)));
 				append(c, a)
 			}
 			return b.count
@@ -4422,16 +4422,16 @@ Listview.funcBox = {
 		}
 		for (var d = 0, b = f.location.length; d < b; ++d) {
 			if (d > 0) {
-				append(g, ct(LANG.comma))
+				append(g, createText(LANG.comma))
 			}
 			var e = f.location[d];
 			if (e == -1) {
-				append(g, ct(LANG.ellipsis))
+				append(g, createText(LANG.ellipsis))
 			} else {
 				var c = createElem("a");
 				c.className = "q1";
 				c.href = "http://www.topwow.top/zone-" + e + ".html";
-				append(c, ct(g_zones[e]));
+				append(c, createText(g_zones[e]));
 				append(g, c)
 			}
 		}
@@ -4467,7 +4467,7 @@ Listview.funcBox = {
 				n.style.lineHeight = "26px";
 				n.style.fontSize = "11px";
 				n.style.whiteSpace = "nowrap";
-				append(n, ct(p));
+				append(n, createText(p));
 				append(k, n);
 				append(l, k)
 			}
@@ -4537,7 +4537,7 @@ Listview.funcBox = {
 		if (n && m == b.length) {
 			k = createElem("div");
 			k.style.paddingTop = "4px";
-			append(k, ct(n));
+			append(k, createText(n));
 			append(e, k)
 		}
 	},
@@ -4605,7 +4605,7 @@ Listview.funcBox = {
 			}
 			new Ajax(e);
 			var b = createElem("span");
-			append(b, ct(LANG.lvcomment_reported));
+			append(b, createText(LANG.lvcomment_reported));
 			this.parentNode.replaceChild(b, this)
 		}
 	},
@@ -4700,8 +4700,8 @@ Listview.funcBox = {
 		b = b.childNodes[b.childNodes.length - 3];
 		b.lastChild.firstChild.nodeValue = (e.rating > 0 ? "+": "") + e.rating;
 		Tooltip.hide();
-		de(b.nextSibling);
-		de(b.nextSibling)
+		delElem(b.nextSibling);
+		delElem(b.nextSibling)
 	},
 	coDelete: function (a) {
 		if (a.purged) {
@@ -4743,7 +4743,7 @@ Listview.funcBox = {
 		d.value = LANG.compose_save;
 		d.onclick = Listview.funcBox.coEditButton.bind(d, g, true, e);
 		append(b, d);
-		append(b, ct(" "));
+		append(b, createText(" "));
 		d = createElem("input");
 		d.type = "button";
 		d.value = LANG.compose_cancel;
@@ -4778,18 +4778,18 @@ Listview.funcBox = {
 		if (l == -1 || l == 0) {
 			var j = createElem("div");
 			j.className = "comment-edit-modes";
-			append(j, ct(LANG.compose_mode));
+			append(j, createText(LANG.compose_mode));
 			var o = createElem("a");
 			o.className = "selected";
 			o.onclick = Listview.funcBox.coModeLink.bind(o, 1, l, b);
 			o.href = "javascript:;";
-			append(o, ct(LANG.compose_edit));
+			append(o, createText(LANG.compose_edit));
 			append(j, o);
-			append(j, ct("|"));
+			append(j, createText("|"));
 			var u = createElem("a");
 			u.onclick = Listview.funcBox.coModeLink.bind(u, 2, l, b);
 			u.href = "javascript:;";
-			append(u, ct(LANG.compose_preview));
+			append(u, createText(LANG.compose_preview));
 			append(j, u);
 			append(m, j)
 		}
@@ -4837,7 +4837,7 @@ Listview.funcBox = {
 			} else {
 				v.className = "disclosure-on"
 			}
-			append(v, ct(LANG.compose_livepreview));
+			append(v, createText(LANG.compose_livepreview));
 			append(d, v);
 			v.href = "javascript:;";
 			v.onclick = function () {
@@ -4964,9 +4964,9 @@ Listview.funcBox = {
 		append(h, g);
 		append(h, createElem("br"));
 		if (l == 4) {
-			append(h, ct(sprintf(LANG.compose_limit2, f, 3)))
+			append(h, createText(sprintf(LANG.compose_limit2, f, 3)))
 		} else {
-			append(h, ct(sprintf(LANG.compose_limit, f)))
+			append(h, createText(sprintf(LANG.compose_limit, f)))
 		}
 		append(m, h);
 		return g
@@ -5028,7 +5028,7 @@ Listview.funcBox = {
 		}
 		f.divBody.style.display = "";
 		f.divLinks.firstChild.style.display = "";
-		de(f.divEdit);
+		delElem(f.divEdit);
 		f.divEdit = null
 	},
 	coGetCharLimit: function (a) {
@@ -5140,7 +5140,7 @@ Listview.funcBox = {
 			var c = new Date(e[0]);
 			var d = (g_serverTime - c) / 1000;
 			if (b.childNodes[3].firstChild) {
-				de(b.childNodes[3].firstChild)
+				delElem(b.childNodes[3].firstChild)
 			}
 			Listview.funcBox.coFormatDate(b.childNodes[3], d, c);
 			var a = "";
@@ -5170,7 +5170,7 @@ Listview.funcBox = {
 		if (h == 1) {
 			a = a.substr(0, 1).toUpperCase() + a.substr(1)
 		}
-		d = ct(a);
+		d = createText(a);
 		append(f, d)
 	},
 	ssCellOver: function () {
@@ -5215,36 +5215,36 @@ Listview.funcBox = {
 			h = 1;
 			k = createElem("span");
 			k.className = "moneygold";
-			append(k, ct(Math.floor(a / 10000)));
+			append(k, createText(Math.floor(a / 10000)));
 			append(g, k);
 			a %= 10000
 		}
 		if (a >= 100) {
 			if (h) {
-				append(g, ct(" "))
+				append(g, createText(" "))
 			} else {
 				h = 1
 			}
 			k = createElem("span");
 			k.className = "moneysilver";
-			append(k, ct(Math.floor(a / 100)));
+			append(k, createText(Math.floor(a / 100)));
 			append(g, k);
 			a %= 100
 		}
 		if (a >= 1 || f != null) {
 			if (h) {
-				append(g, ct(" "))
+				append(g, createText(" "))
 			} else {
 				h = 1
 			}
 			k = createElem("span");
 			k.className = "moneycopper";
-			append(k, ct(a));
+			append(k, createText(a));
 			append(g, k)
 		}
 		if (m != null && m != 0) {
 			if (h) {
-				append(g, ct(" "))
+				append(g, createText(" "))
 			} else {
 				h = 1
 			}
@@ -5253,12 +5253,12 @@ Listview.funcBox = {
 			k.onmouseover = Listview.funcBox.moneyHonorOver;
 			k.onmousemove = Tooltip.cursorUpdate;
 			k.onmouseout = Tooltip.hide;
-			append(k, ct(number_format(Math.abs(m))));
+			append(k, createText(number_format(Math.abs(m))));
 			append(g, k)
 		}
 		if (j >= 1) {
 			if (h) {
-				append(g, ct(" "))
+				append(g, createText(" "))
 			} else {
 				h = 1
 			}
@@ -5267,13 +5267,13 @@ Listview.funcBox = {
 			k.onmouseover = Listview.funcBox.moneyArenaOver;
 			k.onmousemove = Tooltip.cursorUpdate;
 			k.onmouseout = Tooltip.hide;
-			append(k, ct(number_format(j)));
+			append(k, createText(number_format(j)));
 			append(g, k)
 		}
 		if (c != null) {
 			for (var b = 0; b < c.length; ++b) {
 				if (h) {
-					append(g, ct(" "))
+					append(g, createText(" "))
 				} else {
 					h = 1
 				}
@@ -5283,13 +5283,13 @@ Listview.funcBox = {
 				k.href = "http://www.topwow.top/item-" + n + ".html";
 				k.className = "moneyitem";
 				k.style.backgroundImage = "url(images/icons/tiny/" + g_items.getIcon(n).toLowerCase() + ".gif)";
-				append(k, ct(e));
+				append(k, createText(e));
 				append(g, k)
 			}
 		}
 		if (l != null) {
 			if (h) {
-				append(g, ct(" "))
+				append(g, createText(" "))
 			} else {
 				h = 1
 			}
@@ -5298,7 +5298,7 @@ Listview.funcBox = {
 			k.onmouseover = Listview.funcBox.moneyAchievementOver;
 			k.onmousemove = Tooltip.cursorUpdate;
 			k.onmouseout = Tooltip.hide;
-			append(k, ct(number_format(l)));
+			append(k, createText(number_format(l)));
 			append(g, k)
 		}
 	},
@@ -5389,7 +5389,7 @@ Listview.templates = {
 				var b = createElem("a");
 				b.style.fontFamily = "Verdana, sans-serif";
 				b.href = this.template.getItemLink(d);
-				append(b, ct(d.name));
+				append(b, createText(d.name));
 				if (d.expansion) {
 					var c = createElem("span");
 					c.className = (d.expansion == 1 ? "bc-icon": "wotlk-icon");
@@ -5420,7 +5420,7 @@ Listview.templates = {
 				if (b.side) {
 					var a = createElem("span");
 					a.className = (b.side == 1 ? "alliance-icon": "horde-icon");
-					append(a, ct(g_sides[b.side]));
+					append(a, createText(g_sides[b.side]));
 					append(c, a)
 				}
 			},
@@ -5447,7 +5447,7 @@ Listview.templates = {
 						c += "." + d.category
 					}
 					b.href = c;
-					append(b, ct(Listview.funcBox.getFactionCategory(d.category, d.category2)));
+					append(b, createText(Listview.funcBox.getFactionCategory(d.category, d.category2)));
 					append(e, b)
 				}
 			},
@@ -5498,7 +5498,7 @@ Listview.templates = {
 					Icon.getLink(f.firstChild).rel = m.rel;
 					l.rel = m.rel
 				}
-				append(l, ct(m.name.substring(1)));
+				append(l, createText(m.name.substring(1)));
 				append(c, l);
 				if (typeof fi_nExtraCols == "number" && fi_nExtraCols >= 5) {
 					if (m.source != null && m.source.length == 1) {
@@ -5516,32 +5516,32 @@ Listview.templates = {
 							}
 							l.href = "http://www.topwow.top/" + g_types[b.t] + "-" + b.ti + ".html";
 							if (b.n.length <= 30) {
-								append(l, ct(b.n))
+								append(l, createText(b.n))
 							} else {
 								l.title = b.n;
-								append(l, ct(trim(b.n.substr(0, 27)) + "..."))
+								append(l, createText(trim(b.n.substr(0, 27)) + "..."))
 							}
 							append(h, l)
 						} else {
-							append(h, ct(Listview.funcBox.getUpperSource(m.source[0], b)))
+							append(h, createText(Listview.funcBox.getUpperSource(m.source[0], b)))
 						}
 						var e = Listview.funcBox.getLowerSource(m.source[0], b, j);
 						if (e != null) {
-							append(h, ct(LANG.hyphen));
+							append(h, createText(LANG.hyphen));
 							if (e.pretext) {
-								append(h, ct(e.pretext))
+								append(h, createText(e.pretext))
 							}
 							if (e.url) {
 								var l = createElem("a");
 								l.className = "q1";
 								l.href = e.url;
-								append(l, ct(e.text));
+								append(l, createText(e.text));
 								append(h, l)
 							} else {
-								append(h, ct(e.text))
+								append(h, createText(e.text))
 							}
 							if (e.posttext) {
-								append(h, ct(e.posttext))
+								append(h, createText(e.posttext))
 							}
 						}
 						append(c, h)
@@ -5689,33 +5689,33 @@ Listview.templates = {
 							}
 							j.href = "http://www.topwow.top/" + g_types[c.t] + "-" + c.ti + ".html";
 							if (this.iconSize == 0 || c.n.length <= 20) {
-								append(j, ct(c.n))
+								append(j, createText(c.n))
 							} else {
 								j.title = c.n;
-								append(j, ct(trim(c.n.substr(0, 17)) + "..."))
+								append(j, createText(trim(c.n.substr(0, 17)) + "..."))
 							}
 							append(d, j)
 						} else {
-							append(d, ct(Listview.funcBox.getUpperSourcreateElem(k.source[0], c)))
+							append(d, createText(Listview.funcBox.getUpperSourcreateElem(k.source[0], c)))
 						}
 						var f = Listview.funcBox.getLowerSourcreateElem(k.source[0], c, h);
 						if (this.iconSize != 0 && f != null) {
 							var b = createElem("div");
 							b.className = "small2";
 							if (f.pretext) {
-								append(b, ct(f.pretext))
+								append(b, createText(f.pretext))
 							}
 							if (f.url) {
 								var j = creatElem("a");
 								j.className = "q1";
 								j.href = f.url;
-								append(j, ct(f.text));
+								append(j, createText(f.text));
 								append(b, j)
 							} else {
-								append(b, ct(f.text))
+								append(b, createText(f.text))
 							}
 							if (f.posttext) {
-								append(b, ct(f.posttext))
+								append(b, createText(f.posttext))
 							}
 							append(d, b)
 						}
@@ -5779,7 +5779,7 @@ Listview.templates = {
 				var b = creatElem("a");
 				var c = Listview.funcBox.getItemType(d.classs, d.subclass, d.subsubclass);
 				b.href = c.url;
-				append(b, ct(c.text));
+				append(b, createText(c.text));
 				append(e, b)
 			},
 			getVisibleText: function (a) {
@@ -5883,12 +5883,12 @@ Listview.templates = {
 				b.className = "q" + (7 - parseInt(c.name.charAt(0)));
 				b.style.fontFamily = "Verdana, sans-serif";
 				b.href = this.template.getItemLink(c);
-				append(b, ct(c.name.substring(1)));
+				append(b, createText(c.name.substring(1)));
 				append(f, b);
 				if (c.note) {
 					var e = creatElem("div");
 					e.className = "small";
-					append(e, ct(g_itemset_notes[c.note]));
+					append(e, createText(g_itemset_notes[c.note]));
 					append(f, e)
 				}
 			},
@@ -6017,12 +6017,12 @@ Listview.templates = {
 				var b = creatElem("a");
 				b.style.fontFamily = "Verdana, sans-serif";
 				b.href = this.template.getItemLink(c);
-				append(b, ct(c.name));
+				append(b, createText(c.name));
 				append(f, b);
 				if (c.tag != null) {
 					var e = creatElem("div");
 					e.className = "small";
-					append(e, ct("<" + c.tag + ">"));
+					append(e, createText("<" + c.tag + ">"));
 					append(f, e)
 				}
 			},
@@ -6049,7 +6049,7 @@ Listview.templates = {
 				if (a.classification) {
 					var b = creatElem("div");
 					b.className = "small";
-					append(b, ct(g_npc_classifications[a.classification]));
+					append(b, createText(g_npc_classifications[a.classification]));
 					append(c, b)
 				}
 				if (a.classification == 3) {
@@ -6117,11 +6117,11 @@ Listview.templates = {
 				for (var a = 0; a < 2; ++a) {
 					if (b.react[a] != null) {
 						if (f++>0) {
-							append(g, ct(" "))
+							append(g, createText(" "))
 						}
 						var e = creatElem("span");
 						e.className = (b.react[a] < 0 ? "q10": (b.react[a] > 0 ? "q2": "q"));
-						append(e, ct(d[a]));
+						append(e, createText(d[a]));
 						append(g, e)
 					}
 				}
@@ -6137,7 +6137,7 @@ Listview.templates = {
 					var b = creatElem("a");
 					b.className = "q1";
 					b.href = "?npcs&filter=cr=35;crs=0;crv=" + c.skin;
-					append(b, ct(c.skin));
+					append(b, createText(c.skin));
 					append(d, b)
 				}
 			},
@@ -6152,7 +6152,7 @@ Listview.templates = {
 				d.className = "q1";
 				var b = creatElem("a");
 				b.href = "?pet=" + c.family;
-				append(b, ct(g_pet_families[c.family]));
+				append(b, createText(g_pet_families[c.family]));
 				append(d, b)
 			},
 			getVisibleText: function (a) {
@@ -6172,7 +6172,7 @@ Listview.templates = {
 				d.className = "small q1";
 				var b = creatElem("a");
 				b.href = "http://www.topwow.top/npcs-" + c.type +".html";
-				append(b, ct(g_npc_types[c.type]));
+				append(b, createText(g_npc_types[c.type]));
 				append(d, b)
 			},
 			getVisibleText: function (a) {
@@ -6201,7 +6201,7 @@ Listview.templates = {
 				var b = creatElem("a");
 				b.style.fontFamily = "Verdana, sans-serif";
 				b.href = this.template.getItemLink(c);
-				append(b, ct(c.name));
+				append(b, createText(c.name));
 				append(d, b)
 			}
 		},
@@ -6235,7 +6235,7 @@ Listview.templates = {
 				d.className = "small q1";
 				var b = creatElem("a");
 				b.href = "http://www.topwow.top/objects-" + c.type +".html";
-				append(b, ct(getGoType(c.type)));
+				append(b, createText(getGoType(c.type)));
 				append(d, b)
 			},
 			getVisibleText: function (a) {
@@ -6264,7 +6264,7 @@ Listview.templates = {
 				var b = creatElem("a");
 				b.style.fontFamily = "Verdana, sans-serif";
 				b.href = this.template.getItemLink(c);
-				append(b, ct(c.name));
+				append(b, createText(c.name));
 				append(d, b)
 			}
 		},
@@ -6279,13 +6279,13 @@ Listview.templates = {
 					b.className = "small";
 					nw(b);
 					if (a.type && a.daily) {
-						append(b, ct(sprintf(LANG.lvquest_daily, g_quest_types[a.type])))
+						append(b, createText(sprintf(LANG.lvquest_daily, g_quest_types[a.type])))
 					} else {
 						if (a.daily) {
-							append(b, ct(LANG.daily))
+							append(b, createText(LANG.daily))
 						} else {
 							if (a.type) {
-								append(b, ct(g_quest_types[a.type]))
+								append(b, createText(g_quest_types[a.type]))
 							}
 						}
 					}
@@ -6332,7 +6332,7 @@ Listview.templates = {
 							b.className = "horde-icon"
 						}
 					}
-					append(b, ct(g_sides[a.side]));
+					append(b, createText(g_sides[a.side]));
 					append(c, b)
 				} else {
 					return - 1
@@ -6372,7 +6372,7 @@ Listview.templates = {
 						c.style.padding = "4px"
 					}
 					if (b.xp > 0) {
-						append(c, ct(sprintf(LANG.lvquest_xp, b.xp) + (b.money > 0 ? " + ": "")))
+						append(c, createText(sprintf(LANG.lvquest_xp, b.xp) + (b.money > 0 ? " + ": "")))
 					}
 					if (b.money > 0) {
 						Listview.funcBox.appendMoney(c, b.money)
@@ -6416,7 +6416,7 @@ Listview.templates = {
 					d.className = "small q1";
 					var b = creatElem("a");
 					b.href = "http://www.topwow.top/quests-" + c.category2 + "." + c.category + ".html";
-					append(b, ct(Listview.funcBox.getQuestCategory(c.category)));
+					append(b, createText(Listview.funcBox.getQuestCategory(c.category)));
 					append(d, b)
 				}
 			},
@@ -6466,12 +6466,12 @@ Listview.templates = {
 				}
 				n.style.fontFamily = "Verdana, sans-serif";
 				n.href = this.template.getItemLink(g);
-				append(n, ct(g.name.substring(1)));
+				append(n, createText(g.name.substring(1)));
 				append(b, n);
 				if (g.rank) {
 					var j = creatElem("div");
 					j.className = "small2";
-					append(j, ct(g.rank));
+					append(j, createText(g.rank));
 					append(b, j)
 				}
 				if (g.races != null) {
@@ -6483,16 +6483,16 @@ Listview.templates = {
 					j.style.right = j.style.bottom = "3px";
 					var m = g.races.toString();
 					if (m == "1,3,4,7,11") {
-						append(j, ct(g_sides[1]))
+						append(j, createText(g_sides[1]))
 					} else {
 						if (m == "2,5,6,8,10") {
-							append(j, ct(g_sides[2]))
+							append(j, createText(g_sides[2]))
 						} else {
 							for (var f = 0, h = g.races.length; f < h; ++f) {
 								if (f > 0) {
-									append(j, ct(LANG.comma))
+									append(j, createText(LANG.comma))
 								}
-								append(j, ct(g_chr_races[g.races[f]]))
+								append(j, createText(g_chr_races[g.races[f]]))
 							}
 						}
 					}
@@ -6620,10 +6620,10 @@ Listview.templates = {
 					b.className = "small";
 					for (var e = 0, g = f.skill.length; e < g; ++e) {
 						if (e > 0) {
-							append(b, ct(LANG.comma))
+							append(b, createText(LANG.comma))
 						}
 						if (f.skill[e] == -1) {
-							append(b, ct(LANG.ellipsis))
+							append(b, createText(LANG.ellipsis))
 						} else {
 							if (in_array([7, -2, -3, -5, -6, -7, 11, 9], f.cat) != -1) {
 								var l = creatElem("a");
@@ -6633,27 +6633,27 @@ Listview.templates = {
 								} else {
 									l.href = "?spells=" + f.cat + "." + (f.chrclass ? f.chrclass + ".": "") + f.skill[e]
 								}
-								append(l, ct(g_spell_skills[f.skill[e]]));
+								append(l, createText(g_spell_skills[f.skill[e]]));
 								append(b, l)
 							} else {
-								append(b, ct(g_spell_skills[f.skill[e]]))
+								append(b, createText(g_spell_skills[f.skill[e]]))
 							}
 						}
 					}
 					if (f.learnedat > 0) {
-						append(b, ct(" ("));
+						append(b, createText(" ("));
 						var c = creatElem("span");
 						if (f.learnedat == 9999) {
 							c.className = "q0";
-							append(c, ct("??"))
+							append(c, createText("??"))
 						} else {
 							if (f.learnedat > 0) {
-								append(c, ct(f.learnedat));
+								append(c, createText(f.learnedat));
 								c.style.fontWeight = "bold"
 							}
 						}
 						append(b, c);
-						append(b, ct(")"))
+						append(b, createText(")"))
 					}
 					append(d, b);
 					if (f.colors != null) {
@@ -6673,11 +6673,11 @@ Listview.templates = {
 							for (var e = 0; e < h.length; ++e) {
 								if (h[e] > 0) {
 									if (m++>0) {
-										append(b, ct(" "))
+										append(b, createText(" "))
 									}
 									var k = creatElem("span");
 									k.className = "r" + (e + 1);
-									append(k, ct(h[e]));
+									append(k, createText(h[e]));
 									append(b, k)
 								}
 							}
@@ -6728,7 +6728,7 @@ Listview.templates = {
 				var b = creatElem("a");
 				b.style.fontFamily = "Verdana, sans-serif";
 				b.href = this.template.getItemLink(c);
-				append(b, ct(c.name));
+				append(b, createText(c.name));
 				if (c.expansion) {
 					var d = creatElem("span");
 					d.className = (c.expansion == 1 ? "bc-icon": "wotlk-icon");
@@ -6808,17 +6808,17 @@ Listview.templates = {
 				var p = creatElem("a");
 				p.href = "javascript:;";
 				p.onclick = Listview.funcBox.coToggleVis.bind(p, t);
-				append(p, ct(LANG.lvcomment_show));
+				append(p, createText(LANG.lvcomment_show));
 				append(g, p);
-				append(g, ct(" " + String.fromCharCode(160) + " "))
+				append(g, createText(" " + String.fromCharCode(160) + " "))
 			}
 			var n = creatElem("b");
-			append(n, ct(LANG.lvcomment_rating));
+			append(n, createText(LANG.lvcomment_rating));
 			var q = creatElem("span");
-			append(q, ct((t.rating > 0 ? "+": "") + t.rating));
+			append(q, createText((t.rating > 0 ? "+": "") + t.rating));
 			append(n, q);
 			append(g, n);
-			append(g, ct(" "));
+			append(g, createText(" "));
 			var B = creatElem("span");
 			var j = creatElem("a"),
 			K = creatElem("a");
@@ -6833,33 +6833,33 @@ Listview.templates = {
 					A.onmouseover = Listview.funcBox.coCustomRatingOver;
 					A.onmousemove = Tooltip.cursorUpdate;
 					A.onmouseout = Tooltip.hide;
-					append(A, ct("[~]"));
+					append(A, createText("[~]"));
 					append(B, A);
-					append(B, ct(" "))
+					append(B, createText(" "))
 				}
 			} else {
 				j.href = K.href = "?account=signin"
 			}
-			append(j, ct("[+]"));
+			append(j, createText("[+]"));
 			j.onmouseover = Listview.funcBox.coPlusRatingOver;
 			K.onmouseover = Listview.funcBox.coMinusRatingOver;
 			j.onmousemove = K.onmousemove = Tooltip.cursorUpdate;
 			j.onmouseout = K.onmouseout = Tooltip.hide;
-			append(K, ct("[-]"));
+			append(K, createText("[-]"));
 			append(B, K);
-			append(B, ct(" "));
+			append(B, createText(" "));
 			append(B, j);
 			append(g, B);
 			if (!i) {
 				B.style.display = "none"
 			}
 			append(w, g);
-			append(w, ct(LANG.lvcomment_by));
+			append(w, createText(LANG.lvcomment_by));
 			var G = creatElem("a");
 			G.href = "?user=" + t.user;
-			append(G, ct(t.user));
+			append(G, createText(t.user));
 			append(w, G);
-			append(w, ct(" "));
+			append(w, createText(" "));
 			var a = creatElem("a");
 			a.className = "q0";
 			a.id = "comments:id=" + t.id;
@@ -6867,7 +6867,7 @@ Listview.templates = {
 			Listview.funcBox.coFormatDate(a, F, s);
 			a.style.cursor = "pointer";
 			append(w, a);
-			append(w, ct(LANG.lvcomment_patch1 + g_getPatchVersion(s) + LANG.lvcomment_patch2));
+			append(w, createText(LANG.lvcomment_patch1 + g_getPatchVersion(s) + LANG.lvcomment_patch2));
 			append(H, w);
 			m.className = "comment-body" + Listview.funcBox.coGetColor(t);
 			if (t.indent) {
@@ -6882,14 +6882,14 @@ Listview.templates = {
 				var E = creatElem("div");
 				t.divLastEdit = E;
 				E.className = "comment-lastedit";
-				append(E, ct(LANG.lvcomment_lastedit));
+				append(E, createText(LANG.lvcomment_lastedit));
 				var o = creatElem("a");
-				append(o, ct(" "));
+				append(o, createText(" "));
 				append(E, o);
-				append(E, ct(" "));
+				append(E, createText(" "));
 				var z = creatElem("span");
 				append(E, z);
-				append(E, ct(" "));
+				append(E, createText(" "));
 				Listview.funcBox.coUpdateLastEdit(t);
 				if (I) {
 					E.style.display = "none"
@@ -6900,40 +6900,40 @@ Listview.templates = {
 			if (C) {
 				var b = creatElem("span");
 				var y = creatElem("a");
-				append(y, ct(LANG.lvcomment_edit));
+				append(y, createText(LANG.lvcomment_edit));
 				y.onclick = Listview.funcBox.coEdit.bind(this, t, 0);
 				ns(y);
 				y.href = "javascript:;";
 				append(b, y);
-				append(b, ct("|"));
+				append(b, createText("|"));
 				append(k, b)
 			}
 			if (v) {
 				var l = creatElem("span");
 				var r = creatElem("a");
-				append(r, ct(LANG.lvcomment_delete));
+				append(r, createText(LANG.lvcomment_delete));
 				r.onclick = Listview.funcBox.coDelete.bind(this, t);
 				ns(r);
 				r.href = "javascript:;";
 				append(l, r);
-				append(l, ct("|"));
+				append(l, createText("|"));
 				append(k, l)
 			}
 			if (c) {
 				var x = creatElem("span");
 				var e = creatElem("a");
-				append(e, ct(LANG.lvcomment_detach));
+				append(e, createText(LANG.lvcomment_detach));
 				e.onclick = Listview.funcBox.coDetach.bind(this, t);
 				ns(e);
 				e.href = "javascript:;";
 				append(x, e);
-				append(x, ct("|"));
+				append(x, createText("|"));
 				append(k, x)
 			}
 			if (J) {
 				var u = creatElem("span");
 				var f = creatElem("a");
-				append(f, ct(LANG.lvcomment_report));
+				append(f, createText(LANG.lvcomment_report));
 				if (g_user.id > 0) {
 					f.onclick = Listview.funcBox.coReportClick.bind(f, t, 0);
 					f.href = "javascript:;"
@@ -6941,11 +6941,11 @@ Listview.templates = {
 					f.href = "?account=signin"
 				}
 				append(u, f);
-				append(u, ct("|"));
+				append(u, createText("|"));
 				append(k, u)
 			}
 			var h = creatElem("a");
-			append(h, ct(LANG.lvcomment_reply));
+			append(h, createText(LANG.lvcomment_reply));
 			if (g_user.id > 0) {
 				h.onclick = Listview.funcBox.coReply.bind(this, t);
 				h.href = "javascript:;"
@@ -6968,23 +6968,23 @@ Listview.templates = {
 			} else {
 				b.href = "?account=signin"
 			}
-			append(b, ct(LANG.lvcomment_add));
+			append(b, createText(LANG.lvcomment_add));
 			append(f, b);
 			var e = creatElem("span");
 			e.style.padding = "0 5px";
 			e.style.color = "white";
-			append(e, ct("|"));
+			append(e, createText("|"));
 			append(f, e);
-			append(f, ct(LANG.lvcomment_sort));
+			append(f, createText(LANG.lvcomment_sort));
 			var c = creatElem("a");
 			c.href = "javascript:;";
-			append(c, ct(LANG.lvcomment_sortdate));
+			append(c, createText(LANG.lvcomment_sortdate));
 			c.onclick = Listview.funcBox.coSortDate.bind(this, c);
 			append(f, c);
-			append(f, ct(LANG.comma));
+			append(f, createText(LANG.comma));
 			var d = creatElem("a");
 			d.href = "javascript:;";
-			append(d, ct(LANG.lvcomment_sortrating));
+			append(d, createText(LANG.lvcomment_sortrating));
 			d.onclick = Listview.funcBox.coSortHighestRatedFirst.bind(this, d);
 			append(f, d);
 			c.onclick();
@@ -7036,11 +7036,11 @@ Listview.templates = {
 				var b = creatElem("a");
 				b.style.fontFamily = "Verdana, sans-serif";
 				b.href = this.template.getItemLink(f);
-				append(b, ct(f.subject));
+				append(b, createText(f.subject));
 				append(e, b);
 				var c = creatElem("div");
 				c.className = "small";
-				append(c, ct(LANG.types[f.type][0]));
+				append(c, createText(LANG.types[f.type][0]));
 				append(e, c)
 			}
 		},
@@ -7056,7 +7056,7 @@ Listview.templates = {
 				if (j.rating >= 10) {
 					g.className += " comment-green"
 				}
-				append(g, ct(Markup.removeTags(j.preview, {
+				append(g, createText(Markup.removeTags(j.preview, {
 					mode: (j.rating != null ? Markup.MODE_COMMENT: Markup.MODE_ARTICLE)
 				})));
 				append(i, g);
@@ -7066,17 +7066,17 @@ Listview.templates = {
 					g = creatElem("div");
 					g.className = "small3";
 					if (f) {
-						append(g, ct(LANG.lvcomment_by));
+						append(g, createText(LANG.lvcomment_by));
 						var b = creatElem("a");
 						b.href = "?user=" + j.user;
-						append(b, ct(j.user));
+						append(b, createText(j.user));
 						append(g, b);
 						if (e) {
-							append(g, ct(LANG.hyphen))
+							append(g, createText(LANG.hyphen))
 						}
 					}
 					if (e) {
-						append(g, ct(LANG.lvcomment_rating + (j.rating > 0 ? "+": "") + j.rating));
+						append(g, createText(LANG.lvcomment_rating + (j.rating > 0 ? "+": "") + j.rating));
 						var c = creatElem("span"),
 						h = "";
 						c.className = "q10";
@@ -7087,7 +7087,7 @@ Listview.templates = {
 								h = LANG.lvcomment_purged
 							}
 						}
-						append(c, ct(h));
+						append(c, createText(h));
 						append(g, c)
 					}
 					append(i, g)
@@ -7137,10 +7137,10 @@ Listview.templates = {
 			if (m) {
 				q = creatElem("a");
 				q.href = "?user=" + k.user;
-				append(q, ct(k.user));
-				append(p, ct(LANG.lvscreenshot_from));
+				append(q, createText(k.user));
+				append(p, createText(LANG.lvscreenshot_from));
 				append(p, q);
-				append(p, ct(" "))
+				append(p, createText(" "))
 			}
 			var j = creatElem("span");
 			if (m) {
@@ -7163,14 +7163,14 @@ Listview.templates = {
 				r.className = "screenshot-caption";
 				if (g) {
 					var c = creatElem("small");
-					append(c, ct(LANG.types[k.type][0] + LANG.colon));
+					append(c, createText(LANG.types[k.type][0] + LANG.colon));
 					var b = creatElem("a");
-					append(b, ct(k.subject));
+					append(b, createText(k.subject));
 					b.href = "http://www.topwow.top/" + g_types[k.type] + "-" + k.typeId +".html";
 					append(c, b);
 					append(r, c);
 					if (h && k.caption.length) {
-						append(c, ct(" (...)"))
+						append(c, createText(" (...)"))
 					}
 					append(c, creatElem("br"))
 				}
@@ -7196,7 +7196,7 @@ Listview.templates = {
 				} else {
 					b.href = "?account=signin"
 				}
-				append(b, ct(LANG.lvscreenshot_submit));
+				append(b, createText(LANG.lvscreenshot_submit));
 				append(c, b);
 				append(d, c)
 			}
@@ -7264,7 +7264,7 @@ Listview.templates = {
 				var c = creatElem("a");
 				c.style.fontFamily = "Verdana, sans-serif";
 				c.href = this.template.getItemLink(b);
-				append(c, ct(b.name));
+				append(c, createText(b.name));
 				if (b.expansion) {
 					var f = creatElem("span");
 					f.className = (b.expansion == 1 ? "bc-icon": "wotlk-icon");
@@ -7281,7 +7281,7 @@ Listview.templates = {
 					h.style.position = "absolute";
 					h.style.right = "3px";
 					h.style.bottom = "0px";
-					append(h, ct(LANG.lvpet_exotic));
+					append(h, createText(LANG.lvpet_exotic));
 					append(j, h)
 				}
 				append(k, j)
@@ -7457,7 +7457,7 @@ Listview.templates = {
 					d.className = "small q1";
 					var c = creatElem("a");
 					c.href = "?pets=" + b.type;
-					append(c, ct(g_pet_types[b.type]));
+					append(c, createText(g_pet_types[b.type]));
 					append(d, c)
 				}
 			},
@@ -7477,11 +7477,11 @@ Listview.templates = {
 			var a = creatElem("span");
 			if (!isNaN(b) && b > 0) {
 				a.className = "q2";
-				append(a, ct("+" + b + "%"))
+				append(a, createText("+" + b + "%"))
 			} else {
 				if (!isNaN(b) && b < 0) {
 					a.className = "q10";
-					append(a, ct(b + "%"))
+					append(a, createText(b + "%"))
 				}
 			}
 			return a
@@ -7516,12 +7516,12 @@ Listview.templates = {
 				e.style.fontFamily = "Verdana, sans-serif";
 				e.href = this.template.getItemLink(c);
 				e.rel = b;
-				append(e, ct(c.name));
+				append(e, createText(c.name));
 				append(j, e);
 				if (c.description != null) {
 					var h = creatElem("div");
 					h.className = "small";
-					append(h, ct(c.description));
+					append(h, createText(c.description));
 					append(j, h)
 				}
 			},
@@ -7543,7 +7543,7 @@ Listview.templates = {
 					var c = creatElem("a");
 					c.className = "q1";
 					c.href = "http://www.topwow.top/zone-" + b.zone +".html";
-					append(c, ct(g_zones[b.zone]));
+					append(c, createText(g_zones[b.zone]));
 					append(d, c)
 				}
 			},
@@ -7569,7 +7569,7 @@ Listview.templates = {
 							b.className = "horde-icon"
 						}
 					}
-					append(b, ct(g_sides[a.side]));
+					append(b, createText(g_sides[a.side]));
 					append(c, b)
 				} else {
 					return - 1
@@ -7605,7 +7605,7 @@ Listview.templates = {
 				d.className = "small q1";
 				var c = creatElem("a");
 				c.href = "http://www.topwow.top/achievements-" + b.category +".html";
-				append(c, ct(g_achievement_categories[b.category]));
+				append(c, createText(g_achievement_categories[b.category]));
 				append(d, c)
 			},
 			getVisibleText: function (a) {
@@ -7649,7 +7649,7 @@ Listview.templates = {
 				var k = creatElem("a");
 				k.style.fontFamily = "Verdana, sans-serif";
 				k.href = this.template.getItemLink(f);
-				append(k, ct(f.name));
+				append(k, createText(f.name));
 				append(b, k);
 				var g = creatElem("div");
 				g.className = "small";
@@ -7657,13 +7657,13 @@ Listview.templates = {
 					var k = creatElem("a");
 					k.className = "q1";
 					k.href = "?profiles=" + f.region + "." + f.realm + "&filter=cr=9;crs=0;crv=" + str_replace(urlencode(f.guild), "%20", "+") + "&roster=1";
-					append(k, ct(f.guild));
-					append(g, ct("<"));
+					append(k, createText(f.guild));
+					append(g, createText("<"));
 					append(g, k);
-					append(g, ct(">"))
+					append(g, createText(">"))
 				} else {
 					if (f.description) {
-						append(g, ct(f.description))
+						append(g, createText(f.description))
 					}
 				}
 				var l = creatElem("span"),
@@ -7672,7 +7672,7 @@ Listview.templates = {
 				if (f.deleted) {
 					j = LANG.lvcomment_deleted
 				}
-				append(l, ct(j));
+				append(l, createText(j));
 				append(g, l);
 				append(b, g);
 				var g = creatElem("div");
@@ -7682,7 +7682,7 @@ Listview.templates = {
 				g.style.right = "3px";
 				g.style.bottom = "0px";
 				if (!f.published && !f.region && !f.realm) {
-					append(g, ct(LANG.privateprofile))
+					append(g, createText(LANG.privateprofile))
 				}
 				append(b, g);
 				append(c, b)
@@ -7854,7 +7854,7 @@ Listview.templates = {
 				};
 				b.onmousemove = Tooltip.cursorUpdate;
 				b.onmouseout = Tooltip.hide;
-				append(b, ct(e.talenttree1 + " / " + e.talenttree2 + " / " + e.talenttree3));
+				append(b, createText(e.talenttree1 + " / " + e.talenttree2 + " / " + e.talenttree3));
 				append(h, b);
 				append(j, h)
 			},
@@ -7923,7 +7923,7 @@ Listview.templates = {
 				} else {
 					if (c.guildrank == 0) {
 						var a = creatElem("b");
-						append(a, ct(LANG.guildleader));
+						append(a, createText(LANG.guildleader));
 						append(d, a)
 					}
 				}
@@ -7962,7 +7962,7 @@ Listview.templates = {
 						b = creatElem("a");
 						b.className = "q1";
 						b.href = "?profiles=" + c.region + "." + c.realm;
-						append(b, ct(c.realmname));
+						append(b, createText(c.realmname));
 						append(e, b);
 						append(e, creatElem("br"))
 					}
@@ -7970,14 +7970,14 @@ Listview.templates = {
 					b = creatElem("a");
 					b.className = "q1";
 					b.href = "?profiles=" + c.region;
-					append(b, ct(c.region.toUpperCase()));
+					append(b, createText(c.region.toUpperCase()));
 					append(d, b);
 					if (c.battlegroup) {
-						append(d, ct(LANG.hyphen));
+						append(d, createText(LANG.hyphen));
 						b = creatElem("a");
 						b.className = "q1";
 						b.href = "?profiles=" + c.region + "." + c.battlegroup;
-						append(b, ct(c.battlegroupname));
+						append(b, createText(c.battlegroupname));
 						append(d, b)
 					}
 					append(e, d)
@@ -8018,7 +8018,7 @@ Listview.templates = {
 				var b = creatElem("a");
 				b.className = "q1";
 				b.href = "?profiles=" + c.region + "." + c.realm + "&filter=cr=9;crs=0;crv=" + str_replace(urlencode(c.guild), "%20", "+") + "&roster=1";
-				append(b, ct(c.guild));
+				append(b, createText(c.guild));
 				append(d, b)
 			}
 		}],
@@ -8063,9 +8063,9 @@ Listview.templates = {
 			j.className = "screenshot-cell-user";
 			b = creatElem("a");
 			b.href = this.template.getItemLink(c);
-			append(b, ct(c.skin));
+			append(b, createText(c.skin));
 			append(j, b);
-			append(j, ct(" (" + c.count + ")"));
+			append(j, createText(" (" + c.count + ")"));
 			append(k, j);
 			j = creatElem("div");
 			j.style.position = "relative";
@@ -8073,8 +8073,8 @@ Listview.templates = {
 			var h = creatElem("div");
 			h.className = "screenshot-caption";
 			var f = creatElem("small");
-			append(f, ct(LANG.level + ": "));
-			append(f, ct(c.level_min + (c.level_min == c.level_max ? "": LANG.hyphen + (c.level_max == 9999 ? "??": c.level_max))));
+			append(f, createText(LANG.level + ": "));
+			append(f, createText(c.level_min + (c.level_min == c.level_max ? "": LANG.hyphen + (c.level_max == 9999 ? "??": c.level_max))));
 			append(f, creatElem("br"));
 			append(h, f);
 			append(j, h);
@@ -8707,7 +8707,7 @@ function () {
 		hasData = 1;
 		selection = null;
 		while (container.firstChild) {
-			de(container.firstChild)
+			delElem(container.firstChild)
 		}
 		if (!Browser.ie6) {
 			append(container, creatElem("em"));
@@ -8763,7 +8763,7 @@ function () {
 				}
 			}
 			if (!textbox._summary && !textbox._profileslots) {
-				append(sp, ct(LANG.types[type][0]))
+				append(sp, createText(LANG.types[type][0]))
 			}
 			append(a, sp);
 			var buffer = suggz[i];
@@ -8771,7 +8771,7 @@ function () {
 			sp2.innerHTML = buffer;
 			append(a, sp2);
 			if (type == 6 && param2) {
-				append(a, ct(" (" + param2 + ")"))
+				append(a, createText(" (" + param2 + ")"))
 			}
 			append(div2, a);
 			append(div, div2);
@@ -9410,19 +9410,19 @@ function () {
 			B = creatElem("a");
 			J.className = "modelviewer-quality";
 			D.href = B.href = "javascript:;";
-			append(D, ct("Flash"));
-			append(B, ct("Java"));
+			append(D, createText("Flash"));
+			append(B, createText("Java"));
 			D.onclick = j.bind(D, 0);
 			B.onclick = j.bind(B, 1);
 			append(C, D);
-			append(C, ct(" " + String.fromCharCode(160)));
+			append(C, createText(" " + String.fromCharCode(160)));
 			append(C, B);
 			if (f()) {
 				var A = creatElem("a");
 				A.href = "javascript:;";
-				append(A, ct("Plugin"));
+				append(A, createText("Plugin"));
 				A.onclick = j.bind(A, 2);
-				append(C, ct(" " + String.fromCharCode(160)));
+				append(C, createText(" " + String.fromCharCode(160)));
 				append(C, A)
 			}
 			append(J, creatElem("div"));
@@ -9443,19 +9443,19 @@ function () {
 			for (var G = 0, I = o.length; G < I; ++G) {
 				var F = creatElem("option");
 				F.value = o[G].id;
-				append(F, ct(o[G].name));
+				append(F, createText(o[G].name));
 				append(p, F)
 			}
 			for (var G = 0, I = o.length; G < I; ++G) {
 				var F = creatElem("option");
 				F.value = o[G].id;
-				append(F, ct(o[G].name));
+				append(F, createText(o[G].name));
 				append(q, F)
 			}
 			for (var G = 0, I = i.length; G < I; ++G) {
 				var F = creatElem("option");
 				F.value = i[G].id;
-				append(F, ct(i[G].name));
+				append(F, createText(i[G].name));
 				append(e, F)
 			}
 			e.style.display = "none";
@@ -9631,7 +9631,7 @@ function () {
 				M.innerHTML = C.user;
 				var P = v.firstChild.childNodes[3];
 				while (P.firstChild) {
-					de(P.firstChild)
+					delElemP.firstChild)
 				}
 				Listview.funcBox.coFormatDate(P, N, H);
 				v.firstChild.style.display = ""
@@ -9812,9 +9812,9 @@ function () {
 			v = creatElem("div");
 			v.className = "screenshotviewer-from";
 			var E = creatElem("span");
-			append(E, ct(LANG.lvscreenshot_from));
+			append(E, createText(LANG.lvscreenshot_from));
 			append(E, creatElem("a"));
-			append(E, ct(" "));
+			append(E, createText(" "));
 			append(E, creatElem("span"));
 			append(v, E);
 			append(v, creatElem("span"));
@@ -9892,7 +9892,7 @@ var Ads = {
 	},
 	fillSpot: function (c, b) {
 		if (Ads.removed) {
-			de(b);
+			delElemb);
 			return
 		}
 		var a = creatElem("iframe");
@@ -9909,7 +9909,7 @@ var Ads = {
 			for (var b = 0, a = c.length; b < a; ++b) {
 				var d = getElement(c[b]);
 				if (d) {
-					de(d)
+					delElemd)
 				}
 			}
 		}
