@@ -381,7 +381,7 @@ var Markup = {
 			case "toggler":
 				var F = B[D][2];
 				if (F.id != null) {
-					G += '<a href="javascript:;" class="disclosure-' + (F.hidden ? "on": "off") + '" onmousedown="return false" onclick="this.className = \'disclosure-\' + (g_toggleDisplay(ge(\'ov4io23-' + F.id + "')) ? 'on' : 'off')\">" + Markup._htmlmize(B[D][1]) + "</a>"
+					G += '<a href="javascript:;" class="disclosure-' + (F.hidden ? "on": "off") + '" onmousedown="return false" onclick="this.className = \'disclosure-\' + (g_toggleDisplay(getElement(\'ov4io23-' + F.id + "')) ? 'on' : 'off')\">" + Markup._htmlmize(B[D][1]) + "</a>"
 				}
 				break;
 			case "div":
@@ -412,10 +412,10 @@ var Markup = {
 				}
 				break;
 			case "item":
-				G += '<a href="http://www.topwow.top/item-' + B[D][2] + '.html">(Item #' + B[D][2] + ")</a>";
+				G += '<a href="/item-' + B[D][2] + '.html">(Item #' + B[D][2] + ")</a>";
 				break;
 			case "spell":
-				G += '<a href="http://www.topwow.top/spell-' + B[D][2] + '.html">(Spell #' + B[D][2] + ")</a>";
+				G += '<a href="/spell-' + B[D][2] + '.html">(Spell #' + B[D][2] + ")</a>";
 				break;
 			case "map":
 				var F = B[D][2];

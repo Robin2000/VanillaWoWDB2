@@ -10,7 +10,7 @@
 						var _ = f.elements[0];
 						if(_.value.length == 0)
 						{ldelim}
-							ge('inputbox-error').innerHTML = LANG.message_enterusername;
+							getElement('inputbox-error').innerHTML = LANG.message_enterusername;
 							_.focus();
 							return false;
 						{rdelim}
@@ -18,7 +18,7 @@
 						_ = f.elements[1];
 						if(_.value.length == 0)
 						{ldelim}
-							ge('inputbox-error').innerHTML = LANG.message_enterpassword;
+							getElement('inputbox-error').innerHTML = LANG.message_enterpassword;
 							_.focus();
 							return false;
 						{rdelim}
@@ -53,7 +53,7 @@
 
 				<div class="pad3"></div>
 				{if $register}<div style="text-align: center; line-height: 1.5em; font-size: 125%">{#Dont_have_an_account#}? <a href="?account=signup">{#Create_one_now#}!</a></div>{/if}
-				<script type="text/javascript">ge('username-generic').focus()</script>
+				<script type="text/javascript">getElement('username-generic').focus()</script>
 				<div class="clear"></div>
 			</div>
 		</div>

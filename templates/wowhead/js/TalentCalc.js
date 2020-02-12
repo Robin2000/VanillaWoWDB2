@@ -199,7 +199,7 @@ function TalentCalc() {
 			az()
 		}
 		if (!t.adFilled) {
-			Ads.fillSpot("medrect", ge("talentcalc-sidebar-ad"))
+			Ads.fillSpot("medrect", getElement("talentcalc-sidebar-ad"))
 		}
 		t.adFilled = 1
 	};*/
@@ -207,7 +207,7 @@ function TalentCalc() {
 		if (z) {
 			return
 		}
-		bd = $(bd);
+		bd = dom(bd);
 		if (!bd) {
 			return
 		}
@@ -531,7 +531,7 @@ function TalentCalc() {
 		Tooltip.showAtCursor(bc, LANG[r ? "tc_rembon": "tc_addbon"], null, null, "q")
 	}
 	function aU(bc, bf, bg) {
-		var bh = ce("div"),
+		var bh = createElem("div"),
 		be,
 		bd;
 		bh.className = "talentcalc-arrow";
@@ -602,41 +602,41 @@ function TalentCalc() {
 		}
 		bh.style.width = bf + "px";
 		bh.style.height = bg + "px";
-		ae(bh, be);
+		append(bh, be);
 		return bh
 	}
 	function ac() {
 		var be, bf, bd;
-		ay = ce("div");
+		ay = createElem("div");
 		ay.className = "talentcalc-lower";
 		ay.style.display = "none";
 		for (var bc = 0; bc < w; ++bc) {
-			be = aS[bc] = ce("div");
+			be = aS[bc] = createElem("div");
 			be.className = "talentcalc-lower-tree" + (bc + 1);
-			bf = ce("p");
+			bf = createElem("p");
 			bf.className = "rcorners";
-			ae(bf, ce("b"));
-			ae(bf, ce("span"));
-			bd = ce("a");
+			append(bf, createElem("b"));
+			append(bf, createElem("span"));
+			bd = createElem("a");
 			bd.href = "javascript:;";
 			bd.onclick = aZ.reset.bind(null, bc);
-			ae(bf, bd);
-			ae(bf, ce("tt"));
-			ae(bf, ce("strong"));
-			ae(bf, ce("var"));
-			ae(bf, ce("em"));
-			ae(be, bf);
-			ae(ay, be)
+			append(end(bf, bd);
+			append(bf, createElem("tt"));
+			append(bf, createElem("strong"));
+			append(end(bf, createElem("var"));
+			append(bf, createElem("em"));
+			append(be, bf);
+			append(ay, be)
 		}
-		ae(z, ay)
+		append(z, ay)
 	}
 	function ap() {
-		l = ce("div");
+		l = createElem("div");
 		l.className = "talentcalc-main";
-		var bc = ce("div");
+		var bc = createElem("div");
 		bc.className = "clear";
-		ae(l, bc);
-		ae(z, l)
+		append(l, bc);
+		append(z, l)
 	}
 	function bb(bk) {
 		var bi = [{}],
@@ -667,107 +667,107 @@ function TalentCalc() {
 	}
 	function k() {
 		var bc, bp, bo, bg;
-		ao = ce("div");
+		ao = createElem("div");
 		ao.className = "talentcalc-sidebar rcorners";
-		ae(ao, ce("tt"));
-		ae(ao, ce("strong"));
-		ae(ao, ce("var"));
-		ae(ao, ce("em"));
-		bc = ce("div");
+		append(end(ao, createElem("tt"));
+		append(ao, createElem("strong"));
+		append(ao, createElem("var"));
+		append(end(ao, createElem("em"));
+		bc = createElem("div");
 		bc.className = "talentcalc-sidebar-inner";
-		bp = ce("a");
+		bp = createElem("a");
 		bp.className = "talentcalc-button-help";
 		bp.href = (aB == aI ? "http://petopia.brashendeavors.net/html/patch30/patch30faq_talents.php": "?help=talent-calculator");
 		bp.target = "_blank";
-		ae(bp, ct(LANG.tc_help));
-		ae(bc, bp);
-		j = ce("div");
+		append(bp, createText(LANG.tc_help));
+		append(bc, bp);
+		j = createElem("div");
 		j.className = "talentcalc-sidebar-controls";
 		j.style.display = "none";
-		bp = ce("a");
+		bp = createElem("a");
 		bp.className = "talentcalc-button-reset";
 		bp.href = "javascript:;";
 		bp.onclick = aZ.resetAll;
-		ae(bp, ct(LANG.tc_resetall));
-		ae(j, bp);
-		bp = v = ce("a");
+		append(bp, createText(LANG.tc_resetall));
+		append(j, bp);
+		bp = v = createElem("a");
 		bp.className = "talentcalc-button-lock";
 		bp.href = "javascript:;";
 		bp.onclick = s;
-		ae(bp, ct(LANG.tc_lock));
-		ae(j, bp);
-		bp = ce("div");
+		append(bp, createText(LANG.tc_lock));
+		append(j, bp);
+		bp = createElem("div");
 		bp.className = "clear";
-		ae(j, bp);
-		ae(bc, j);
-		bp = ce("div");
+		append(j, bp);
+		append(bc, j);
+		bp = createElem("div");
 		bp.className = "talentcalc-sidebar-controls2";
-		bo = ce("a");
+		bo = createElem("a");
 		bo.className = "talentcalc-button-import";
 		bo.href = "javascript:;";
 		bo.onclick = aZ.promptBlizzBuild;
-		ae(bo, ct(LANG.tc_import));
-		ae(bp, bo);
-		bo = aD = ce("a");
+		append(bo, createText(LANG.tc_import));
+		append(bp, bo);
+		bo = aD = createElem("a");
 		bo.className = "talentcalc-button-summary";
 		bo.style.display = "none";
 		bo.href = "javascript:;";
 		bo.onclick = aZ.showSummary.bind(null, 1);
-		ae(bo, ct(LANG.tc_summary));
-		ae(bp, bo);
-		bo = d = ce("a");
+		append(bo, createText(LANG.tc_summary));
+		append(bp, bo);
+		bo = d = createElem("a");
 		bo.className = "talentcalc-button-restore";
 		bo.style.display = "none";
 		bo.href = "javascript:;";
 		bo.onclick = af;
-		ae(bo, ct(LANG.tc_restore));
-		ae(bp, bo);
+		append(bo, createText(LANG.tc_restore));
+		append(bp, bo);
 		if (t.profiler) {
-			bo = at = ce("a");
+			bo = at = createElem("a");
 			bo.className = "talentcalc-button-export";
 			bo.style.display = "none";
 			bo.href = "#";
 			bo.target = "_blank";
-			ae(bo, ct(LANG.tc_export));
-			ae(bp, bo)
+			append(bo, createText(LANG.tc_export));
+			append(bp, bo)
 		}
-		bo = ce("div");
+		bo = createElem("div");
 		bo.className = "clear";
-		ae(bp, bo);
-		ae(bc, bp);
-		aM = bp = ce("div");
-		ae(bc, bp);
+		append(bp, bo);
+		append(bc, bp);
+		aM = bp = createElem("div");
+		append(bc, bp);
 		/*if (!t.noAd) {
 			az()
 		}*/
 		if (aB == a6) {
-			e = ce("div");
+			e = createElem("div");
 			e.style.display = "none";
-			bp = ce("h3");
-			ae(bp, ct(LANG.tc_glyphs));
-			ae(e, bp);
-			bo = ce("a");
+			bp = createElem("h3");
+			append(bp, createText(LANG.tc_glyphs));
+			append(e, bp);
+			bo = createElem("a");
 			bo.href = "javascript:;";
 			bo.onclick = aZ.resetGlyphs;
-			ae(bo, ct("[x]"));
-			ae(bp, bo);
-			bp = ce("div");
+			append(bo, createText("[x]"));
+			append(bp, bo);
+			bp = createElem("div");
 			bp.className = "talentcalc-sidebar-majorglyphs q9";
-			bo = ce("b");
-			ae(bo, ct(g_item_glyphs[1]));
-			ae(bp, bo);
-			ae(e, bp);
-			bp = ce("div");
+			bo = createElem("b");
+			append(bo, createText(g_item_glyphs[1]));
+			append(bp, bo);
+			append(e, bp);
+			bp = createElem("div");
 			bp.className = "talentcalc-sidebar-minorglyphs q9";
-			bo = ce("b");
-			ae(bo, ct(g_item_glyphs[2]));
-			ae(bp, bo);
-			ae(e, bp);
-			bp = ce("div");
+			bo = createElem("b");
+			append(bo, createText(g_item_glyphs[2]));
+			append(bp, bo);
+			append(e, bp);
+			bp = createElem("div");
 			bp.className = "clear";
-			ae(e, bp);
-			var bq = ce("table"),
-			bf = ce("tbody"),
+			append(e, bp);
+			var bq = createElem("table"),
+			bf = createElem("tbody"),
 			bh,
 			bd,
 			be,
@@ -776,20 +776,20 @@ function TalentCalc() {
 			bm;
 			bq.className = "icontab";
 			for (var bi = 0; bi < 3; ++bi) {
-				bh = ce("tr");
+				bh = createElem("tr");
 				for (var bl = 0; bl < 2; ++bl) {
 					var bn = (bl * 3) + bi;
-					bd = ce("th");
+					bd = createElem("th");
 					bk = Icon.create("inventoryslot_empty", 1, null, "javascript:;");
 					bj = Icon.getLink(bk);
 					p[bn] = bk;
-					ae(bd, bk);
-					ae(bh, bd);
-					be = ce("td");
-					bm = ce("a");
+					append(bd, bk);
+					append(bh, bd);
+					be = createElem("td");
+					bm = createElem("a");
 					D[bn] = bm;
-					ae(be, bm);
-					ae(bh, be);
+					append(be, bm);
+					append(bh, be);
 					bm.target = bj.target = "_blank";
 					bm.rel = bj.rel = "np";
 					bm.onmousedown = bj.onmousedown = rf;
@@ -803,57 +803,57 @@ function TalentCalc() {
 					bj.onmouseout = Tooltip.hide;
 					be.oncontextmenu = rf
 				}
-				ae(bf, bh)
+				append(bf, bh)
 			}
-			ae(bq, bf);
-			ae(e, bq);
-			ae(bc, e)
+			append(bq, bf);
+			append(e, bq);
+			append(bc, e)
 		}
-		ae(ao, bc);
-		bp = ce("div");
+		append(ao, bc);
+		bp = createElem("div");
 		bp.className = "talentcalc-sidebar-anchor";
-		ae(bp, ao);
-		ae(z, bp)
+		append(bp, ao);
+		append(z, bp)
 	}
 	/*function az() {
-		var bc = ce("div");
+		var bc = createElem("div");
 		bc.id = "talentcalc-sidebar-ad";
-		ae(aM, bc);
+		append(aM, bc);
 		delete t.noAd
 	}*/
 	function aO(be, bi, bc) {
-		var bk = ce("table"),
-		bd = ce("tbody"),
+		var bk = createElem("table"),
+		bd = createElem("tbody"),
 		bf,
 		bj;
 		for (var bg = 0; bg < bi; ++bg) {
-			bf = ce("tr");
+			bf = createElem("tr");
 			for (var bh = 0; bh < be; ++bh) {
 				if (bc && bg > 0) {
-					bj = ce("th");
+					bj = createElem("th");
 					bj.colSpan = 2;
-					ae(bf, bj);
+					append(bf, bj);
 					break
 				} else {
-					ae(bf, ce("td"))
+					append(bf, createElem("td"))
 				}
 			}
-			ae(bd, bf)
+			append(bd, bf)
 		}
-		ae(bk, bd);
+		append(bk, bd);
 		return bk
 	}
 	function P(bo) {
 		var bw = M[bo],
 		bA;
 		bw.k = 0;
-		bw.div = ce("div");
+		bw.div = createElem("div");
 		bw.div.style.display = "none";
 		aef(l, bw.div);
 		for (var bm = 0; bm < w; ++bm) {
 			bw[bm].k = 0;
-			var bv = ce("div");
-			d2 = ce("div");
+			var bv = createElem("div");
+			d2 = createElem("div");
 			bv.style.backgroundRepeat = "no-repeat";
 			bv.style.cssFloat = bv.style.styleFloat = "left";
 			if (bm > 0) {
@@ -861,10 +861,10 @@ function TalentCalc() {
 			}
 			d2.style.overflow = "hidden";
 			d2.style.width = (aB == a6 ? "204px": "244px");
-			ae(d2, aO(4, a1));
-			ae(bv, d2);
-			ae(bw.div, bv);
-			var br = gE(bv, "td"),
+			append(d2, aO(4, a1));
+			append(bv, d2);
+			append(bw.div, bv);
+			var br = getElemTag(bv, "td"),
 			by,
 			bx = "";
 			if (!Browser.ie6) {
@@ -893,13 +893,13 @@ function TalentCalc() {
 				g_onClick(bf, H.bind(bf, bj));
 				bf.onmouseover = Y.bind(null, bf, bj);
 				bf.onmouseout = Tooltip.hide;
-				var bt = ce("div"),
-				bz = ce("div");
-				ae(bz, ct("0"));
+				var bt = createElem("div"),
+				bz = createElem("div");
+				append(bz, createText("0"));
 				bt.className = "icon-border";
 				bz.className = "icon-bubble";
-				ae(bu, bt);
-				ae(bu, bz);
+				append(bu, bt);
+				append(bu, bz);
 				bj.k = 0;
 				bj.i = bq;
 				bj.tree = bm;
@@ -909,7 +909,7 @@ function TalentCalc() {
 				bj.border = bt;
 				bj.bubble = bz;
 				if (!bj.hidden) {
-					ae(bn, bu)
+					append(bn, bu)
 				}
 				if (bj.r) {
 					var bh = bw[bm].t[bj.r[0]],
@@ -995,9 +995,9 @@ function TalentCalc() {
 					var bc = aU(bg, bi, bs);
 					bc.style.left = bp + "px";
 					bc.style.top = bk + "px";
-					var bl = ce("div");
+					var bl = createElem("div");
 					bl.className = "talentcalc-arrow-anchor";
-					ae(bl, bc);
+					append(bl, bc);
 					if (!bj.hidden) {
 						bn.insertBefore(bl, bn.firstChild)
 					}
@@ -1008,55 +1008,55 @@ function TalentCalc() {
 	}
 	function a9() {
 		var bf, bd, be;
-		y = ce("div");
+		y = createElem("div");
 		y.className = "talentcalc-upper rcorners";
 		y.style.display = "none";
-		ae(y, ce("tt"));
-		ae(y, ce("strong"));
-		ae(y, ce("var"));
-		ae(y, ce("em"));
-		bf = ce("div");
+		append(y, createElem("tt"));
+		append(y, createElem("strong"));
+		append(y, createElem("var"));
+		append(y, createElem("em"));
+		bf = createElem("div");
 		bf.className = "talentcalc-upper-inner";
-		bd = ce("span");
+		bd = createElem("span");
 		bd.className = "talentcalc-upper-class";
-		be = a4 = ce("b");
+		be = a4 = createElem("b");
 		if (aB == aI) {
-			var bc = ce("a");
+			var bc = createElem("a");
 			bc.target = "_blank";
-			ae(a4, bc);
+			append(a4, bc);
 			a4 = bc
 		}
-		ae(bd, be);
-		ae(bd, ct(" "));
-		V = ce("b");
-		ae(bd, V);
-		ae(bf, bd);
-		bd = ce("span");
+		append(bd, be);
+		append(bd, createText(" "));
+		V = createElem("b");
+		append(bd, V);
+		append(bf, bd);
+		bd = createElem("span");
 		bd.className = "talentcalc-upper-ptsleft";
-		ae(bd, ct(LANG.tc_ptsleft));
-		aH = ce("b");
-		ae(bd, aH);
-		ae(bf, bd);
+		append(bd, createText(LANG.tc_ptsleft));
+		aH = createElem("b");
+		append(bd, aH);
+		append(bf, bd);
 		if (aB == aI) {
-			be = I = ce("a");
+			be = I = createElem("a");
 			be.href = "javascript:;";
 			be.onclick = E.bind(null, be);
 			be.onmouseover = an.bind(null, be);
 			be.onmousemove = Tooltip.cursorUpdate;
 			be.onmouseout = Tooltip.hide;
-			ae(bd, be)
+			append(bd, be)
 		}
-		bd = ce("span");
+		bd = createElem("span");
 		bd.className = "talentcalc-upper-reqlevel";
-		ae(bd, ct(LANG.tc_reqlevel));
-		aR = ce("b");
-		ae(bd, aR);
-		ae(bf, bd);
-		bd = ce("div");
+		append(bd, createText(LANG.tc_reqlevel));
+		aR = createElem("b");
+		append(bd, aR);
+		append(bf, bd);
+		bd = createElem("div");
 		bd.className = "clear";
-		ae(bf, bd);
-		ae(y, bf);
-		ae(z, y)
+		append(bf, bd);
+		append(y, bf);
+		append(z, y)
 	}
 	function x(bg) {
 		var bc = "";
@@ -1169,9 +1169,9 @@ function TalentCalc() {
 		if (bg) {
 			bj.className = "talentcalc-glyphpicker listview";
 			var bd = [],
-			bh = ce("div"),
-			bi = ce("a"),
-			bf = ce("div");
+			bh = createElem("div"),
+			bi = createElem("a"),
+			bf = createElem("div");
 			bd.push({
 				none: 1
 			});
@@ -1179,14 +1179,14 @@ function TalentCalc() {
 				bd.push(g_glyphs[bk])
 			}
 			bh.className = "listview";
-			ae(bj, bh);
+			append(bj, bh);
 			bi.className = "screenshotviewer-close";
 			bi.href = "javascript:;";
 			bi.onclick = Lightbox.hide;
-			ae(bi, ce("span"));
-			ae(bj, bi);
+			append(bi, createElem("span"));
+			append(bj, bi);
 			bf.className = "clear";
-			ae(bj, bf);
+			append(bj, bf);
 			be = new Listview({
 				template: "glyph",
 				id: "glyphs",
@@ -1210,7 +1210,7 @@ function TalentCalc() {
 		1)
 	}
 	function ax(bc) {
-		bc = $E(bc);
+		bc = normalEvent(bc);
 		if (bc._wheelDelta < 0) {
 			this.scrollTop += 27
 		} else {
@@ -1482,16 +1482,16 @@ function TalentCalc() {
 			return
 		}
 		if (!aK) {
-			var bd = aK = ce("div");
+			var bd = aK = createElem("div");
 			bd.style.position = "absolute";
 			bd.style.left = bd.style.top = "-2323px";
 			bd.style.visibility = "hidden";
-			ae(ge("layers"), bd)
+			append(getElement("layers"), bd)
 		}
 		var bh = M[be];
 		for (var bc = 0; bc < w; ++bc) {
-			var bg = ce("img"),
-			bf = ce("img");
+			var bg = createElem("img"),
+			bf = createElem("img");
 			if (aB == aI) {
 				bg.src = "http://static.wowhead.com/images/pet/petcalc" + (g_locale.id == 25 ? "-ptr": "") + "/bg_" + (bc + 1) + ".jpg";
 				bf.src = "http://static.wowhead.com/images/pet/petcalc" + (g_locale.id == 25 ? "-ptr": "") + "/icons_" + (bc + 1) + ".jpg"
@@ -1499,8 +1499,8 @@ function TalentCalc() {
 				bg.src = "images/talent/classes/backgrounds/" + g_file_classes[be] + "_" + (bc + 1) + ".jpg";
 				//bf.src = "images/talent/classes/icons" + (g_locale.id == 25 ? "-ptr": "") + "/" + g_file_classes[be] + "_" + (bc + 1) + ".jpg"
 			}
-			ae(aK, bg);
-			ae(aK, bf)
+			append(aK, bg);
+			append(aK, bf)
 		}
 	}
 	function c(bd) {
@@ -2023,24 +2023,24 @@ Listview.templates.glyph = {
 				return
 			}
 			if (!Browser.ie67) {
-				var c = ce("td");
+				var c = createElem("td");
 				c.style.width = "1px";
 				c.style.padding = "0";
 				c.style.borderRight = "none";
 				var d = Icon.create(f.icon, 0, null, "/item-" + f.id),
 				e = Icon.getLink(d);
-				ae(c, d);
-				ae(g, c);
+				append(c, d);
+				append(g, c);
 				h.style.borderLeft = "none";
 				e.onclick = rf
 			}
-			var b = ce("a");
+			var b = createElem("a");
 			b.style.fontFamily = "Verdana, sans-serif";
 			b.onclick = rf;
 			b.href = "/item-" + f.id;
-			ae(b, ct($WowheadTalentCalculator.simplifyGlyphName(f.name)));
+			append(b, createText($WowheadTalentCalculator.simplifyGlyphName(f.name)));
 			h.style.whiteSpace = "nowrap";
-			ae(h, b);
+			append(h, b);
 			g.onclick = $WowheadTalentCalculator.addGlyph.bind(null, f.id)
 		},
 		sortFunc: function (d, c, e) {
@@ -2059,11 +2059,11 @@ Listview.templates.glyph = {
 			if (a.none) {
 				return
 			}
-			var b = ce("div");
+			var b = createElem("div");
 			b.className = "small crop";
 			c.title = a.description;
-			ae(b, ct(a.description));
-			ae(c, b)
+			append(b, createText(a.description));
+			append(c, b)
 		}
 	},
 	{

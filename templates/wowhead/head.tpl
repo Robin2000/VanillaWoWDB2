@@ -4,8 +4,8 @@
 	<meta name="description" content="{if $page.Title}经典怀旧魔兽世界资料{$page.Title|escape:"html"}页{else}经典怀旧魔兽世界1.12版本的地图,物品,装备,武器,NPC,技能,任务,地区,道具,声望,等详细数据.{/if}">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=3.0, minimum-scale=0.3, user-scalable=yes">
 
-	<link rel="search" type="application/opensearchdescription+xml" title="VanillaWoWDB" href="http://www.topwow.top/opensearch.xml" />
-	<link rel="SHORTCUT ICON" href="http://www.topwow.top/favicon.ico">
+	<link rel="search" type="application/opensearchdescription+xml" title="VanillaWoWDB" href="/opensearch.xml" />
+	<link rel="SHORTCUT ICON" href="/favicon.ico">
 	{if (isset($npc) || isset($item) || isset($zone) || isset($quest))}
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="/templates/topwow/css/home13.css">
@@ -34,13 +34,13 @@
       	{/if}
 {/if}
 
-	<script src="templates/wowhead/js/locale_{$language}17.js" type="text/javascript"></script>
+	<script src="templates/wowhead/js/locale_{$language}.js?v=17" type="text/javascript"></script>
 
-	<script src="templates/wowhead/js/global17.js" type="text/javascript"></script>
+	<script src="templates/wowhead/js/global.js?v=17" type="text/javascript"></script>
 	<script src="templates/wowhead/js/Markup.js" type="text/javascript"></script>
 	
 {if $page.Mapper}
-	<script src="templates/wowhead/js/Mapper7.js" type="text/javascript"></script>
+	<script src="templates/wowhead/js/Mapper.js?v=7" type="text/javascript"></script>
 	<style type="text/css">{literal}.zone-picker { margin-left: 4px }{/literal}</style>
 {/if}
 {if $page.Book}
@@ -49,7 +49,7 @@
 
 {if (isset($npc) || isset($item) || isset($zone) || isset($quest))}
    <script src="/templates/topwow/js/vendor/masonry.pkgd.min.js"></script>
-   <script src="/templates/topwow/js/custom3.js"></script>
+   <script src="/templates/topwow/js/custom.js?v=3"></script>
 {/if}
 
 {if $npc}

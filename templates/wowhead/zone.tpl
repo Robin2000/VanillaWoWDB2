@@ -17,7 +17,7 @@
 				<p align="right">
 				{if isset($zone.playerlimit)}<span style="font-size:1rem;float:right;">人数限制:<span class="orange">{$zone.playerlimit}</span></span>{/if}
 				{if isset($zone.levelrange)}<span style="font-size:1rem;float:right;padding-right:5px">等级范围:<span class="orange">{$zone.levelrange}</span></span>{/if}
-				{if isset($zone.pname)}<span style="font-size:1rem;float:right;padding-right:5px">副本位置:<a href="http://www.topwow.top/zone-{$zone.pzone}"><span class="orange">{$zone.pname}</a></span></span>{/if}
+				{if isset($zone.pname)}<span style="font-size:1rem;float:right;padding-right:5px">副本位置:<a href="/zone-{$zone.pzone}"><span class="orange">{$zone.pname}</a></span></span>{/if}
 				</p>
 				</h1>
 
@@ -71,7 +71,7 @@
 
 				<script type="text/javascript">
 					var myMapper = new Mapper({ldelim}parent: 'mapper-generic', zone: '{$zone.position[0].atid}'{rdelim});
-					gE(ge('locations'), 'a')[0].onclick();
+					getElemTag(getElement('locations'), 'a')[0].onclick();
 					{literal}
 					function showMyTooltip(e,txt,w,h){
 						document.getElementById("mytooltip").innerHTML=txt;
@@ -87,7 +87,7 @@
 {/if}
 {if isset($zone.parentname) and isset($zone.parent)}
 				<div class="pad"></div>
-				<div>{#This_zone_is_part_of#} <a href="http://www.topwow.top/zone-{$zone.parent}.html">{$zone.parentname}</a>.</div>
+				<div>{#This_zone_is_part_of#} <a href="/zone-{$zone.parent}.html">{$zone.parentname}</a>.</div>
 {/if}
 
 
@@ -100,13 +100,13 @@
 			<div class="{$p.color}" style="font-size:16px;line-height:20px;height:20px;">
 			<span style="padding-left:{$p.indentCount}0px"> {if $p.pos != 'TOP' and $p.pos != 'INDENT'}{$p.pos}){/if} </span>
 			{if $p.entryType == 'NPC'}
-				<a target="_blank" href="http://www.topwow.top/npc-{$p.entry}.html" class="{$p.color}">{$p.label}</a> {if $p.loot_count>0}<span onclick="showLoot('{$p.label}',{$p.area},{$p.posid})" class="lootIcon">&nbsp;</span>{/if}
+				<a target="_blank" href="/npc-{$p.entry}.html" class="{$p.color}">{$p.label}</a> {if $p.loot_count>0}<span onclick="showLoot('{$p.label}',{$p.area},{$p.posid})" class="lootIcon">&nbsp;</span>{/if}
 			{elseif $p.entryType == 'QUEST'}
-				<a target="_blank" href="http://www.topwow.top/quest-{$p.entry}.html" class="{$p.color}" style="padding-left:18px;background:url(/images/icons/small/quest_start.gif) no-repeat left center">{$p.label}</a>
+				<a target="_blank" href="/quest-{$p.entry}.html" class="{$p.color}" style="padding-left:18px;background:url(/images/icons/small/quest_start.gif) no-repeat left center">{$p.label}</a>
 			{elseif $p.entryType == 'ITEM'}
-				<a target="_blank" href="http://www.topwow.top/item-{$p.entry}.html" class="{$p.color}">{$p.label}</a> {if $p.loot_count>0}<span onclick="showLoot('{$p.label}',{$p.area},{$p.posid})" class="lootIcon">&nbsp;</span>{/if}
+				<a target="_blank" href="/item-{$p.entry}.html" class="{$p.color}">{$p.label}</a> {if $p.loot_count>0}<span onclick="showLoot('{$p.label}',{$p.area},{$p.posid})" class="lootIcon">&nbsp;</span>{/if}
 			{elseif $p.entryType == 'OBJ'}
-				<a target="_blank" href="http://www.topwow.top/object-{$p.entry}.html" class="{$p.color}">{$p.label}</a> {if $p.loot_count>0}<span onclick="showLoot('{$p.label}',{$p.area},{$p.posid})" class="lootIcon">&nbsp;</span>{/if}
+				<a target="_blank" href="/object-{$p.entry}.html" class="{$p.color}">{$p.label}</a> {if $p.loot_count>0}<span onclick="showLoot('{$p.label}',{$p.area},{$p.posid})" class="lootIcon">&nbsp;</span>{/if}
 			{elseif $p.entryType == 'BTN'}
 				<!--a target="_blank" href="javascript:showSet('{$p.label}')" class="{$p.color}">{$p.label}</a-->
 			{else}
@@ -146,7 +146,7 @@ function receiveLoot(xhr, opt) {
 			html += "<div class='lootItem'>&nbsp;</div>";
 		}
 		curQuality = quality;
-		html += "<div class='lootItem "+quality+"'><img src='/images/icons/small/" + r[3] + ".png'><a target='_blank' href='http://www.topwow.top/item-"+r[0]+".html'>" + r[2] +"</a>"+ r[4]+"<span>"+percent+"</span></div>";
+		html += "<div class='lootItem "+quality+"'><img src='/images/icons/small/" + r[3] + ".png'><a target='_blank' href='/item-"+r[0]+".html'>" + r[2] +"</a>"+ r[4]+"<span>"+percent+"</span></div>";
 	}
 	document.getElementById("data").innerHTML=html;
 }
@@ -154,7 +154,7 @@ function receiveLoot(xhr, opt) {
 function showLoot(titleSet, area,pos){
 	document.getElementById("lootTitle").innerHTML="<h1>"+titleSet+"<a href='javascript:hideLoot()'><<返回</a></h1>";
 	document.getElementById("data").innerHTML="";
-	new Ajax("http://www.topwow.top/rest/api4/loot/"+area+"/"+pos, {onSuccess: receiveLoot});
+	new Ajax("/rest/api4/loot/"+area+"/"+pos, {onSuccess: receiveLoot});
 }
 </script>
 {/literal}
@@ -213,7 +213,7 @@ function showLoot(titleSet, area,pos){
   <script>
   var map0Poi=[{foreach from=$map0Poi item=zone name=zone}[{$zone.x}, {$zone.y}, {$zone.type}, "{$zone.name}",{$zone.entry}],{/foreach}];
   </script>
-  <iframe allowfullscreen="true" style="overflow:hidden" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" width="100%" height="500px" src="http://www.topwow.top/wowgis/map-0.html"></iframe>
+  <iframe allowfullscreen="true" style="overflow:hidden" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" width="100%" height="500px" src="/wowgis/map-0.html"></iframe>
 {/if} 
 
 {if $map1Poi}
@@ -221,7 +221,7 @@ function showLoot(titleSet, area,pos){
   <script>
   var map1Poi=[{foreach from=$map1Poi item=zone name=zone}[{$zone.x}, {$zone.y}, {$zone.type}, "{$zone.name}",{$zone.entry}],{/foreach}];
   </script>
-  <iframe allowfullscreen="true" style="overflow:hidden" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" width="100%" height="500px" src="http://www.topwow.top/wowgis/map-1.html"></iframe>
+  <iframe allowfullscreen="true" style="overflow:hidden" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" width="100%" height="500px" src="/wowgis/map-1.html"></iframe>
 {/if} 
 <!---->
 {include file='bricks/contribute.tpl'}

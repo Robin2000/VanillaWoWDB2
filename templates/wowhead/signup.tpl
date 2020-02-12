@@ -10,7 +10,7 @@
 							var _ = f.elements[0];
 							if(_.value.length == 0)
 							{ldelim}
-								ge('inputbox-error').innerHTML = LANG.message_enterusername;
+								getElement('inputbox-error').innerHTML = LANG.message_enterusername;
 								_.focus();
 								return false;
 							{rdelim}
@@ -18,7 +18,7 @@
 							_ = f.elements[1];
 							if(_.value.length == 0)
 							{ldelim}
-								ge('inputbox-error').innerHTML = LANG.message_enterpassword;
+								getElement('inputbox-error').innerHTML = LANG.message_enterpassword;
 								_.focus();
 								return false;
 							{rdelim}
@@ -26,7 +26,7 @@
 							_ = f.elements[2];
 							if(_.value.length == 0)
 							{ldelim}
-								ge('inputbox-error').innerHTML = message_passwordsdonotmatch;
+								getElement('inputbox-error').innerHTML = message_passwordsdonotmatch;
 								_.focus();
 								return false;
 							{rdelim}
@@ -67,7 +67,7 @@
 						</div>
 					</form>
 
-					<script type="text/javascript">ge('username-generic').focus()</script>
+					<script type="text/javascript">getElement('username-generic').focus()</script>
 					<div class="clear"></div>
 				</div>
 

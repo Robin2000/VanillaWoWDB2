@@ -11,9 +11,9 @@ tc_glyphs = "";
 function tc_init() {
 	var c;
 	g_initPath([1, 0]);
-	ge("tc-classes").className = "choose";
+	getElement("tc-classes").className = "choose";
 	var e = g_sortJsonArray(g_chr_classes, g_chr_classes);
-	c = ge("tc-classes-inner");
+	c = getElement("tc-classes-inner");
 	for (var d = 0, b = e.length; d < b; ++d) {
 		var h = e[d],
 		f = Icon.create("class_" + g_file_classes[h], 1, null, "javascript:;"),
@@ -25,11 +25,11 @@ function tc_init() {
 		g.onclick = tc_classClick.bind(g, h);
 		g.onmouseover = tc_classOver.bind(g, h);
 		g.onmouseout = Tooltip.hide;
-		ae(c, f)
+		append(c, f)
 	}
-	var a = ce("div");
+	var a = createElem("div");
 	a.className = "clear";
-	ae(c, a);
+	append(c, a);
 	/*tc_object = new TalentCalc();
 	tc_object.initialize("tc-itself", {
 		onChange: tc_onChange
@@ -38,7 +38,7 @@ function tc_init() {
 	setInterval(tc_readPound, 1000)
 }
 function tc_classClick(a) {
-	location.href="http://www.topwow.top/talent-"+a+".html";
+	location.href="/talent-"+a+".html";
 	return false;
 }
 function tc_classOver(a) {
@@ -48,8 +48,8 @@ function tc_onChange(a, e, d) {
 	var c;
 	if (e.classId != tc_classId) {
 		if (!tc_loaded) {
-			var c = ge("tc-classes");
-			de(gE(c, "p")[0]);
+			var c = getElement("tc-classes");
+			delElem(getElemTag(c, "p")[0]);
 			c.className = "";
 			tc_loaded = true
 		}

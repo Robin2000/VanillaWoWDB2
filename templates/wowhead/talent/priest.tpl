@@ -5,15 +5,15 @@
     <div class="talent_cp">  
     </div>
     <ul class="class_choose">
-    <li><a href="http://www.topwow.top/talent-1.html" class="c1">战士</a></li>
-    <li><a href="http://www.topwow.top/talent-2.html" class="c2">圣骑士</a></li>
-    <li><a href="http://www.topwow.top/talent-3.html" class="c3">猎人</a></li>
-    <li><a href="http://www.topwow.top/talent-7.html" class="c4">萨满</a></li>
-    <li><a href="http://www.topwow.top/talent-11.html" class="c5">德鲁伊</a></li>
-    <li><a href="http://www.topwow.top/talent-4.html" class="c6">盗贼</a></li>
-    <li><a href="http://www.topwow.top/talent-8.html" class="c7">法师</a></li>
-    <li><a href="http://www.topwow.top/talent-9.html" class="c8">术士</a></li>
-    <li class="active"><a href="http://www.topwow.top/talent-5.html" class="c9">牧师</a></li>
+    <li><a href="/talent-1.html" class="c1">战士</a></li>
+    <li><a href="/talent-2.html" class="c2">圣骑士</a></li>
+    <li><a href="/talent-3.html" class="c3">猎人</a></li>
+    <li><a href="/talent-7.html" class="c4">萨满</a></li>
+    <li><a href="/talent-11.html" class="c5">德鲁伊</a></li>
+    <li><a href="/talent-4.html" class="c6">盗贼</a></li>
+    <li><a href="/talent-8.html" class="c7">法师</a></li>
+    <li><a href="/talent-9.html" class="c8">术士</a></li>
+    <li class="active"><a href="/talent-5.html" class="c9">牧师</a></li>
     </ul>
 <div class="talent_cal">
 <div class="talent_info">

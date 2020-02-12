@@ -101,8 +101,9 @@ class Experience {
       case 'newAudioData': {
         this.audioDatas.push(e.data.data);
         if (this.playState === 'ttsing' && this.audioDatas.length === 1) {
+          var me=this;
           this.playTimeout = setTimeout(function(){
-            this.audioPlay();
+            me.audioPlay();
           }, 1000)
         }
         break

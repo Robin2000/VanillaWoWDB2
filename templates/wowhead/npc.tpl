@@ -20,7 +20,7 @@
 						<li><div>{#Level#}: {if $npc.level_min<>$npc.level_max}{$npc.level_min} - {/if}{$npc.level_max}</div></li>
 						<li><div>{#Classification#}: {$npc.rank}</div></li>
 						<li><div>{#React#}: <span class="q{if $npc.A==-1}10{elseif $npc.A==1}2{else}{/if}">A</span> <span class="q{if $npc.H==-1}10{elseif $npc.H==1}2{else}{/if}">H</span></div></li>
-						<li><div>{#Faction#}: <a href="http://www.topwow.top/faction-{$npc.faction_num}.html">{$npc.faction}</a></div></li>
+						<li><div>{#Faction#}: <a href="/faction-{$npc.faction_num}.html">{$npc.faction}</a></div></li>
 						<li><div>{#Health#}: {if $npc.health_min<>$npc.health_max}{$npc.health_min} - {/if}{$npc.health_max}</div></li>
 						{if ($npc.mana_min or $npc.mana_max)}
 						<li><div>{#Mana#}: {if $npc.mana_min<>$npc.mana_max}{$npc.mana_min} - {/if}{$npc.mana_max}</div></li>
@@ -111,7 +111,7 @@
 			</div>
 
 {if $npc.heroic}
-				<div>{if $npc.heroic.type == 1}{#This_is_heroic_NPC#}{else}{#This_is_normal_NPC#}{/if} <a href="http://www.topwow.top/npc-{$npc.heroic.entry}.html">{$npc.heroic.name}</a>.</div>
+				<div>{if $npc.heroic.type == 1}{#This_is_heroic_NPC#}{else}{#This_is_normal_NPC#}{/if} <a href="/npc-{$npc.heroic.entry}.html">{$npc.heroic.name}</a>.</div>
 				<div class="pad"></div>
 {/if}
 
@@ -153,9 +153,9 @@
 									]
 								{/if}
 								{rdelim});
-							ge('mapper-generic').style.display='block';
+							getElement('mapper-generic').style.display='block';
 						{else}
-							ge('mapper-generic').style.display='none';
+							getElement('mapper-generic').style.display='none';
 						{/if}
 								g_setSelectedLink(this, 'mapper'); return false" onmousedown="return false">
 							{$zone.name}</a>{if $zone.population > 1}&nbsp;({$zone.population}){/if}{if $smarty.foreach.zone.last}.{else}, {/if}
@@ -168,13 +168,13 @@
 
 				<script type="text/javascript">
 					var myMapper = new Mapper({ldelim}parent: 'mapper-generic', zone: '{$npc.position[0].atid}'{rdelim});
-					gE(ge('locations'), 'a')[0].onclick();
+					getElemTag(getElement('locations'), 'a')[0].onclick();
 				</script>
 
 {elseif isset($npc.refzone)}
 <div id="mapper-generic">
 <div class="text">
-<h1>出现在<a href="http://www.topwow.top/zone-{$npc.refzone.areaID}.html">{$npc.refzone.name}</a></h1>
+<h1>出现在<a href="/zone-{$npc.refzone.areaID}.html">{$npc.refzone.name}</a></h1>
 	<div style="padding:5px;width:772px;height:515px;background:url(/images/maps/area/{$npc.refzone.file}.jpg) no-repeat">
 	</div>
 </div>
@@ -196,7 +196,7 @@
 {if isset($allitems)}{include			file='bricks/allitems_table.tpl'		data=$allitems			}{/if}
 {if isset($allspells)}{include			file='bricks/allspells_table.tpl'		data=$allspells			}{/if}
 {if isset($allachievements)}{include	file='bricks/allachievements_table.tpl'	data=$allachievements	}{/if}
-var tabsRelated = new Tabs({ldelim}parent: ge('tabs-generic'){rdelim});
+var tabsRelated = new Tabs({ldelim}parent: getElement('tabs-generic'){rdelim});
 {if isset($npc.sells)}{include 			file='bricks/item_table.tpl'			id='sells'				name='sells'			tabsid='tabsRelated' data=$npc.sells			}{/if}
 {if isset($npc.drop)}{include 			file='bricks/item_table.tpl'			id='drop'				name='drops'			tabsid='tabsRelated' data=$npc.drop				}{/if}
 {if isset($npc.pickpocketing)}{include	file='bricks/item_table.tpl'			id='pick-pocketing'		name='pickpocketing'	tabsid='tabsRelated' data=$npc.pickpocketing	}{/if}
@@ -250,7 +250,7 @@ tabsRelated.flush();
   <script>
   var map0Poi=[{foreach from=$map0Poi item=zone name=zone}[{$zone.x}, {$zone.y}],{/foreach}];
   </script>
-  <iframe allowfullscreen="true" style="overflow:hidden" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" width="100%" height="500px" src="http://www.topwow.top/wowgis/map-0.html"></iframe>
+  <iframe allowfullscreen="true" style="overflow:hidden" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" width="100%" height="500px" src="/wowgis/map-0.html"></iframe>
 {/if} 
 
 {if $map1Poi}
@@ -258,7 +258,7 @@ tabsRelated.flush();
   <script>
   var map1Poi=[{foreach from=$map1Poi item=zone name=zone}[{$zone.x}, {$zone.y}],{/foreach}];
   </script>
-  <iframe allowfullscreen="true" style="overflow:hidden" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" width="100%" height="500px" src="http://www.topwow.top/wowgis/map-1.html"></iframe>
+  <iframe allowfullscreen="true" style="overflow:hidden" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" width="100%" height="500px" src="/wowgis/map-1.html"></iframe>
 {/if}
 <!---->
 

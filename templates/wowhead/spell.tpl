@@ -35,8 +35,8 @@
 			<div style="clear: left"></div>
 
 			<script type="text/javascript">
-				ge('icon{$spell.entry}-generic').appendChild(Icon.create('{$spell.icon}', 2, 0, 0, {$spell.stack}));
-				Tooltip.fix(ge('tooltip{$spell.entry}-generic'), 1, 1);
+				getElement('icon{$spell.entry}-generic').appendChild(Icon.create('{$spell.icon}', 2, 0, 0, {$spell.stack}));
+				Tooltip.fix(getElement('tooltip{$spell.entry}-generic'), 1, 1);
 			</script>
 
 			{if isset($spell.btt)}
@@ -45,7 +45,7 @@
 				<table><tr><td>{$spell.btt}</td><th style="background-position: top right"></th></tr><tr><th style="background-position: bottom left"></th><th style="background-position: bottom right"></th></tr></table>
 			</div>
 			<script type="text/javascript">
-				Tooltip.fixSafe(ge('btt{$spell.entry}'), 1, 1)
+				Tooltip.fixSafe(getElement('btt{$spell.entry}'), 1, 1)
 			</script>
 			{/if}
 
@@ -63,12 +63,12 @@
 					<h3>{#Reagents#}</h3>
 					<table class="iconlist">
 {section name=i loop=$spell.reagents}
-						<tr><th align="right" id="iconlist-icon{$iconlist1++}"></th><td><span class="q{$spell.reagents[i].quality}"><a href="http://www.topwow.top/item-{$spell.reagents[i].entry}.html">{$spell.reagents[i].name}</a></span></td></tr>
+						<tr><th align="right" id="iconlist-icon{$iconlist1++}"></th><td><span class="q{$spell.reagents[i].quality}"><a href="/item-{$spell.reagents[i].entry}.html">{$spell.reagents[i].name}</a></span></td></tr>
 {/section}
 					</table>
 					<script type="text/javascript">
 {section name=i loop=$spell.reagents}
-						ge('iconlist-icon{$iconlist2++}').appendChild(g_items.createIcon({$spell.reagents[i].entry}, 0, {$spell.reagents[i].count}));
+						getElement('iconlist-icon{$iconlist2++}').appendChild(g_items.createIcon({$spell.reagents[i].entry}, 0, {$spell.reagents[i].count}));
 {/section}
 					</script>
 {if $spell.tools}</div>{/if}{/if}
@@ -76,12 +76,12 @@
 					<h3>{#Tools#}</h3>
 					<table class="iconlist">
 {section name=i loop=$spell.tools}
-						<tr><th align="right" id="iconlist-icon{$iconlist1++}"></th><td><span class="q1"><a href="http://www.topwow.top/item-{$spell.tools[i].entry}.html">{$spell.tools[i].name}</a></span></td></tr>
+						<tr><th align="right" id="iconlist-icon{$iconlist1++}"></th><td><span class="q1"><a href="/item-{$spell.tools[i].entry}.html">{$spell.tools[i].name}</a></span></td></tr>
 {/section}
 					</table>
 					<script type="text/javascript">
 {section name=i loop=$spell.tools}
-						ge('iconlist-icon{$iconlist2++}').appendChild(g_items.createIcon({$spell.tools[i].entry}, 0, 1));
+						getElement('iconlist-icon{$iconlist2++}').appendChild(g_items.createIcon({$spell.tools[i].entry}, 0, 1));
 {/section}
 					</script>
 {if $spell.reagents}</div>{/if}{/if}
@@ -144,7 +144,7 @@
 						{$spell.effect[i].name}
 
 						<small>
-						{if isset($spell.effect[i].object)}<br>{#Object#}: <a href="http://www.topwow.top/object-{$spell.effect[i].object.entry}.html">{$spell.effect[i].object.name}</a>{/if}
+						{if isset($spell.effect[i].object)}<br>{#Object#}: <a href="/object-{$spell.effect[i].object.entry}.html">{$spell.effect[i].object.name}</a>{/if}
 						{if isset($spell.effect[i].value)}<br>{#Value#}: {$spell.effect[i].value}{/if}
 						{if isset($spell.effect[i].radius)}<br>{#Radius#}: {$spell.effect[i].radius} {#yards#}{/if}
 						{if isset($spell.effect[i].interval)}<br>{#Interval#}: {$spell.effect[i].interval} {#seconds#}{/if}
@@ -153,23 +153,23 @@
 						<table class="icontab">
 							<tr>
 								<th id="icontab-icon1"></th>
-								<td><a href="http://www.topwow.top/spell-{$spell.effect[i].spell.entry}.html">{$spell.effect[i].spell.name}</a></td>
+								<td><a href="/spell-{$spell.effect[i].spell.entry}.html">{$spell.effect[i].spell.name}</a></td>
 								<th></th><td></td>
 							</tr>
 						</table>
 						<script type="text/javascript">
-							ge('icontab-icon1').appendChild(g_spells.createIcon({$spell.effect[i].spell.entry}, 1, 0));
+							getElement('icontab-icon1').appendChild(g_spells.createIcon({$spell.effect[i].spell.entry}, 1, 0));
 						</script>
 {/if}
 {if isset($spell.effect[i].item)}
 						<table class="icontab">
 							<tr>
-								<th id="icontab-icon1"></th><td><span class="q{$spell.effect[i].item.quality}"><a href="http://www.topwow.top/item-{$spell.effect[i].item.entry}.html">{$spell.effect[i].item.name}</a></span></td>
+								<th id="icontab-icon1"></th><td><span class="q{$spell.effect[i].item.quality}"><a href="/item-{$spell.effect[i].item.entry}.html">{$spell.effect[i].item.name}</a></span></td>
 								<th></th><td></td>
 							</tr>
 						</table>
 						<script type="text/javascript">
-							ge('icontab-icon1').appendChild(g_items.createIcon({$spell.effect[i].item.entry}, 1, {$spell.effect[i].item.count}));
+							getElement('icontab-icon1').appendChild(g_items.createIcon({$spell.effect[i].item.entry}, 1, {$spell.effect[i].item.count}));
 						</script>
 {/if}
 					</td>
@@ -180,7 +180,7 @@
 			{* Для ослика *}
 			<script type="text/javascript">
 			if(Browser.ie6)
-				array_walk(gE(ge('spelldetails'), 'tr'), function(x) {ldelim} if(x.parentNode.parentNode.className != 'icontab') {ldelim} x.onmouseover = Listview.itemOver; x.onmouseout = Listview.itemOut {rdelim}{rdelim});
+				array_walk(getElemTag(getElement('spelldetails'), 'tr'), function(x) {ldelim} if(x.parentNode.parentNode.className != 'icontab') {ldelim} x.onmouseover = Listview.itemOver; x.onmouseout = Listview.itemOut {rdelim}{rdelim});
 			</script>
 
 			<h2>{#Related#}</h2>
@@ -193,7 +193,7 @@
 {if $allitems}{include 					file='bricks/allitems_table.tpl'		data=$allitems			}{/if}
 {if $allspells}{include 				file='bricks/allspells_table.tpl'		data=$allspells			}{/if}
 {if isset($allachievements)}{include	file='bricks/allachievements_table.tpl'	data=$allachievements	}{/if}
-var tabsRelated = new Tabs({ldelim}parent: ge('tabs-generic'){rdelim});
+var tabsRelated = new Tabs({ldelim}parent: getElement('tabs-generic'){rdelim});
 {if isset($spell.taughtbynpc)}{include			file='bricks/creature_table.tpl'		id='taught-by-npc'		tabsid='tabsRelated' data=$spell.taughtbynpc		name='taughtby'		}{/if}
 {if isset($spell.taughtbyitem)}{include			file='bricks/item_table.tpl'			id='taught-by-item'		tabsid='tabsRelated' data=$spell.taughtbyitem		name='taughtby'		}{/if}
 {if isset($spell.taughtbyquest)}{include		file='bricks/quest_table.tpl'			id='taught-by-quest'	tabsid='tabsRelated' data=$spell.taughtbyquest		name='taughtby'		}{/if}

@@ -52,8 +52,8 @@
 
 
 					<script type="text/javascript">
-						ge('icon{$item.entry}-generic').appendChild(Icon.create('{$item.iconname}', 2, 0, 0, {$item.stackable}));
-						Tooltip.fix(ge('tooltip{$item.entry}-generic'), 1, 1);
+						getElement('icon{$item.entry}-generic').appendChild(Icon.create('{$item.iconname}', 2, 0, 0, {$item.stackable}));
+						Tooltip.fix(getElement('tooltip{$item.entry}-generic'), 1, 1);
 					</script>
 
 
@@ -144,7 +144,7 @@
 {if isset($allitems)}{include			file='bricks/allitems_table.tpl'		data=$allitems			}{/if}
 {if isset($allspells)}{include			file='bricks/allspells_table.tpl'		data=$allspells			}{/if}
 {if isset($allachievements)}{include	file='bricks/allachievements_table.tpl'	data=$allachievements	}{/if}
-var tabsRelated = new Tabs({ldelim}parent: ge('tabs-generic'){rdelim});
+var tabsRelated = new Tabs({ldelim}parent: getElement('tabs-generic'){rdelim});
 {if isset($item.unlocks)}{include				file='bricks/object_table.tpl'			id='unlocks'				tabsid='tabsRelated' data=$item.unlocks				name='unlocks'			}{/if}
 {if isset($item.fishedin)}{include				file='bricks/zone_table.tpl'			id='fished-in'				tabsid='tabsRelated' data=$item.fishedin			name='fishedin'			}{/if}
 {if isset($item.droppedby)}{include				file='bricks/creature_table.tpl'		id='dropped-by'				tabsid='tabsRelated' data=$item.droppedby			name='droppedby'		}{/if}

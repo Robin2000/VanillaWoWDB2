@@ -36,7 +36,7 @@
 										{if ($achievement.series[i].id == $achievement.id)}
 											<b>{$achievement.series[i].name}</b>
 										{else}
-											<div><a href="http://www.topwow.top/achievement-{$achievement.series[i].id}.html">{$achievement.series[i].name}</a></div>
+											<div><a href="/achievement-{$achievement.series[i].id}.html">{$achievement.series[i].name}</a></div>
 										{/if}
 									</td>
 								</tr>
@@ -53,7 +53,7 @@
 					<div id="h1-icon-generic" class="h1-icon"></div>
 					<h1 class="h1-icon">{$achievement.name}</h1>
 					<script type="text/javascript">
-					ge('h1-icon-generic').appendChild(Icon.create('{$achievement.iconname|escape:"javascript"}', 1));
+					getElement('h1-icon-generic').appendChild(Icon.create('{$achievement.iconname|escape:"javascript"}', 1));
 					</script>
 
 					{$achievement.description}
@@ -94,7 +94,7 @@
 					{strip}
 					<script type="text/javascript">
 					{foreach from=$achievement.icons item=ic}
-						ge('iconlist-icon{$ic.itr}').appendChild({$ic.type}.createIcon({$ic.id}, 0, {if $ic.count > 0}{$ic.count}{else}0{/if}));
+						getElement('iconlist-icon{$ic.itr}').appendChild({$ic.type}.createIcon({$ic.id}, 0, {if $ic.count > 0}{$ic.count}{else}0{/if}));
 					{/foreach}
 					</script>
 					{/strip}
@@ -117,7 +117,7 @@
 				<div id="tabs-generic"></div>
 				<div id="listview-generic" class="listview"></div>
 <script type="text/javascript">
-var tabsRelated = new Tabs({ldelim}parent: ge('tabs-generic'){rdelim});
+var tabsRelated = new Tabs({ldelim}parent: getElement('tabs-generic'){rdelim});
 {if $achievement.see_also}{include		file='bricks/achievement_table.tpl'	id='see-also'		tabsid='tabsRelated'	data=$achievement.see_also		name='seealso'}{/if}
 {if $achievement.criteria_of}{include	file='bricks/achievement_table.tpl'	id='criteria-of'	tabsid='tabsRelated'	data=$achievement.criteria_of	name='criteriaof'}{/if}
 tabsRelated.flush();

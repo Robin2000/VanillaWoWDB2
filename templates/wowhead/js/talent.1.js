@@ -14,7 +14,7 @@ var json_data = 0,
     url = 0,
     mc = 0;
 function setAllTalent(e) {
-    $(".rat").trigger("click");
+    dom(".rat").trigger("click");
     var ids=e[0]
     var arr=e[1];
     setTimeout(function() {
@@ -33,11 +33,11 @@ function clickNext(arr, index, clickTimes, ids){
         return;
     }
 
-    var icon=$('#'+ids[index]);
+    var icon=dom('#'+ids[index]);
     
-    unlock($(icon));
+    unlock(dom(icon));
 
-    leftClickIcons($(icon), ids[index]);
+    leftClickIcons(dom(icon), ids[index]);
 
     setTimeout(function() {
         clickNext(arr, index, clickTimes-1, ids);
@@ -49,21 +49,21 @@ function clickNext(arr, index, clickTimes, ids){
 function moveTalent(e, t, n, i) {
     if(data[t]==undefined)return;
     var r = '<div class="talent_float_info" id="tf' + e.attr("id") + '"><table>';
-    r += '<tr><td class="name" colspan="2">' + data[t].n + "</td></tr>", r += '<tr><td class="rank" colspan="2">\u7b49\u7ea7 <span class="_r">' + data[t].rank + "</span>/" + data[t].p + "</td></tr>", n < data[t].uti.p && (r += '<tr><td class="u" colspan="2">\u9700\u8981' + data[t].uti.p + "\u70b9\u5728" + data[t].uti.n + "</td></tr>"), 0 != data[t].up && i < data[t].up && (r += '<tr class="up_tips"><td class="u" colspan="2">\u9700\u8981' + data[t].up + "\u70b9\u5728" + data[t].upn + "\u5929\u8d4b</td></tr>"), r += "string" == typeof data[t].d ? '<tr><td class="des" colspan="2">' + data[t].d + "</td></tr>" : '<tr><td class="des" colspan="2">' + (0 == data[t].rank ? data[t].d[0] : data[t].d[data[t].rank - 1]) + "</td></tr>", r += '<tr><td class="tips">\u70b9\u51fb\u5b66\u4e60\uff0c\u53f3\u952e\u5fd8\u5374</td><td class="cp"></td></tr>', r += "</table></div>", $("body").append(r)
+    r += '<tr><td class="name" colspan="2">' + data[t].n + "</td></tr>", r += '<tr><td class="rank" colspan="2">\u7b49\u7ea7 <span class="_r">' + data[t].rank + "</span>/" + data[t].p + "</td></tr>", n < data[t].uti.p && (r += '<tr><td class="u" colspan="2">\u9700\u8981' + data[t].uti.p + "\u70b9\u5728" + data[t].uti.n + "</td></tr>"), 0 != data[t].up && i < data[t].up && (r += '<tr class="up_tips"><td class="u" colspan="2">\u9700\u8981' + data[t].up + "\u70b9\u5728" + data[t].upn + "\u5929\u8d4b</td></tr>"), r += "string" == typeof data[t].d ? '<tr><td class="des" colspan="2">' + data[t].d + "</td></tr>" : '<tr><td class="des" colspan="2">' + (0 == data[t].rank ? data[t].d[0] : data[t].d[data[t].rank - 1]) + "</td></tr>", r += '<tr><td class="tips">\u70b9\u51fb\u5b66\u4e60\uff0c\u53f3\u952e\u5fd8\u5374</td><td class="cp"></td></tr>', r += "</table></div>", dom("body").append(r)
 }
 
 function leftClickIcons(e, t) {
     if(data[t]==undefined)return;
     if (!e.hasClass("locked") && !e.hasClass("max") && e.find(".icon_bubble").length > 0 && 60 >= needlevel && canusepoint > 0 && 1 * e.children(".icon_bubble").html() <= data[t].p) {
-        e.children(".icon_bubble").html(1 * e.children(".icon_bubble").html() + 1), data[t].rank += 1, $("#tf" + e.attr("id")).find("._r").html(1 * $("#tf" + e.attr("id")).find("._r").html() + 1);
+        e.children(".icon_bubble").html(1 * e.children(".icon_bubble").html() + 1), data[t].rank += 1, dom("#tf" + e.attr("id")).find("._r").html(1 * dom("#tf" + e.attr("id")).find("._r").html() + 1);
         var n;
-        "0" == e.find("input[name=up]").val() ? lines[getThisTalentType(e)][0] += 1 : "5" == e.find("input[name=up]").val() ? lines[getThisTalentType(e)][1] += 1 : "10" == e.find("input[name=up]").val() ? lines[getThisTalentType(e)][2] += 1 : "15" == e.find("input[name=up]").val() ? lines[getThisTalentType(e)][3] += 1 : "20" == e.find("input[name=up]").val() ? lines[getThisTalentType(e)][4] += 1 : "25" == e.find("input[name=up]").val() ? lines[getThisTalentType(e)][5] += 1 : "30" == e.find("input[name=up]").val() && (lines[getThisTalentType(e)][6] += 1), n = "string" == typeof data[t].d ? data[t].d : 0 == data[t].rank ? data[t].d[0] : data[t].d[data[t].rank - 1], $("#tf" + e.attr("id")).find(".des").html(n), e.parents(".tsb").hasClass("t1") ? $(".t1_total").html(t1_total += 1) : e.parents(".tsb").hasClass("t2") ? $(".t2_total").html(t2_total += 1) : e.parents(".tsb").hasClass("t3") && $(".t3_total").html(t3_total += 1), $(".needlevel").html(needlevel += 1), $(".canusepoint").html(canusepoint -= 1), 1 * e.children(".icon_bubble").html() == data[t].p && (e.addClass("max"), e.children(".icon_border").css("background-position", "-42px 0"), e.children(".icon_bubble").css("color", "#e7ba00"));
+        "0" == e.find("input[name=up]").val() ? lines[getThisTalentType(e)][0] += 1 : "5" == e.find("input[name=up]").val() ? lines[getThisTalentType(e)][1] += 1 : "10" == e.find("input[name=up]").val() ? lines[getThisTalentType(e)][2] += 1 : "15" == e.find("input[name=up]").val() ? lines[getThisTalentType(e)][3] += 1 : "20" == e.find("input[name=up]").val() ? lines[getThisTalentType(e)][4] += 1 : "25" == e.find("input[name=up]").val() ? lines[getThisTalentType(e)][5] += 1 : "30" == e.find("input[name=up]").val() && (lines[getThisTalentType(e)][6] += 1), n = "string" == typeof data[t].d ? data[t].d : 0 == data[t].rank ? data[t].d[0] : data[t].d[data[t].rank - 1], dom("#tf" + e.attr("id")).find(".des").html(n), e.parents(".tsb").hasClass("t1") ? dom(".t1_total").html(t1_total += 1) : e.parents(".tsb").hasClass("t2") ? dom(".t2_total").html(t2_total += 1) : e.parents(".tsb").hasClass("t3") && dom(".t3_total").html(t3_total += 1), dom(".needlevel").html(needlevel += 1), dom(".canusepoint").html(canusepoint -= 1), 1 * e.children(".icon_bubble").html() == data[t].p && (e.addClass("max"), e.children(".icon_border").css("background-position", "-42px 0"), e.children(".icon_bubble").css("color", "#e7ba00"));
         var i, r, o = e.parents(".tsb_table").find(".icons"),
             a = 1 * e.parents(".tsb").find(".tsb_info span").html();
         $.each(o, function () {
-            i = $(this).find("input[name=ut]").val(), i > 0 && (r = $(this).parents(".tsb").find("#" + i)), $(this).children("input[name=up]").val() <= a && 0 == i && $(this).hasClass("locked") ? ($(this).removeClass("locked"), $(this).prepend('<div class="icon_bubble">0</div>'), $(this).find(".icon_border").css("background-position", "-84px 0"), $(this).find(".icon_img").attr("src", "/images/icons/talent/" + $(this).find(".icon_img").attr("alt") + ".jpg"), $(this).find("input[name=uplock]").val("0")) : $(this).children("input[name=up]").val() <= a && i > 0 && r.hasClass("max") && $(this).hasClass("locked") && ($(this).removeClass("locked"), $(this).prepend('<div class="icon_bubble">0</div>'), $(this).find(".icon_border").css("background-position", "-84px 0"), $(this).find(".icon_img").attr("src", "/images/icons/talent/" + $(this).find(".icon_img").attr("alt") + ".jpg"), $(this).find("input[name=utlock]").val("0"), $(this).find("input[name=uplock]").val("0")), $(this).hasClass("max") && $("#tf" + e.attr("id")).find(".up_tips").remove()
-        }), 0 >= canusepoint && $.each($(".icons"), function () {
-            1 * $(this).find(".icon_bubble").html() == 0 && ($(this).addClass("locked"), $(this).find(".icon_border").css("background-position", "0 0"), $(this).find(".icon_bubble").remove(), $(this).find(".icon_img").attr("src", "/images/icons/talent/" + $(this).find(".icon_img").attr("alt") + "_grey.jpg"))
+            i = dom(this).find("input[name=ut]").val(), i > 0 && (r = dom(this).parents(".tsb").find("#" + i)), dom(this).children("input[name=up]").val() <= a && 0 == i && dom(this).hasClass("locked") ? (dom(this).removeClass("locked"), dom(this).prepend('<div class="icon_bubble">0</div>'), dom(m(this).find(".icon_border").css("background-position", "-84px 0"), dom(this).find(".icon_img").attr("src", "/images/icons/talent/" + dom(this).find(".icon_img").attr("alt") + ".jpg"), dom(this).find("input[name=uplock]").val("0")) : dom(this).children("input[name=up]").val() <= a && i > 0 && r.hasClass("max") && dom(this).hasClass("locked") && (dom(this).removeClass("locked"), dom(this).prepend('<div class="icon_bubble">0</div>'), dom(this).find(".icon_border").css("background-position", "-84px 0"), dom(this).find(".icon_img").attr("src", "/images/icons/talent/" + dom(this).find(".icon_img").attr("alt") + ".jpg"), dom(this).find("input[name=utlock]").val("0"), dom(this).find("input[name=uplock]").val("0")), dom(this).hasClass("max") && dom("#tf" + e.attr("id")).find(".up_tips").remove()
+        }), 0 >= canusepoint && $.each(dom(".icons"), function () {
+            1 * dom(this).find(".icon_bubble").html() == 0 && (dom(this).addClass("locked"), dom(this).find(".icon_border").css("background-position", "0 0"), dom(this).find(".icon_bubble").remove(), dom(this).find(".icon_img").attr("src", "/images/icons/talent/" + dom(this).find(".icon_img").attr("alt") + "_grey.jpg"))
         })
     }
 }
@@ -81,12 +81,12 @@ function rightClickIcons(e) {
             u = 0,
             c = 0;
         $.each(t, function () {
-            var t = $(this);
+            var t = dom(this);
             e.attr("id") == t.find(".ut" + e.attr("id")).val() && i.push(t)
         }), $.each(t, function () {
-            var t = $(this);
+            var t = dom(this);
             t.find(".icon_bubble").length > 0 && 1 * t.find(".icon_bubble").html() > 0 && (lines[getThisTalentType(e)][1] >= 1 && n - lines[getThisTalentType(e)][1] - lines[getThisTalentType(e)][2] - lines[getThisTalentType(e)][3] - lines[getThisTalentType(e)][4] - lines[getThisTalentType(e)][5] - lines[getThisTalentType(e)][6] == 5 && (r = 1), lines[getThisTalentType(e)][2] >= 1 && n - lines[getThisTalentType(e)][2] - lines[getThisTalentType(e)][3] - lines[getThisTalentType(e)][4] - lines[getThisTalentType(e)][5] - lines[getThisTalentType(e)][6] == 10 && (r = 1, o = 1), lines[getThisTalentType(e)][3] >= 1 && n - lines[getThisTalentType(e)][3] - lines[getThisTalentType(e)][4] - lines[getThisTalentType(e)][5] - lines[getThisTalentType(e)][6] == 15 && (r = 1, o = 1, a = 1), lines[getThisTalentType(e)][4] >= 1 && n - lines[getThisTalentType(e)][4] - lines[getThisTalentType(e)][5] - lines[getThisTalentType(e)][6] == 20 && (r = 1, o = 1, a = 1, s = 1), lines[getThisTalentType(e)][5] >= 1 && n - lines[getThisTalentType(e)][5] - lines[getThisTalentType(e)][6] == 25 && (r = 1, o = 1, a = 1, s = 1, l = 1), lines[getThisTalentType(e)][6] >= 1 && n - lines[getThisTalentType(e)][6] == 30 && (r = 1, o = 1, a = 1, s = 1, l = 1, u = 1), 0 != i.length && $.each(i, function () {
-                $(this).find("input[name=ut]").val() == t.attr("id") && 1 * $(this).find(".icon_bubble").html() > 0 && (c = 1)
+                dom(this).find("input[name=ut]").val() == t.attr("id") && 1 * dom(this).find(".icon_bubble").html() > 0 && (c = 1)
             }))
         }), "0" == e.find("input[name=up]").val() && 1 != r && 1 != c ? subTalent(e, data, i, n) : "5" == e.find("input[name=up]").val() && 1 != o && 1 != c ? subTalent(e, data, i, n) : "10" == e.find("input[name=up]").val() && 1 != a && 1 != c ? subTalent(e, data, i, n) : "15" == e.find("input[name=up]").val() && 1 != s && 1 != c ? subTalent(e, data, i, n) : "20" == e.find("input[name=up]").val() && 1 != l && 1 != c ? subTalent(e, data, i, n) : "25" == e.find("input[name=up]").val() && 1 != u && 1 != c ? subTalent(e, data, i, n) : "30" == e.find("input[name=up]").val() && subTalent(e, data, i, n)
     }
@@ -95,39 +95,39 @@ function rightClickIcons(e) {
 function subTalent(e, t, n, i) {
     var r = e.attr("id");
     e.hasClass("max") && (e.removeClass("max"), e.find(".icon_border").css("background-position", "-84px 0"), e.find(".icon_bubble").css("color", "#1eff00")), 30 >= i && $.each(e.parents(".tsb").find(".line7"), function () {
-        $(this).find("input[name=uplock]").val("1")
+        dom(this).find("input[name=uplock]").val("1")
     }), 25 >= i && $.each(e.parents(".tsb").find(".line6"), function () {
-        $(this).find("input[name=uplock]").val("1")
+        dom(this).find("input[name=uplock]").val("1")
     }), 20 >= i && $.each(e.parents(".tsb").find(".line5"), function () {
-        $(this).find("input[name=uplock]").val("1")
+        dom(this).find("input[name=uplock]").val("1")
     }), 15 >= i && $.each(e.parents(".tsb").find(".line4"), function () {
-        $(this).find("input[name=uplock]").val("1")
+        dom(this).find("input[name=uplock]").val("1")
     }), 10 >= i && $.each(e.parents(".tsb").find(".line3"), function () {
-        $(this).find("input[name=uplock]").val("1")
+        dom(this).find("input[name=uplock]").val("1")
     }), 5 >= i && $.each(e.parents(".tsb").find(".line2"), function () {
-        $(this).find("input[name=uplock]").val("1")
+        dom(this).find("input[name=uplock]").val("1")
     }), 0 != n.length && $.each(n, function () {
-        1 * e.find(".icon_bubble").html() <= t[r].p && e.attr("id") == $(this).find("input[name=ut]").val() && $(this).find("input[name=utlock]").val("1")
-    }), lock(e.parents(".tsb").find(".icons")), e.children(".icon_bubble").html(1 * e.children(".icon_bubble").html() - 1), t[r].rank -= 1, $("#tf" + e.attr("id")).find("._r").html(1 * $("#tf" + e.attr("id")).find("._r").html() - 1);
+        1 * e.find(".icon_bubble").html() <= t[r].p && e.attr("id") == dom(this).find("input[name=ut]").val() && dom(this).find("input[name=utlock]").val("1")
+    }), lock(e.parents(".tsb").find(".icons")), e.children(".icon_bubble").html(1 * e.children(".icon_bubble").html() - 1), t[r].rank -= 1, dom("#tf" + e.attr("id")).find("._r").html(1 * dom("#tf" + e.attr("id")).find("._r").html() - 1);
     var o;
-    o = "string" == typeof t[r].d ? t.d : 0 == t[r].rank ? t[r].d[0] : t[r].d[t[r].rank - 1], $("#tf" + e.attr("id")).find(".des").html(o), "0" == e.find("input[name=up]").val() ? lines[getThisTalentType(e)][0] -= 1 : "5" == e.find("input[name=up]").val() ? lines[getThisTalentType(e)][1] -= 1 : "10" == e.find("input[name=up]").val() ? lines[getThisTalentType(e)][2] -= 1 : "15" == e.find("input[name=up]").val() ? lines[getThisTalentType(e)][3] -= 1 : "20" == e.find("input[name=up]").val() ? lines[getThisTalentType(e)][4] -= 1 : "25" == e.find("input[name=up]").val() ? lines[getThisTalentType(e)][5] -= 1 : "30" == e.find("input[name=up]").val() && (lines[getThisTalentType(e)][6] -= 1), e.parents(".tsb").hasClass("t1") ? $(".t1_total").html(t1_total -= 1) : e.parents(".tsb").hasClass("t2") ? $(".t2_total").html(t2_total -= 1) : e.parents(".tsb").hasClass("t3") && $(".t3_total").html(t3_total -= 1), $(".needlevel").html(needlevel -= 1), $(".canusepoint").html(canusepoint += 1), 9 == needlevel && 51 == canusepoint ? ($(".needlevel").html("--"), $(".canusepoint").html("--")) : ($(".needlevel").html(needlevel), $(".canusepoint").html(canusepoint)), 59 == needlevel && 1 == canusepoint && resetOtherTalent()
+    o = "string" == typeof t[r].d ? t.d : 0 == t[r].rank ? t[r].d[0] : t[r].d[t[r].rank - 1], dom("#tf" + e.attr("id")).find(".des").html(o), "0" == e.find("input[name=up]").val() ? lines[getThisTalentType(e)][0] -= 1 : "5" == e.find("input[name=up]").val() ? lines[getThisTalentType(e)][1] -= 1 : "10" == e.find("input[name=up]").val() ? lines[getThisTalentType(e)][2] -= 1 : "15" == e.find("input[name=up]").val() ? lines[getThisTalentType(e)][3] -= 1 : "20" == e.find("input[name=up]").val() ? lines[getThisTalentType(e)][4] -= 1 : "25" == e.find("input[name=up]").val() ? lines[getThisTalentType(e)][5] -= 1 : "30" == e.find("input[name=up]").val() && (lines[getThisTalentType(e)][6] -= 1), e.parents(".tsb").hasClass("t1") ? dom(".t1_total").html(t1_total -= 1) : e.parents(".tsb").hasClass("t2") ? dom(".t2_total").html(t2_total -= 1) : e.parents(".tsb").hasClass("t3") && dom(".t3_total").html(t3_total -= 1), dom(".needlevel").html(needlevel -= 1), dom(".canusepoint").html(canusepoint += 1), 9 == needlevel && 51 == canusepoint ? (dom(".needlevel").html("--"), dom(".canusepoint").html("--")) : (dom(".needlevel").html(needlevel), dom(".canusepoint").html(canusepoint)), 59 == needlevel && 1 == canusepoint && resetOtherTalent()
 }
 
 function lock(e) {
     $.each(e, function () {
-        ($(this).find(".icon_bubble").length > 0 && "1" == $(this).find("input[name=uplock]").val() || $(this).find(".icon_bubble").length > 0 && "1" == $(this).find("input[name=utlock]").val()) && ($(this).addClass("locked"), $(this).find(".icon_border").css("background-position", "0 0"), $(this).find(".icon_bubble").remove(), $(this).find(".icon_img").attr("src", "/images/icons/talent/" + $(this).find(".icon_img").attr("alt") + "_grey.jpg"))
+        (dom(this).find(".icon_bubble").length > 0 && "1" == dom(this).find("input[name=uplock]").val() || dom(this).find(".icon_bubble").length > 0 && "1" == dom(this).find("input[name=utlock]").val()) && (dom(this).addClass("locked"), dom(this).find(".icon_border").css("background-position", "0 0"), dom(this).find(".icon_bubble").remove(), dom(this).find(".icon_img").attr("src", "/images/icons/talent/" + dom(this).find(".icon_img").attr("alt") + "_grey.jpg"))
     })
 }
 
 function unlock(e) {
-    $.each($(e).find(".line1"), function () {
-        $(this).find(".icon_bubble").length <= 0 && ($(this).removeClass("locked"), $(this).find(".icon_border").css("background-position", "-84px 0"), $(this).prepend('<div class="icon_bubble">0</div>'), $(this).find(".icon_img").attr("src", "/images/icons/talent/" + $(this).find(".icon_img").attr("alt") + ".jpg"))
+    $.each(dom(e).find(".line1"), function () {
+        dom(this).find(".icon_bubble").length <= 0 && (dom(this).removeClass("locked"), dom(this).find(".icon_border").css("background-position", "-84px 0"), dom(this).prepend('<div class="icon_bubble">0</div>'), dom(this).find(".icon_img").attr("src", "/images/icons/talent/" + dom(this).find(".icon_img").attr("alt") + ".jpg"))
     })
 }
 
 function resetOtherTalent() {
-    $.each($(".icons"), function () {
-        var e = $(this);
+    $.each(dom(".icons"), function () {
+        var e = dom(this);
         "0" == e.find("input[name=uplock]").val() && "0" == e.find("input[name=utlock]").val() && e.find(".icon_bubble").length <= 0 && (e.removeClass("locked"), e.find(".icon_border").css("background-position", "-84px 0"), e.prepend('<div class="icon_bubble">0</div>'), e.find(".icon_img").attr("src", "/images/icons/talent/" + e.find(".icon_img").attr("alt") + ".jpg"))
     })
 }
@@ -142,12 +142,12 @@ function jsoncallback(e) {
         $.each(e.list, function (n, i) {
             1 == e.block_id || 2 == e.block_id || 3 == e.block_id || 4 == e.block_id || 5 == e.block_id || 7 == e.block_id || 9 == e.block_id || 10 == e.block_id || 12 == e.block_id || 13 == e.block_id || 14 == e.block_id || 96 == e.block_id ? t += '<div class="borad_dds"><a href="' + i.short_url + '" target="_blank"><img src="' + i.image_url + '" /></a></div>' : 6 == e.block_id || 8 == e.block_id || 17 == e.block_id || 15 == e.block_id ? t += '<li><a href="' + i.short_url + '" target="_blank"><img src="' + i.image_url + '" /></a></li>' : 16 == e.block_id ? t += '<div class="borad_dds ardds2"><a href="' + i.short_url + '" target="_blank"><img src="' + i.image_url + '" /></a></div>' : 11 == e.block_id ? t += '<a href="' + i.short_url + '" target="_blank"><img src="' + i.image_url + '" /></a>' : (e.block_id >= 18 && e.block_id <= 35 || 94 == e.block_id || 95 == e.block_id) && (t += '<a href="' + i.short_url + '" target="_blank"><img src="' + i.image_url + '" /></a>')
         });
-        var n = $(window).height() / 2 - 275,
+        var n = dom(window).height() / 2 - 275,
             i = 126;
         if (18 == e.block_id || 20 == e.block_id || 22 == e.block_id || 24 == e.block_id || 26 == e.block_id || 28 == e.block_id || 30 == e.block_id || 32 == e.block_id || 34 == e.block_id || 94 == e.block_id) {
-            var r = ($(window).width() - 1e3) / 2,
+            var r = (dom(window).width() - 1e3) / 2,
                 o = 0;
-            r - i >= 0 && (o = r - i), $(".wow_float_left").css({
+            r - i >= 0 && (o = r - i), dom(".wow_float_left").css({
                 top: n,
                 left: o,
                 position: "fixed",
@@ -155,25 +155,25 @@ function jsoncallback(e) {
             })
         }
         if (19 == e.block_id || 21 == e.block_id || 23 == e.block_id || 25 == e.block_id || 27 == e.block_id || 29 == e.block_id || 31 == e.block_id || 33 == e.block_id || 35 == e.block_id || 95 == e.block_id) {
-            var a = ($(window).width() - 1e3) / 2,
+            var a = (dom(window).width() - 1e3) / 2,
                 s = 0;
-            a - i >= 0 && (s = a - i), $(".wow_float_right").css({
+            a - i >= 0 && (s = a - i), dom(".wow_float_right").css({
                 top: n,
                 right: s,
                 position: "fixed",
                 "z-index": 99999
             })
         }
-        $(".wow_block_list_" + e.block_id).html(t), $(".wow_block_list").fadeIn("slow")
+        dom(".wow_block_list_" + e.block_id).html(t), dom(".wow_block_list").fadeIn("slow")
     }
 }
 
 function hb() {
     var e = Date.parse(new Date) / 1e3;
     if (e > 1540051200 && 1541952e3 > e) {
-        $("body").append('<div class="hb_box"><a href="https://s.click.taobao.com/Xtr7DLw" target="_blank"><img src="/images/hb_ani.gif"></a></div>');
-        var t = $(window).width() / 2 - $(".footer .middle").width() / 2;
-        $(".hb_box").css("right", t);
+        dom("body").append('<div class="hb_box"><a href="https://s.click.taobao.com/Xtr7DLw" target="_blank"><img src="/images/hb_ani.gif"></a></div>');
+        var t = dom(window).width() / 2 - dom(".footer .middle").width() / 2;
+        dom(".hb_box").css("right", t);
         var n = "hb_D9bq3442Zl1_" + timetrans(e, ""),
             i = getCookie(n);
         i ? "0" == i && setHbDom(n, timetrans(e, "-")) : setHbDom(n, timetrans(e, "-"))
@@ -186,14 +186,14 @@ function isMobile() {
 }
 
 function setHbDom(e, t) {
-    $("body").append("<div class='hb_layout'></div>").css("overflow-y", "hidden"), $("body").append('<div class="hb_img"><a href="https://s.click.taobao.com/Xtr7DLw" target="_blank"><img src="/images/hb.png"></a></div>');
-    var n = $(window).width() / 2 - $(".hb_img").width() / 2,
-        i = $(window).height() / 2 - $(".hb_img").height() / 2;
-    $(".hb_img").css({
+    dom("body").append("<div class='hb_layout'></div>").css("overflow-y", "hidden"), dom("body").append('<div class="hb_img"><a href="https://s.click.taobao.com/Xtr7DLw" target="_blank"><img src="/images/hb.png"></a></div>');
+    var n = dom(window).width() / 2 - dom(".hb_img").width() / 2,
+        i = dom(window).height() / 2 - dom(".hb_img").height() / 2;
+    dom(".hb_img").css({
         top: i,
         left: n
-    }), $(".hb_img a").click(function () {
-        $(".hb_layout").remove(), $(".hb_img").remove(), $("body").css("overflow-y", "scroll"), setCookie(e, "1", t)
+    }), dom(".hb_img a").click(function () {
+        dom(".hb_layout").remove(), dom(".hb_img").remove(), dom("body").css("overflow-y", "scroll"), setCookie(e, "1", t)
     })
 }
 
@@ -414,7 +414,7 @@ function timetrans(e, t) {
         return t ? e.type = t[1] : e.removeAttribute("type"), e
     }
 
-    function $(e, t) {
+    function dom(e, t) {
         if (1 === t.nodeType && pe.hasData(e)) {
             var n, i, r, o = pe._data(e),
                 a = pe._data(t, o),
@@ -957,7 +957,7 @@ function timetrans(e, t) {
                     } if (T.qsa && !X[e + " "] && (!q || !q.test(e))) {
                     if (1 !== m) h = t, p = e;
                     else if ("object" !== t.nodeName.toLowerCase()) {
-                        for ((s = t.getAttribute("id")) ? s = s.replace(ye, "\\$&") : t.setAttribute("id", s = R), d = $(e), o = d.length, l = fe.test(s) ? "#" + s : "[id='" + s + "']"; o--;) d[o] = l + " " + f(d[o]);
+                        for ((s = t.getAttribute("id")) ? s = s.replace(ye, "\\$&") : t.setAttribute("id", s = R), d = dom(e), o = d.length, l = fe.test(s) ? "#" + s : "[id='" + s + "']"; o--;) d[o] = l + " " + f(d[o]);
                         p = d.join(","), h = be.test(e) && c(t.parentNode) || t
                     }
                     if (p) try {
@@ -1370,7 +1370,7 @@ function timetrans(e, t) {
                 },
                 PSEUDO: function (e) {
                     var t, n = !e[6] && e[2];
-                    return pe.CHILD.test(e[0]) ? null : (e[3] ? e[2] = e[4] || e[5] || "" : n && de.test(n) && (t = $(n, !0)) && (t = n.indexOf(")", n.length - t) - n.length) && (e[0] = e[0].slice(0, t), e[2] = n.slice(0, t)), e.slice(0, 3))
+                    return pe.CHILD.test(e[0]) ? null : (e[3] ? e[2] = e[4] || e[5] || "" : n && de.test(n) && (t = dom(n, !0)) && (t = n.indexOf(")", n.length - t) - n.length) && (e[0] = e[0].slice(0, t), e[2] = n.slice(0, t)), e.slice(0, 3))
                 }
             },
             filter: {
@@ -1572,13 +1572,13 @@ function timetrans(e, t) {
                 r = [],
                 o = X[e + " "];
             if (!o) {
-                for (t || (t = $(e)), n = t.length; n--;) o = b(t[n]), o[R] ? i.push(o) : r.push(o);
+                for (t || (t = dom(e)), n = t.length; n--;) o = b(t[n]), o[R] ? i.push(o) : r.push(o);
                 o = X(e, y(r, i)), o.selector = e
             }
             return o
         }, E = t.select = function (e, t, n, i) {
             var r, o, a, s, l, u = "function" == typeof e && e,
-                d = !i && $(e = u.selector || e);
+                d = !i && dom(e = u.selector || e);
             if (n = n || [], 1 === d.length) {
                 if (o = d[0] = d[0].slice(0), o.length > 2 && "ID" === (a = o[0]).type && T.getById && 9 === t.nodeType && H && k.relative[o[1].type]) {
                     if (t = (k.find.ID(a.matches[0].replace(xe, Te), t) || [])[0], !t) return n;
@@ -2371,8 +2371,8 @@ function timetrans(e, t) {
                 for (i = h(o), s = h(e), a = 0; null != (r = s[a]); ++a) i[a] && C(r, i[a]);
             if (t)
                 if (n)
-                    for (s = s || h(e), i = i || h(o), a = 0; null != (r = s[a]); a++) $(r, i[a]);
-                else $(e, o);
+                    for (s = s || h(e), i = i || h(o), a = 0; null != (r = s[a]); a++) dom(r, i[a]);
+                else dom(e, o);
             return i = h(o, "script"), i.length > 0 && m(i, !l && h(e, "script")), i = s = r = null, o
         },
         cleanData: function (e, t) {
@@ -3755,15 +3755,15 @@ function (e, t) {
     }))
 }(jQuery);
 
-$(document).ready(function () {
-    $("input[name=mc]").length > 0 && ($("input[name=url]").length > 0 && (url = $("input[name=url]").val()), mc = $("input[name=mc]").val(), t1_total = 1 * $(".t1_total").html(), t2_total = 1 * $(".t2_total").html(), t3_total = 1 * $(".t3_total").html(), $.getJSON("data/" + mc + ".json", function () {
+dom(document).ready(function () {
+    dom("input[name=mc]").length > 0 && (dom("input[name=url]").length > 0 && (url = dom("input[name=url]").val()), mc = dom("input[name=mc]").val(), t1_total = 1 * dom(".t1_total").html(), t2_total = 1 * dom(".t2_total").html(), t3_total = 1 * dom(".t3_total").html(), $.getJSON("data/" + mc + ".json", function () {
 
     }).done(function (e) {
         json_data = e; 
         data = json_data;
         /*0 != url && setAllTalent()*/
-    }), $(".icon_a").mouseover(function () {
-        var e, t = $(this).parent(".icons"),
+    }), dom(".icon_a").mouseover(function () {
+        var e, t = dom(this).parent(".icons"),
             n = t.attr("id"),
             i = 1 * t.parents(".tsb").find(".tsb_info span").html(),
             r = 0;
@@ -3771,19 +3771,19 @@ $(document).ready(function () {
     }).mousemove(function (e) {
         var t = e.pageX,
             n = e.pageY;
-        $(".talent_float_info").css({
+        dom(".talent_float_info").css({
             left: t + 20,
             top: n - 20
         })
     }).mouseout(function () {
-        $(".talent_float_info").hide().remove()
+        dom(".talent_float_info").hide().remove()
     }).mousedown(function (e) {
-        var t = $(this).parent(".icons"),
+        var t = dom(this).parent(".icons"),
             n = t.attr("id");
         1 == e.which ? leftClickIcons(t, n) : 3 == e.which && rightClickIcons(t)
-    }), $(".rt").click(function () {
-        refreshRt($(this), data);
-    }), $(".rat").click(function () {
+    }), dom(".rt").click(function () {
+        refreshRt(dom(this), data);
+    }), dom(".rat").click(function () {
          refreshRat(data);
     }))
 });
@@ -3793,15 +3793,15 @@ function refreshRt(e,r) {
     i = 0;
 
     $.each(t, function () {
-        n = $(this).attr("id"), $(this).removeClass("max"), 1 * $(this).find("input[name=up]").val() > 0 || "0" == $(this).find("input[name=up]").val() && 1 * $(this).find("input[name=ut]").val() > 0 ? ($(this).addClass("locked"), $(this).find(".icon_border").css("background-position", "0 0"), $(this).find(".icon_bubble").remove(), $(this).find(".icon_img").attr("src", "/images/icons/talent/" + $(this).find(".icon_img").attr("alt") + "_grey.jpg")) : ($(this).removeClass("locked"), $(this).find(".icon_border").css("background-position", "-84px 0"), $(this).find(".icon_bubble").remove(), $(this).prepend('<div class="icon_bubble">0</div>'), $(this).find(".icon_img").attr("src", "/images/icons/talent/" + $(this).find(".icon_img").attr("alt") + ".jpg")), "0" == $(this).find("input[name=up]").val() && "0" == $(this).find("input[name=ut]").val() ? ($(this).find("input[name=uplock]").val("0"), $(this).find("input[name=utlock]").val("0")) : 1 * $(this).find("input[name=up]").val() > 0 && "0" == $(this).find("input[name=ut]").val() ? ($(this).find("input[name=uplock]").val("1"), $(this).find("input[name=utlock]").val("0")) : 1 * $(this).find("input[name=up]").val() > 0 && 1 * $(this).find("input[name=ut]").val() > 0 ? ($(this).find("input[name=uplock]").val("1"), $(this).find("input[name=utlock]").val("1")) : "0" == $(this).find("input[name=up]").val() && 1 * $(this).find("input[name=ut]").val() > 0 && ($(this).find("input[name=uplock]").val("0"), $(this).find("input[name=utlock]").val("1")), data[n] = r[n], i = 1 * e.prev("span").html(), e.prev("span").html("0"), "1" == e.attr("id") ? (t1_total = 0, lines[0] = [0, 0, 0, 0, 0, 0, 0]) : "2" == e.attr("id") ? (t2_total = 0, lines[1] = [0, 0, 0, 0, 0, 0, 0]) : "3" == e.attr("id") && (t3_total = 0, lines[2] = [0, 0, 0, 0, 0, 0, 0]), canusepoint += i, needlevel -= i, 9 == needlevel && 51 == canusepoint ? ($(".needlevel").html("--"), $(".canusepoint").html("--")) : ($(".needlevel").html(needlevel), $(".canusepoint").html(canusepoint)), resetOtherTalent()
+        n = dom(this).attr("id"), dom(this).removeClass("max"), 1 * dom(this).find("input[name=up]").val() > 0 || "0" == dom(this).find("input[name=up]").val() && 1 * dom(this).find("input[name=ut]").val() > 0 ? (dom(this).addClass("locked"), dom(this).find(".icon_border").css("background-position", "0 0"), dom(this).find(".icon_bubble").remove(), dom(this).find(".icon_img").attr("src", "/images/icons/talent/" + dom(this).find(".icon_img").attr("alt") + "_grey.jpg")) : (dom(this).removeClass("locked"), dom(this).find(".icon_border").css("background-position", "-84px 0"), dom(this).find(".icon_bubble").remove(), dom(this).prepend('<div class="icon_bubble">0</div>'), dom(this).find(".icon_img").attr("src", "/images/icons/talent/" + dom(this).find(".icon_img").attr("alt") + ".jpg")), "0" == dom(this).find("input[name=up]").val() && "0" == dom(this).find("input[name=ut]").val() ? (dom(this).find("input[name=uplock]").val("0"), dom(this).find("input[name=utlock]").val("0")) : 1 * dom(this).find("input[name=up]").val() > 0 && "0" == dom(this).find("input[name=ut]").val() ? (dom(this).find("input[name=uplock]").val("1"), dom(this).find("input[name=utlock]").val("0")) : 1 * dom(this).find("input[name=up]").val() > 0 && 1 * dom(this).find("input[name=ut]").val() > 0 ? (dom(this).find("input[name=uplock]").val("1"), dom(this).find("input[name=utlock]").val("1")) : "0" == dom(this).find("input[name=up]").val() && 1 * dom(this).find("input[name=ut]").val() > 0 && (dom(this).find("input[name=uplock]").val("0"), dom(this).find("input[name=utlock]").val("1")), data[n] = r[n], i = 1 * e.prev("span").html(), e.prev("span").html("0"), "1" == e.attr("id") ? (t1_total = 0, lines[0] = [0, 0, 0, 0, 0, 0, 0]) : "2" == e.attr("id") ? (t2_total = 0, lines[1] = [0, 0, 0, 0, 0, 0, 0]) : "3" == e.attr("id") && (t3_total = 0, lines[2] = [0, 0, 0, 0, 0, 0, 0]), canusepoint += i, needlevel -= i, 9 == needlevel && 51 == canusepoint ? (dom(".needlevel").html("--"), dom(".canusepoint").html("--")) : (dom(".needlevel").html(needlevel), dom(".canusepoint").html(canusepoint)), resetOtherTalent()
     })
 
 }
 function refreshRat(n) {
-    var e = ($(this), $(".icons")),
+    var e = (dom(this), dom(".icons")),
             t = 0;
     $.each(e, function () {
-        t = $(this).attr("id"), $(this).removeClass("max"), 1 * $(this).find("input[name=up]").val() > 0 || "0" == $(this).find("input[name=up]").val() && 1 * $(this).find("input[name=ut]").val() > 0 ? ($(this).addClass("locked"), $(this).find(".icon_border").css("background-position", "0 0"), $(this).find(".icon_bubble").remove(), $(this).find(".icon_img").attr("src", "/images/icons/talent/" + $(this).find(".icon_img").attr("alt") + "_grey.jpg")) : ($(this).removeClass("locked"), $(this).find(".icon_border").css("background-position", "-84px 0"), $(this).find(".icon_bubble").remove(), $(this).prepend('<div class="icon_bubble">0</div>'), $(this).find(".icon_img").attr("src", "/images/icons/talent/" + $(this).find(".icon_img").attr("alt") + ".jpg")), "0" == $(this).find("input[name=up]").val() && "0" == $(this).find("input[name=ut]").val() ? ($(this).find("input[name=uplock]").val("0"), $(this).find("input[name=utlock]").val("0")) : 1 * $(this).find("input[name=up]").val() > 0 && "0" == $(this).find("input[name=ut]").val() ? ($(this).find("input[name=uplock]").val("1"), $(this).find("input[name=utlock]").val("0")) : 1 * $(this).find("input[name=up]").val() > 0 && 1 * $(this).find("input[name=ut]").val() > 0 ? ($(this).find("input[name=uplock]").val("1"), $(this).find("input[name=utlock]").val("1")) : "0" == $(this).find("input[name=up]").val() && 1 * $(this).find("input[name=ut]").val() > 0 && ($(this).find("input[name=uplock]").val("0"), $(this).find("input[name=utlock]").val("1")), data[t] = n[t], $(".tsb_info span").html("0"), 9 == needlevel && 51 == canusepoint ? ($(".needlevel").html("--"), $(".canusepoint").html("--")) : ($(".needlevel").html(needlevel), $(".canusepoint").html(canusepoint))
+        t = dom(this).attr("id"), dom(this).removeClass("max"), 1 * dom(this).find("input[name=up]").val() > 0 || "0" == dom(this).find("input[name=up]").val() && 1 * dom(this).find("input[name=ut]").val() > 0 ? (dom(this).addClass("locked"), dom(this).find(".icon_border").css("background-position", "0 0"), dom(this).find(".icon_bubble").remove(), dom(this).find(".icon_img").attr("src", "/images/icons/talent/" + dom(this).find(".icon_img").attr("alt") + "_grey.jpg")) : (dom(this).removeClass("locked"), dom(this).find(".icon_border").css("background-position", "-84px 0"), dom(this).find(".icon_bubble").remove(), dom(this).prepend('<div class="icon_bubble">0</div>'), dom(this).find(".icon_img").attr("src", "/images/icons/talent/" + dom(this).find(".icon_img").attr("alt") + ".jpg")), "0" == dom(this).find("input[name=up]").val() && "0" == dom(this).find("input[name=ut]").val() ? (dom(this).find("input[name=uplock]").val("0"), dom(this).find("input[name=utlock]").val("0")) : 1 * dom(this).find("input[name=up]").val() > 0 && "0" == dom(this).find("input[name=ut]").val() ? (dom(this).find("input[name=uplock]").val("1"), dom(this).find("input[name=utlock]").val("0")) : 1 * dom(this).find("input[name=up]").val() > 0 && 1 * dom(this).find("input[name=ut]").val() > 0 ? (dom(this).find("input[name=uplock]").val("1"), dom(this).find("input[name=utlock]").val("1")) : "0" == dom(this).find("input[name=up]").val() && 1 * dom(this).find("input[name=ut]").val() > 0 && (dom(this).find("input[name=uplock]").val("0"), dom(this).find("input[name=utlock]").val("1")), data[t] = n[t], dom(".tsb_info span").html("0"), 9 == needlevel && 51 == canusepoint ? (dom(".needlevel").html("--"), dom(".canusepoint").html("--")) : (dom(".needlevel").html(needlevel), dom(".canusepoint").html(canusepoint))
     });
     canusepoint = 51; needlevel = 9; t1_total = 0; t2_total = 0; t3_total = 0; lines = [
         [0, 0, 0, 0, 0, 0, 0],

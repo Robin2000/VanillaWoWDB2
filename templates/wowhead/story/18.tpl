@@ -26,23 +26,23 @@
     <b>牧师：</b>法杖、匕首、单手锤、魔法投掷<p>
 
     <h3 title="联盟武器大师">联盟武器大师</h3><p>
-    <b>暴风城<a href="http://www.topwow.top/npc-11867.html">吴平</a>：</b>弩，匕首，法杖，单手剑，双手剑，长柄武器<p>
+    <b>暴风城<a href="/npc-11867.html">吴平</a>：</b>弩，匕首，法杖，单手剑，双手剑，长柄武器<p>
 
-    <b>铁炉堡<a href="http://www.topwow.top/npc-13084.html">比克斯</a>：</b>弩，匕首，投掷武器<p>
+    <b>铁炉堡<a href="/npc-13084.html">比克斯</a>：</b>弩，匕首，投掷武器<p>
 
-    <b>铁炉堡<a href="http://www.topwow.top/npc-11865.html">布里维夫·石拳</a>：</b>单手斧，双手斧，单手锤，双手锤，拳套，枪<p>
+    <b>铁炉堡<a href="/npc-11865.html">布里维夫·石拳</a>：</b>单手斧，双手斧，单手锤，双手锤，拳套，枪<p>
 
-    <b>达纳苏斯<a href="http://www.topwow.top/npc-11866.html">伊琳尼雅·月火</a>：</b>弓箭，匕首，拳套，法杖，投掷武器<p>
+    <b>达纳苏斯<a href="/npc-11866.html">伊琳尼雅·月火</a>：</b>弓箭，匕首，拳套，法杖，投掷武器<p>
 
     <h3 title="部落武器大师">部落武器大师</h3><p>
 
-    <b>奥格瑞玛<a href="http://www.topwow.top/npc-11868.html">玛塞尤克</a>：</b>弓箭，匕首，拳套，单手斧，双手斧，投掷武器<p>
+    <b>奥格瑞玛<a href="/npc-11868.html">玛塞尤克</a>：</b>弓箭，匕首，拳套，单手斧，双手斧，投掷武器<p>
 
-    <b>奥格瑞玛<a href="http://www.topwow.top/npc-2704.html">哈纳什</a>：</b>弓箭，单手斧，双手斧，投掷武器，法杖<p>
+    <b>奥格瑞玛<a href="/npc-2704.html">哈纳什</a>：</b>弓箭，单手斧，双手斧，投掷武器，法杖<p>
 
-    <b>雷霆崖<a href="http://www.topwow.top/npc-11869.html">安塞瓦</a>：</b>枪，法杖，单手锤，双手锤<p>
+    <b>雷霆崖<a href="/npc-11869.html">安塞瓦</a>：</b>枪，法杖，单手锤，双手锤<p>
 
-    <b>幽暗城<a href="http://www.topwow.top/npc-11870.html">阿基巴德</a>：</b>弩，匕首，单手剑，双手剑，长柄武器<p>
+    <b>幽暗城<a href="/npc-11870.html">阿基巴德</a>：</b>弩，匕首，单手剑，双手剑，长柄武器<p>
 
 </div>
 

@@ -19,7 +19,7 @@
 		<div id="toptabs">
 			<div id="toptabs-inner">
 				<div id="toptabs-right">
-				<a style="line-height:32px" href="http://www.topwow.top/"><img vertical-align="middle" src="http://www.topwow.top/images/home.png" alt="Home"></a>
+				<a style="line-height:32px" href="/"><img vertical-align="middle" src="/images/home.png" alt="Home"></a>
 				|<a href="javascript:;" id="toptabs-menu-language">{#Language#} <small>&#9660;</small></a>
 					<script type="text/javascript">g_initHeaderMenus()</script>
 				</div>
@@ -43,6 +43,6 @@
 var _tab={$page.tab};
 {literal}
 	try{g_initHeader(_tab);}catch(e){} 
-	try{LiveSearch.attach(ge('oh2345v5ks'));}catch(r){}
+	try{LiveSearch.attach(getElement('oh2345v5ks'));}catch(r){}
 {/literal}
 </script>
