@@ -2806,7 +2806,6 @@ var WOWTooltip = {
 		WOWTooltip.move(c.x, c.y, 0, 0, a, d)
 	},
 	hide: function () {
-		try{hideMyTooltip();}catch(e){}
 		if (WOWTooltip.wowtooltip) {
 			WOWTooltip.wowtooltip.style.display = "none";
 			WOWTooltip.wowtooltip.visibility = "hidden";

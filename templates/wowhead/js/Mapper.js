@@ -348,7 +348,7 @@ Mapper.prototype = {
 		return
 	},
 	pinOver: function () {
-		try{showMyTooltip(this, this.tt, 4, 0);}catch(e){}
+		WOWTooltip.show(this, this.tt, 4, 0);
 	},
 	getMousePos: function (b) {
 		b = $E(b);

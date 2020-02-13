@@ -72,18 +72,7 @@
 				<script type="text/javascript">
 					var myMapper = new Mapper({ldelim}parent: 'mapper-generic', zone: '{$zone.position[0].atid}'{rdelim});
 					getElemTag(getElement('locations'), 'a')[0].onclick();
-					{literal}
-					function showMyTooltip(e,txt,w,h){
-						document.getElementById("mytooltip").innerHTML=txt;
-						document.getElementById("mytooltip").style.left=event.x+"px";
-						document.getElementById("mytooltip").style.top=(event.y-40)+"px";
-						document.getElementById("mytooltip").style.display='';
-					}
-					function hideMyTooltip(){
-						document.getElementById("mytooltip").style.display='none';
-					}
 				</script>
-				{/literal}
 {/if}
 {if isset($zone.parentname) and isset($zone.parent)}
 				<div class="pad"></div>
