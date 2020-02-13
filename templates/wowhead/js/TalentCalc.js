@@ -528,7 +528,7 @@ function TalentCalc() {
 		an(bd, bc)
 	}
 	function an(bd, bc) {
-		Tooltip.showAtCursor(bc, LANG[r ? "tc_rembon": "tc_addbon"], null, null, "q")
+		WOWTooltip.showAtCursor(bc, LANG[r ? "tc_rembon": "tc_addbon"], null, null, "q")
 	}
 	function aU(bc, bf, bg) {
 		var bh = createElem("div"),
@@ -796,11 +796,11 @@ function TalentCalc() {
 					bm.onclick = bj.onclick = rf;
 					g_onClick(bm, ak.bind(bm, bn));
 					bm.onmouseover = F.bind(null, bm, bn);
-					bm.onmousemove = Tooltip.cursorUpdate;
-					bm.onmouseout = Tooltip.hide;
+					bm.onmousemove = WOWTooltip.cursorUpdate;
+					bm.onmouseout = WOWTooltip.hide;
 					g_onClick(bj, ak.bind(bj, bn));
 					bj.onmouseover = F.bind(null, bj, bn);
-					bj.onmouseout = Tooltip.hide;
+					bj.onmouseout = WOWTooltip.hide;
 					be.oncontextmenu = rf
 				}
 				append(bf, bh)
@@ -892,7 +892,7 @@ function TalentCalc() {
 				bf.onclick = rf;
 				g_onClick(bf, H.bind(bf, bj));
 				bf.onmouseover = Y.bind(null, bf, bj);
-				bf.onmouseout = Tooltip.hide;
+				bf.onmouseout = WOWTooltip.hide;
 				var bt = createElem("div"),
 				bz = createElem("div");
 				append(bz, createText("0"));
@@ -1042,8 +1042,8 @@ function TalentCalc() {
 			be.href = "javascript:;";
 			be.onclick = E.bind(null, be);
 			be.onmouseover = an.bind(null, be);
-			be.onmousemove = Tooltip.cursorUpdate;
-			be.onmouseout = Tooltip.hide;
+			be.onmousemove = WOWTooltip.cursorUpdate;
+			be.onmouseout = WOWTooltip.hide;
 			append(bd, be)
 		}
 		bd = createElem("span");
@@ -1836,11 +1836,11 @@ function TalentCalc() {
 			}
 		}
 		if (glyph && be.parentNode.className.indexOf("icon") != 0) {
-			Tooltip.setIcon(glyph.icon)
+			WOWTooltip.setIcon(glyph.icon)
 		} else {
-			Tooltip.setIcon(null)
+			WOWTooltip.setIcon(null)
 		}
-		Tooltip.show(be, "<table><tr><td>" + upper + "</td></tr></table><table><tr><td>" + lower + "</td></tr></table>")
+		WOWTooltip.show(be, "<table><tr><td>" + upper + "</td></tr></table><table><tr><td>" + lower + "</td></tr></table>")
 	}
 	function Y(bf, be) {
 		var bd = M[be.classId],
@@ -1882,7 +1882,7 @@ function TalentCalc() {
 			}
 		}
 		bc += "</td></tr></table>";
-		Tooltip.show(bf, bc)
+		WOWTooltip.show(bf, bc)
 	}
 	function av(bc) {
 		if (g_locale.id == 0 || g_locale.id == 25) {

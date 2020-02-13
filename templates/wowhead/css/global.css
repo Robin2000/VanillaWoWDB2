@@ -248,7 +248,7 @@ font-size:18px;
 line-height:1.5em;
 z-index:10000;
 padding-top:70px;
-background:url(../images/logos/medium.gif) center top no-repeat;
+background:url(/templates/wowhead/images/logoSmall.png) center top no-repeat;
 }
 
 #noscript-text b {
@@ -259,7 +259,7 @@ font-size:22px;
 text-align:center;
 margin-top:40px;
 padding-top:140px;
-background:url(../images/logo.png) top center no-repeat;
+background:url(/templates/wowhead/images/logoLarge.png) top center no-repeat;
 }
 
 #home input {
@@ -291,9 +291,9 @@ margin:0 10px;
 position:absolute;
 left:0;
 top:20px;
-width:160px;
+width:260px;
 height:66px;
-background:url(../images/logo.png) left center no-repeat;
+background:url(/templates/wowhead/images/logoLarge.png) left center no-repeat;
 -webkit-background-size: cover; /* For WebKit*/
 -moz-background-size: cover;    /* Mozilla*/
 -o-background-size: cover;      /* Opera*/
@@ -550,7 +550,7 @@ margin-right:4px;
 cursor:default;
 font-size:15px;
 padding:0 0 10px 20px;
-background:url(../images/favicon.gif) left 1px no-repeat;
+background:url(../images/toolbar-quote.png) left 1px no-repeat;
 }
 
 #footer {
@@ -596,17 +596,43 @@ margin:0 0 3px;
 }
 
 .infobox {
+white-space:normal;
 width:176px;
-float:right;
+float:left;
+margin-top:30px;
+margin-right:10px;
 padding:0 0 10px 10px;
 border-collapse:collapse;
 background-color:#181818;
 border:1px solid #404040;
 }
+.iteminfo .infobox {
+    margin-top:0;
+    width:280px;
+    float:none !important;
+}
+.iteminfo .infobox table{
+    border-spacing:0;
+    width:240px;
+}
+.iteminfo .infobox table td{
+    padding:0; 
+}
+
+.iteminfo .infobox ul{
+    list-style-type:none;
+    padding-right:15px;
+}
+.iteminfo .infobox span{
+    white-space:normal;
+    width:300px;
+    float:none !important;
+}
+
 
 .infobox-spacer {
 width:174px;
-height:1px;
+height:2px;
 background-color:#181818;
 }
 
@@ -1344,55 +1370,55 @@ background:none!important;
 cursor:default;
 }
 
-.tooltip {
+.wowtooltip {
 visibility:hidden;
 z-index:100000003;
 }
 
-.tooltip table {
+.wowtooltip table {
 border-spacing:0;
 border-collapse:collapse;
 }
 
-.tooltip td,.tooltip th {
-background:url(../images/tooltip.png);
+.wowtooltip td,.wowtooltip th {
+background:url(../images/wowtooltip.png);
 font-family:Verdana,'Microsoft Yahei','PingFangSC-Regular',sans-serif;
 font-size:12px;
 line-height:17px;
 color:white;
 }
 
-.tooltip th {
+.wowtooltip th {
 padding:3px;
 vertical-align:top;
 }
 
-.tooltip td {
+.wowtooltip td {
 padding:8px 4px 1px 9px;
 vertical-align:top;
 }
 
-.tooltip b {
+.wowtooltip b {
 font-size:14px;
 line-height:19px;
 font-weight:normal;
 }
 
-.tooltip div.indent {
+.wowtooltip div.indent {
 padding-left:.6em;
 }
 
-.tooltip td th,.tooltip td td {
+.wowtooltip td th,.wowtooltip td td {
 background:none;
 }
 
-.tooltip td th {
+.wowtooltip td th {
 padding:0 0 0 4em;
 text-align:right;
 font-weight:normal;
 }
 
-.tooltip p {
+.wowtooltip p {
 position:absolute;
 left:-44px;
 top:-1px;
@@ -1403,12 +1429,12 @@ margin:0;
 padding:0;
 }
 
-.tooltip table.shrink b {
+.wowtooltip table.shrink b {
 font-size:12px;
 line-height:15px;
 }
 
-.tooltip table.shrink td,.tooltip table.shrink th {
+.wowtooltip table.shrink td,.wowtooltip table.shrink th {
 font-size:10px;
 line-height:14px;
 }
@@ -2550,7 +2576,6 @@ color:#E5CC80;
 
 .text ul li,.infobox li,.comment-body ul li {
 color:#c3030b;
-list-style-type:square;
 }
 
 .text li,.comment-body li {
@@ -2576,7 +2601,7 @@ position:relative;
 margin:0 6px;
 }
 
-.menu-buttons a:hover,.tooltip a:hover,.listview-mode-default tbody a:hover,.comment-header a.q0:hover,.comment-header-bt a.q0:hover,a.disclosure-on:hover,a.disclosure-off:hover {
+.menu-buttons a:hover,.wowtooltip a:hover,.listview-mode-default tbody a:hover,.comment-header a.q0:hover,.comment-header-bt a.q0:hover,a.disclosure-on:hover,a.disclosure-off:hover {
 text-decoration:underline;
 }
 
@@ -2592,7 +2617,7 @@ margin:0 .5em;
 text-align:center;
 }
 
-.series td,.iconlist th,.tooltip td td,.listview thead a span span {
+.series td,.iconlist th,.wowtooltip td td,.listview thead a span span {
 padding:0;
 }
 
@@ -2684,13 +2709,13 @@ background-position:-36px 0;
 background-position:-72px 0;
 }
 
-.iconmedium del,.tooltip p div {
+.iconmedium del,.wowtooltip p div {
 width:44px;
 height:44px;
 background-image:url(../images/icon_border_medium.png);
 }
 
-.tooltip a,.listview-mode-default tbody a,.progressbar del {
+.wowtooltip a,.listview-mode-default tbody a,.progressbar del {
 text-decoration:none;
 }
 
@@ -2819,3 +2844,58 @@ padding:10px 0 10px 10px;
     -moz-border-radius: 6px;
     border-radius: 6px;
 }
+
+.shxlistbox {
+    background: #000;
+    padding: 20px 15px;
+    margin: 10px 0;
+}
+
+.filter-condition {
+    padding: 10px 0 0px 0;
+    margin-bottom: 0;
+    overflow: visible;
+    width: 100%;
+}
+
+.filter-condition .item-screen {
+    display: block;
+    padding: 0;
+    margin: 0;
+    padding-top: 10px;
+}
+.filter-condition .bdfs{
+    display: block;
+    padding: 0;
+    margin: 0;
+    padding-top: 10px;
+}
+
+.filter-condition span {
+    margin-left: 10px;
+    color: #999;
+}
+.current{
+    border-radius:5px;
+    background:blue; color:#FFF
+}
+.sellabel {
+    background-color: #CE3827;color:#C9C9C9;padding:4px;margin:10px
+}
+.listview-mode-default td{
+    word-break: break-all;
+    max-width:100px;
+}
+.red{color:#CE3827}
+.purple{color:#630098}
+.blue{color:#716CFE}
+.gray{color:#C9C9C9}
+.green{color:#60C42E}
+.orange{color:#C9AC2C}
+.ds,.ds a{color:#FFd200}
+
+.lootIcon{cursor:pointer;background:url("/images/icons/small/inv_misc_gem_goldendraenite_01.png") no-repeat left center;padding-left:18px}
+.lootItem {cursor:pointer;line-height:20px;height:20px;font-size:16px}
+.lootItem a{margin-right:10px;-webkit-font-smoothing:subpixel-antialiased}
+.lootItem img {margin-right:10px;}
+.lootItem span{margin-right:5px;font-size:1rem}

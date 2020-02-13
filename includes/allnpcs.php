@@ -484,8 +484,8 @@ function GetNPCTooltip($row)
         'expansion'      => '1.12.1'
     );
 	$x = '';
-	$x .= "<img οnlοad='if(this.height>160) this.height=160' onerror='this.style.display=\"none\"' src='/screenshots/thumb/".$creature['entry'].".jpg'/>";
-    $x .= '<table><tr><td>'.'<b class="q">';
+	$x .= "<table><tr><td><img οnlοad='if(this.height>160) this.height=160' onerror='this.src=\"/images/icons/large/temp.png\"' src='/screenshots/thumb/".$creature['entry'].".jpg'/></td></tr>";
+    $x .= '<tr><td>'.'<b class="q">';
     $x .= htmlspecialchars($creature['name']);
     $x .= '</b></td></tr><tr><td>';
     if($creature['subname'])
@@ -505,7 +505,7 @@ function GetNPCTooltip($row)
     if(isset($creature['classification']))
 		$x .= '('.$npc_rank[$creature['classification']].')';
     $x .= '</tr></td></tr></table>';
-    $creature['tooltip'] = $x;
+    $creature['wowtooltip'] = $x;
     
     return $creature;
 }

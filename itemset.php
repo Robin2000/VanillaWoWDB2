@@ -46,7 +46,7 @@ if(!$itemset = load_cache(8, $cache_key))
 			{
 				$itemset['spells'][$x] = array();
 				$itemset['spells'][$x]['entry'] = $row['spell_id'.$j];
-				$itemset['spells'][$x]['tooltip'] = spell_desc($row['spell_id'.$j]);
+				$itemset['spells'][$x]['wowtooltip'] = spell_desc($row['spell_id'.$j]);
 				$itemset['spells'][$x]['bonus'] = $row['bonus'.$j];
 				$x++;
 			}

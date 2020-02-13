@@ -18,7 +18,7 @@
 					<tr><td>
 						<div class="infobox-spacer"></div>
 						<ul>
-							<li><div>{#Points#}: <span class="moneyachievement tip" onmouseover="Listview.funcBox.moneyAchievementOver(event)" onmousemove="Tooltip.cursorUpdate(event)" onmouseout="Tooltip.hide()">{$achievement.points}</span></div></li>
+							<li><div>{#Points#}: <span class="moneyachievement tip" onmouseover="Listview.funcBox.moneyAchievementOver(event)" onmousemove="WOWTooltip.cursorUpdate(event)" onmouseout="WOWTooltip.hide()">{$achievement.points}</span></div></li>
 							<li><div>{#Side#}: {$achievement.side}</div></li>
 						</ul>
 					</td></tr>

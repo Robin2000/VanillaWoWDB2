@@ -20,9 +20,9 @@
 				<div><div class="infobox-spacer"></div>
 				<ul>
 					{if isset($object.key)}<li><div>{#Key#}: <a class="q{$object.key.quality}" href="/item-{$object.key.id}.html">[{$object.key.name}]</a></div></li>{/if}
-					{if isset($object.lockpicking)}<li><div>{#Required_lockpicking_skill#} (<span class="tip" onmouseover="Tooltip.showAtCursor(event, '{#Required_lockpicking_skill#}', 0, 0, 'q')" onmousemove="Tooltip.cursorUpdate(event)" onmouseout="Tooltip.hide()">{$object.lockpicking}</span>)</div></li>{/if}
-					{if isset($object.mining)}<li><div>{#Required_mining_skill#} (<span class="tip" onmouseover="Tooltip.showAtCursor(event, '{#Required_mining_skill#}', 0, 0, 'q')" onmousemove="Tooltip.cursorUpdate(event)" onmouseout="Tooltip.hide()">{$object.mining}</span>)</div></li>{/if}
-					{if isset($object.herbalism)}<li><div>{#Required_herb_skill#} (<span class="tip" onmouseover="Tooltip.showAtCursor(event, '{#Required_herb_skill#}', 0, 0, 'q')" onmousemove="Tooltip.cursorUpdate(event)" onmouseout="Tooltip.hide()">{$object.herbalism}</span>)</div></li>{/if}
+					{if isset($object.lockpicking)}<li><div>{#Required_lockpicking_skill#} (<span class="tip" onmouseover="WOWTooltip.showAtCursor(event, '{#Required_lockpicking_skill#}', 0, 0, 'q')" onmousemove="WOWTooltip.cursorUpdate(event)" onmouseout="WOWTooltip.hide()">{$object.lockpicking}</span>)</div></li>{/if}
+					{if isset($object.mining)}<li><div>{#Required_mining_skill#} (<span class="tip" onmouseover="WOWTooltip.showAtCursor(event, '{#Required_mining_skill#}', 0, 0, 'q')" onmousemove="WOWTooltip.cursorUpdate(event)" onmouseout="WOWTooltip.hide()">{$object.mining}</span>)</div></li>{/if}
+					{if isset($object.herbalism)}<li><div>{#Required_herb_skill#} (<span class="tip" onmouseover="WOWTooltip.showAtCursor(event, '{#Required_herb_skill#}', 0, 0, 'q')" onmousemove="WOWTooltip.cursorUpdate(event)" onmouseout="WOWTooltip.hide()">{$object.herbalism}</span>)</div></li>{/if}
 					{if isset($object.page_text)}
 <li class="info-list">
 						<a href="/object-21581.html" title="第二次兽人战争的结局">第二次兽人战争的结局</a>

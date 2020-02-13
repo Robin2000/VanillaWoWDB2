@@ -29,23 +29,23 @@
 			<h1>{$spell.name}</h1>
 
 			<div id="icon{$spell.entry}-generic" style="float: left"></div>
-			<div id="tooltip{$spell.entry}-generic" class="tooltip" style="float: left; padding-top: 1px">
+			<div id="wowtooltip{$spell.entry}-generic" class="wowtooltip" style="float: left; padding-top: 1px">
 				<table><tr><td>{$spell.info}</td><th style="background-position: top right"></th></tr><tr><th style="background-position: bottom left"></th><th style="background-position: bottom right"></th></tr></table>
 			</div>
 			<div style="clear: left"></div>
 
 			<script type="text/javascript">
 				getElement('icon{$spell.entry}-generic').appendChild(Icon.create('{$spell.icon}', 2, 0, 0, {$spell.stack}));
-				Tooltip.fix(getElement('tooltip{$spell.entry}-generic'), 1, 1);
+				WOWTooltip.fix(getElement('wowtooltip{$spell.entry}-generic'), 1, 1);
 			</script>
 
 			{if isset($spell.btt)}
 			<h3></h3>
-			<div id="btt{$spell.entry}" class="tooltip" style="padding-left: 15px">
+			<div id="btt{$spell.entry}" class="wowtooltip" style="padding-left: 15px">
 				<table><tr><td>{$spell.btt}</td><th style="background-position: top right"></th></tr><tr><th style="background-position: bottom left"></th><th style="background-position: bottom right"></th></tr></table>
 			</div>
 			<script type="text/javascript">
-				Tooltip.fixSafe(getElement('btt{$spell.entry}'), 1, 1)
+				WOWTooltip.fixSafe(getElement('btt{$spell.entry}'), 1, 1)
 			</script>
 			{/if}
 

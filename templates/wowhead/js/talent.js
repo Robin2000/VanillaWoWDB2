@@ -24,7 +24,7 @@ function tc_init() {
 		}
 		g.onclick = tc_classClick.bind(g, h);
 		g.onmouseover = tc_classOver.bind(g, h);
-		g.onmouseout = Tooltip.hide;
+		g.onmouseout = WOWTooltip.hide;
 		append(c, f)
 	}
 	var a = createElem("div");
@@ -42,7 +42,7 @@ function tc_classClick(a) {
 	return false;
 }
 function tc_classOver(a) {
-	Tooltip.show(this, "<b>" + g_chr_classes[a] + "</b>", 0, 0, "c" + a)
+	WOWTooltip.show(this, "<b>" + g_chr_classes[a] + "</b>", 0, 0, "c" + a)
 }
 function tc_onChange(a, e, d) {
 	var c;

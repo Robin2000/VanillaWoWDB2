@@ -514,7 +514,7 @@ function GetObjectTooltip($row)
     if($object['type'])
         $x .= $object_type[$object['type']];
     $x .= '</td></tr></table>';
-    $object['tooltip'] = $x;
+    $object['wowtooltip'] = $x;
     
     return $object;
 }

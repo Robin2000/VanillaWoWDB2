@@ -5,7 +5,7 @@
 top:1px;
 }
 
-.tooltip th {
+.wowtooltip th {
 height:8px;
 }
 
@@ -206,8 +206,8 @@ background:none;
 filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='templates/wowhead/images/icon_border_medium_gold.png');
 }
 
-.tooltip td,.tooltip th {
-background-image:url(../images/tooltip.gif);
+.wowtooltip td,.wowtooltip th {
+background-image:url(../images/wowtooltip.gif);
 }
 
 .listview-quicksearch em {
@@ -300,7 +300,7 @@ width:auto;
 font-size:1px;
 }
 
-.iconmedium del,.tooltip p div {
+.iconmedium del,.wowtooltip p div {
 background:none;
 filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='templates/wowhead/images/icon_border_medium.png');
 }

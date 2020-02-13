@@ -1514,10 +1514,10 @@ function g_addPages(l, b) {
 			}
 		};
 		f.onmouseover = function (d) {
-			Tooltip.showAtCursor(d, LANG.tooltip_gotopage, 0, 0, "q")
+			WOWTooltip.showAtCursor(d, LANG.tooltip_gotopage, 0, 0, "q")
 		};
-		f.onmousemove = Tooltip.cursorUpdate;
-		f.onmouseout = Tooltip.hide;
+		f.onmousemove = WOWTooltip.cursorUpdate;
+		f.onmouseout = WOWTooltip.hide;
 		append(p, f)
 	}
 	if (c) {
@@ -2560,7 +2560,7 @@ var RedButton = {
 		a.onclick = (b ? b: null)
 	}
 };
-var Tooltip = {
+var WOWTooltip = {
 	create: function (h) {
 		var f = createElem("div"),
 		k = createElem("table"),
@@ -2571,7 +2571,7 @@ var Tooltip = {
 		j = createElem("th"),
 		i = createElem("th"),
 		g = createElem("th");
-		f.className = "tooltip";
+		f.className = "wowtooltip";
 		j.style.backgroundPosition = "top right";
 		i.style.backgroundPosition = "bottom left";
 		g.style.backgroundPosition = "bottom right";
@@ -2585,10 +2585,10 @@ var Tooltip = {
 		append(c, g);
 		append(b, c);
 		append(k, b);
-		Tooltip.icon = createElem("p");
-		Tooltip.icon.style.visibility = "hidden";
-		append(Tooltip.icon, createElem("div"));
-		append(f, Tooltip.icon);
+		WOWTooltip.icon = createElem("p");
+		WOWTooltip.icon.style.visibility = "hidden";
+		append(WOWTooltip.icon, createElem("div"));
+		append(f, WOWTooltip.icon);
 		append(f, k);
 		return f
 	},
@@ -2618,60 +2618,60 @@ var Tooltip = {
 	},
 	fixSafe: function (c, b, a) {
 		if (Browser.ie) {
-			setTimeout(Tooltip.fix.bind(this, c, b, a), 1)
+			setTimeout(WOWTooltip.fix.bind(this, c, b, a), 1)
 		} else {
-			Tooltip.fix(c, b, a)
+			WOWTooltip.fix(c, b, a)
 		}
 	},
 	append: function (c, b) {
 		var c = dom(c);
-		var a = Tooltip.create(b);
+		var a = WOWTooltip.create(b);
 		append(c, a);
-		Tooltip.fixSafe(a, 1, 1)
+		WOWTooltip.fixSafe(a, 1, 1)
 	},
 	prepare: function () {
-		if (Tooltip.tooltip) {
+		if (WOWTooltip.wowtooltip) {
 			return
 		}
-		var b = Tooltip.create();
+		var b = WOWTooltip.create();
 		b.style.position = "absolute";
 		b.style.left = b.style.top = "-2323px";
 		var a = getElement("layers");
 		append(a, b);
-		Tooltip.tooltip = b;
-		Tooltip.tooltipTable = getElemTag(b, "table")[0];
-		Tooltip.tooltipTd = getElemTag(b, "td")[0];
+		WOWTooltip.wowtooltip = b;
+		WOWTooltip.tooltipTable = getElemTag(b, "table")[0];
+		WOWTooltip.tooltipTd = getElemTag(b, "td")[0];
 		if (Browser.ie6) {
 			b = createElem("iframe");
 			b.src = "javascript:0;";
 			b.frameBorder = 0;
 			append(a, b);
-			Tooltip.iframe = b
+			WOWTooltip.iframe = b
 		}
 	},
 	set: function (b) {
-		var a = Tooltip.tooltip;
+		var a = WOWTooltip.wowtooltip;
 		a.style.width = "550px";
 		a.style.left = "-2323px";
 		a.style.top = "-2323px";
-		Tooltip.tooltipTd.innerHTML = b;
+		WOWTooltip.tooltipTd.innerHTML = b;
 		a.style.display = "";
-		Tooltip.fix(a, 0, 0)
+		WOWTooltip.fix(a, 0, 0)
 	},
 	moveTests: [[null, null], [null, false], [false, null], [false, false]],
 	move: function (m, l, d, n, c, a) {
-		if (!Tooltip.tooltipTable) {
+		if (!WOWTooltip.tooltipTable) {
 			return
 		}
-		var k = Tooltip.tooltip,
-		g = Tooltip.tooltipTable.offsetWidth,
-		b = Tooltip.tooltipTable.offsetHeight,
+		var k = WOWTooltip.wowtooltip,
+		g = WOWTooltip.tooltipTable.offsetWidth,
+		b = WOWTooltip.tooltipTable.offsetHeight,
 		o;
 		k.style.width = g + "px";
 		var j, e;
-		for (var f = 0, h = Tooltip.moveTests.length; f < h; ++f) {
-			o = Tooltip.moveTests[f];
-			j = Tooltip.moveTest(m, l, d, n, c, a, o[0], o[1]);
+		for (var f = 0, h = WOWTooltip.moveTests.length; f < h; ++f) {
+			o = WOWTooltip.moveTests[f];
+			j = WOWTooltip.moveTest(m, l, d, n, c, a, o[0], o[1]);
 			if (!Ads.intersect(j)) {
 				e = true;
 				break
@@ -2683,8 +2683,8 @@ var Tooltip = {
 		k.style.left = j.l + "px";
 		k.style.top = j.t + "px";
 		k.style.visibility = "visible";
-		if (Browser.ie6 && Tooltip.iframe) {
-			var o = Tooltip.iframe;
+		if (Browser.ie6 && WOWTooltip.iframe) {
+			var o = WOWTooltip.iframe;
 			o.style.left = j.l + "px";
 			o.style.top = j.t + "px";
 			o.style.width = g + "px";
@@ -2696,9 +2696,9 @@ var Tooltip = {
 	moveTest: function (e, l, n, w, c, a, m, b) {
 		var k = e,
 		v = l,
-		f = Tooltip.tooltip,
-		i = Tooltip.tooltipTable.offsetWidth,
-		p = Tooltip.tooltipTable.offsetHeight,
+		f = WOWTooltip.wowtooltip,
+		i = WOWTooltip.tooltipTable.offsetWidth,
+		p = WOWTooltip.tooltipTable.offsetHeight,
 		g = g_getWindowSize(),
 		j = g_getScroll(),
 		h = g.w,
@@ -2739,7 +2739,7 @@ var Tooltip = {
 				l = Math.max(u, q - p)
 			}
 		}
-		if (Tooltip.iconVisible) {
+		if (WOWTooltip.iconVisible) {
 			if (k >= e - 48 && k <= e && v >= l - 4 && v <= l + 48) {
 				l -= 48 - (v - l)
 			}
@@ -2747,7 +2747,7 @@ var Tooltip = {
 		return g_createRect(e, l, i, p)
 	},
 	show: function (f, e, d, b, c) {
-		if (Tooltip.disabled) {
+		if (WOWTooltip.disabled) {
 			return
 		}
 		if (!d || d < 1) {
@@ -2760,12 +2760,12 @@ var Tooltip = {
 			e = '<span class="' + c + '">' + e + "</span>"
 		}
 		var a = ac(f);
-		Tooltip.prepare();
-		Tooltip.set(e);
-		Tooltip.move(a.x, a.y, f.offsetWidth, f.offsetHeight, d, b)
+		WOWTooltip.prepare();
+		WOWTooltip.set(e);
+		WOWTooltip.move(a.x, a.y, f.offsetWidth, f.offsetHeight, d, b)
 	},
 	showAtCursor: function (d, f, c, a, b) {
-		if (Tooltip.disabled) {
+		if (WOWTooltip.disabled) {
 			return
 		}
 		if (!c || c < 10) {
@@ -2779,20 +2779,20 @@ var Tooltip = {
 		}
 		d = normalEvent(d);
 		var g = g_getCursorPos(d);
-		Tooltip.prepare();
-		Tooltip.set(f);
-		Tooltip.move(g.x, g.y, 0, 0, c, a)
+		WOWTooltip.prepare();
+		WOWTooltip.set(f);
+		WOWTooltip.move(g.x, g.y, 0, 0, c, a)
 	},
 	showAtXY: function (d, a, e, c, b) {
-		if (Tooltip.disabled) {
+		if (WOWTooltip.disabled) {
 			return
 		}
-		Tooltip.prepare();
-		Tooltip.set(d);
-		Tooltip.move(a, e, 0, 0, c, b)
+		WOWTooltip.prepare();
+		WOWTooltip.set(d);
+		WOWTooltip.move(a, e, 0, 0, c, b)
 	},
 	cursorUpdate: function (b, a, d) {
-		if (Tooltip.disabled || !Tooltip.tooltip) {
+		if (WOWTooltip.disabled || !WOWTooltip.wowtooltip) {
 			return
 		}
 		b = normalEvent(b);
@@ -2803,31 +2803,31 @@ var Tooltip = {
 			d = 10
 		}
 		var c = g_getCursorPos(b);
-		Tooltip.move(c.x, c.y, 0, 0, a, d)
+		WOWTooltip.move(c.x, c.y, 0, 0, a, d)
 	},
 	hide: function () {
 		try{hideMyTooltip();}catch(e){}
-		if (Tooltip.tooltip) {
-			Tooltip.tooltip.style.display = "none";
-			Tooltip.tooltip.visibility = "hidden";
-			Tooltip.tooltipTable.className = "";
+		if (WOWTooltip.wowtooltip) {
+			WOWTooltip.wowtooltip.style.display = "none";
+			WOWTooltip.wowtooltip.visibility = "hidden";
+			WOWTooltip.tooltipTable.className = "";
 			if (Browser.ie6) {
-				Tooltip.iframe.style.display = "none"
+				WOWTooltip.iframe.style.display = "none"
 			}
-			Tooltip.setIcon(null);
+			WOWTooltip.setIcon(null);
 			Ads.restoreHidden()
 		}
 	},
 	setIcon: function (a) {
-		Tooltip.prepare();
+		WOWTooltip.prepare();
 		if (a) {
-			Tooltip.icon.style.backgroundImage = "url(images/icons/medium/" + a.toLowerCase() + ".png)";
-			Tooltip.icon.style.visibility = "visible"
+			WOWTooltip.icon.style.backgroundImage = "url(images/icons/medium/" + a.toLowerCase() + ".png)";
+			WOWTooltip.icon.style.visibility = "visible"
 		} else {
-			Tooltip.icon.style.backgroundImage = "none";
-			Tooltip.icon.style.visibility = "hidden"
+			WOWTooltip.icon.style.backgroundImage = "none";
+			WOWTooltip.icon.style.visibility = "hidden"
 		}
-		Tooltip.iconVisible = a ? 1 : 0
+		WOWTooltip.iconVisible = a ? 1 : 0
 	}
 };
 var g_listviews = {};
@@ -3146,7 +3146,7 @@ Listview.prototype = {
 				c.onclick = this.sortBy.bind(this, e + 1)
 			}
 			c.onmouseover = Listview.headerOver.bind(this, c, d);
-			c.onmouseout = Tooltip.hide;
+			c.onmouseout = WOWTooltip.hide;
 			ns(c);
 			if (d.width != null) {
 				g.style.width = d.width
@@ -3603,7 +3603,7 @@ Listview.prototype = {
 		return ""
 	},
 	updateFilters: function (d) {
-		Tooltip.hide();
+		WOWTooltip.hide();
 		this.resetRowVisibility();
 		var w, q, c;
 		if (this.searchable) {
@@ -4131,7 +4131,7 @@ Listview.itemOut = function () {
 Listview.headerClick = function (a, b, c) {
 	c = normalEvent(c);
 	if (c._button == 3 || c.shiftKey || c.ctrlKey) {
-		Tooltip.hide();
+		WOWTooltip.hide();
 		setTimeout(Listview.headerFilter.bind(this, a, null), 1)
 	} else {
 		this.sortBy(b + 1)
@@ -4258,7 +4258,7 @@ Listview.headerFilter = function (c, f) {
 };
 Listview.headerOver = function (b, c, f) {
 	var d = "";
-	d += '<b class="q1">' + (c.tooltip ? c.tooltip: c.name) + "</b>";
+	d += '<b class="q1">' + (c.wowtooltip ? c.wowtooltip: c.name) + "</b>";
 	if (c.__filter) {
 		d += "<br />" + sprintf((c.__filter.invert ? LANG.tooltip_colfilter2: LANG.tooltip_colfilter1), c.__filter.text)
 	}
@@ -4266,7 +4266,7 @@ Listview.headerOver = function (b, c, f) {
 	if (this.filtrable && (c.filtrable == null || c.filtrable)) {
 		d += '<br /><span class="q2">' + (Browser.opera ? LANG.tooltip_lvheader3: LANG.tooltip_lvheader2) + "</span>"
 	}
-	Tooltip.show(b, d, 0, 0, "q")
+	WOWTooltip.show(b, d, 0, 0, "q")
 };
 Listview.extraCols = {
 	cost: {
@@ -4699,7 +4699,7 @@ Listview.funcBox = {
 		var b = e.divHeader.firstChild;
 		b = b.childNodes[b.childNodes.length - 3];
 		b.lastChild.firstChild.nodeValue = (e.rating > 0 ? "+": "") + e.rating;
-		Tooltip.hide();
+		WOWTooltip.hide();
 		delElem(b.nextSibling);
 		delElem(b.nextSibling)
 	},
@@ -5108,13 +5108,13 @@ Listview.funcBox = {
 		return true
 	},
 	coCustomRatingOver: function (a) {
-		Tooltip.showAtCursor(a, LANG.tooltip_customrating, 0, 0, "q")
+		WOWTooltip.showAtCursor(a, LANG.tooltip_customrating, 0, 0, "q")
 	},
 	coPlusRatingOver: function (a) {
-		Tooltip.showAtCursor(a, LANG.tooltip_uprate, 0, 0, "q2")
+		WOWTooltip.showAtCursor(a, LANG.tooltip_uprate, 0, 0, "q2")
 	},
 	coMinusRatingOver: function (a) {
-		Tooltip.showAtCursor(a, LANG.tooltip_downrate, 0, 0, "q10")
+		WOWTooltip.showAtCursor(a, LANG.tooltip_downrate, 0, 0, "q10")
 	},
 	coSortDate: function (a) {
 		a.nextSibling.nextSibling.className = "";
@@ -5201,13 +5201,13 @@ Listview.funcBox = {
 		})
 	},
 	moneyHonorOver: function (a) {
-		Tooltip.showAtCursor(a, LANG.tooltip_honorpoints, 0, 0, "q")
+		WOWTooltip.showAtCursor(a, LANG.tooltip_honorpoints, 0, 0, "q")
 	},
 	moneyArenaOver: function (a) {
-		Tooltip.showAtCursor(a, LANG.tooltip_arenapoints, 0, 0, "q")
+		WOWTooltip.showAtCursor(a, LANG.tooltip_arenapoints, 0, 0, "q")
 	},
 	moneyAchievementOver: function (a) {
-		Tooltip.showAtCursor(a, LANG.tooltip_achievementpoints, 0, 0, "q")
+		WOWTooltip.showAtCursor(a, LANG.tooltip_achievementpoints, 0, 0, "q")
 	},
 	appendMoney: function (g, a, f, m, j, c, l) {
 		var k, h = 0;
@@ -5251,8 +5251,8 @@ Listview.funcBox = {
 			k = createElem("span");
 			k.className = "money" + (m < 0 ? "horde": "alliance") + " tip";
 			k.onmouseover = Listview.funcBox.moneyHonorOver;
-			k.onmousemove = Tooltip.cursorUpdate;
-			k.onmouseout = Tooltip.hide;
+			k.onmousemove = WOWTooltip.cursorUpdate;
+			k.onmouseout = WOWTooltip.hide;
 			append(k, createText(number_format(Math.abs(m))));
 			append(g, k)
 		}
@@ -5265,8 +5265,8 @@ Listview.funcBox = {
 			k = createElem("span");
 			k.className = "moneyarena tip";
 			k.onmouseover = Listview.funcBox.moneyArenaOver;
-			k.onmousemove = Tooltip.cursorUpdate;
-			k.onmouseout = Tooltip.hide;
+			k.onmousemove = WOWTooltip.cursorUpdate;
+			k.onmouseout = WOWTooltip.hide;
 			append(k, createText(number_format(j)));
 			append(g, k)
 		}
@@ -5296,8 +5296,8 @@ Listview.funcBox = {
 			k = createElem("span");
 			k.className = "moneyachievement tip";
 			k.onmouseover = Listview.funcBox.moneyAchievementOver;
-			k.onmousemove = Tooltip.cursorUpdate;
-			k.onmouseout = Tooltip.hide;
+			k.onmousemove = WOWTooltip.cursorUpdate;
+			k.onmouseout = WOWTooltip.hide;
 			append(k, createText(number_format(l)));
 			append(g, k)
 		}
@@ -5583,7 +5583,7 @@ Listview.templates = {
 		{
 			id: "reqlevel",
 			name: LANG.lvitem_reqlevel,
-			tooltip: LANG.tooltip_reqlevel,
+			wowtooltip: LANG.tooltip_reqlevel,
 			value: "reqlevel",
 			compute: function (a, b) {
 				if (a.reqlevel > 1) {
@@ -6313,7 +6313,7 @@ Listview.templates = {
 		{
 			id: "reqlevel",
 			name: LANG.lvitem_reqlevel,
-			tooltip: LANG.tooltip_reqlevel,
+			wowtooltip: LANG.tooltip_reqlevel,
 			width: "7%",
 			value: "reqlevel"
 		},
@@ -6574,7 +6574,7 @@ Listview.templates = {
 		{
 			id: "tp",
 			name: LANG.tp,
-			tooltip: LANG.tooltip_trainingpoints,
+			wowtooltip: LANG.tooltip_trainingpoints,
 			width: "7%",
 			hidden: true,
 			value: "tp",
@@ -6831,8 +6831,8 @@ Listview.templates = {
 					A.href = "javascript:;";
 					A.onclick = Listview.funcBox.coRate.bind(A, t, 0);
 					A.onmouseover = Listview.funcBox.coCustomRatingOver;
-					A.onmousemove = Tooltip.cursorUpdate;
-					A.onmouseout = Tooltip.hide;
+					A.onmousemove = WOWTooltip.cursorUpdate;
+					A.onmouseout = WOWTooltip.hide;
 					append(A, createText("[~]"));
 					append(B, A);
 					append(B, createText(" "))
@@ -6843,8 +6843,8 @@ Listview.templates = {
 			append(j, createText("[+]"));
 			j.onmouseover = Listview.funcBox.coPlusRatingOver;
 			K.onmouseover = Listview.funcBox.coMinusRatingOver;
-			j.onmousemove = K.onmousemove = Tooltip.cursorUpdate;
-			j.onmouseout = K.onmouseout = Tooltip.hide;
+			j.onmousemove = K.onmousemove = WOWTooltip.cursorUpdate;
+			j.onmouseout = K.onmouseout = WOWTooltip.hide;
 			append(K, createText("[-]"));
 			append(B, K);
 			append(B, createText(" "));
@@ -7708,10 +7708,10 @@ Listview.templates = {
 				b;
 				b = Icon.create("faction_" + g_file_factions[a.faction + 1], 0);
 				b.onmouseover = function (d) {
-					Tooltip.showAtCursor(d, g_sides[a.faction + 1], 0, 0, "q")
+					WOWTooltip.showAtCursor(d, g_sides[a.faction + 1], 0, 0, "q")
 				};
-				b.onmousemove = Tooltip.cursorUpdate;
-				b.onmouseout = Tooltip.hide;
+				b.onmousemove = WOWTooltip.cursorUpdate;
+				b.onmouseout = WOWTooltip.hide;
 				b.style.cssFloat = b.style.syleFloat = "left";
 				e.style.margin = "0 auto";
 				e.style.textAlign = "left";
@@ -7757,10 +7757,10 @@ Listview.templates = {
 					b;
 					b = Icon.create("race_" + g_file_races[a.race] + "_" + g_file_genders[a.gender], 0);
 					b.onmouseover = function (d) {
-						Tooltip.showAtCursor(d, g_chr_races[a.race], 0, 0, "q")
+						WOWTooltip.showAtCursor(d, g_chr_races[a.race], 0, 0, "q")
 					};
-					b.onmousemove = Tooltip.cursorUpdate;
-					b.onmouseout = Tooltip.hide;
+					b.onmousemove = WOWTooltip.cursorUpdate;
+					b.onmouseout = WOWTooltip.hide;
 					b.style.cssFloat = b.style.syleFloat = "left";
 					e.style.margin = "0 auto";
 					e.style.textAlign = "left";
@@ -7790,10 +7790,10 @@ Listview.templates = {
 					b;
 					b = Icon.create("class_" + g_file_classes[a.classs], 0);
 					b.onmouseover = function (d) {
-						Tooltip.showAtCursor(d, g_chr_classes[a.classs], 0, 0, "q")
+						WOWTooltip.showAtCursor(d, g_chr_classes[a.classs], 0, 0, "q")
 					};
-					b.onmousemove = Tooltip.cursorUpdate;
-					b.onmouseout = Tooltip.hide;
+					b.onmousemove = WOWTooltip.cursorUpdate;
+					b.onmouseout = WOWTooltip.hide;
 					b.style.cssFloat = b.style.syleFloat = "left";
 					e.style.margin = "0 auto";
 					e.style.textAlign = "left";
@@ -7850,10 +7850,10 @@ Listview.templates = {
 				b.rel = "np";
 				b.href = this.template.getItemLink(e) + "#talents";
 				b.onmouseover = function (a) {
-					Tooltip.showAtCursor(a, f.name, 0, 0, "q")
+					WOWTooltip.showAtCursor(a, f.name, 0, 0, "q")
 				};
-				b.onmousemove = Tooltip.cursorUpdate;
-				b.onmouseout = Tooltip.hide;
+				b.onmousemove = WOWTooltip.cursorUpdate;
+				b.onmouseout = WOWTooltip.hide;
 				append(b, createText(e.talenttree1 + " / " + e.talenttree2 + " / " + e.talenttree3));
 				append(h, b);
 				append(j, h)
@@ -8270,7 +8270,7 @@ function () {
 	function K() {
 		aE(document, "mouseover", u)
 	}
-	function n(O) {
+	function makeEventPos(O) {
 		var P = g_getCursorPos(O);
 		B = P.x;
 		z = P.y
@@ -8293,7 +8293,7 @@ function () {
 			return url;
 		}
 	}
-	function M(aa, W) {
+	function M(aa, event) {
 		if (aa.nodeName != "A" && aa.nodeName != "AREA") {
 			return - 2323
 		}
@@ -8385,13 +8385,13 @@ function () {
 				}
 				aa.onmouseout = L
 			}
-			n(W);
+			makeEventPos(event);
 			var Y = g_getIdFromTypeName(P[S]),
-			X = P[Q];
+			entry = P[Q];
 			if (Y == i && !g_dev) {
 				Z = 0
 			}
-			w(Y, X, Z, U)
+			w(Y, entry, Z, U)
 		}
 	}
 	function u(event) {
@@ -8406,13 +8406,13 @@ function () {
 	}
 	function a(O) {
 		O = normalEvent(O);
-		n(O);
-		Tooltip.move(B, z, 0, 0, o, x)
+		makeEventPos(O);
+		WOWTooltip.move(B, z, 0, 0, o, x)
 	}
 	function L() {
 		e = null;
 		J = null;
-		Tooltip.hide()
+		WOWTooltip.hide()
 	}
 	function I(O) {
 		return (q.buff ? "buff_": "tooltip_") + g_locales[O]
@@ -8429,11 +8429,11 @@ function () {
 			O[R].status[Q] = G
 		}
 	}
-	function w(P, T, R, S) {
+	function w(P, entry, R, S) {
 		if (!S) {
 			S = {}
 		}
-		var Q = d(T, S);
+		var Q = d(entry, S);
 		e = P;
 		D = Q;
 		H = R;
@@ -8446,7 +8446,7 @@ function () {
 			if (O[Q].status[R] == E) {
 				N(LANG.tooltip_loading)
 			} else {
-				b(P, T, R, null, S)
+				b(P, entry, R, null, S)
 			}
 		}
 	}
@@ -8535,11 +8535,13 @@ function () {
 			}
 		}
 		if (g == 1) {
-			Tooltip.setIcon(null);
-			Tooltip.show(J, R)
+			WOWTooltip.setIcon(null);
+			WOWTooltip.show(J, R)
 		} else {
-			Tooltip.setIcon(S);
-			Tooltip.showAtXY(R, B, z, o, x)
+
+			WOWTooltip.setIcon(S==undefined?null:S);
+
+			WOWTooltip.showAtXY(R, B, z, o, x)
 		}
 	}
 	function l(P, R, Q) {

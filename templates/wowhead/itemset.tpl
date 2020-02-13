@@ -43,7 +43,7 @@
 
 					Wearing more pieces of this set will convey bonuses to your character.
 					<ul>
-						{section name=i loop=$itemset.spells}<li><div>{$itemset.spells[i].bonus} pieces: <a href="/spell-{$itemset.spells[i].entry}.html">{$itemset.spells[i].tooltip}</a></div></li>{/section}
+						{section name=i loop=$itemset.spells}<li><div>{$itemset.spells[i].bonus} pieces: <a href="/spell-{$itemset.spells[i].entry}.html">{$itemset.spells[i].wowtooltip}</a></div></li>{/section}
 					</ul>
 
 				<h2>{#Related#}</h2>

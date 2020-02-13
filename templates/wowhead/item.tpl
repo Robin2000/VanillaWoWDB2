@@ -40,7 +40,7 @@
 					<h1>{$item.name}</h1>
 
 					<div id="icon{$item.entry}-generic" style="float:left"></div>
-					<div id="tooltip{$item.entry}-generic" class="tooltip" style="padding-top: 1px;visible:1">
+					<div id="wowtooltip{$item.entry}-generic" class="wowtooltip" style="padding-top: 1px;visible:1">
 					<table >
 					<tr><td>{$item.info}</td><th style="background-position: top right"></th></tr>
 					<tr><th style="background-position: bottom left"></th><th style="background-position: bottom right"></th></tr>
@@ -53,7 +53,7 @@
 
 					<script type="text/javascript">
 						getElement('icon{$item.entry}-generic').appendChild(Icon.create('{$item.iconname}', 2, 0, 0, {$item.stackable}));
-						Tooltip.fix(getElement('tooltip{$item.entry}-generic'), 1, 1);
+						WOWTooltip.fix(getElement('wowtooltip{$item.entry}-generic'), 1, 1);
 					</script>
 
 
@@ -91,7 +91,7 @@
 								</div></li>
 							{/if}
 
-							{if isset($item.disenchantskill)}<li><div>{#Disenchantable#} (<span class="tip" onmouseover="Tooltip.showAtCursor(event, LANG.tooltip_reqenchanting, 0, 0, 'q')" onmousemove="Tooltip.cursorUpdate(event)" onmouseout="Tooltip.hide()">{$item.disenchantskill}</span>)</div></li>{/if}
+							{if isset($item.disenchantskill)}<li><div>{#Disenchantable#} (<span class="tip" onmouseover="WOWTooltip.showAtCursor(event, LANG.tooltip_reqenchanting, 0, 0, 'q')" onmousemove="WOWTooltip.cursorUpdate(event)" onmouseout="WOWTooltip.hide()">{$item.disenchantskill}</span>)</div></li>{/if}
 							{if isset($item.key)}<li><div>{#Can_be_placed_in_the_keyring#}</div></li>{/if}
 						</ul>
 					</td></tr>

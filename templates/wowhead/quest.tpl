@@ -68,7 +68,7 @@
 {strip}		{* Требует выполнения всех этих квестов *}
 					{if isset($quest.req)}
 					<tr><th>
-						<span class="tip" onmouseover="Tooltip.showAtCursor(event, '{#Prev_Quests_Desc#}', 0, 0, 'q')" onmousemove="Tooltip.cursorUpdate(event)" onmouseout="Tooltip.hide()">
+						<span class="tip" onmouseover="WOWTooltip.showAtCursor(event, '{#Prev_Quests_Desc#}', 0, 0, 'q')" onmousemove="WOWTooltip.cursorUpdate(event)" onmouseout="WOWTooltip.hide()">
 							{#Prev_Quests#}
 						</span>
 					</th></tr>
@@ -87,7 +87,7 @@
 {strip}		{* Требует выполнения одного из этих квестов *}
 					{if isset($quest.reqone)}
 					<tr><th>
-						<span class="tip" onmouseover="Tooltip.showAtCursor(event, '{#ReqOne_Quests_Desc#}', 0, 0, 'q')" onmousemove="Tooltip.cursorUpdate(event)" onmouseout="Tooltip.hide()">
+						<span class="tip" onmouseover="WOWTooltip.showAtCursor(event, '{#ReqOne_Quests_Desc#}', 0, 0, 'q')" onmousemove="WOWTooltip.cursorUpdate(event)" onmouseout="WOWTooltip.hide()">
 							{#ReqOne_Quests#}
 						</span>
 					</th></tr>
@@ -106,7 +106,7 @@
 {strip}		{* Требует активного квеста *}
 					{if isset($quest.enabledby)}
 					<tr><th>
-						<span class="tip" onmouseover="Tooltip.showAtCursor(event, '{#Enabledby_Quests_Desc#}', 0, 0, 'q')" onmousemove="Tooltip.cursorUpdate(event)" onmouseout="Tooltip.hide()">
+						<span class="tip" onmouseover="WOWTooltip.showAtCursor(event, '{#Enabledby_Quests_Desc#}', 0, 0, 'q')" onmousemove="WOWTooltip.cursorUpdate(event)" onmouseout="WOWTooltip.hide()">
 							{#Enabledby_Quests#}
 						</span>
 					</th></tr>
@@ -125,7 +125,7 @@
 {strip}		{* Закрывает квесты *}
 					{if isset($quest.closes)}
 					<tr><th>
-						<span class="tip" onmouseover="Tooltip.showAtCursor(event, '{#Closes_Quests_Desc#}', 0, 0, 'q')" onmousemove="Tooltip.cursorUpdate(event)" onmouseout="Tooltip.hide()">
+						<span class="tip" onmouseover="WOWTooltip.showAtCursor(event, '{#Closes_Quests_Desc#}', 0, 0, 'q')" onmousemove="WOWTooltip.cursorUpdate(event)" onmouseout="WOWTooltip.hide()">
 							{#Closes_Quests#}
 						</span>
 					</th></tr>
@@ -144,7 +144,7 @@
 {strip}		{* Во время выполнения квеста доступны эти квесты *}
 					{if isset($quest.enables)}
 					<tr><th>
-						<span class="tip" onmouseover="Tooltip.showAtCursor(event, '{#Enables_Quests_Desc#}', 0, 0, 'q')" onmousemove="Tooltip.cursorUpdate(event)" onmouseout="Tooltip.hide()">
+						<span class="tip" onmouseover="WOWTooltip.showAtCursor(event, '{#Enables_Quests_Desc#}', 0, 0, 'q')" onmousemove="WOWTooltip.cursorUpdate(event)" onmouseout="WOWTooltip.hide()">
 							{#Enables_Quests#}
 						</span>
 					</th></tr>
@@ -163,7 +163,7 @@
 {strip}		{* Открывает квесты *}
 					{if isset($quest.open)}
 					<tr><th>
-						<span class="tip" onmouseover="Tooltip.showAtCursor(event, '{#Open_Quests_Desc#}', 0, 0, 'q')" onmousemove="Tooltip.cursorUpdate(event)" onmouseout="Tooltip.hide()">
+						<span class="tip" onmouseover="WOWTooltip.showAtCursor(event, '{#Open_Quests_Desc#}', 0, 0, 'q')" onmousemove="WOWTooltip.cursorUpdate(event)" onmouseout="WOWTooltip.hide()">
 							{#Open_Quests#}
 						</span>
 					</th></tr>
@@ -188,9 +188,9 @@
 					<tr><td>
 						<div class="infobox-spacer"></div>
 						<span class="tip" id="infobox-details"
-							onmouseover="Tooltip.showAtCursor(event, '{foreach from=$quest.flagsdetails item=str}- {$str|escape:"html"}<br>{/foreach}', 0, 0, 0)"
-							onmousemove="Tooltip.cursorUpdate(event)"
-							onmouseout="Tooltip.hide()">{#Related#}</span>
+							onmouseover="WOWTooltip.showAtCursor(event, '{foreach from=$quest.flagsdetails item=str}- {$str|escape:"html"}<br>{/foreach}', 0, 0, 0)"
+							onmousemove="WOWTooltip.cursorUpdate(event)"
+							onmouseout="WOWTooltip.hide()">{#Related#}</span>
 					</td></tr>
 {/if}
 				</table>

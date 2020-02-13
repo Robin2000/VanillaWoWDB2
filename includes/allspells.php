@@ -306,7 +306,7 @@ function spell_duration($base)
 	return round($base/1000).(($_SESSION['locale']==4)?'秒':' sec');
 }
 
-function spell_desc($spellid, $type='tooltip')
+function spell_desc($spellid, $type='wowtooltip')
 {
 	global $DB;
 	global $spell_cols;
@@ -325,7 +325,7 @@ function spell_desc($spellid, $type='tooltip')
 	return spell_desc2($spellRow, $type);
 }
 
-function spell_desc2($spellRow, $type='tooltip')
+function spell_desc2($spellRow, $type='wowtooltip')
 {
 	global $DB;
 
@@ -340,7 +340,7 @@ function spell_desc2($spellRow, $type='tooltip')
 
 	$data = $spellRow[$type.'_loc'.$_SESSION['locale']];
 
-	if(!$data && $type == 'tooltip')
+	if(!$data && $type == 'wowtooltip')
 		return '_empty_';
 
 	$pos = 0;

@@ -316,7 +316,7 @@ Mapper.prototype = {
 		c.appendChild(b);
 		c.a = b;
 		b.onmouseover = this.pinOver;
-		b.onmouseout = Tooltip.hide;
+		b.onmouseout = WOWTooltip.hide;
 		b.onclick = sp;
 		this.pins.push(c);
 		this.cleanPin(this.pins.length - 1);

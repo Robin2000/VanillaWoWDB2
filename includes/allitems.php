@@ -179,10 +179,10 @@ function req_spell($spell_id)
 
 function spell_to_bonus($spell_id, $trigger)
 {
-	$tooltip = spell_desc($spell_id);
-	if($tooltip == '_empty_')
+	$wowtooltip = spell_desc($spell_id);
+	if($wowtooltip == '_empty_')
 		return;
-	if(!$tooltip)
+	if(!$wowtooltip)
 		return '<a href="/spell-'.$spell_id.'.html">Error in spell_desc for spell '.$spell_id.'</a>';
 	switch($trigger)
 	{
@@ -203,7 +203,7 @@ function spell_to_bonus($spell_id, $trigger)
 			$t = 'Error! ';
 			break;
 	}
-	return $t.'<a href="/spell-'.$spell_id.'.html" class="q2">'.$tooltip.'</a>';
+	return $t.'<a href="/spell-'.$spell_id.'.html" class="q2">'.$wowtooltip.'</a>';
 }
 
 function allitemsinfo2(&$Row, $level=0)
@@ -502,7 +502,7 @@ function render_item_tooltip(&$Row)
 			if($row['spell_id'.$j])
 			{
 				$itemset['spells'][$num]['entry'] = $row['spell_id'.$j];
-				$itemset['spells'][$num]['tooltip'] = spell_desc($row['spell_id'.$j]);
+				$itemset['spells'][$num]['wowtooltip'] = spell_desc($row['spell_id'.$j]);
 				$itemset['spells'][$num]['bonus'] = $row['bonus'.$j];
 				$num++;
 			}
@@ -518,7 +518,7 @@ function render_item_tooltip(&$Row)
 					$itemset['spells'][$i] = $itemset['spells'][$j];
 					$itemset['spells'][$j] = $tmp;
 				}
-			$x .= '<span>('.$itemset['spells'][$i]['bonus'].') Set: <a href="/spell-'.$itemset['spells'][$i]['entry'].'.html">'.$itemset['spells'][$i]['tooltip'].'</a></span><br />';
+			$x .= '<span>('.$itemset['spells'][$i]['bonus'].') Set: <a href="/spell-'.$itemset['spells'][$i]['entry'].'.html">'.$itemset['spells'][$i]['wowtooltip'].'</a></span><br />';
 		}
 		$x .= '</span></span>';
 	}

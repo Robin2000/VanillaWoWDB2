@@ -57,14 +57,14 @@ switch($what)
 		{
 			require_once('includes/allquests.php');
 			$quest = GetDBQuestInfo($id, QUEST_DATAFLAG_AJAXTOOLTIP);
-			$quest['tooltip'] = GetQuestTooltip($quest);
+			$quest['wowtooltip'] = GetQuestTooltip($quest);
 			save_cache(11, $id, $quest);
 		}
 		$x .= '$WowheadPower.registerQuest('.$id.', '.$_SESSION['locale'].',{';
 		if($quest['name'])
 			$x .= 'name: \''.ajax_str_normalize($quest['name']).'\',';
-		if($quest['tooltip'])
-			$x .= 'tooltip_'.$locales[$_SESSION['locale']].': \''.ajax_str_normalize($quest['tooltip']).'\'';
+		if($quest['wowtooltip'])
+			$x .= 'tooltip_'.$locales[$_SESSION['locale']].': \''.ajax_str_normalize($quest['wowtooltip']).'\'';
 		$x .= '});';
 		break;
 	case 'npc':	
@@ -89,8 +89,8 @@ switch($what)
             $x .= 'type:\''.$creature['type'].'\',';
         if($creature['rank'])
             $x .= 'rank:\''.$creature['rank'].'\',';
-        if($creature['tooltip'])
-            $x .= 'tooltip_'.$locales[$_SESSION['locale']].':\''.ajax_str_normalize($creature['tooltip']).'\'';
+        if($creature['wowtooltip'])
+            $x .= 'tooltip_'.$locales[$_SESSION['locale']].':\''.ajax_str_normalize($creature['wowtooltip']).'\'';
         $x .= '});';
         break;
 	case 'object':
@@ -110,8 +110,8 @@ switch($what)
             $x .= 'name_'.$locales[$_SESSION['locale']].': \''.ajax_str_normalize($object['name']).'\',';
         if($object['type'])
             $x .= 'type:\''.$object['type'].'\',';
-        if($object['tooltip'])
-            $x .= 'tooltip_'.$locales[$_SESSION['locale']].':\''.ajax_str_normalize($object['tooltip']).'\'';
+        if($object['wowtooltip'])
+            $x .= 'tooltip_'.$locales[$_SESSION['locale']].':\''.ajax_str_normalize($object['wowtooltip']).'\'';
         $x .= '});';
         break;
 	default:
