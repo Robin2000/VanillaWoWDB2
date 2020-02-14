@@ -108,13 +108,13 @@ function loadNextData() {
     }
     if(lastLoadEvent>0) {
         var now = Date.parse(new Date());
-        if(now - lastLoadEvent < 5*1000) {
+        if(now - lastLoadEvent < 2*1000) {
             return;
         }
     }
 
     lastLoadEvent = Date.parse(new Date());
-    get("http://www.topwow.top/rest/api4/news/next/"+minID,function(e){
+    get("/rest/api4/news/next/"+minID,function(e){
         $('#minID').text(e.minID);
 
         for(var i=0;i<e.news.length;i++) {
@@ -161,13 +161,13 @@ function searchNow() {
     $('#search-suggest').hide();
     var searchText=$('#search_input').val();
     if(searchText==''||searchText.length<2) return false;
-    location.href="http://www.topwow.top/?search="+searchText;
+    location.href="/?search="+searchText;
 }
 function searchKey(){
     $('#search-suggest').hide();
     var searchText=$('#search_input').val();
     if(searchText==''||searchText.length<2) return false;
-    get('http://www.topwow.top/opensearch.php?search='+searchText,function(d){
+    get('/opensearch.php?search='+searchText,function(d){
         if(d.length<=0)return;
         $('#search-suggest').html(makeSuggest(d));
         $('#search-suggest').show();
@@ -187,7 +187,7 @@ function initSearch(){
     $('#search_input').bind('keyup',function(e){ 
         var searchText=$('#search_input').val();
         if(searchText==''||searchText.length<2) return;
-        get('http://www.topwow.top/opensearch.php?search='+searchText,function(d){
+        get('/opensearch.php?search='+searchText,function(d){
             if(d.length<=0)return;
             $('#search-suggest').html(makeSuggest(d));
             $('#search-suggest').show();
@@ -201,10 +201,10 @@ function initSearch(){
         var type = $(this).find("span").text();
         var url="";
         switch(type) {
-            case "NPC":url="http://www.topwow.top/npc-"+id+".html";break;
-            case "地物":url="http://www.topwow.top/object-"+id+".html";break;
-            case "物品":url="http://www.topwow.top/item-"+id+".html";break;
-            case "任务":url="http://www.topwow.top/quest-"+id+".html";break;
+            case "NPC":url="/npc-"+id+".html";break;
+            case "地物":url="/object-"+id+".html";break;
+            case "物品":url="/item-"+id+".html";break;
+            case "任务":url="/quest-"+id+".html";break;
             default:
                 return "";
         }

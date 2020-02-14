@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="/templates/topwow/css/home13.css">
 	{/if}
-	<link rel="stylesheet" type="text/css" href="templates/wowhead/css/global.css?v=15" />
+	<link rel="stylesheet" type="text/css" href="templates/wowhead/css/global.css?v=20" />
 	<link rel="stylesheet" type="text/css" href="templates/wowhead/css/locale_{$language}.css" />
 {if $page.Book}
 	<link rel="stylesheet" type="text/css" href="templates/wowhead/css/Book.css">
@@ -33,13 +33,13 @@
       	{/if}
 {/if}
 
-	<script src="templates/wowhead/js/locale_{$language}.js?v=17" type="text/javascript"></script>
+	<script src="templates/wowhead/js/locale_{$language}.js?v=20" type="text/javascript"></script>
 
-	<script src="templates/wowhead/js/global.js?v=17" type="text/javascript"></script>
+	<script src="templates/wowhead/js/global.js?v=20" type="text/javascript"></script>
 	<script src="templates/wowhead/js/Markup.js" type="text/javascript"></script>
 	
 {if $page.Mapper}
-	<script src="templates/wowhead/js/Mapper.js?v=7" type="text/javascript"></script>
+	<script src="templates/wowhead/js/Mapper.js?v=20" type="text/javascript"></script>
 	<style type="text/css">{literal}.zone-picker { margin-left: 4px }{/literal}</style>
 {/if}
 {if $page.Book}
@@ -48,7 +48,7 @@
 
 {if (isset($npc) || isset($item) || isset($zone) || isset($quest))}
    <script src="/templates/topwow/js/vendor/masonry.pkgd.min.js"></script>
-   <script src="/templates/topwow/js/custom.js?v=3"></script>
+   <script src="/templates/topwow/js/custom.js?v=20"></script>
 {/if}
 
 {if $npc}

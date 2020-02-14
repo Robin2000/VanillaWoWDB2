@@ -281,7 +281,7 @@ Mapper.prototype = {
 			var a = g_zones[b] != null;
 			if (a) {
 				g_setTextNodes(this.sZoneLink, g_zones[b]);
-				this.sZoneLink.childNodes[4].firstChild.href = "http://www.topwow.top/zone-" + b + ".html"
+				this.sZoneLink.childNodes[4].firstChild.href = "/zone-" + b + ".html"
 			}
 			this.sZoneLink.style.display = a ? "": "none"
 		}

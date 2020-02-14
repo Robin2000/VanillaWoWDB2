@@ -78,14 +78,14 @@ function getSupportImgExt(){
 function showbig()
 {
 	document.getElementById('bigbg').style.display='block';
-	document.getElementById('bigimg').src='http://www.topwow.top/screenshots/big/'+entry+'.'+getSupportImgExt();
+	document.getElementById('bigimg').src='/screenshots/big/'+entry+'.'+getSupportImgExt();
 } 	
 
 function customInitPage(){
     try{
         /* npc详情页面的缩略图点击显示大图,要求图片名entry对应 */
         if(entry != undefined && document.getElementById('thumbimg')!=undefined) {
-            document.getElementById('thumbimg').src="http://www.topwow.top/screenshots/thumb/"+entry+"."+getSupportImgExt();
+            document.getElementById('thumbimg').src="/screenshots/thumb/"+entry+"."+getSupportImgExt();
         }
     }catch(e){}
 

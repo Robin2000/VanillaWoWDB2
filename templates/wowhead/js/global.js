@@ -1592,7 +1592,7 @@ try{
 		};
 		var f = createElem("img"),
 		e = Math.min(150 / c.width, 150 / c.height);
-		f.src = "http://www.topwow.top/screenshots/thumb/" + c.id + ".webp";
+		f.src = "/screenshots/thumb/" + c.id + ".webp";
 		f.className = "border";
 		append(l, f);
 		append(m, l);
@@ -4429,7 +4429,7 @@ Listview.funcBox = {
 			} else {
 				var c = createElem("a");
 				c.className = "q1";
-				c.href = "http://www.topwow.top/zone-" + e + ".html";
+				c.href = "/zone-" + e + ".html";
 				append(c, createText(g_zones[e]));
 				append(g, c)
 			}
@@ -4517,7 +4517,7 @@ Listview.funcBox = {
 				if (g_items[j]) {
 					l = g_items.createIcon(j, 0)
 				} else {
-					l = Icon.create(g_gems[j].icon, 0, null, "http://www.topwow.top/item-" + j+".html")
+					l = Icon.create(g_gems[j].icon, 0, null, "/item-" + j+".html")
 				}
 			}
 			l.className += " iconsmall-socket-" + g_file_gems[b[f]] + (!c || !j ? "-empty": "");
@@ -4543,18 +4543,18 @@ Listview.funcBox = {
 	getItemType: function (c, a, b) {
 		if (b != null && g_item_subsubclasses[c] != null && g_item_subsubclasses[c][a] != null) {
 			return {
-				url: "http://www.topwow.top/items-" + c + "." + a + "." + b+".html",
+				url: "/items-" + c + "." + a + "." + b+".html",
 				text: g_item_subsubclasses[c][a][b]
 			}
 		}
 		if (g_item_subclasses[c] != null) {
 			return {
-				url: "http://www.topwow.top/items-" + c + "." + a+".html",
+				url: "/items-" + c + "." + a+".html",
 				text: g_item_subclasses[c][a]
 			}
 		} else {
 			return {
-				url: "http://www.topwow.top/items-" + c+".html",
+				url: "/items-" + c+".html",
 				text: g_item_classes[c]
 			}
 		}
@@ -5279,7 +5279,7 @@ Listview.funcBox = {
 				var n = c[b][0];
 				var e = c[b][1];
 				k = createElem("a");
-				k.href = "http://www.topwow.top/item-" + n + ".html";
+				k.href = "/item-" + n + ".html";
 				k.className = "moneyitem";
 				k.style.backgroundImage = "url(images/icons/tiny/" + g_items.getIcon(n).toLowerCase() + ".gif)";
 				append(k, createText(e));
@@ -5331,7 +5331,7 @@ Listview.funcBox = {
 		case 2:
 			if (d.z) {
 				var b = {
-					url: "http://www.topwow.top/zone-" + d.z +".html",
+					url: "/zone-" + d.z +".html",
 					text: g_zones[d.z]
 				};
 				if (d.t && a == 5) {
@@ -5352,19 +5352,19 @@ Listview.funcBox = {
 		case 5:
 			return {
 				url:
-				"http://www.topwow.top/quests-" + d.c2 + "." + d.c +".html",
+				"/quests-" + d.c2 + "." + d.c +".html",
 				text: Listview.funcBox.getQuestCategory(d.c)
 			};
 			break;
 		case 6:
 			if (d.c && d.s) {
 				return {
-					url: "http://www.topwow.top/spells-" + d.c + "." + d.s +".html",
+					url: "/spells-" + d.c + "." + d.s +".html",
 					text: g_spell_skills[d.s]
 				}
 			} else {
 				return {
-					url: "http://www.topwow.top/spells-0.html",
+					url: "/spells-0.html",
 					text: "??"
 				}
 			}
@@ -5441,7 +5441,7 @@ Listview.templates = {
 				if (d.category2 != null) {
 					e.className = "small q1";
 					var b = createElem("a"),
-					c = "http://www.topwow.top/factions-" + d.category2 +".html";
+					c = "/factions-" + d.category2 +".html";
 					if (d.category) {
 						c += "." + d.category
 					}
@@ -5459,7 +5459,7 @@ Listview.templates = {
 			}
 		}],
 		getItemLink: function (a) {
-			return "http://www.topwow.top/faction-" + a.id +".html"
+			return "/faction-" + a.id +".html"
 		}
 	},
 	item: {
@@ -5513,7 +5513,7 @@ Listview.templates = {
 							} else {
 								l.className = "q1"
 							}
-							l.href = "http://www.topwow.top/" + g_types[b.t] + "-" + b.ti + ".html";
+							l.href = "/" + g_types[b.t] + "-" + b.ti + ".html";
 							if (b.n.length <= 30) {
 								append(l, createText(b.n))
 							} else {
@@ -5686,7 +5686,7 @@ Listview.templates = {
 							} else {
 								j.className = "q1"
 							}
-							j.href = "http://www.topwow.top/" + g_types[c.t] + "-" + c.ti + ".html";
+							j.href = "/" + g_types[c.t] + "-" + c.ti + ".html";
 							if (this.iconSize == 0 || c.n.length <= 20) {
 								append(j, createText(c.n))
 							} else {
@@ -5790,7 +5790,7 @@ Listview.templates = {
 			}
 		}],
 		getItemLink: function (a) {
-			return "http://www.topwow.top/item-" + a.id + ".html"
+			return "/item-" + a.id + ".html"
 		},
 		onBeforeCreate: function () {
 			var b = false;
@@ -5998,7 +5998,7 @@ Listview.templates = {
 			}
 		}],
 		getItemLink: function (a) {
-			return "http://www.topwow.top/itemset-" + a.id + ".html"
+			return "/itemset-" + a.id + ".html"
 		}
 	},
 	npc: {
@@ -6170,7 +6170,7 @@ Listview.templates = {
 			compute: function (c, d) {
 				d.className = "small q1";
 				var b = createElem("a");
-				b.href = "http://www.topwow.top/npcs-" + c.type +".html";
+				b.href = "/npcs-" + c.type +".html";
 				append(b, createText(g_npc_types[c.type]));
 				append(d, b)
 			},
@@ -6182,7 +6182,7 @@ Listview.templates = {
 			}
 		}],
 		getItemLink: function (a) {
-			return "http://www.topwow.top/npc-" + a.id + ".html"
+			return "/npc-" + a.id + ".html"
 		}
 	},
 	object: {
@@ -6233,7 +6233,7 @@ Listview.templates = {
 			compute: function (c, d) {
 				d.className = "small q1";
 				var b = createElem("a");
-				b.href = "http://www.topwow.top/objects-" + c.type +".html";
+				b.href = "/objects-" + c.type +".html";
 				append(b, createText(getGoType(c.type)));
 				append(d, b)
 			},
@@ -6245,7 +6245,7 @@ Listview.templates = {
 			}
 		}],
 		getItemLink: function (a) {
-			return "http://www.topwow.top/object-" + a.id +".html"
+			return "/object-" + a.id +".html"
 		}
 	},
 	quest: {
@@ -6414,7 +6414,7 @@ Listview.templates = {
 				if (c.category != 0) {
 					d.className = "small q1";
 					var b = createElem("a");
-					b.href = "http://www.topwow.top/quests-" + c.category2 + "." + c.category + ".html";
+					b.href = "/quests-" + c.category2 + "." + c.category + ".html";
 					append(b, createText(Listview.funcBox.getQuestCategory(c.category)));
 					append(d, b)
 				}
@@ -6428,7 +6428,7 @@ Listview.templates = {
 			}
 		}],
 		getItemLink: function (a) {
-			return "http://www.topwow.top/quest-" + a.id + ".html"
+			return "/quest-" + a.id + ".html"
 		}
 	},
 	spell: {
@@ -6709,7 +6709,7 @@ Listview.templates = {
 			}
 		}],
 		getItemLink: function (a) {
-			return "http://www.topwow.top/spell-" + a.id + ".html"
+			return "/spell-" + a.id + ".html"
 		}
 	},
 	zone: {
@@ -6759,7 +6759,7 @@ Listview.templates = {
 		},
 		],
 		getItemLink: function (a) {
-			return "http://www.topwow.top/zone-" + a.id +".html"
+			return "/zone-" + a.id +".html"
 		}
 	},
 	comment: {
@@ -7107,7 +7107,7 @@ Listview.templates = {
 			}
 		}],
 		getItemLink: function (a) {
-			return "http://www.topwow.top/" + g_types[a.type] + "-" + a.typeId + (a.id != null ? ".html#comments:id=" + a.id: "")
+			return "/" + g_types[a.type] + "-" + a.typeId + (a.id != null ? ".html#comments:id=" + a.id: "")
 		}
 	},
 	screenshot: {
@@ -7127,7 +7127,7 @@ Listview.templates = {
 			q.onclick = rf2;
 			var v = createElem("img"),
 			t = Math.min(150 / k.width, 150 / k.height);
-			v.src = "http://www.topwow.top/screenshots/thumb/" + k.id + ".webp";
+			v.src = "/screenshots/thumb/" + k.id + ".webp";
 			append(q, v);
 			append(e, q);
 			var p = createElem("div");
@@ -7165,7 +7165,7 @@ Listview.templates = {
 					append(c, createText(LANG.types[k.type][0] + LANG.colon));
 					var b = createElem("a");
 					append(b, createText(k.subject));
-					b.href = "http://www.topwow.top/" + g_types[k.type] + "-" + k.typeId +".html";
+					b.href = "/" + g_types[k.type] + "-" + k.typeId +".html";
 					append(c, b);
 					append(r, c);
 					if (h && k.caption.length) {
@@ -7470,7 +7470,7 @@ Listview.templates = {
 			}
 		}],
 		getItemLink: function (a) {
-			return "http://www.topwow.top/pet-" + a.id +".html"
+			return "/pet-" + a.id +".html"
 		},
 		getStatPct: function (b) {
 			var a = createElem("span");
@@ -7541,7 +7541,7 @@ Listview.templates = {
 				if (b.zone) {
 					var c = createElem("a");
 					c.className = "q1";
-					c.href = "http://www.topwow.top/zone-" + b.zone +".html";
+					c.href = "/zone-" + b.zone +".html";
 					append(c, createText(g_zones[b.zone]));
 					append(d, c)
 				}
@@ -7603,7 +7603,7 @@ Listview.templates = {
 			compute: function (b, d) {
 				d.className = "small q1";
 				var c = createElem("a");
-				c.href = "http://www.topwow.top/achievements-" + b.category +".html";
+				c.href = "/achievements-" + b.category +".html";
 				append(c, createText(g_achievement_categories[b.category]));
 				append(d, c)
 			},
@@ -7616,7 +7616,7 @@ Listview.templates = {
 			hidden: true
 		}],
 		getItemLink: function (a) {
-			return "http://www.topwow.top/achievement-" + a.id +".html"
+			return "/achievement-" + a.id +".html"
 		}
 	},
 	profile: {
@@ -8081,7 +8081,7 @@ Listview.templates = {
 			setTimeout(this.template.appendFlash.bind(g, c), 1)
 		},
 		getItemLink: function (a) {
-			return "http://www.topwow.top/npcs-1.html?filter=" + (a.family ? "fa=" + a.family + ";": "") + "minle=1;cr=35;crs=0;crv=" + a.skin
+			return "/npcs-1.html?filter=" + (a.family ? "fa=" + a.family + ";": "") + "minle=1;cr=35;crs=0;crv=" + a.skin
 		},
 		modelShow: function (b, a) {
 			ModelViewer.show({
@@ -8109,17 +8109,17 @@ Listview.templates = {
 		}
 	}
 };
-Menu.fixUrls(mn_items, "http://www.topwow.top/items-");
+Menu.fixUrls(mn_items, "/items-");
 Menu.fixUrls(mn_itemSets, "?itemsets&filter=cl=", "#0-2+1");
-Menu.fixUrls(mn_npcs, "http://www.topwow.top/npcs-");
-Menu.fixUrls(mn_objects, "http://www.topwow.top/objects-");
-Menu.fixUrls(mn_quests, "http://www.topwow.top/quests-");
-Menu.fixUrls(mn_spells, "http://www.topwow.top/spells-");
-Menu.fixUrls(mn_zones, "http://www.topwow.top/zones-");
-Menu.fixUrls(mn_pets, "http://www.topwow.top/pets-");
-Menu.fixUrls(mn_factions, "http://www.topwow.top/factions-");
+Menu.fixUrls(mn_npcs, "/npcs-");
+Menu.fixUrls(mn_objects, "/objects-");
+Menu.fixUrls(mn_quests, "/quests-");
+Menu.fixUrls(mn_spells, "/spells-");
+Menu.fixUrls(mn_zones, "/zones-");
+Menu.fixUrls(mn_pets, "/pets-");
+Menu.fixUrls(mn_factions, "/factions-");
 //Menu.fixUrls(mn_achievements, "/achievements-", null, true);
-Menu.fixUrls(mn_petCalc, "http://www.topwow.top/petcalc-");
+Menu.fixUrls(mn_petCalc, "/petcalc-");
 Menu.fixUrls(mn_forums, "?forums&board=", null, true);
 var g_dev = false;
 var g_locale = {
@@ -8213,7 +8213,7 @@ g_items.getIcon = function (a) {
 	}
 };
 g_items.createIcon = function (d, b, a, c) {
-	return Icon.create(g_items.getIcon(d), b, null, "http://www.topwow.top/item-" + d + ".html", a, c)
+	return Icon.create(g_items.getIcon(d), b, null, "/item-" + d + ".html", a, c)
 };
 g_spells.getIcon = function (a) {
 	if (g_spells[a] != null) {
@@ -8223,7 +8223,7 @@ g_spells.getIcon = function (a) {
 	}
 };
 g_spells.createIcon = function (d, b, a, c) {
-	return Icon.create(g_spells.getIcon(d), b, null, "http://www.topwow.top/spell-" + d + ".html", a, c)
+	return Icon.create(g_spells.getIcon(d), b, null, "/spell-" + d + ".html", a, c)
 };
 g_achievements.getIcon = function (a) {
 	if (g_achievements[a] != null) {
@@ -8233,7 +8233,7 @@ g_achievements.getIcon = function (a) {
 	}
 };
 g_achievements.createIcon = function (d, b, a, c) {
-	return Icon.create(g_achievements.getIcon(d), b, null, "http://www.topwow.top/achievement-" + d + ".html", a, c)
+	return Icon.create(g_achievements.getIcon(d), b, null, "/achievement-" + d + ".html", a, c)
 };
 var $WowheadPower = new
 function () {
@@ -8746,7 +8746,7 @@ function () {
 					a.onclick = rf;
 					a.rel = g_types[type] + "-" + typeId +".html"
 				} else {
-					a.href = "http://www.topwow.top/" + g_types[type] + "-" + typeId +".html"
+					a.href = "/" + g_types[type] + "-" + typeId +".html"
 				}
 			}
 			if (textbox._append) {
@@ -9606,7 +9606,7 @@ function () {
 		var C = z[k],
 		I = (C.width > 772 || C.height > 618);
 		g(0);
-		var E = (C.url ? C.url: "http://www.topwow.top/screenshots/" + (I ? "big/": "thumb/") + C.id + ".webp");
+		var E = (C.url ? C.url: "/screenshots/" + (I ? "big/": "thumb/") + C.id + ".webp");
 		var J = '<img src="' + E + '" width="' + e + '" height="' + y + '"';
 		if (Browser.ie6) {
 			J += ' galleryimg="no"'
@@ -9617,7 +9617,7 @@ function () {
 			if (C.url) {
 				h.href = E
 			} else {
-				h.href = "http://www.topwow.top/screenshots/big/" + C.id + ".webp"
+				h.href = "/screenshots/big/" + C.id + ".webp"
 			}
 			if (!C.user && typeof g_pageInfo == "object") {
 				C.user = g_pageInfo.username
@@ -9661,7 +9661,7 @@ function () {
 				var J = "";
 				if (G) {
 					J += LANG.types[C.type][0] + LANG.colon;
-					J += '<a href="http://www.topwow.top/' + g_types[C.type] + "-" + C.typeId + '.html">';
+					J += '<a href="/' + g_types[C.type] + "-" + C.typeId + '.html">';
 					J += C.subject;
 					J += "</a>"
 				}

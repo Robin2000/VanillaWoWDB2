@@ -1,4 +1,4 @@
-<div class="text" style="margin-right: 310px">
+<div class="text" style="margin-top:50px;margin-left:30%">
 	<div class="bdsharebuttonbox">
 	<a href="#" class="bds_more" data-cmd="more"></a>
 	{if ($smarty.session.locale==0)}

@@ -24,12 +24,12 @@
   <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="/templates/topwow/js/vendor/masonry.pkgd.min.js"></script>
-  <script src="/templates/topwow/js/home.js?v=17"></script>
+  <script src="/templates/topwow/js/home.js?v=20"></script>
   <script>
     var part = {$info.part};
     var nid = {$info.nid};
   </script>
-  <script src="/templates/topwow/js/info.js?v=3"></script>
+  <script src="/templates/topwow/js/info.js?v=20"></script>
 </head>
 <body style="overflow-x:hidden;width:100%;">
 
@@ -1324,6 +1324,10 @@
 	</div>
 </div>
 <div style="clear:both;"></div>
+
+<div style="width:100%;text-align:center;">
+{include file='bricks/contribute.tpl'}
+</div>
 <div id="footer" style="margin-top:100px;text-align:center;width:100%;filter:alpha(Opacity=38);-moz-opacity:0.38;opacity: 0.38;">
 	魔兽世界怀旧服地图资料
 	<div style="padding-bottom:5px;font-size: 12px;text-align:center"> <a style="text-decoration: none;color:gray" href="http://www.beian.miit.gov.cn/">京ICP备19021883号-1</a></div>
@@ -1332,6 +1336,7 @@
 <div style="display:none">
 	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1277448314'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1277448314%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
 </div>
+
 </body>
 </html>
 

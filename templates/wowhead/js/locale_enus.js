@@ -20,15 +20,15 @@ var mn_zones=[
 ];
 
 var mn_talentCalc = [
-	["0", "Druid","http://www.topwow.top/talent-11.html"], 
-	["c", "Hunter","http://www.topwow.top/talent-3.html"], 
-	["o", "Mage","http://www.topwow.top/talent-8.html"], 
-	["s", "Paladin","http://www.topwow.top/talent-2.html"], 
-	["b", "Priest","http://www.topwow.top/talent-5.html"], 
-	["f", "Rogue","http://www.topwow.top/talent-4.html"], 
-	["h", "Shaman","http://www.topwow.top/talent-7.html"], 
-	["I", "Warlock","http://www.topwow.top/talent-9.html"], 
-	["L", "Warrior","http://www.topwow.top/talent-1.html"]
+	["0", "Druid","/talent-11.html"], 
+	["c", "Hunter","/talent-3.html"], 
+	["o", "Mage","/talent-8.html"], 
+	["s", "Paladin","/talent-2.html"], 
+	["b", "Priest","/talent-5.html"], 
+	["f", "Rogue","/talent-4.html"], 
+	["h", "Shaman","/talent-7.html"], 
+	["I", "Warlock","/talent-9.html"], 
+	["L", "Warrior","/talent-1.html"]
 ];
 
 var mn_pets = [];
@@ -43,17 +43,17 @@ var mn_factions = [
 var mn_petCalc = [];
 var mn_forums = [];
 var mn_database=[
-	[0,"Items","http://www.topwow.top/items.html",mn_items],
-	[2,"Item Sets","http://www.topwow.top/itemsets.html"/*,mn_itemSets*/],
-	[4,"NPCs","http://www.topwow.top/npcs.html",mn_npcs],
-	[3,"Quests","http://www.topwow.top/quests.html",mn_quests],
-	[6,"Zones","http://www.topwow.top/zones.html",mn_zones],
-	[1,"Spells","http://www.topwow.top/spells.html",mn_spells],
-	[5,"Objects","http://www.topwow.top/objects.html",mn_objects],
-	[7,"Factions","http://www.topwow.top/factions.html",mn_factions]
+	[0,"Items","/items.html",mn_items],
+	[2,"Item Sets","/itemsets.html"/*,mn_itemSets*/],
+	[4,"NPCs","/npcs.html",mn_npcs],
+	[3,"Quests","/quests.html",mn_quests],
+	[6,"Zones","/zones.html",mn_zones],
+	[1,"Spells","/spells.html",mn_spells],
+	[5,"Objects","/objects.html",mn_objects],
+	[7,"Factions","/factions.html",mn_factions]
 ];
 
-var mn_tools = [ [0, "Talent Calculator", "http://www.topwow.top/talent.html", mn_talentCalc],[1, "Maps", "http://www.topwow.top/maps.html"]];
+var mn_tools = [ [0, "Talent Calculator", "/talent.html", mn_talentCalc],[1, "Maps", "/maps.html"]];
 var mn_path = [[0, "Database", , mn_database], [1, "Tools", , mn_tools]];
 var g_chr_classes = {
 	1 : "Warrior",
@@ -1315,7 +1315,7 @@ var LANG = {
 	lvnote_arenateamsfound: "$1 total arena teams",
 	lvnote_arenateamsfound2: "$1 total arena teams, $2 matching",
 	lvnote_createafilter: '<small><a href="$1">Create a filter</a></small>',
-	lvnote_questgivers: '<small>View <a href="http://www.topwow.top/zone-$1.html">quest givers</a> in <b>$2</b> &nbsp;<b>|</b>&nbsp; Filter <a href="?items&filter=cr=126;crs=$3;crv=0">quest rewards</a></small>',
+	lvnote_questgivers: '<small>View <a href="/zone-$1.html">quest givers</a> in <b>$2</b> &nbsp;<b>|</b>&nbsp; Filter <a href="?items&filter=cr=126;crs=$3;crv=0">quest rewards</a></small>',
 	lvnote_allpets: '<small>All pets can learn all of the <a href="?spells=-3.270">passive skills</a></small>',
 	lvnote_zonequests: '<small>Browse <a href="?quests=$1.$2">quests</a> in the <b>$3</b> category &nbsp;<b>|</b>&nbsp; Filter <a href="?items&filter=cr=126;crs=$4;crv=0">quest rewards</a></small>',
 	lvnote_crafteditems: '<small>Filter <a href="?items&filter=cr=86;crs=$1;crv=0">crafted items</a></small>',
