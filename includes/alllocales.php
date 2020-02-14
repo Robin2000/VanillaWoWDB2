@@ -142,7 +142,7 @@ switch($_SESSION['locale'])
 		'LOCALE_TYPENPC_ELEM'       => '元素',
 		'LOCALE_TYPENPC_GIANT'      => '巨人',
 		'LOCALE_TYPENPC_UNDEAD'     => '不死',
-		'LOCALE_TYPENPC_HUMAN'      => '人类',
+		'LOCALE_TYPENPC_HUMAN'      => '类人',
 		'LOCALE_TYPENPC_CRITTER'    => '小动物',
 		'LOCALE_TYPENPC_MECHANIC'   => '机械',
 		'LOCALE_TYPENPC_UNCATEGORY' => '未分类',

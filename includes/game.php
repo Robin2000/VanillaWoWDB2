@@ -701,7 +701,7 @@ function coord_tozone($mapid, $x, $y, $global) {
 
     global $DB;
 
-    $rows = $DB->select("SELECT * FROM aowow_zones WHERE (mapID=? and x_min<? and x_max>? and y_min<? and y_max>?)", $mapid, $x, $x, $y, $y);
+    $rows = $DB->select("SELECT * FROM aowow_zones WHERE (mapID=? and x_min<? and x_max>? and y_min<? and y_max>?) order by areatableID desc", $mapid, $x, $x, $y, $y);
 
     foreach ($rows as $numRow => $row) {
         $wow['zone'] = $row['areatableID'];
