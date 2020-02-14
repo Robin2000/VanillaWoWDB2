@@ -40,7 +40,7 @@
 					<h1>{$item.name}</h1>
 
 					<div id="icon{$item.entry}-generic" style="float:left"></div>
-					<div id="wowtooltip{$item.entry}-generic" class="wowtooltip" style="padding-top: 1px;visible:1">
+					<div id="wowtooltip{$item.entry}-generic" class="wowtooltip" style="padding-top: 1px;display:none">
 					<table >
 					<tr><td>{$item.info}</td><th style="background-position: top right"></th></tr>
 					<tr><th style="background-position: bottom left"></th><th style="background-position: bottom right"></th></tr>
