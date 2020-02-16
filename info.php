@@ -74,7 +74,7 @@ if(!$info = load_cache(20001, $cache_key))
 	unset($info);
 
 	$row = $DB->selectRow("
-				SELECT nid,media_type,cid,source,B.avatar,B.nick,author,DATE_FORMAT(pub_time,'%Y-%m-%d') as pub_time,title,body,tag,thumb,talks,likes,part,zones,items,npcs,quests
+				SELECT nid,media_type,cid,source,B.avatar,B.nick,author,DATE_FORMAT(pub_time,'%Y-%m-%d') as pub_time,title,summary,body,tag,thumb,talks,likes,part,zones,items,npcs,quests
 				FROM n_news A
 				LEFT JOIN n_author B ON A.uid=B.uid
 				WHERE nid=?d
@@ -104,10 +104,18 @@ if(!$info = load_cache(20001, $cache_key))
 		$tag = explode(" ",$tag);
 	}
 
+
+	$columname="";
+	switch($row['cid']) {
+		case 1:$columname="新闻";break;
+		case 2:$columname="攻略";break;
+		case 3:$columname="资料";break;
+	}
 	$info = array(
 		"nid" => $row['nid'],
 		"media_type" => $row['media_type'],
 		"cid" => $row['cid'],
+		"columname"=> $columname,
 		"source" => $row['source'],
 		"avatar" => $row['avatar'],
 		"nick" => $row['nick'],
@@ -115,6 +123,7 @@ if(!$info = load_cache(20001, $cache_key))
 		"pub_time" => $row['pub_time'],
 		"title" => $row['title'],
 		"body"  => $row['body'],
+		'summary' => $row['summary'],
 		"tag" => $tag, 
 		"thumb" => $thumb, 
 		"thumbSize" => $thumbSize, 

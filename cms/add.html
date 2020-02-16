@@ -59,9 +59,9 @@
         </nav>
     </div>
     
-    <div style="height:100px">&nbsp;</div>
+    <div style="height:55px">&nbsp;</div>
 
-    <div class="container-fluid" style="width:80%;background-color:white;padding-top:10px;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;">
+    <div class="container-fluid" style="width:80%;background-color:white;padding-top:2px;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;">
         <div class="row">
             <div class="col-md-12">
                 <h3>
@@ -73,7 +73,11 @@
                         <label for="title">
                             标题 <input type="input" class="form-control flow" name="title" id="title" style="width:710px"/>
                         </label>
-
+                    </div>
+                    <div class="form-group">
+                        <label for="summary">
+                            摘要 <input type="input" class="form-control flow" name="summary" id="summary" style="width:710px"/>
+                        </label>
                     </div>
                     <div class="form-group">
                          
@@ -83,10 +87,6 @@
                         <label for="source">
                             来源 <input type="input" class="form-control flow" name="source" id="source"/>
                         </label>
-                    </div>
-                 
-                    <div class="form-group">
-                         
                         <label for="channel">
                             栏目   <select class="form-control flow" name="channel" id="channel" style="width:150px">
                                 <option value="1">新闻</option>
@@ -94,9 +94,6 @@
                                 <option value="3">资料</option>
                             </select>
                         </label>
-
-                    </div>       
-                    <div class="form-group">
                         <label for="templateType">
                             模板  <select class="form-control flow" name="templateType" id="templateType" style="width:150px">
                                 <option value="article">文章</option>
@@ -106,23 +103,24 @@
                             </select>
                         </label>
                     </div>
+
                     <div class="form-group">                         
                         <label for="tag">
                             标签  <input type="input" class="form-control flow" name="tag" id="tag" style="width:150px"/> 
                         </label>(空格分割)
-                    </div>   
-                    <div class="form-group">                         
                         <label for="items">
-                            物品 <input type="input" class="form-control flow" name="items" id="items" style="float:right;width:150px"/>
+                            物品 <input type="input" class="form-control flow" name="items" id="items" style="float:right;width:450px"/>
                         </label>
+                    </div>   
+                    <div class="form-group">   
                         <label for="zones">
-                            地区 <input type="input" class="form-control flow" name="zones" id="zones" style="float:right;width:150px"/>
-                        </label>
+                            地区 <input type="input" class="form-control flow" name="zones" id="zones" style="float:right;width:200px"/>
+                        </label>                                              
                         <label for="npcs">
-                            npcs <input type="input" class="form-control flow" name="npcs" id="npcs" style="float:right;width:150px"/>
+                            npcs <input type="input" class="form-control flow" name="npcs" id="npcs" style="float:right;width:200px"/>
                         </label>
                         <label for="quests">
-                            任务 <input type="input" class="form-control flow" name="quests" id="quests" style="float:right;width:150px"/>
+                            任务 <input type="input" class="form-control flow" name="quests" id="quests" style="float:right;width:200px"/>
                         </label>(逗号分割)
                     </div>
                     <div class="form-group">                         
@@ -141,18 +139,14 @@
                         <div style="clear: both;"></div>
                     </div>                    
                     <div class="form-group">
-                        <label for="body">
-                            内容
-                        </label>
                         <textarea name="body" id="body" rows="20" cols="100" style="width:95%;height:200px;visibility:hid1den;">
-
+                            内容
                         </textarea>
                     </div>
                     <div class="form-group" style="width:95%;">
                         <label for="thumbResult">
-                            缩略图 
+                            缩略图 <input type="input" name="thumbResult" id="thumbResult" style="width:600px;"></p>
                         </label>
-                        <p><textarea rows="2" name="thumbResult" id="thumbResult" style="width:95%;"></textarea></p>
                     </div>
                     <div style="clear: both;"></div>
                     <div class="form-group">
@@ -166,17 +160,16 @@
                         </div>
                         <div style="clear: both;"></div>
                     </div>
-                    
+                    <hr>
                     <div class="form-group">
-                        <hr>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" /> 立刻发布
-                            </label>
-                        </div> 
                         <button id="saveBtn" type="button" class="btn btn-primary">
                             提交
                         </button>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="publish" name="publish"/> 立刻发布
+                            </label>
+                        </div> 
                     </div>
                 </form>
                 &nbsp;

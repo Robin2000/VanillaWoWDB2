@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="zh_CN">
 <head>
-<title>经典魔图官方网站</title>
+<title>{$info.title}</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes, maximum-scale=3.0, minimum-scale=0.3, user-scalable=yes">
    
-   <meta name="keywords" content="经典魔图,topwow,魔兽世界,怀旧服,60wow,地图,nfu" />
-   <meta name="description" content="最好的魔兽世界怀旧服地图资料网站" />
+   <meta name="keywords" content="{section name=i loop=$info.tag}{$info.tag[i]},{/section}{$info.columname}" />
+   <meta name="description" content="{$info.summary}" />
    <meta name="author" content="xudb@163.com" />
 	
   <link rel="apple-touch-icon" href="icon.png">
@@ -30,6 +30,9 @@
     var nid = {$info.nid};
   </script>
   <script src="/templates/topwow/js/info.js?v=20"></script>
+  <div id='wx_pic' style='margin:0 auto;display:none;'>
+    <img src='http://www.topwow.top{$info.thumb[0]}' />
+  </div>
 </head>
 <body style="overflow-x:hidden;width:100%;">
 
@@ -1323,20 +1326,45 @@
 		</div>
 	</div>
 </div>
-<div style="clear:both;"></div>
+<div style="clear:both"></div>
 
 <div style="width:100%;text-align:center;">
 {include file='bricks/contribute.tpl'}
 </div>
-<div id="footer" style="margin-top:100px;text-align:center;width:100%;filter:alpha(Opacity=38);-moz-opacity:0.38;opacity: 0.38;">
-	魔兽世界怀旧服地图资料
-	<div style="padding-bottom:5px;font-size: 12px;text-align:center"> <a style="text-decoration: none;color:gray" href="http://www.beian.miit.gov.cn/">京ICP备19021883号-1</a></div>
-	<div style="padding-bottom:15px;font-size: 12px;text-align:center">Copyright 2019 - 2020 topwow.top. All Rights Reserved</div>
+
+<div style="width:100%;height:30px;text-align:center">
+    <div style="margin:0 auto;width:260px;height:30px">
+    扫码分享
+    </div>
+</div>
+<div style="width:100%;height:380px;text-align:center">
+    <div style="margin:0 auto;width:260px;height:180px" id="qrcode">
+    </div>
+</div>
+<div style="clear:both"></div>
+
+<div style="width:100%;height:180px;text-align:center">
+    <div style="margin:0 auto;width:380px;height:380px;text-align:center;width:100%;filter:alpha(Opacity=38);-moz-opacity:0.38;opacity: 0.38;">
+        魔兽世界怀旧服地图资料
+        <div style="font-size: 12px;text-align:center"> <a style="text-decoration: none;color:gray" href="http://www.beian.miit.gov.cn/">京ICP备19021883号-1</a></div>
+        <div style="font-size: 12px;text-align:center">Copyright 2019 - 2020 topwow.top. All Rights Reserved</div>
+    </div>
 </div>
 <div style="display:none">
 	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1277448314'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1277448314%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
 </div>
 
+<hr>
+<script>
+{literal}
+$(document).ready(function(){
+   $.getScript('/cms/js/qrcode.min.js', function() {
+     var qrcode = new QRCode("qrcode");
+     qrcode.makeCode(window.location.href);
+  });
+});
+{/literal}
+</script>
 </body>
 </html>
 

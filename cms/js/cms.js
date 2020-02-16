@@ -83,6 +83,7 @@ function initData(data){
     $("#source").val(data.source);
     $("#author").val(data.author);
     $("#title").val(data.title);
+    $("#summary").val(data.summary);
     editor.html(data.body);
     $("#tag").val(data.tag);
     $("#zones").val(data.zones);
@@ -90,6 +91,7 @@ function initData(data){
     $("#npcs").val(data.npcs);
     $("#quests").val(data.quests);
     $("#refer").val(data.refer);
+    $("#publish").attr("checked",data.publish);
     if(data.thumb==null||data.thumb==undefined) {
         return;
     }
@@ -134,7 +136,7 @@ function applyPage() {
         if(id==false) {
             return;
         }
-        get("/rest/api4/news/info/"+id,function(e){
+        get("/rest/api4/news/info/"+id+"?v="+Date.parse(new Date()),function(e){
             initData(e.data);
         },function(){
             alert("加载失败");
@@ -154,6 +156,7 @@ function autoFeed() {
             $('#refer').val(e.data.refer);
             $('#source').val(e.data.source);
             $('#title').val(e.data.title);
+            $('#summary').val(e.data.summary);
             $('#thumbResult').val(e.data.poster+","+e.data.src);
         } else {
             alert(e.msg);
@@ -164,6 +167,10 @@ function autoFeed() {
     
 }
 function retriveImg() {
+    if($('#refer').val()=='') {
+        alert("请提供引用地址");
+        return;
+    }
     $('#iframeID').contents().find('body');
 
     var cnt = editor.html();
@@ -233,12 +240,45 @@ function applyThumb(){
      $("#thumbResult").val(thumbStr);
     return thumbStr;
 }
+function checkNumber(list) {
+    var arr=list.split(",");
+    for(var i=0;i<arr.length;i++) {
+        var chk = $('#'+arr[i]).val();
+        var arr2=chk.split(",");
+        for(var j=0;j<arr2.length;j++) {
+            if(arr2[j]!='') {
+                if(isNaN(arr2[j])){
+                  alert(arr2[j] + "不是数字");
+                  return false;
+                }
+            }
+        }
+    }
+    return true;
+}
+function checkEmpty(list) {
+    var arr=list.split(",");
+    for(var i=0;i<arr.length;i++) {
+        var chk = $('#'+arr[i]).val();
+        if(chk=='') {
+            alert(arr[i]+"不能为空");
+            return false;
+        }
+    }
+    return true;
+}
 function saveForm() {
-
+    if(checkNumber('items,zones,npcs,quests')==false) {
+        return false;
+    }
+    if(checkEmpty('tag,summary,title,thumbStr')==false) {
+        return false;
+    }
     var thumbStr = $("#thumbResult").val();
 
     var param = {
         title: $('#title').val(),
+        summary: $('#summary').val(),
         author: $('#author').val(),
         source: $('#source').val(),
         channel: $('#channel').val(),
@@ -250,6 +290,7 @@ function saveForm() {
         npcs: $('#npcs').val(),
         quests: $('#quests').val(),
         refer: $('#refer').val(),
+        publish: $('#publish').prop('checked'),
         thumb: thumbStr
     };
 
@@ -455,7 +496,6 @@ var LyDialog = (function($) {
                 $("#lydialog-btncancel").show();
                 break;
             case 'prompt':
-                console.log("afdf")
                 if(_title === undefined) _title = '';
                 _body = _format("<label class='c-999'>{0}</label>", o.msg);
                 if(o.rows > 1) {

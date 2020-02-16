@@ -510,7 +510,7 @@ if(!$quest = load_cache(10, $cache_key))
 	$rows = $DB->select("
 		SELECT nid,media_type,source,author,tag,title,thumb,talks,likes,part
 		FROM n_ref A,n_news B
-		WHERE A.entry = ? AND A.news_id = B.nid AND A.ref_type = 'quests'
+		WHERE A.entry = ? AND A.news_id = B.nid AND A.ref_type = 'quests' AND B.publish=1
 		LIMIT 20
 		",
 		$id

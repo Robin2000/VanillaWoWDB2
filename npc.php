@@ -403,7 +403,7 @@ if(!$npc = load_cache(1, $cache_key))
 		$rows = $DB->select("
 		SELECT nid,media_type,source,author,tag,title,thumb,talks,likes,part
 		FROM n_ref A,n_news B
-		WHERE A.entry = ? AND A.news_id = B.nid AND A.ref_type = 'npcs'
+		WHERE A.entry = ? AND A.news_id = B.nid AND A.ref_type = 'npcs' AND B.publish=1
 		LIMIT 20
 		",
 		$id

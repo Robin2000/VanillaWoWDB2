@@ -11,6 +11,7 @@ if(!$result = load_cache(20000, $cache_key))
 	$rows = $DB->select("
                 SELECT nid,media_type,source,author,tag,title,thumb,talks,likes,part
                 FROM n_news 
+                WHERE publish=1
                 ORDER By nid DESC limit 40
 				",
 				$id

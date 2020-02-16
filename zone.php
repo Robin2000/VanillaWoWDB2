@@ -347,7 +347,7 @@ if(!$zone = load_cache(16, $id))
 	$rows = $DB->select("
 		SELECT nid,media_type,source,author,tag,title,thumb,talks,likes,part
 		FROM n_ref A,n_news B
-		WHERE A.entry = ? AND A.news_id = B.nid AND A.ref_type = 'zones'
+		WHERE A.entry = ? AND A.news_id = B.nid AND A.ref_type = 'zones' AND B.publish=1
 		LIMIT 20
 		",
 		$id
