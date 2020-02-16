@@ -151,13 +151,17 @@ function autoFeed() {
     post("/rest/api4/editor/refer",param,function(e) {
         if(e.code==0) {
             /*todo:解析到页面*/
-            $('#templateType').val(e.data.mediaType);
+            var mediaType = e.data.mediaType;
+            $('#templateType').val(mediaType);
             $('#author').val(e.data.author);
             $('#refer').val(e.data.refer);
             $('#source').val(e.data.source);
+            editor.html(e.data.body);
             $('#title').val(e.data.title);
             $('#summary').val(e.data.summary);
-            $('#thumbResult').val(e.data.poster+","+e.data.src);
+            if(mediaType=='video') {
+                $('#thumbResult').val(e.data.poster+","+e.data.src);
+            }
         } else {
             alert(e.msg);
         }

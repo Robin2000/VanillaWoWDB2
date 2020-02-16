@@ -1272,7 +1272,7 @@
                     <div class="video-img"></div>
                 </div> 
             {else}
-                <div class="body" style="font-size:12px">
+                <div class="body" style="font-size:20px">
                 {$info.body}
                 <div>
             {/if}    
@@ -1332,16 +1332,7 @@
 {include file='bricks/contribute.tpl'}
 </div>
 
-<div style="width:100%;height:30px;text-align:center">
-    <div style="margin:0 auto;width:260px;height:30px">
-    扫码分享
-    </div>
-</div>
-<div style="width:100%;height:380px;text-align:center">
-    <div style="margin:0 auto;width:260px;height:180px" id="qrcode">
-    </div>
-</div>
-<div style="clear:both"></div>
+
 
 <div style="width:100%;height:180px;text-align:center">
     <div style="margin:0 auto;width:380px;height:380px;text-align:center;width:100%;filter:alpha(Opacity=38);-moz-opacity:0.38;opacity: 0.38;">
@@ -1354,17 +1345,6 @@
 	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1277448314'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1277448314%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
 </div>
 
-<hr>
-<script>
-{literal}
-$(document).ready(function(){
-   $.getScript('/cms/js/qrcode.min.js', function() {
-     var qrcode = new QRCode("qrcode");
-     qrcode.makeCode(window.location.href);
-  });
-});
-{/literal}
-</script>
 </body>
 </html>
 
