@@ -1625,7 +1625,19 @@ background-color:#606060;
 .listview-mode-default,.listview-mode-div,.listview-mode-tiled {
 background-color:#181818;
 }
-
+.listview-mode-default thead{
+    height:66px;
+}
+.listview-mode-default thead div{
+    line-height:14px;
+    height:66px;
+}
+.listview-mode-default thead span{
+    height:14px;
+}
+.listview-mode-default thead a{
+    height:66px;
+}
 .listview-mode-default td {
 padding:4px;
 color:#ddd;
