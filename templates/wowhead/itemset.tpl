@@ -32,18 +32,18 @@
 				<div class="text">					
 					<h1>{$itemset.name}</h1>
 					{$itemset.article}
-					This {$itemset.count}-piece set includes the following items:
+					共 {$itemset.count}件装备如下:
 					<table class="iconlist">
 						{section name=i loop=$itemset.pieces}<tr><th align="right" id="iconlist-icon{$smarty.section.i.index+1}"></th><td><span class="q{$itemset.pieces[i].quality}"><a href="/item-{$itemset.pieces[i].entry}.html">{$itemset.pieces[i].name}</a></span></td></tr>{/section} 
 					</table>
 					<script type="text/javascript">
 						{section name=i loop=$itemset.pieces}getElement('iconlist-icon{$smarty.section.i.index+1}').appendChild(g_items.createIcon({$itemset.pieces[i].entry}, 0, 0));{/section}
 					</script>
-					<h3>Set Bonuses</h3>
+					<h3>套装奖励</h3>
 
-					Wearing more pieces of this set will convey bonuses to your character.
+					装备更多的套件会获得额外的奖励
 					<ul>
-						{section name=i loop=$itemset.spells}<li><div>{$itemset.spells[i].bonus} pieces: <a href="/spell-{$itemset.spells[i].entry}.html">{$itemset.spells[i].wowtooltip}</a></div></li>{/section}
+						{section name=i loop=$itemset.spells}<li><div>{$itemset.spells[i].bonus} 件: <a href="/spell-{$itemset.spells[i].entry}.html">{$itemset.spells[i].wowtooltip}</a></div></li>{/section}
 					</ul>
 
 				<h2>{#Related#}</h2>

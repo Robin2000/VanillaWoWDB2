@@ -33,7 +33,7 @@
       	{/if}
 {/if}
 
-	<script src="templates/wowhead/js/locale_{$language}.js?v=22" type="text/javascript"></script>
+	<script src="templates/wowhead/js/locale_{$language}.js?v=25" type="text/javascript"></script>
 
 	<script src="templates/wowhead/js/global.js?v=22" type="text/javascript"></script>
 	<script src="templates/wowhead/js/Markup.js" type="text/javascript"></script>
@@ -74,7 +74,7 @@ var entry = {$npc.entry};
 	{/if}
 {/if}
 {if $page.maps}
-	<script src="templates/wowhead/js/maps.js" type="text/javascript"></script>
+	<script src="templates/wowhead/js/maps.js?v=20" type="text/javascript"></script>
 {/if}
 
 	<script type="text/javascript">
