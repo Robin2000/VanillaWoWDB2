@@ -275,7 +275,7 @@ if(!$zone = load_cache(16, $id))
 				}
 				if($row['Rank']==2 && $isNPC==FALSE){
 					$rareElite['population']++;
-					$x['points'][]= $point;
+					$rareElite['points'][]= $point;
 				}
 				if($row['Rank']==3 && $isNPC==FALSE){
 					$boss['population']++;
