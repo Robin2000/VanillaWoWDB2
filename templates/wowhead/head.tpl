@@ -64,7 +64,7 @@ var entry = {$npc.entry};
 	<script src="templates/wowhead/js/talent.js" data-turbolinks-track="true"></script>
 	{else}
 	<script src="templates/wowhead/js/jquery-1.9.1.min.js"></script>  
-	<script src="templates/wowhead/js/talent.1.js"></script>
+	<script src="templates/wowhead/js/talent.1.js?v=2"></script>
 	{/if}
 
 	{if $page.typeid eq 0}
