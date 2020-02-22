@@ -13,15 +13,35 @@ var json_data = 0,
     ],
     url = 0,
     mc = 0;
-function setAllTalent(e) {
-    $(".rat").trigger("click");
+function setAllTalentReal(e) {
+    $(".rt").trigger("click");
     var ids=e[0]
     var arr=e[1];
     setTimeout(function() {
         clickNext(arr, 0, arr[0], ids);    /*init click times arr[0]*/
     }, 100);
 }
+function setAllTalent(e) {
+    console.dir(e);
+	document.cookie = "applyTalent=" + escape(JSON.stringify(e)); 
+    location.reload();
+}
+function applyTalent(){
+    var data = getCookie("applyTalent");
 
+    if(data==false) {
+        return;
+    }
+    var exp = new Date();
+    document.cookie= "applyTalent="+escape(JSON.stringify(data))+";expires="+exp.toGMTString();
+    setAllTalentReal($.parseJSON(unescape(data)));
+
+}
+$(document).ready(function () {
+    setTimeout(function(){
+        applyTalent();
+    },200);
+});
 function clickNext(arr, index, clickTimes, ids){
     if(index >= arr.length) {
         return;
@@ -3761,7 +3781,7 @@ $(document).ready(function () {
     }).done(function (e) {
         json_data = e; 
         data = json_data;
-        /*0 != url && setAllTalent()*/
+        /*0 != url && setAllTalent();*/
     }), $(".icon_a").mouseover(function () {
         var e, t = $(this).parent(".icons"),
             n = t.attr("id"),
