@@ -358,24 +358,80 @@
                 </ul>
             </li><!--装备道具-->
 
+            <!--套装-->
+            <li class="dropdown mega-menu-fullwidth">
+                <a href="/itemsets.html" class="dropdown-toggle" data-toggle="dropdown">
+                    套装 <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <div class="mega-menu-content">
+                            <div class="container">
+                                <div class="row equal-height">
 
-            <li class="dropdown">
-            <a href="/itemsets.html" class="dropdown-toggle" data-toggle="dropdown">套装 <span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="/itemsets.html">全部</a></li>
-                    <li><a href="/itemsets-1.html" style="color:#CF9766">战士（板甲）</a></li>
-                    <li><a href="/itemsets-2.html" style="color:#F14C74">圣骑士（板甲）</a></li>
-                    <li><a href="/itemsets-3.html" style="color:#AAD372">猎人（锁甲）</a></li>
-                    <li><a href="/itemsets-4.html" style="color:#FFF468">潜行者（皮甲）</a></li>
-                    <li><a href="/itemsets-5.html" style="color:#c0c0c0">牧师（布甲）</a></li>
-                    <li><a href="/itemsets-11.html" style="color:#FE7900">德鲁伊（皮甲）</a></li>
-                    <li><a href="/itemsets-7.html" style="color:#2359FF">萨满（锁甲）</a></li>
-                    <li><a href="/itemsets-8.html" style="color:#68CCEF">法师（布甲）</a></li>
-                    <li><a href="/itemsets-9.html" style="color:#977DC7">术士（布甲）</a></li>
+                                      <!--职业-->
+                                    <div class="col-md-3 equal-height-in">
+                                        <ul class="list-unstyled equal-height-list">
+                                        <li><h3><a href="/itemsets.html">推荐职业</a></h3></li>
+                                        <li><a href="/itemsets-n.n.1.html" style="color:#CF9766">战士（板甲）</a></li>
+                                        <li><a href="//itemsets-n.n.2.html" style="color:#F14C74">圣骑士（板甲）</a></li>
+                                        <li><a href="/itemsets-n.n.3.html" style="color:#AAD372">猎人（锁甲）</a></li>
+                                        <li><a href="/itemsets-n.n.4.html" style="color:#FFF468">潜行者（皮甲）</a></li>
+                                        <li><a href="//itemsets-n.n.5.html" style="color:#c0c0c0">牧师（布甲）</a></li>
+                                        <li><a href="//itemsets-n.n.11.html" style="color:#FE7900">德鲁伊（皮甲）</a></li>
+                                        <li><a href="/itemsets-n.n.7.html" style="color:#2359FF">萨满（锁甲）</a></li>
+                                        <li><a href="/itemsets-n.n.8.html" style="color:#68CCEF">法师（布甲）</a></li>
+                                        <li><a href="/itemsets-n.n.9.html" style="color:#977DC7">术士（布甲）</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <!--T系列<-->
+                                    <div class="col-md-3 equal-height-in">
+                                        <ul class="list-unstyled equal-height-list">
+                                        <li><h3>T系列</h3></li>
+                                        <li><a href="/itemsets-n.1.n.html">黑石塔上T0</a></li>
+                                        <li><a href="/itemsets-n.2.n.html">熔火之心T1</a></li>
+                                        <li><a href="/itemsets-n.3.n.html">黑翼之巢T2</a></li>
+                                        <li><a href="/itemsets-n.4.n.html">纳克萨玛斯T3</a></li>
+                                        </ul>
+                                    </div>
+
+                                      <!--T系列<-->
+                                    <div class="col-md-3 equal-height-in">
+                                        <ul class="list-unstyled equal-height-list">
+                                        <li><h3><a href="/itemsets-n.5.n.html">PVP</a></h3></li>
+                                        <li><a href="/itemsets-n.5.1.html" style="color:#CF9766">战士</a></li>
+                                        <li><a href="/itemsets-n.5.2.html" style="color:#F14C74">圣骑士</a></li>
+                                        <li><a href="/itemsets-n.5.3.html" style="color:#AAD372">猎人</a></li>
+                                        <li><a href="/itemsets-n.5.4.html" style="color:#FFF468">潜行者</a></li>
+                                        <li><a href="/itemsets-n.5.5.html" style="color:#c0c0c0">牧师</a></li>
+                                        <li><a href="/itemsets-n.5.8.html" style="color:#68CCEF">法师</a></li>
+                                        <li><a href="/itemsets-n.5.9.html" style="color:#977DC7">术士</a></li>
+                                        <li><a href="/itemsets-n.5.11.html" style="color:#FE7900">德鲁伊</a></li>
+                                        <li><a href="/itemsets-n.5.7.html" style="color:#2359FF">萨满</a></li>
+                                        </ul>
+                                    </div>
+
+                                      <!--副本套装-->
+                                    <div class="col-md-3 equal-height-in">
+                                        <ul class="list-unstyled equal-height-list">
+                                        <li><h3>副本套装</h3></li>
+                                        <li><a href="/itemsets-n.6.n.html" style="color:#7B989E">血色修道院SM</a></li>
+                                        <li><a href="/itemsets-n.7.n.html" style="color:#6C9839">祖尔格拉布ZG</a></li>
+                                        <li><a href="/itemsets-n.8.n.html" style="color:#FB8C5E">死亡矿井VC</a></li>
+                                        <li><a href="/itemsets-n.9.n.html" style="color:#4847A4">哀嚎洞穴WC</a></li>
+                                        <li><a href="/itemsets-n.10.n.html" style="color:#2B3A28">安其拉废墟AQ20</a></li>
+                                        <li><a href="/itemsets-n.11.n.html" style="color:#E47C47">安其拉神庙AQ40</a></li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>    
+                        </div>    
+                    </li>
                 </ul>
             </li>
-
-            <!--NPC-->
+            <!--套装-->
             <li class="dropdown mega-menu-fullwidth">
                 <a href="/npcs.html" class="dropdown-toggle" data-toggle="dropdown">
                     NPC <span class="caret"></span>
