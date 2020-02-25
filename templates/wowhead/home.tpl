@@ -1290,7 +1290,7 @@
 </div>
 
 
- <div class="n-wrapper">
+ <div class="n-wrapper" style="margin-bottom:100px">
         <div class="n-container">
             <div class="grid" id="mainGrid">
                 {foreach from=$news item=curr}
@@ -1326,11 +1326,13 @@
         </div><!--n-container-->
     </div><!--n-wrapper-->
 <div id="minID" style="display:none">{$minID}</div>
-<div id="footer" style="margin-top:100px;z-index:99999;text-align:center;width:100%;filter:alpha(Opacity=38);-moz-opacity:0.38;opacity: 0.38;">
-	魔兽世界怀旧服地图资料
-	<div style="padding-bottom:5px;font-size: 12px;text-align:center"> <a style="text-decoration: none;color:gray" href="http://www.beian.miit.gov.cn/">京ICP备19021883号-1</a></div>
-	<div style="padding-bottom:15px;font-size: 12px;text-align:center">Copyright 2019 - 2020 topwow.top. All Rights Reserved</div>
+<footer class="navbar-fixed-bottom" style="background-color:#c13621">
+<div id="footer" style="font-size: 12px;margin-top:6px;z-index:99999;text-align:center;width:100%;filter:alpha(Opacity=80);-moz-opacity:0.8;opacity: 0.8;">
+	
+	<div style="padding-bottom:5px;text-align:center"> 魔兽世界怀旧资料    <a style="font-size: 10px;text-decoration: none;color:#f2f2f2" href="http://www.beian.miit.gov.cn/">京ICP备19021883号-1</a></div>
+	<!--div style="padding-bottom:15px;font-size: 12px;text-align:center">Copyright 2019 - 2020 topwow.top. All Rights Reserved</div-->
 </div>
+</footer>
 <div style="display:none">
 	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1277448314'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1277448314%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
 </div>
